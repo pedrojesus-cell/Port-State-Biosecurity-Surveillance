@@ -6,97 +6,17 @@ import re
 import pandas as pd
 
 CONFIG_DIR = "config"
-MAX_JSON_RECORDS = 8000
 
-# High-Precision Marine Sea Lanes (Strictly in water, bypassing land masses)
-GLOBAL_OCEAN_FAIRWAYS = {
-    "south_america": {
-        "region": "South America EEZ",
-        "port": "Santos Port Complex",
-        "dep": "Buenos Aires",
-        "dest": "Montevideo",
-        "port_pos": [-23.9608, -46.3331],
-        "waypoints": [
-            [-34.60, -58.38], # Departure: Buenos Aires
-            [-35.20, -56.00], # Exit Rio de la Plata into Atlantic
-            [-34.50, -52.50], # Deep ocean (clears Uruguay)
-            [-31.00, -49.50], # Deep ocean (clears Southern Brazil bulge)
-            [-27.50, -47.00], # Offshore Santa Catarina
-            [-23.96, -46.33], # Port: Santos
-            [-34.90, -56.16]  # Destination: Montevideo
-        ]
-    },
-    "baltic": {
-        "region": "Baltic Sea EEZ",
-        "port": "St. Petersburg Port",
-        "dep": "Tallinn",
-        "dest": "Helsinki",
-        "port_pos": [59.8800, 30.2000],
-        "waypoints": [
-            [59.44, 24.75], # Departure: Tallinn
-            [59.70, 26.50], # Open Gulf of Finland
-            [59.90, 29.70], # South of Kronstadt Island Fairway
-            [59.88, 30.20], # Port: St. Petersburg Harbor
-            [60.17, 24.94]  # Destination: Helsinki
-        ]
-    },
-    "arctic": {
-        "region": "Arctic EEZ",
-        "port": "Murmansk Commercial Port",
-        "dep": "Tromso",
-        "dest": "Kirkenes",
-        "port_pos": [69.0200, 33.0500],
-        "waypoints": [
-            [69.65, 18.96], # Departure: Tromso
-            [71.10, 25.80], # Barents Sea (clears North Cape)
-            [70.20, 31.80], # Open Barents Sea
-            [69.45, 33.60], # Kola Fjord Entrance
-            [69.02, 33.05], # Port: Murmansk
-            [69.80, 30.50]  # Destination: Kirkenes
-        ]
-    },
-    "european": {
-        "region": "European EEZ",
-        "port": "Rotterdam Gateway",
-        "dep": "Hamburg",
-        "dest": "Straits of Dover",
-        "port_pos": [51.9800, 3.9000],
-        "waypoints": [
-            [53.90, 8.50], # Departure: Hamburg Outer Elbe
-            [53.80, 6.00], # North Sea Shipping Corridor
-            [52.80, 4.00], # Offshore Dutch Coast
-            [51.98, 3.90], # Port: Rotterdam Maasvlakte
-            [51.00, 1.50]  # Destination: Straits of Dover
-        ]
-    },
-    "black_sea": {
-        "region": "Black Sea EEZ",
-        "port": "Novorossiysk Port",
-        "dep": "Samsun",
-        "dest": "Istanbul",
-        "port_pos": [44.6800, 37.8000],
-        "waypoints": [
-            [41.29, 36.33], # Departure: Samsun
-            [43.00, 36.80], # Open Black Sea
-            [44.68, 37.80], # Port: Novorossiysk
-            [42.50, 32.00], # Open Black Sea Transit
-            [41.01, 28.98]  # Destination: Istanbul
-        ]
-    },
-    "far_east": {
-        "region": "Russian Far East EEZ",
-        "port": "Vladivostok Port",
-        "dep": "Busan",
-        "dest": "Niigata",
-        "port_pos": [43.0800, 131.8700],
-        "waypoints": [
-            [35.18, 129.08], # Departure: Busan
-            [37.50, 130.50], # Open Sea of Japan
-            [41.00, 131.20], # Offshore Approach
-            [43.08, 131.87], # Port: Vladivostok
-            [37.92, 139.04]  # Destination: Niigata
-        ]
-    }
+# Anchor coordinates for regional port clusters
+PORT_ANCHORS = {
+    "russian": {"name": "Russian Far East EEZ Ports", "lat": 43.0800, "lon": 131.8700},
+    "arctic": {"name": "Arctic EEZ Ports (Murmansk/Tromso)", "lat": 69.0200, "lon": 33.0500},
+    "baltic": {"name": "Baltic Sea EEZ Ports (St. Petersburg)", "lat": 59.8800, "lon": 30.2000},
+    "black": {"name": "Black Sea EEZ Ports (Novorossiysk)", "lat": 44.6800, "lon": 37.8000},
+    "south_america": {"name": "South America EEZ Ports (Santos)", "lat": -23.9608, "lon": -46.3331},
+    "european": {"name": "European EEZ Ports (Rotterdam)", "lat": 51.9800, "lon": 3.9000},
+    "hormuz": {"name": "Strait of Hormuz EEZ Ports", "lat": 26.5000, "lon": 56.2500},
+    "mediterranean": {"name": "Mediterranean EEZ Ports", "lat": 31.2600, "lon": 32.3000}
 }
 
 def clean_filename_title(filename):
@@ -104,20 +24,12 @@ def clean_filename_title(filename):
     clean = re.sub(r'202\d.*', '', base).strip()
     return clean.title() if clean else "Monitored Regional Port"
 
-def match_fairway_by_filename(filename):
+def match_port_anchor(filename):
     lf = filename.lower()
-    if "south" in lf or "america" in lf or "brazil" in lf:
-        return GLOBAL_OCEAN_FAIRWAYS["south_america"]
-    elif "baltic" in lf or "petersburg" in lf:
-        return GLOBAL_OCEAN_FAIRWAYS["baltic"]
-    elif "arctic" in lf or "murmansk" in lf or "norway" in lf:
-        return GLOBAL_OCEAN_FAIRWAYS["arctic"]
-    elif "black" in lf or "novorossiysk" in lf:
-        return GLOBAL_OCEAN_FAIRWAYS["black_sea"]
-    elif "vladivostok" in lf or "russian" in lf or "pacific" in lf:
-        return GLOBAL_OCEAN_FAIRWAYS["far_east"]
-    else:
-        return GLOBAL_OCEAN_FAIRWAYS["european"]
+    for key, data in PORT_ANCHORS.items():
+        if key in lf:
+            return data
+    return PORT_ANCHORS["european"]
 
 def process_all_config_csvs():
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
@@ -128,17 +40,29 @@ def process_all_config_csvs():
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Processing all {len(csv_files)} CSV files into biosecurity surveillance risk metrics...")
+    print(f"Processing {len(csv_files)} CSV files into per-port biosecurity risk aggregates...")
 
-    processed_records = []
+    port_summary = {}
 
     for f in csv_files:
         try:
             df = pd.read_csv(f, low_memory=False)
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
             
-            source_port_title = clean_filename_title(f)
-            fairway = match_fairway_by_filename(f)
+            source_port_name = clean_filename_title(f)
+            anchor = match_port_anchor(f)
+
+            if source_port_name not in port_summary:
+                port_summary[source_port_name] = {
+                    "portName": source_port_name,
+                    "year": 2025,
+                    "location": [anchor["lat"], anchor["lon"]],
+                    "totalPortVisits": 0,
+                    "highRiskCount": 0,       # High Fouling Risk (>= 70%)
+                    "moderateRiskCount": 0,   # Moderate Vector (40% - 69%)
+                    "lowRiskCount": 0,        # Low Risk (< 40%)
+                    "vessels": []
+                }
 
             for idx, row in df.iterrows():
                 vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
@@ -152,51 +76,43 @@ def process_all_config_csvs():
                     total_visits = 10.0
 
                 residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
-                
-                # Signal Risk Classification
+
+                # Risk Categorization
                 if total_visits >= 300:
-                    risk_score = 0.92  # High Fouling Risk (>=70%)
+                    risk_score = 0.92
+                    risk_category = "High Fouling Risk"
+                    port_summary[source_port_name]["highRiskCount"] += 1
                 elif total_visits >= 100:
-                    risk_score = 0.65  # Moderate Vector (40% - 69%)
+                    risk_score = 0.65
+                    risk_category = "Moderate Vector"
+                    port_summary[source_port_name]["moderateRiskCount"] += 1
                 else:
-                    risk_score = 0.35  # Low Risk (<40%)
+                    risk_score = 0.35
+                    risk_category = "Low Risk"
+                    port_summary[source_port_name]["lowRiskCount"] += 1
 
-                # Anchorage offset jitter
-                hash_val = int(hashlib.md5((mmsi + source_port_title).encode('utf-8')).hexdigest(), 16)
-                dist = ((hash_val % 100) / 100.0) * 0.008
+                port_summary[source_port_name]["totalPortVisits"] += 1
 
-                offshore_lat = round(fairway["port_pos"][0] + (dist * 0.5 * (hash_val % 2 or -1)), 4)
-                offshore_lon = round(fairway["port_pos"][1] + (dist * (hash_val % 3 or -1)), 4)
-
-                record = {
+                # Record detailed vessel data under this port
+                port_summary[source_port_name]["vessels"].append({
                     "mmsi": mmsi,
                     "vesselName": vessel_name,
                     "flag": flag,
                     "vesselType": vessel_type if vessel_type.lower() != "other" else "Carrier/Merchant",
-                    "region": source_port_title,
-                    "portName": f"{source_port_title} ({fairway['port']})",
-                    "portOfDeparture": fairway["dep"],
-                    "portOfDestination": fairway["dest"],
                     "residenceHours": residence_hrs,
                     "biosecurityRiskScore": risk_score,
-                    "totalEvents": int(total_visits),
-                    "vesselPos": [offshore_lat, offshore_lon],
-                    "routeCoordinates": fairway["waypoints"]
-                }
-                processed_records.append(record)
+                    "riskCategory": risk_category,
+                    "totalEvents": int(total_visits)
+                })
 
         except Exception as e:
             print(f"Error processing file {f}: {e}")
 
-    if not processed_records:
-        sys.exit(1)
-
-    processed_records.sort(key=lambda x: x["biosecurityRiskScore"], reverse=True)
-    final_records = processed_records[:MAX_JSON_RECORDS]
+    final_ports = list(port_summary.values())
 
     os.makedirs("data", exist_ok=True)
-    pd.DataFrame(final_records).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Exported {len(final_records)} records with water-only marine trajectories.")
+    pd.DataFrame(final_ports).to_json("data/baseline_risk.json", orient="records")
+    print(f"SUCCESS: Aggregated {len(final_ports)} port records into data/baseline_risk.json.")
 
 if __name__ == "__main__":
     process_all_config_csvs()
