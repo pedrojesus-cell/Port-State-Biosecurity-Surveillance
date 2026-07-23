@@ -10,6 +10,10 @@ jobs:
   build-and-sync:
     runs-on: ubuntu-latest
 
+    # Explicitly grant write access to commit generated dataset artifacts back to the repository
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -36,7 +40,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Ensure directory exists before staging
+          # Ensure target directory exists before staging
           mkdir -p data
           git add -A data/
           
