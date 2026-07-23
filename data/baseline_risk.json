@@ -11,7 +11,7 @@
     "eta":"2026-07-26 14:00 UTC",
     "lat":-12.05,
     "lon":-77.15,
-    "timestamp":"2026-07-23T10:19:11.936972+00:00",
+    "timestamp":"2026-07-23T10:23:07.168951+00:00",
     "residenceHours":52.4,
     "biosecurityRiskScore":0.85
   },
@@ -27,7 +27,7 @@
     "eta":"2026-07-29 08:30 UTC",
     "lat":28.14,
     "lon":-15.42,
-    "timestamp":"2026-07-23T10:19:11.936990+00:00",
+    "timestamp":"2026-07-23T10:23:07.168970+00:00",
     "residenceHours":18.2,
     "biosecurityRiskScore":0.35
   },
@@ -43,7 +43,7 @@
     "eta":"2026-07-28 22:00 UTC",
     "lat":-18.14,
     "lon":178.42,
-    "timestamp":"2026-07-23T10:19:11.936994+00:00",
+    "timestamp":"2026-07-23T10:23:07.168973+00:00",
     "residenceHours":64.0,
     "biosecurityRiskScore":0.85
   }
