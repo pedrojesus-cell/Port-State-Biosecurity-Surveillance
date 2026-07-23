@@ -1,22 +1,10 @@
 {
   "monitored_vessels": [
     {
-      "name": "PACIFIC HARVEST",
-      "mmsi": "352001234",
+      "name": "VESSEL NAME",
+      "mmsi": "123456789",
       "vesselType": "Fish Carrier",
       "flag": "PAN"
-    },
-    {
-      "name": "ATLANTIC CARRIER",
-      "mmsi": "636018912",
-      "vesselType": "Refrigerated Cargo",
-      "flag": "LBR"
-    },
-    {
-      "name": "SOUTHERN VENTURE",
-      "mmsi": "538004567",
-      "vesselType": "Fishing Vessel",
-      "flag": "MHL"
     }
   ]
 }
