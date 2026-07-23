@@ -1,4 +1,3 @@
-// Initialize Leaflet Map
 const map = L.map('map', { zoomControl: true, minZoom: 2 }).setView([10.0, -20.0], 3);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -15,14 +14,13 @@ function isValidNum(v) {
   return v !== null && v !== undefined && !isNaN(parseFloat(v));
 }
 
-// Get marker color matching top-right legend
+// Color coding for High Fouling Risk, Moderate Vector, and Low Risk
 function getRiskColor(riskScore) {
-  if (riskScore >= 0.70) return '#ef4444'; // Red (High Risk)
-  if (riskScore >= 0.40) return '#f59e0b'; // Amber (Moderate Vector)
-  return '#38bdf8';                        // Blue (Low Risk)
+  if (riskScore >= 0.70) return '#ef4444'; // Red: High Fouling Risk (>=70%)
+  if (riskScore >= 0.40) return '#f59e0b'; // Amber: Moderate Vector (40%-69%)
+  return '#38bdf8';                        // Blue: Low Risk (<40%)
 }
 
-// Multi-Path Fetch Engine for GitHub Pages
 async function loadBiosecurityData() {
   const possiblePaths = [
     './data/baseline_risk.json',
@@ -36,7 +34,6 @@ async function loadBiosecurityData() {
       if (response.ok) {
         allVessels = await response.json();
         if (Array.isArray(allVessels) && allVessels.length > 0) {
-          console.log(`Successfully loaded ${allVessels.length} records from: ${path}`);
           renderDashboard(allVessels);
           return;
         }
@@ -45,8 +42,6 @@ async function loadBiosecurityData() {
       console.warn(`Failed fetching from ${path}:`, err);
     }
   }
-
-  console.error("Could not locate baseline_risk.json across relative paths.");
 }
 
 function renderDashboard(records) {
@@ -75,7 +70,7 @@ function renderDashboard(records) {
       boundsPoints.push([lat, lon]);
 
       const marker = L.circleMarker([lat, lon], {
-        radius: isHighRisk ? 5.5 : 4,
+        radius: isHighRisk ? 5.5 : (riskScore >= 0.40 ? 4.5 : 3.5),
         fillColor: markerColor,
         color: '#ffffff',
         weight: 1,
@@ -87,7 +82,7 @@ function renderDashboard(records) {
       markersLayer.addLayer(marker);
     }
 
-    // Render Sidebar Card
+    // Sidebar Feed Entry
     const card = document.createElement('div');
     card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-400 ${
       riskScore >= 0.70 ? 'bg-red-950/20 border-red-900/50' : 
@@ -100,9 +95,9 @@ function renderDashboard(records) {
         <span class="text-xs font-bold" style="color: ${markerColor}">${riskPct}% Risk</span>
       </div>
       <div class="text-[11px] text-slate-400 space-y-0.5">
-        <div><span class="text-slate-500">Port Visited:</span> <span class="text-slate-200 font-semibold">${rec.portName || 'Regional Port'}</span></div>
-        <div><span class="text-slate-500">Route:</span> ${rec.portOfDeparture || 'Origin'} &rarr; ${rec.portOfDestination || 'Destination'}</div>
-        <div><span class="text-slate-500">Characteristics:</span> <span class="text-cyan-400">${rec.vesselType || 'Carrier'}</span> | <span class="text-slate-300">${rec.residenceHours} hrs</span></div>
+        <div><span class="text-slate-500">Port Visited:</span> <span class="text-slate-200 font-semibold">${rec.portName}</span></div>
+        <div><span class="text-slate-500">Route:</span> ${rec.portOfDeparture} &rarr; ${rec.portOfDestination}</div>
+        <div><span class="text-slate-500">Characteristics:</span> <span class="text-cyan-400">${rec.vesselType}</span> | <span class="text-slate-300">${rec.residenceHours} hrs</span></div>
       </div>
     `;
 
@@ -119,7 +114,6 @@ function renderDashboard(records) {
   document.getElementById('kpi-avg-residence').innerHTML = `${(totalHours / (records.length || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
 }
 
-// DRAW VESSEL TRAJECTORY WITH TRUE RISK COLORS
 function drawVesselTrajectory(vessel) {
   trajectoryLayer.clearLayers();
 
@@ -143,7 +137,6 @@ function drawVesselTrajectory(vessel) {
     });
     trajectoryLayer.addLayer(polyline);
 
-    // Active selected vessel marker using its true risk color
     if (vessel.vesselPos) {
       const activeMarker = L.circleMarker([vessel.vesselPos[0], vessel.vesselPos[1]], {
         radius: 8,
@@ -166,7 +159,7 @@ function getPopupHtml(rec) {
     <div class="p-1 text-xs">
       <div class="font-bold text-sm text-cyan-300 mb-1">${rec.vesselName} (${rec.flag})</div>
       <div><b>MMSI:</b> ${rec.mmsi}</div>
-      <div><b>Vessel Type:</b> ${rec.vesselType || 'Merchant/Carrier'}</div>
+      <div><b>Vessel Type:</b> ${rec.vesselType}</div>
       <div><b>Port Visited:</b> ${rec.portName}</div>
       <div><b>Origin Port:</b> ${rec.portOfDeparture}</div>
       <div><b>Destination Port:</b> ${rec.portOfDestination}</div>
@@ -184,10 +177,9 @@ function getPopupHtml(rec) {
   `;
 }
 
-// GENERATE 2025 BIOSECURITY PDF REPORT
 function generateVessel2025Report(mmsi, vesselName) {
   const { jsPDF } = window.jspdf;
-  doc = new jsPDF();
+  const doc = new jsPDF();
 
   const visits = allVessels.filter(v => String(v.mmsi) === String(mmsi) || v.vesselName === vesselName);
   const main = visits[0] || {};
@@ -235,7 +227,6 @@ function generateVessel2025Report(mmsi, vesselName) {
   doc.save(`${vesselName.replace(/[^a-zA-Z0-9]/g, '_')}_2025_Biosecurity_Report.pdf`);
 }
 
-// Search Filter
 document.getElementById('search-input').addEventListener('input', (e) => {
   const q = e.target.value.toLowerCase().trim();
   if (!q) { renderDashboard(allVessels); return; }
@@ -249,5 +240,4 @@ document.getElementById('search-input').addEventListener('input', (e) => {
   renderDashboard(filtered);
 });
 
-// Initial Load
 loadBiosecurityData();
