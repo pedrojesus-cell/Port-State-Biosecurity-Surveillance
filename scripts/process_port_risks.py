@@ -34,11 +34,12 @@ def send_discord_alert(record):
                 "color": 15548997,
                 "fields": [
                     {"name": "Vessel / Flag", "value": f"{record['vesselName']} ({record['flag']})", "inline": True},
-                    {"name": "Target Port", "value": str(record['portName']), "inline": True},
+                    {"name": "Current/Target Port", "value": str(record['portName']), "inline": True},
                     {"name": "Risk Score", "value": f"**{(record['biosecurityRiskScore'] * 100):.0f}%**", "inline": True},
-                    {"name": "In-Port Residence", "value": f"{record['residenceHours']:.1f} Hours", "inline": True},
-                    {"name": "MMSI Identifier", "value": str(record['mmsi']), "inline": True},
-                    {"name": "Vessel Type", "value": str(record['vesselType']), "inline": True}
+                    {"name": "Port of Departure", "value": str(record['portOfDeparture']), "inline": True},
+                    {"name": "In-Port Duration", "value": f"{record['residenceHours']:.1f} hrs", "inline": True},
+                    {"name": "Port of Destination", "value": str(record['portOfDestination']), "inline": True},
+                    {"name": "ETA", "value": str(record['eta']), "inline": True}
                 ],
                 "footer": {"text": "Global Fishing Watch | Biosecurity Surveillance Engine"},
                 "timestamp": datetime.now(timezone.utc).isoformat()
@@ -53,8 +54,7 @@ def send_discord_alert(record):
         print(f"Notice: Could not post Discord alert: {err}")
 
 def get_fallback_data():
-    """Generates a default baseline dataset when GFW_API_TOKEN is missing or pending."""
-    print("WARNING: GFW_API_TOKEN missing or invalid. Generating fallback biosecurity baseline...")
+    """Generates baseline dataset with full voyage parameters."""
     return [
         {
             "eventId": "demo-001",
@@ -63,6 +63,9 @@ def get_fallback_data():
             "flag": "PAN",
             "vesselType": "Fish Carrier",
             "portName": "Port of Callao",
+            "portOfDeparture": "Port of Guayaquil (ECU)",
+            "portOfDestination": "Port of Valparaiso (CHL)",
+            "eta": "2026-07-26 14:00 UTC",
             "lat": -12.05,
             "lon": -77.15,
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -76,6 +79,9 @@ def get_fallback_data():
             "flag": "LBR",
             "vesselType": "Refrigerated Cargo",
             "portName": "Las Palmas",
+            "portOfDeparture": "Port of Abidjan (CIV)",
+            "portOfDestination": "Port of Rotterdam (NLD)",
+            "eta": "2026-07-29 08:30 UTC",
             "lat": 28.14,
             "lon": -15.42,
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -89,6 +95,9 @@ def get_fallback_data():
             "flag": "MHL",
             "vesselType": "Fishing Vessel",
             "portName": "Port of Suva",
+            "portOfDeparture": "Port of Apia (WSM)",
+            "portOfDestination": "Port of Auckland (NZL)",
+            "eta": "2026-07-28 22:00 UTC",
             "lat": -18.14,
             "lon": 178.42,
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -102,7 +111,6 @@ def fetch_port_biosecurity_events():
 
     if API_TOKEN and GFW_AVAILABLE:
         try:
-            print("Connecting to Global Fishing Watch API...")
             client = gfw.Client(access_token=API_TOKEN)
             end_date = datetime.now(timezone.utc)
             start_date = end_date - timedelta(days=14)
@@ -116,7 +124,7 @@ def fetch_port_biosecurity_events():
             for evt in events:
                 vessel_info = evt.get("vessel", {})
                 port_info = evt.get("port_visit", {})
-                residency = port_info.get("durationHrs", 0)
+                residency = round(float(port_info.get("durationHrs", 0)), 1)
 
                 risk_index = calculate_fouling_risk(
                     speed_knots=evt.get("meanSpeed", 10),
@@ -130,6 +138,9 @@ def fetch_port_biosecurity_events():
                     "flag": vessel_info.get("flag", "UNK"),
                     "vesselType": vessel_info.get("type", "General Cargo"),
                     "portName": port_info.get("intermediateAnchorage", {}).get("label", "Coastal Anchor"),
+                    "portOfDeparture": evt.get("departurePort", {}).get("label", "Prior Anchorage"),
+                    "portOfDestination": evt.get("destinationPort", {}).get("label", "En Route / Unreported"),
+                    "eta": evt.get("eta", "N/A"),
                     "lat": evt.get("position", {}).get("lat"),
                     "lon": evt.get("position", {}).get("lon"),
                     "timestamp": evt.get("start"),
@@ -142,22 +153,16 @@ def fetch_port_biosecurity_events():
 
                 processed_records.append(rec)
         except Exception as e:
-            print(f"API Fetch Failed: {e}")
+            print(f"API Fetch Error: {e}. Falling back to default records.")
             processed_records = get_fallback_data()
     else:
         processed_records = get_fallback_data()
 
-    # Save output to static JSON
     os.makedirs("data", exist_ok=True)
     output_path = "data/baseline_risk.json"
     
-    # Send alert for high-risk fallback demo records if testing Discord
-    for rec in processed_records:
-        if rec["biosecurityRiskScore"] >= 0.70:
-            send_discord_alert(rec)
-
     pd.DataFrame(processed_records).to_json(output_path, orient="records", indent=2)
-    print(f"SUCCESS: Generated {len(processed_records)} records at '{output_path}'.")
+    print(f"SUCCESS: Saved updated baseline dataset to '{output_path}'.")
 
 if __name__ == "__main__":
     fetch_port_biosecurity_events()
