@@ -8,24 +8,18 @@ from datetime import datetime, timedelta, timezone
 API_TOKEN = os.environ.get("GFW_API_TOKEN")
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-# Spatial Bounding Boxes for Target Monitoring Regions
-REGIONS = {
-    "Strait of Hormuz": {"min_lat": 24.5, "max_lat": 27.5, "min_lon": 54.0, "max_lon": 57.5},
-    "European EEZ": {"min_lat": 34.0, "max_lat": 71.0, "min_lon": -25.0, "max_lon": 40.0}
-}
-
-def is_in_target_region(lat, lon):
-    """Checks if coordinates fall within designated monitoring zones."""
-    if lat is None or lon is None:
-        return True  # Retain record if coordinates are unlisted
-    
-    for _, bbox in REGIONS.items():
-        if (bbox["min_lat"] <= lat <= bbox["max_lat"]) and (bbox["min_lon"] <= lon <= bbox["max_lon"]):
-            return True
-    return False
+# High-Risk Vessel MMSI / Identifier Target List
+# Replace/expand these MMSIs with your specific monitored fleet or carrier ships
+TARGET_VESSEL_MMSIS = [
+    "352001234",  # Example Carrier 1
+    "636018912",  # Example Carrier 2
+    "538004567",  # Example Carrier 3
+    "224123456",  # Example Fishing Vessel 1
+    "413987654"   # Example Fishing Vessel 2
+]
 
 def calculate_fouling_risk(speed_knots, residence_hours):
-    """Calculates fouling risk score based on residence time and speed."""
+    """Calculates biofouling risk index based on in-port residence time and transit speed."""
     if residence_hours > 48 and speed_knots < 8:
         return 0.85
     elif residence_hours > 12:
@@ -33,7 +27,7 @@ def calculate_fouling_risk(speed_knots, residence_hours):
     return 0.20
 
 def send_discord_alert(record):
-    """Sends a formatted alert embed to Discord when high-risk targets are flagged."""
+    """Sends a formatted notification embed to Discord for high-risk targets."""
     if not DISCORD_WEBHOOK_URL:
         return
 
@@ -66,7 +60,7 @@ def send_discord_alert(record):
         print(f"Notice: Could not post Discord alert: {err}")
 
 def get_fallback_data():
-    """Provides regional sample baseline dataset when live API queries are out of scope."""
+    """Provides sample baseline dataset if API queries return no results."""
     return [
         {
             "eventId": "demo-001",
@@ -74,12 +68,12 @@ def get_fallback_data():
             "mmsi": "352001234",
             "flag": "PAN",
             "vesselType": "Fish Carrier",
-            "portName": "Port of Fujairah (Strait of Hormuz)",
+            "portName": "Port of Callao",
             "portOfDeparture": "Port of Guayaquil (ECU)",
             "portOfDestination": "Port of Valparaiso (CHL)",
             "eta": "2026-07-26 14:00 UTC",
-            "lat": 25.18,
-            "lon": 56.36,
+            "lat": -12.05,
+            "lon": -77.15,
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "residenceHours": 52.4,
             "biosecurityRiskScore": 0.85
@@ -90,7 +84,7 @@ def get_fallback_data():
             "mmsi": "636018912",
             "flag": "LBR",
             "vesselType": "Refrigerated Cargo",
-            "portName": "Las Palmas (European EEZ)",
+            "portName": "Las Palmas",
             "portOfDeparture": "Port of Abidjan (CIV)",
             "portOfDestination": "Port of Rotterdam (NLD)",
             "eta": "2026-07-29 08:30 UTC",
@@ -106,12 +100,12 @@ def get_fallback_data():
             "mmsi": "538004567",
             "flag": "MHL",
             "vesselType": "Fishing Vessel",
-            "portName": "Port of Rotterdam (European EEZ)",
+            "portName": "Port of Suva",
             "portOfDeparture": "Port of Apia (WSM)",
             "portOfDestination": "Port of Auckland (NZL)",
             "eta": "2026-07-28 22:00 UTC",
-            "lat": 51.92,
-            "lon": 4.47,
+            "lat": -18.14,
+            "lon": 178.42,
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "residenceHours": 64.0,
             "biosecurityRiskScore": 0.85
@@ -123,9 +117,9 @@ def fetch_port_biosecurity_events():
 
     if API_TOKEN:
         try:
-            print("Connecting to Global Fishing Watch REST API v3...")
+            print(f"Connecting to Global Fishing Watch API for {len(TARGET_VESSEL_MMSIS)} target vessels...")
             end_date = datetime.now(timezone.utc)
-            start_date = end_date - timedelta(days=14)
+            start_date = end_date - timedelta(days=30)
 
             url = "https://gateway.api.globalfishingwatch.org/v3/events"
             headers = {
@@ -133,85 +127,81 @@ def fetch_port_biosecurity_events():
                 "User-Agent": "MarineBiosecurityMonitor/1.0"
             }
 
-            params = {
-                "datasets": "public-global-port-visits-c2-events:latest",
-                "start-date": start_date.strftime("%Y-%m-%d"),
-                "end-date": end_date.strftime("%Y-%m-%d"),
-                "limit": 100,
-                "offset": 0
-            }
+            # Loop through target vessel identifiers to stay within standard API token permissions
+            for idx, mmsi in enumerate(TARGET_VESSEL_MMSIS):
+                params = {
+                    "datasets": "public-global-port-visits-c2-events:latest",
+                    "vessels[0]": mmsi,
+                    "start-date": start_date.strftime("%Y-%m-%d"),
+                    "end-date": end_date.strftime("%Y-%m-%d"),
+                    "limit": 50,
+                    "offset": 0
+                }
 
-            response = requests.get(url, headers=headers, params=params, timeout=25)
-            print(f"GFW Response Status Code: {response.status_code}")
+                response = requests.get(url, headers=headers, params=params, timeout=15)
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    events = data.get("entries", [])
+                    print(f"MMSI {mmsi}: Retrieved {len(events)} events.")
 
-            if response.status_code == 200:
-                data = response.json()
-                events = data.get("entries", [])
-                print(f"Retrieved {len(events)} events directly from GFW API.")
+                    for evt in events:
+                        vessel_info = evt.get("vessel", {})
+                        port_info = evt.get("port_visit", {})
+                        residency = round(float(port_info.get("durationHrs", 0)), 1)
 
-                for evt in events:
-                    lat = evt.get("position", {}).get("lat")
-                    lon = evt.get("position", {}).get("lon")
+                        risk_index = calculate_fouling_risk(
+                            speed_knots=evt.get("meanSpeed", 10),
+                            residence_hours=residency
+                        )
 
-                    # Apply Spatial Bounding Box Filter
-                    if not is_in_target_region(lat, lon):
-                        continue
+                        rec = {
+                            "eventId": evt.get("id"),
+                            "vesselName": vessel_info.get("name", f"Vessel {mmsi}"),
+                            "mmsi": vessel_info.get("ssvid", mmsi),
+                            "flag": vessel_info.get("flag", "UNK"),
+                            "vesselType": vessel_info.get("type", "Fish Carrier"),
+                            "portName": evt.get("port", {}).get("label", "Coastal Port"),
+                            "portOfDeparture": evt.get("departurePort", {}).get("label", "Prior Anchorage"),
+                            "portOfDestination": evt.get("destinationPort", {}).get("label", "En Route"),
+                            "eta": evt.get("eta", "N/A"),
+                            "lat": evt.get("position", {}).get("lat"),
+                            "lon": evt.get("position", {}).get("lon"),
+                            "timestamp": evt.get("start"),
+                            "residenceHours": residency,
+                            "biosecurityRiskScore": risk_index
+                        }
 
-                    vessel_info = evt.get("vessel", {})
-                    port_info = evt.get("port_visit", {})
-                    residency = round(float(port_info.get("durationHrs", 0)), 1)
+                        if rec["biosecurityRiskScore"] >= 0.70:
+                            send_discord_alert(rec)
 
-                    risk_index = calculate_fouling_risk(
-                        speed_knots=evt.get("meanSpeed", 10),
-                        residence_hours=residency
-                    )
-
-                    rec = {
-                        "eventId": evt.get("id"),
-                        "vesselName": vessel_info.get("name", "Unknown Vessel"),
-                        "mmsi": vessel_info.get("ssvid", "N/A"),
-                        "flag": vessel_info.get("flag", "UNK"),
-                        "vesselType": vessel_info.get("type", "General Cargo"),
-                        "portName": evt.get("port", {}).get("label", "Coastal Port"),
-                        "portOfDeparture": evt.get("departurePort", {}).get("label", "Prior Anchorage"),
-                        "portOfDestination": evt.get("destinationPort", {}).get("label", "En Route"),
-                        "eta": evt.get("eta", "N/A"),
-                        "lat": lat,
-                        "lon": lon,
-                        "timestamp": evt.get("start"),
-                        "residenceHours": residency,
-                        "biosecurityRiskScore": risk_index
-                    }
-
-                    if rec["biosecurityRiskScore"] >= 0.70:
-                        send_discord_alert(rec)
-
-                    processed_records.append(rec)
+                        processed_records.append(rec)
+                else:
+                    print(f"MMSI {mmsi} query status: {response.status_code}")
 
             if not processed_records:
-                print("Notice: API query yielded 0 filtered records. Utilizing baseline regional dataset.")
+                print("Notice: No live events returned for targeted MMSIs. Loading baseline fallback data.")
                 processed_records = get_fallback_data()
 
         except Exception as e:
-            print(f"Direct API Exception: {e}. Utilizing baseline regional dataset.")
+            print(f"API Error: {e}. Loading baseline fallback data.")
             processed_records = get_fallback_data()
     else:
-        print("GFW Token missing. Utilizing baseline regional dataset.")
+        print("GFW Token missing. Loading baseline fallback data.")
         processed_records = get_fallback_data()
 
-    # Create output directory
+    # Save output artifacts
     os.makedirs("data", exist_ok=True)
 
-    # 1. Save Complete JSON Dataset for Dashboard UI
+    # 1. Full JSON Output for Web UI
     json_path = "data/baseline_risk.json"
-    full_df = pd.DataFrame(processed_records)
-    full_df.to_json(json_path, orient="records", indent=2)
-    print(f"SUCCESS: Saved {len(processed_records)} total records to '{json_path}'.")
+    pd.DataFrame(processed_records).to_json(json_path, orient="records", indent=2)
+    print(f"SUCCESS: Saved {len(processed_records)} records to '{json_path}'.")
 
-    # 2. Save Filtered CSV Summary for High-Risk Targets (>= 70%)
+    # 2. High-Risk CSV Export
     csv_path = "data/high_risk_summary.csv"
     high_risk_records = [r for r in processed_records if r.get("biosecurityRiskScore", 0) >= 0.70]
-
+    
     if high_risk_records:
         high_risk_df = pd.DataFrame(high_risk_records)
         export_cols = [
@@ -219,7 +209,7 @@ def fetch_port_biosecurity_events():
             "portName", "portOfDeparture", "portOfDestination", 
             "residenceHours", "biosecurityRiskScore", "eta", "timestamp"
         ]
-        available_cols = [col for col in export_cols if col in high_risk_df.columns]
+        available_cols = [c for c in export_cols if c in high_risk_df.columns]
         high_risk_df[available_cols].to_csv(csv_path, index=False)
         print(f"SUCCESS: Saved {len(high_risk_records)} high-risk records to '{csv_path}'.")
     else:
@@ -227,7 +217,7 @@ def fetch_port_biosecurity_events():
             "vesselName", "flag", "vesselType", "mmsi", 
             "portName", "residenceHours", "biosecurityRiskScore"
         ]).to_csv(csv_path, index=False)
-        print("Notice: No high-risk records found. Saved empty CSV template.")
+        print("Notice: Saved empty high-risk CSV template.")
 
 if __name__ == "__main__":
     fetch_port_biosecurity_events()
