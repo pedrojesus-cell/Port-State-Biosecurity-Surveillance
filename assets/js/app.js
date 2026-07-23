@@ -6,14 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     maxZoom: 18
   }).addTo(map);
 
-  // Fetch static json compiled by Python pipeline
   fetch("data/baseline_risk.json")
     .then(res => res.json())
     .then(data => {
       renderDashboard(data, map);
     })
     .catch(err => {
-      console.warn("Baseline data unavailable, rendering fallback demo points.", err);
+      console.warn("Baseline data unavailable, rendering fallback data.", err);
       renderDashboard(getFallbackData(), map);
     });
 });
@@ -22,6 +21,7 @@ function renderDashboard(records, map) {
   let totalHighRisk = 0;
   let totalResidence = 0;
   const feedContainer = document.getElementById("event-feed");
+  feedContainer.innerHTML = ""; // Clear existing feed
 
   records.forEach(rec => {
     totalResidence += rec.residenceHours;
@@ -43,21 +43,28 @@ function renderDashboard(records, map) {
         <div style="color:#0f172a; font-family:sans-serif;">
           <h3 style="font-weight:bold;">${rec.vesselName} (${rec.flag})</h3>
           <p><b>Port:</b> ${rec.portName}</p>
-          <p><b>Residence:</b> ${rec.residenceHours.toFixed(1)} hrs</p>
+          <p><b>Departure:</b> ${rec.portOfDeparture || 'N/A'}</p>
+          <p><b>Destination:</b> ${rec.portOfDestination || 'N/A'}</p>
+          <p><b>ETA:</b> ${rec.eta || 'N/A'}</p>
+          <p><b>In-Port Duration:</b> ${Number(rec.residenceHours).toFixed(1)} hrs</p>
           <p><b>Fouling Risk:</b> ${(rec.biosecurityRiskScore * 100).toFixed(0)}%</p>
         </div>
       `);
     }
 
+    // Updated Feed Card Format
     const card = document.createElement("div");
-    card.className = "p-3 bg-slate-900 border border-slate-700 rounded-lg text-xs space-y-1";
+    card.className = "p-3 bg-slate-900 border border-slate-700 rounded-lg text-xs space-y-1.5";
     card.innerHTML = `
       <div class="flex justify-between font-bold text-slate-200">
         <span>${rec.vesselName} [${rec.flag}]</span>
         <span style="color: ${color}">${(rec.biosecurityRiskScore * 100).toFixed(0)}% Risk</span>
       </div>
-      <div class="text-slate-400">Port: <span class="text-slate-300">${rec.portName}</span></div>
-      <div class="text-slate-400">In-Port Duration: <span class="text-slate-300">${rec.residenceHours.toFixed(1)} h</span></div>
+      <div class="text-slate-400">Current Port: <span class="text-slate-200 font-medium">${rec.portName}</span></div>
+      <div class="text-slate-400">Port of Departure: <span class="text-slate-300">${rec.portOfDeparture || 'N/A'}</span></div>
+      <div class="text-slate-400">In-Port Duration: <span class="text-teal-400 font-semibold">${Number(rec.residenceHours).toFixed(1)} hrs</span></div>
+      <div class="text-slate-400">Port of Destination: <span class="text-slate-300">${rec.portOfDestination || 'N/A'}</span></div>
+      <div class="text-slate-400">ETA: <span class="text-amber-300">${rec.eta || 'N/A'}</span></div>
     `;
     feedContainer.appendChild(card);
   });
@@ -67,11 +74,4 @@ function renderDashboard(records, map) {
   document.getElementById("kpi-avg-residence").textContent = records.length 
     ? (totalResidence / records.length).toFixed(1) 
     : 0;
-}
-
-function getFallbackData() {
-  return [
-    { vesselName: "PACIFIC HARVEST", flag: "PAN", portName: "Port of Callao", lat: -12.05, lon: -77.15, residenceHours: 52.4, biosecurityRiskScore: 0.85 },
-    { vesselName: "ATLANTIC CARRIER", flag: "LBR", portName: "Las Palmas", lat: 28.14, lon: -15.42, residenceHours: 18.2, biosecurityRiskScore: 0.35 }
-  ];
 }
