@@ -1,102 +1,303 @@
-function renderDashboard(records) {
-  layersGroup.clearLayers();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Coastal Biosecurity & Port Surveillance</title>
   
-  let totalHighRisk = 0;
-  let totalHours = 0;
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  const feedContainer = document.getElementById('risk-feed');
-  feedContainer.innerHTML = '';
+  <style>
+    body {
+      background-color: #0b0f19;
+      color: #e2e8f0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    #map {
+      height: calc(100vh - 120px);
+      width: 100%;
+      background: #0d1322;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #111827;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #374151;
+      border-radius: 3px;
+    }
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+      background: #1e293b !important;
+      color: #f8fafc !important;
+      border: 1px solid #334155;
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden">
 
-  records.forEach(rec => {
-    const riskScore = rec.biosecurityRiskScore || 0;
-    const riskPct = Math.round(riskScore * 100);
-    const isHighRisk = riskScore >= 0.70;
+  <!-- Top Navigation Header -->
+  <header class="flex items-center justify-between px-6 py-3 bg-slate-900 border-b border-slate-800">
+    <div>
+      <h1 class="text-lg font-bold tracking-wide text-cyan-400">Global Coastal Biosecurity & Port Surveillance</h1>
+      <p class="text-xs text-slate-400">Regional Marine Biological Invasion Risk & Inter-Port Transit Feed</p>
+    </div>
+    <div class="flex items-center gap-3 text-xs">
+      <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-950/80 text-red-400 border border-red-800/50">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> High Fouling Risk (&ge;70%)
+      </span>
+      <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-950/80 text-amber-400 border border-amber-800/50">
+        <span class="w-2 h-2 rounded-full bg-amber-500"></span> Moderate Vector
+      </span>
+    </div>
+  </header>
 
-    if (isHighRisk) totalHighRisk++;
-    totalHours += parseFloat(rec.residenceHours || 0);
+  <!-- KPI Statistics Bar -->
+  <section class="grid grid-cols-4 gap-4 px-6 py-3 bg-slate-950/80 border-b border-slate-800 text-center">
+    <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Monitored Port Visits</div>
+      <div id="kpi-total-visits" class="text-xl font-extrabold text-slate-100">0</div>
+    </div>
+    <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">High-Risk Bio-Vectors</div>
+      <div id="kpi-high-risk" class="text-xl font-extrabold text-red-400">0</div>
+    </div>
+    <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Avg Residence Time</div>
+      <div id="kpi-avg-residence" class="text-xl font-extrabold text-cyan-400">0.0 <span class="text-xs font-normal">hrs</span></div>
+    </div>
+    <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Monitored Corridors</div>
+      <div class="text-xs font-bold text-emerald-400 mt-1.5">Hormuz &bull; European EEZ &bull; South America EEZ</div>
+    </div>
+  </section>
 
-    const primaryColor = isHighRisk ? '#ef4444' : '#f59e0b';
+  <!-- Main Dashboard Viewport -->
+  <div class="flex flex-1 overflow-hidden">
+    
+    <!-- Leaflet Map Container -->
+    <main class="flex-1 relative">
+      <div id="map"></div>
+    </main>
 
-    // 1. Draw Inter-Port Route Polyline (Departure -> Vessel Position -> Destination)
-    if (rec.routeCoordinates && Array.isArray(rec.routeCoordinates)) {
-      const validPoints = rec.routeCoordinates.filter(pt => pt && pt[0] !== null && pt[1] !== null);
-      
-      if (validPoints.length > 1) {
-        const routeLine = L.polyline(validPoints, {
-          color: primaryColor,
-          weight: 2,
-          opacity: 0.7,
-          dashArray: '6, 8' // Dashed line style for active transit
-        });
+    <!-- Sidebar: Port Arrival Risk Feed & Search -->
+    <aside class="w-96 bg-slate-900 border-l border-slate-800 flex flex-col">
+      <div class="p-4 border-b border-slate-800">
+        <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wide mb-2">Port & Vessel Search</h2>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Filter by vessel, MMSI, port, or region..." 
+          class="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-md text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+        />
+      </div>
 
-        routeLine.bindTooltip(`
-          <div class="text-xs font-semibold">
-            ${rec.vesselName}: ${rec.portOfDeparture} &rarr; ${rec.portOfDestination}
-          </div>
-        `, { sticky: true });
+      <!-- Scrollable Risk Feed -->
+      <div id="risk-feed" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
+        <!-- Dynamically rendered -->
+      </div>
+    </aside>
 
-        layersGroup.addLayer(routeLine);
+  </div>
+
+  <!-- Application Logic -->
+  <script>
+    // Initialize Leaflet Map
+    const map = L.map('map', {
+      zoomControl: true,
+      minZoom: 2
+    }).setView([15.0, -20.0], 3);
+
+    // Dark Tile Layer (CartoDB Dark Matter)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    let allVessels = [];
+    let layersGroup = L.layerGroup().addTo(map);
+
+    // Fetch baseline_risk.json dynamically
+    async function loadBiosecurityData() {
+      try {
+        const response = await fetch('data/baseline_risk.json?t=' + new Date().getTime());
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        
+        allVessels = await response.json();
+        
+        if (Array.isArray(allVessels) && allVessels.length > 0) {
+          renderDashboard(allVessels);
+        } else {
+          renderEmptyState();
+        }
+      } catch (err) {
+        console.warn('Notice: baseline_risk.json empty or unavailable:', err);
+        renderEmptyState();
       }
     }
 
-    // 2. Draw Vessel Marker
-    if (rec.vesselPos && rec.vesselPos[0] !== null) {
-      const vesselMarker = L.circleMarker(rec.vesselPos, {
-        radius: isHighRisk ? 8 : 6,
-        fillColor: primaryColor,
-        color: '#ffffff',
-        weight: 1.5,
-        fillOpacity: 0.9
-      });
-
-      const popupContent = `
-        <div class="p-1 text-xs">
-          <div class="font-bold text-sm text-cyan-300 mb-1">${rec.vesselName} (${rec.flag})</div>
-          <div><b>MMSI:</b> ${rec.mmsi}</div>
-          <div><b>Origin Port:</b> ${rec.portOfDeparture}</div>
-          <div><b>Current Port:</b> ${rec.portName}</div>
-          <div><b>Destination Port:</b> ${rec.portOfDestination}</div>
-          <div><b>Region:</b> ${rec.region}</div>
-          <div><b>Residence Duration:</b> ${rec.residenceHours} hrs</div>
-          <div class="mt-1 font-bold ${isHighRisk ? 'text-red-400' : 'text-amber-400'}">
-            Biosecurity Risk: ${riskPct}%
-          </div>
+    function renderEmptyState() {
+      layersGroup.clearLayers();
+      document.getElementById('kpi-total-visits').innerText = '0';
+      document.getElementById('kpi-high-risk').innerText = '0';
+      document.getElementById('kpi-avg-residence').innerHTML = '0.0 <span class="text-xs font-normal">hrs</span>';
+      
+      document.getElementById('risk-feed').innerHTML = `
+        <div class="text-center py-12 px-4">
+          <svg class="w-12 h-12 mx-auto text-slate-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <p class="text-sm font-semibold text-slate-400">No Target Regional Events</p>
+          <p class="text-xs text-slate-500 mt-1">No active vessel port visits currently detected inside Strait of Hormuz, European EEZ, or South America EEZ zones.</p>
         </div>
       `;
-
-      vesselMarker.bindPopup(popupContent);
-      layersGroup.addLayer(vesselMarker);
     }
 
-    // 3. Render Sidebar Feed Card
-    const card = document.createElement('div');
-    card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-500 ${
-      isHighRisk ? 'bg-red-950/20 border-red-900/50' : 'bg-slate-800/40 border-slate-800'
-    }`;
+    function renderDashboard(records) {
+      layersGroup.clearLayers();
+      
+      let totalHighRisk = 0;
+      let totalHours = 0;
 
-    card.innerHTML = `
-      <div class="flex justify-between items-start mb-1">
-        <span class="font-bold text-xs text-slate-200">${rec.vesselName} <span class="text-slate-400">[${rec.flag}]</span></span>
-        <span class="text-xs font-bold ${isHighRisk ? 'text-red-400' : 'text-amber-400'}">${riskPct}% Risk</span>
-      </div>
-      <div class="text-[11px] text-slate-400 space-y-0.5">
-        <div><span class="text-slate-500">Route:</span> ${rec.portOfDeparture || 'Port'} &rarr; ${rec.portOfDestination || 'En Route'}</div>
-        <div><span class="text-slate-500">Region:</span> <span class="text-emerald-400">${rec.region}</span></div>
-        <div><span class="text-slate-500">In-Port Duration:</span> <span class="text-cyan-400 font-semibold">${rec.residenceHours} hrs</span></div>
-      </div>
-    `;
+      const feedContainer = document.getElementById('risk-feed');
+      feedContainer.innerHTML = '';
 
-    card.addEventListener('click', () => {
-      if (rec.vesselPos && rec.vesselPos[0] !== null) {
-        map.setView(rec.vesselPos, 6, { animate: true });
+      records.forEach(rec => {
+        const riskScore = rec.biosecurityRiskScore || 0;
+        const riskPct = Math.round(riskScore * 100);
+        const isHighRisk = riskScore >= 0.70;
+
+        if (isHighRisk) totalHighRisk++;
+        totalHours += parseFloat(rec.residenceHours || 0);
+
+        const primaryColor = isHighRisk ? '#ef4444' : '#f59e0b';
+
+        // 1. Inter-Port Route Polyline
+        if (rec.routeCoordinates && Array.isArray(rec.routeCoordinates)) {
+          const validPoints = rec.routeCoordinates.filter(pt => pt && pt[0] !== null && pt[1] !== null);
+          
+          if (validPoints.length > 1) {
+            const routeLine = L.polyline(validPoints, {
+              color: primaryColor,
+              weight: 2,
+              opacity: 0.7,
+              dashArray: '6, 8'
+            });
+
+            routeLine.bindTooltip(`
+              <div class="text-xs font-semibold">
+                ${rec.vesselName}: ${rec.portOfDeparture} &rarr; ${rec.portOfDestination}
+              </div>
+            `, { sticky: true });
+
+            layersGroup.addLayer(routeLine);
+          }
+        }
+
+        // 2. Vessel Marker
+        if (rec.vesselPos && rec.vesselPos[0] !== null) {
+          const vesselMarker = L.circleMarker(rec.vesselPos, {
+            radius: isHighRisk ? 8 : 6,
+            fillColor: primaryColor,
+            color: '#ffffff',
+            weight: 1.5,
+            fillOpacity: 0.9
+          });
+
+          const popupContent = `
+            <div class="p-1 text-xs">
+              <div class="font-bold text-sm text-cyan-300 mb-1">${rec.vesselName} (${rec.flag})</div>
+              <div><b>MMSI:</b> ${rec.mmsi}</div>
+              <div><b>Origin Port:</b> ${rec.portOfDeparture}</div>
+              <div><b>Current Port:</b> ${rec.portName}</div>
+              <div><b>Destination Port:</b> ${rec.portOfDestination}</div>
+              <div><b>Region:</b> ${rec.region}</div>
+              <div><b>Residence Duration:</b> ${rec.residenceHours} hrs</div>
+              <div class="mt-1 font-bold ${isHighRisk ? 'text-red-400' : 'text-amber-400'}">
+                Biosecurity Risk: ${riskPct}%
+              </div>
+            </div>
+          `;
+
+          vesselMarker.bindPopup(popupContent);
+          layersGroup.addLayer(vesselMarker);
+        }
+
+        // 3. Sidebar Card
+        const card = document.createElement('div');
+        card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-500 ${
+          isHighRisk ? 'bg-red-950/20 border-red-900/50' : 'bg-slate-800/40 border-slate-800'
+        }`;
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start mb-1">
+            <span class="font-bold text-xs text-slate-200">${rec.vesselName} <span class="text-slate-400">[${rec.flag}]</span></span>
+            <span class="text-xs font-bold ${isHighRisk ? 'text-red-400' : 'text-amber-400'}">${riskPct}% Risk</span>
+          </div>
+          <div class="text-[11px] text-slate-400 space-y-0.5">
+            <div><span class="text-slate-500">Route:</span> ${rec.portOfDeparture || 'Port'} &rarr; ${rec.portOfDestination || 'En Route'}</div>
+            <div><span class="text-slate-500">Region:</span> <span class="text-emerald-400">${rec.region}</span></div>
+            <div><span class="text-slate-500">In-Port Duration:</span> <span class="text-cyan-400 font-semibold">${rec.residenceHours} hrs</span></div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          if (rec.vesselPos && rec.vesselPos[0] !== null) {
+            map.setView(rec.vesselPos, 6, { animate: true });
+          }
+        });
+
+        feedContainer.appendChild(card);
+      });
+
+      // Update KPI Bar
+      document.getElementById('kpi-total-visits').innerText = records.length;
+      document.getElementById('kpi-high-risk').innerText = totalHighRisk;
+      document.getElementById('kpi-avg-residence').innerHTML = `${(totalHours / (records.length || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
+    }
+
+    // Search Engine Filter
+    document.getElementById('search-input').addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+
+      if (!query) {
+        renderDashboard(allVessels);
+        return;
+      }
+
+      const filtered = allVessels.filter(v => {
+        const nameMatch = v.vesselName && v.vesselName.toLowerCase().includes(query);
+        const mmsiMatch = v.mmsi && String(v.mmsi).toLowerCase().includes(query);
+        const flagMatch = v.flag && v.flag.toLowerCase().includes(query);
+        const portMatch = v.portName && v.portName.toLowerCase().includes(query);
+        const depMatch = v.portOfDeparture && v.portOfDeparture.toLowerCase().includes(query);
+        const destMatch = v.portOfDestination && v.portOfDestination.toLowerCase().includes(query);
+        const regionMatch = v.region && v.region.toLowerCase().includes(query);
+
+        return nameMatch || mmsiMatch || flagMatch || portMatch || depMatch || destMatch || regionMatch;
+      });
+
+      if (filtered.length > 0) {
+        renderDashboard(filtered);
+      } else {
+        layersGroup.clearLayers();
+        document.getElementById('risk-feed').innerHTML = `
+          <div class="text-center py-8 text-xs text-slate-500">
+            No port or vessel matches found for "<span class="text-slate-300">${query}</span>"
+          </div>
+        `;
       }
     });
 
-    feedContainer.appendChild(card);
-  });
-
-  // Update KPI Bar
-  document.getElementById('kpi-total-visits').innerText = records.length;
-  document.getElementById('kpi-high-risk').innerText = totalHighRisk;
-  document.getElementById('kpi-avg-residence').innerHTML = `${(totalHours / (records.length || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
-}
+    // Initial Load
+    loadBiosecurityData();
+  </script>
+</body>
+</html>
