@@ -1,9 +1,83 @@
-<!-- Search & Filter Bar -->
-<div class="mb-3">
-  <input 
-    type="text" 
-    id="vessel-search" 
-    placeholder="Search by vessel, flag (e.g. PAN), or port..." 
-    class="w-full px-3 py-2 bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded focus:outline-none focus:border-teal-500 transition-colors placeholder-slate-500"
-  />
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Coastal Biosecurity & Port Surveillance</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Custom CSS / JS -->
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-900 border-b border-slate-800 flex justify-between items-center">
+    <div>
+      <h1 class="text-xl font-bold text-teal-400">Global Coastal Biosecurity & Port Surveillance</h1>
+      <p class="text-xs text-slate-400">Marine Biological Invasion Risk Baseline via Global Fishing Watch API</p>
+    </div>
+    <div class="flex space-x-2 text-xs">
+      <span class="px-2 py-1 bg-red-950 border border-red-700 text-red-300 rounded-full font-medium">● High Fouling Risk</span>
+      <span class="px-2 py-1 bg-amber-950 border border-amber-700 text-amber-300 rounded-full font-medium">● Moderate Vector</span>
+    </div>
+  </header>
+
+  <!-- Main Content Grid -->
+  <main class="flex-1 p-4 grid grid-cols-1 lg:grid-cols-4 gap-4">
+
+    <!-- Map & Stats Section (Left 3 Columns) -->
+    <section class="lg:col-span-3 flex flex-col space-y-4">
+      
+      <!-- KPI Stats Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="p-3 bg-slate-900 border border-slate-800 rounded-lg">
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Monitored Port Visits</div>
+          <div id="kpi-total-entries" class="text-2xl font-bold text-slate-100">0</div>
+        </div>
+        <div class="p-3 bg-slate-900 border border-slate-800 rounded-lg">
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">High-Risk Bio-Vectors</div>
+          <div id="kpi-high-risk" class="text-2xl font-bold text-red-500">0</div>
+        </div>
+        <div class="p-3 bg-slate-900 border border-slate-800 rounded-lg">
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Avg Residence Time</div>
+          <div id="kpi-avg-residence" class="text-2xl font-bold text-teal-400">0.0</div>
+        </div>
+        <div class="p-3 bg-slate-900 border border-slate-800 rounded-lg">
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Coordinated Regions</div>
+          <div class="text-lg font-bold text-slate-200">Global / EEZ</div>
+        </div>
+      </div>
+
+      <!-- Interactive Map Container -->
+      <div id="map" class="w-full flex-1 min-h-[450px] rounded-lg border border-slate-800 bg-slate-900 z-10"></div>
+    </section>
+
+    <!-- Sidebar Feed & Search (Right 1 Column) -->
+    <aside class="bg-slate-900 border border-slate-800 rounded-lg p-3 flex flex-col h-[600px]">
+      <h2 class="text-sm font-bold text-slate-200 mb-3">Port Arrival Risk Feed</h2>
+
+      <!-- Vessel Search Input -->
+      <div class="mb-3">
+        <input 
+          type="text" 
+          id="vessel-search" 
+          placeholder="Search vessel, flag (e.g. PAN), or port..." 
+          class="w-full px-3 py-2 bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded focus:outline-none focus:border-teal-500 transition-colors placeholder-slate-500"
+        />
+      </div>
+
+      <!-- Feed Container -->
+      <div id="event-feed" class="flex-1 space-y-2 overflow-y-auto pr-1"></div>
+    </aside>
+
+  </main>
+
+</body>
+</html>
