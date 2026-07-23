@@ -1,0 +1,41 @@
+[
+  {
+    "eventId":"demo-001",
+    "vesselName":"PACIFIC HARVEST",
+    "mmsi":"352001234",
+    "flag":"PAN",
+    "vesselType":"Fish Carrier",
+    "portName":"Port of Callao",
+    "lat":-12.05,
+    "lon":-77.15,
+    "timestamp":"2026-07-23T09:37:45.376422+00:00",
+    "residenceHours":52.4,
+    "biosecurityRiskScore":0.85
+  },
+  {
+    "eventId":"demo-002",
+    "vesselName":"ATLANTIC CARRIER",
+    "mmsi":"636018912",
+    "flag":"LBR",
+    "vesselType":"Refrigerated Cargo",
+    "portName":"Las Palmas",
+    "lat":28.14,
+    "lon":-15.42,
+    "timestamp":"2026-07-23T09:37:45.376435+00:00",
+    "residenceHours":18.2,
+    "biosecurityRiskScore":0.35
+  },
+  {
+    "eventId":"demo-003",
+    "vesselName":"SOUTHERN VENTURE",
+    "mmsi":"538004567",
+    "flag":"MHL",
+    "vesselType":"Fishing Vessel",
+    "portName":"Port of Suva",
+    "lat":-18.14,
+    "lon":178.42,
+    "timestamp":"2026-07-23T09:37:45.376438+00:00",
+    "residenceHours":64.0,
+    "biosecurityRiskScore":0.85
+  }
+]
