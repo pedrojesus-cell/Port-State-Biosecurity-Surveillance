@@ -107,15 +107,16 @@ def fetch_port_biosecurity_events():
             end_date = datetime.now(timezone.utc)
             start_date = end_date - timedelta(days=14)
 
-            # OFFICIAL GFW REST API HOST
             url = "https://gateway.api.globalfishingwatch.org/v3/events"
             headers = {
                 "Authorization": f"Bearer {API_TOKEN}",
                 "Content-Type": "application/json",
                 "User-Agent": "MarineBiosecurityMonitor/1.0"
             }
+            
+            # GFW v3 query parameters with indexed arrays
             params = {
-                "datasets[0]": "public-global-port-visits-c2-events:latest",
+                "event-types[0]": "PORT_VISIT",
                 "start-date": start_date.strftime("%Y-%m-%d"),
                 "end-date": end_date.strftime("%Y-%m-%d"),
                 "limit": 100
