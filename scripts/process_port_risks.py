@@ -7,7 +7,6 @@ import pandas as pd
 
 CONFIG_DIR = "config"
 
-# Anchor coordinates for regional port clusters
 PORT_ANCHORS = {
     "russian": {"name": "Russian Far East EEZ Ports", "lat": 43.0800, "lon": 131.8700},
     "arctic": {"name": "Arctic EEZ Ports (Murmansk/Tromso)", "lat": 69.0200, "lon": 33.0500},
@@ -58,9 +57,9 @@ def process_all_config_csvs():
                     "year": 2025,
                     "location": [anchor["lat"], anchor["lon"]],
                     "totalPortVisits": 0,
-                    "highRiskCount": 0,       # High Fouling Risk (>= 70%)
-                    "moderateRiskCount": 0,   # Moderate Vector (40% - 69%)
-                    "lowRiskCount": 0,        # Low Risk (< 40%)
+                    "highRiskCount": 0,
+                    "moderateRiskCount": 0,
+                    "lowRiskCount": 0,
                     "vessels": []
                 }
 
@@ -77,7 +76,6 @@ def process_all_config_csvs():
 
                 residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
 
-                # Risk Categorization
                 if total_visits >= 300:
                     risk_score = 0.92
                     risk_category = "High Fouling Risk"
@@ -91,9 +89,8 @@ def process_all_config_csvs():
                     risk_category = "Low Risk"
                     port_summary[source_port_name]["lowRiskCount"] += 1
 
-                port_summary[source_port_name]["totalPortVisits"] += 1
+                port_summary[source_port_name]["totalPortVisits"] += int(total_visits)
 
-                # Record detailed vessel data under this port
                 port_summary[source_port_name]["vessels"].append({
                     "mmsi": mmsi,
                     "vesselName": vessel_name,
