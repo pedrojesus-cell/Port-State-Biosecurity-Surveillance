@@ -10,8 +10,18 @@ DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
 # Defined Geographic Bounding Boxes
 TARGET_REGIONS = {
-    "Strait of Hormuz": {"min_lat": 24.0, "max_lat": 27.5, "min_lon": 54.0, "max_lon": 58.0},
-    "European EEZ": {"min_lat": 48.0, "max_lat": 60.0, "min_lon": -10.0, "max_lon": 12.0}
+    "Strait of Hormuz": {
+        "min_lat": 24.0, "max_lat": 27.5,
+        "min_lon": 54.0, "max_lon": 58.0
+    },
+    "European EEZ": {
+        "min_lat": 48.0, "max_lat": 60.0,
+        "min_lon": -10.0, "max_lon": 12.0
+    },
+    "South America EEZ": {
+        "min_lat": -55.0, "max_lat": 12.0,
+        "min_lon": -82.0, "max_lon": -34.0
+    }
 }
 
 def is_within_regions(lat, lon):
