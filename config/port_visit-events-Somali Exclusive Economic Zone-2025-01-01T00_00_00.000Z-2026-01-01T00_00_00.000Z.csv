@@ -1,0 +1,479 @@
+name,MMSI,flag,flag translated,GFW vessel type,Total port_visit events,vesselId,dataset
+Petra II,341454001,KNA,Saint Kitts and Nevis,Cargo,31,f53e028e7-79f2-76a9-c13a-38ec4503f7a8,public-global-vessel-identity:v4.0
+Alianca Manaus,563051900,SGP,Singapore,Cargo,26,7e9908b44-46c2-42c6-c3ec-c4435070cebf,public-global-vessel-identity:v4.0
+Maersk Nyassa,477552300,HKG,Hong Kong,Cargo,26,ec8a0cd69-9d20-0925-f92c-929a138919d1,public-global-vessel-identity:v4.0
+Mayar,341264001,KNA,Saint Kitts and Nevis,Other,21,da0f780ac-c710-4d11-995c-fafff1b07311,public-global-vessel-identity:v4.0
+Msv Noore Al Usman,419956821,IND,India,Other,19,84c21dc32-210b-a861-1357-09f4c3cfdcf0,public-global-vessel-identity:v4.0
+Trust 1,671882000,TGO,Togo,Cargo,19,bc4acf13e-e458-bbc3-223a-7e4ac5117a49,public-global-vessel-identity:v4.0
+Alkauwser,666000312,SOM,Somalia,Cargo,19,d96948209-96c3-67d9-304b-15eb847a538c,public-global-vessel-identity:v4.0
+Geewon,470000001,ARE,United Arab Emirates,Other,17,00c4a79a9-9d17-7852-c70a-a63fbe00c7f2,public-global-vessel-identity:v4.0
+Banyas 1,671828000,TGO,Togo,Cargo,17,f4f42d3c6-6b0b-4d5d-01e9-a9e5feb7cea6,public-global-vessel-identity:v4.0
+Hajh Ghsn J,671742000,TGO,Togo,Cargo,17,c33376f19-96c3-454a-0dcd-e6f5c21c514d,public-global-vessel-identity:v4.0
+Merinos Livestock,620745000,COM,Comoros,Cargo,16,1d02929f1-1542-a31b-7387-14bcba49bfca,public-global-vessel-identity:v4.0
+Kota Naga,565893000,SGP,Singapore,Cargo,16,c232a671d-dd11-eeeb-9b6f-7956f187cc48,public-global-vessel-identity:v4.0
+Abu Yasser II,677029000,TZA,Tanzania,Other,15,f17d5f4f8-8c4e-cea2-ca77-9425ef03b0b2,public-global-vessel-identity:v4.0
+Adel II,677090500,TZA,Tanzania,Cargo,15,41d638262-2a44-bf1e-2911-554cb4fac6b2,public-global-vessel-identity:v4.0
+Kota Nanhai,563011000,SGP,Singapore,Cargo,15,3a47a92e1-1ac7-05db-5e1f-f004e4e9731d,public-global-vessel-identity:v4.0
+Al Muhammad Sameer,419956373,IND,India,Other,13,a84abdf5f-f685-71dd-c91b-fd63660dee0d,public-global-vessel-identity:v4.0
+Msv Noore Al Amina,419956485,IND,India,Other,13,47879a162-24bc-c6ef-1f44-fafddcd05f0e,public-global-vessel-identity:v4.0
+Amali,630001011,GNB,Guinea-Bissau,Cargo,13,e36c535f5-5ef3-ac97-e8f6-6edcc1fb15cd,public-global-vessel-identity:v4.0
+Gfs Jade,377311000,VCT,Saint Vincent and the Grenadines,Other,13,0e816e73c-ce4a-0d87-5193-9f9258cb039b,public-global-vessel-identity:v4.0
+Zaganos Pasa,271051164,TUR,Turkey,Seismic vessel,12,c102144d0-0ffa-dcb2-dae1-700e8bebbd2e,public-global-vessel-identity:v4.0
+Socotra 1,351498000,PAN,Panama,Cargo,12,69ef9070a-a1a0-9330-c859-38f2f58555a5,public-global-vessel-identity:v4.0
+B Star 1,511012000,PLW,Palau,Other,12,0e8469175-56c0-67ca-462d-503dc763731f,public-global-vessel-identity:v4.0
+Kota Naluri,563677000,SGP,Singapore,Cargo,12,1b946c682-2420-e7f4-fc6d-963618a88342,public-global-vessel-identity:v4.0
+Safeen Pearl,538010956,MHL,Marshall Islands,Other,12,fa71db312-2fbd-dfcf-8d54-ddad80499f59,public-global-vessel-identity:v4.0
+Barakat,677078700,TZA,Tanzania,Cargo,12,8742a6357-7281-cf16-7613-0d3f31617cf1,public-global-vessel-identity:v4.0
+Aljaziah,352001769,PAN,Panama,Other,12,290241edb-bcb9-62d6-d67a-3434b8d137c8,public-global-vessel-identity:v4.0
+Marwa B,341864001,KNA,Saint Kitts and Nevis,Cargo,12,6b71292b9-9f6b-12c9-44d5-195332495198,public-global-vessel-identity:v4.0
+Msc Malin II,212663000,CYP,Cyprus,Cargo,11,9ac8ebca8-8cc0-04fe-b5a8-6532d4ff144a,public-global-vessel-identity:v4.0
+African C,341866001,KNA,Saint Kitts and Nevis,Cargo,11,98664b76f-f953-00f6-bff6-738496e02d35,public-global-vessel-identity:v4.0
+Ssf Lyra,341783001,KNA,Saint Kitts and Nevis,Cargo,11,5db8ccf37-7f60-7099-7f50-8ec7807eff65,public-global-vessel-identity:v4.0
+Msv Alimusa Mnv 2196,419956882,IND,India,Cargo,11,81d4bcfbf-fc69-e5d9-c4a5-1b392cd6e7bf,public-global-vessel-identity:v4.0
+"M,s,v,al-Yasin-II",419956032,IND,India,Other,11,4724e9ca3-3c6c-d2bf-aec6-c473b34e2f70,public-global-vessel-identity:v4.0
+Rsm Blessed,341975001,KNA,Saint Kitts and Nevis,Other,11,1dcf74fd4-4b12-7b7d-d15b-582465df7fd0,public-global-vessel-identity:v4.0
+Cefiro,341965001,KNA,Saint Kitts and Nevis,Cargo,11,40ba90e58-85bd-a996-a34c-22a4881f136e,public-global-vessel-identity:v4.0
+Elif.S,620088000,COM,Comoros,Cargo,9,606376213-3402-9d51-97f1-78e3d2baff9a,public-global-vessel-identity:v4.0
+Berbera Star 7,620999170,COM,Comoros,Other,9,12dc8afb7-7904-095b-af1f-a54d35b439b1,public-global-vessel-identity:v4.0
+Msv Al Shama No 406,419956016,IND,India,Other,9,cab0ab68f-fd6b-8df4-b337-f64847930c04,public-global-vessel-identity:v4.0
+Mo Joud,630001095,GNB,Guinea-Bissau,Cargo,9,9632504d8-8318-237b-5898-4d48e45ca69d,public-global-vessel-identity:v4.0
+Socotra 3,370909000,PAN,Panama,Cargo,9,4611d5a19-9a07-c65f-d34e-850362fb4d0a,public-global-vessel-identity:v4.0
+Myd Ningbo,357131000,PAN,Panama,Cargo,9,8c73d4873-3731-3d21-3bed-e43faae00f02,public-global-vessel-identity:v4.0
+Al-Yusuf,419956324,IND,India,Other,8,5edd7276d-da95-0352-6dec-d4b01f0d37f3,public-global-vessel-identity:v4.0
+Al Hasnain,419956863,IND,India,Other,8,2ad69e868-834e-a639-77e9-208d24aff89d,public-global-vessel-identity:v4.0
+Msv Al Junas,419956609,IND,India,Other,8,4f2dcbc3e-ecf6-20e9-1842-b9e4856a77c2,public-global-vessel-identity:v4.0
+Gfs Juno,375751000,VCT,Saint Vincent and the Grenadines,Cargo,8,8244731a3-38a9-42f9-a90c-a7480d5470dd,public-global-vessel-identity:v4.0
+Som Star 1,666071121,SOM,Somalia,Fishing,8,c06462b2a-ae00-d5db-9c0d-6793f1e47c4d,public-global-vessel-identity:v4.0
+Lady Yasso,352001465,PAN,Panama,Other,8,9d5759e78-88e9-4d08-8547-cf89a9d47dad,public-global-vessel-identity:v4.0
+Selena,341966001,KNA,Saint Kitts and Nevis,Cargo,8,6d8274ae7-7324-54f6-36f9-bea85c53b772,public-global-vessel-identity:v4.0
+Mohamadi,666070345,SOM,Somalia,Other,7,62dc16844-4483-8a87-589e-fde63f0e554d,public-global-vessel-identity:v4.0
+Al Noman 1,616950000,COM,Comoros,Other,7,6246a1298-8419-3fc1-1d8b-e8bc787bbd64,public-global-vessel-identity:v4.0
+Guardafui I,667001805,SLE,Sierra Leone,Other,7,6d26cafd1-1096-aa81-3d6b-849da04a09e5,public-global-vessel-identity:v4.0
+Sancar,271046708,TUR,Turkey,Other,7,c3059263c-cf67-40a9-c395-e824abea268d,public-global-vessel-identity:v4.0
+Suvari Bey,376699000,VCT,Saint Vincent and the Grenadines,Other,7,276dcd2e6-6794-0e18-501c-613d513cb9bd,public-global-vessel-identity:v4.0
+Suvari Kaptan,371212000,PAN,Panama,Other,7,7ddcd72a6-6856-3689-eabe-82e33693792c,public-global-vessel-identity:v4.0
+Msv Haji Ali,419956884,IND,India,Other,7,8d12e014e-e1c4-169d-814d-e835685e434d,public-global-vessel-identity:v4.0
+Abdullah F,341732001,KNA,Saint Kitts and Nevis,Cargo,7,192311a9f-fd67-6508-b501-2c3a1b532e08,public-global-vessel-identity:v4.0
+Lady Youmna,352003444,PAN,Panama,Other,7,3e6d934c2-2bea-9004-6b3c-5646f2d5e197,public-global-vessel-identity:v4.0
+Faize Bagdadi,419038900,IND,India,Other,7,a8ad4f572-2def-00dc-a921-8ec711c38d7d,public-global-vessel-identity:v4.0
+Suvari Reis,511100711,PLW,Palau,Cargo,7,e33c5caa1-1326-8872-5204-c6e86769e2b4,public-global-vessel-identity:v4.0
+Al Dayeb2 160,666000160,SOM,Somalia,Other,7,a191142f6-6fd8-90c2-7270-e2baf2f41465,public-global-vessel-identity:v4.0
+Costana H,341287000,KNA,Saint Kitts and Nevis,Cargo,7,228c8911f-f501-1401-ef15-e5170831e49b,public-global-vessel-identity:v4.0
+Gfs Ranna,377751000,VCT,Saint Vincent and the Grenadines,Cargo,6,538cd06ba-a216-8e11-d6ce-e5e59f3a052c,public-global-vessel-identity:v4.0
+Brave,314658000,BRB,Barbados,Other,6,0402b5336-6d7f-754b-0c9d-0fd2b91b0e7c,public-global-vessel-identity:v4.0
+Msv Al Safah,419956001,IND,India,Other,6,bb024fd26-6c1b-4b34-d865-c260b639ab8f,public-global-vessel-identity:v4.0
+Almabrouka 11,677049300,TZA,Tanzania,Other,6,4e3dc5b10-014b-c868-25c6-fcbb7c2da9ba,public-global-vessel-identity:v4.0
+Al Mabroukah 2,341928001,KNA,Saint Kitts and Nevis,Other,6,9626f1deb-b2f5-de63-9e59-88d5f922f0f2,public-global-vessel-identity:v4.0
+Msv Al Marwan,419956005,IND,India,Other,6,3146dd78d-d5ca-4322-59d1-ae9fea1551fb,public-global-vessel-identity:v4.0
+Towfiq 1,666000123,SOM,Somalia,Cargo,6,ca3818068-8f12-b430-b1f5-0a473b6de4f0,public-global-vessel-identity:v4.0
+Ataman,271045284,TUR,Turkey,Seismic vessel,6,37ba74a23-332f-5e99-55d5-2152694cbadd,public-global-vessel-identity:v4.0
+Mt Sahil,667002250,SLE,Sierra Leone,Other,6,8051dfac3-3745-1b06-02cd-516d735f99c7,public-global-vessel-identity:v4.0
+Msv Al Husein,419956018,IND,India,Other,6,89281c078-8f79-8828-315b-6817c0a86f4c,public-global-vessel-identity:v4.0
+Pegasus 01,511100656,PLW,Palau,Cargo,6,55c54c54f-f6b5-25d0-5229-55aaf191c850,public-global-vessel-identity:v4.0
+Bamedhaf,341766000,KNA,Saint Kitts and Nevis,Other,6,60015896e-e799-dc7e-743c-4a8cd203b670,public-global-vessel-identity:v4.0
+Msv Al Noore Usmani1,419956784,IND,India,Other,6,6bbec569d-d1d3-eaf1-b0b4-9fbe774a744e,public-global-vessel-identity:v4.0
+Safeen Pride,538009719,MHL,Marshall Islands,Cargo,6,1978a74d9-9a7a-d6ac-6224-ed469393c5de,public-global-vessel-identity:v4.0
+Neptune J,341602001,KNA,Saint Kitts and Nevis,Cargo,6,8ff1f9a75-5e19-acd6-3cb0-e2522ba3d5b3,public-global-vessel-identity:v4.0
+Ali E Murtaza 1473,419956806,IND,India,Other,6,30e0d046d-dc7c-ba8b-1063-2a5b924fdba5,public-global-vessel-identity:v4.0
+Palomablue Wave,666001713,SOM,Somalia,Other,6,98e3decb2-2a4e-90c7-6883-ad45d4872ef1,public-global-vessel-identity:v4.0
+Msv Al Azmat 2137,419956072,IND,India,Other,6,eb94d6c2d-dec4-a011-f889-5baf5d146694,public-global-vessel-identity:v4.0
+Msv Goushe Oliya,419041100,IND,India,Other,6,9353836f2-257b-dff5-1782-cf06bded4efa,public-global-vessel-identity:v4.0
+Africa Sun,621819050,DJI,Djibouti,Cargo,5,2d03d7059-9af4-98de-67a2-7fef7e13a2ee,public-global-vessel-identity:v4.0
+Hua Chen 266,511101539,PLW,Palau,Other,5,f6895c9d5-5eb7-1987-a82a-f4cb689e25b9,public-global-vessel-identity:v4.0
+Chiron 7,671294100,TGO,Togo,Other,5,7434bbffc-ce56-f32e-6f5f-bb9bd4183e62,public-global-vessel-identity:v4.0
+Msv Noore Taiba,419956995,IND,India,Cargo,5,0da2951be-e0ed-3a5f-f546-d48724d19a47,public-global-vessel-identity:v4.0
+Juliet,620999046,COM,Comoros,Other,5,72da8a4d3-3be8-b6da-9645-0f3ca3193e8e,public-global-vessel-identity:v4.0
+Al Mehraab,419956551,IND,India,Cargo,5,1ce56fb26-6c4e-41bb-a9cd-3fd1d4d9b05c,public-global-vessel-identity:v4.0
+Albaraka1,671402000,TGO,Togo,Cargo,5,9b3824ffd-da67-57de-ec7a-af5283aeff97,public-global-vessel-identity:v4.0
+Msv Gaushe Sailani,419957031,IND,India,Other,5,a5f25b4df-fa8f-5012-f378-e46f0fd1fb68,public-global-vessel-identity:v4.0
+Al Diab II,511100397,PLW,Palau,Other,5,6d1e0dd47-71d8-7c5b-450d-2846eef4f931,public-global-vessel-identity:v4.0
+Sidra Ahlam,511101337,PLW,Palau,Cargo,5,ba4f8171c-c13c-0c55-736e-a1cb90b037e5,public-global-vessel-identity:v4.0
+Haj Ali,511621000,PLW,Palau,Cargo,5,a3f417da2-2b4a-6d43-809f-a6fcff635285,public-global-vessel-identity:v4.0
+Hari Sagar,419956112,IND,India,Other,5,b2714b5da-a0ad-2824-c15c-ea0fdd74a3c1,public-global-vessel-identity:v4.0
+Msv Ct201 2177,419956492,IND,India,Other,5,f1a35375c-cea6-1495-1977-3b83a8719a98,public-global-vessel-identity:v4.0
+Msv Faize Goushenoor,419956339,IND,India,Other,5,a3859f67c-c9f2-e4e0-227f-4bbd0e80419b,public-global-vessel-identity:v4.0
+Ten Neptune,352005270,PAN,Panama,Other,5,21971e968-8a5e-23bc-0f64-1fce37c40fba,public-global-vessel-identity:v4.0
+Albaraka1,671402000,TGO,Togo,Cargo,5,7d0961119-9d4a-dfc0-6e35-0be1cc167622,public-global-vessel-identity:v4.0
+Sofia II,511100879,PLW,Palau,Cargo,5,2d4bd2ede-e43d-798b-4278-b0dd577ad04f,public-global-vessel-identity:v4.0
+Msv Prem Sagar 1,419908016,IND,India,Cargo,5,666a86bec-cfbd-71bb-8280-4a062044eb49,public-global-vessel-identity:v4.0
+Tara,341884001,KNA,Saint Kitts and Nevis,Cargo,5,da01d5875-512a-06b0-3118-60e57a6e7051,public-global-vessel-identity:v4.0
+M.S.V. Al-Nazir,419956089,IND,India,Other,5,b89a0d708-826a-1e9f-8801-59e27f5439c9,public-global-vessel-identity:v4.0
+Msv Nafea,417209050,LKA,Sri Lanka,Other,5,0c940dbd4-4741-b90a-5589-63b4c4d372c7,public-global-vessel-identity:v4.0
+Msv Medari,620999813,COM,Comoros,Other,5,2c6bc0d03-31af-9dad-a618-0f750a3e4ac6,public-global-vessel-identity:v4.0
+Msv Al Hasan,419956341,IND,India,Other,5,6760d841d-d462-c1f7-1c4d-217ea1d7fbc2,public-global-vessel-identity:v4.0
+Pearl1,341809001,KNA,Saint Kitts and Nevis,Other,5,b136cfc39-9895-30f0-c83e-ba8d2a17ae33,public-global-vessel-identity:v4.0
+Hudhud 2,417115860,LKA,Sri Lanka,Other,5,aa11378ca-a9b4-51f4-1f16-b845f7505803,public-global-vessel-identity:v4.0
+Umm Al Anber,470441000,ARE,United Arab Emirates,Other,5,83e5d9b82-2d9d-ba91-ce4c-f7437320426b,public-global-vessel-identity:v4.0
+Atlas,341052002,KNA,Saint Kitts and Nevis,Cargo,4,f899d70d3-35e4-246e-dd04-4eccadeade9a,public-global-vessel-identity:v4.0
+Msv Moinuddin Chisty,419956082,IND,India,Other,4,fbe640fd6-6b63-fdb8-5a56-f2c2f5c7506b,public-global-vessel-identity:v4.0
+Khair Wade,629009542,GMB,Gambia (Republic of The),Other,4,f9365a955-525c-51a4-0406-2b417837b574,public-global-vessel-identity:v4.0
+Jacuar,341014002,KNA,Saint Kitts and Nevis,Cargo,4,ac029b1a9-989b-5213-2c4b-80376d95752c,public-global-vessel-identity:v4.0
+Msv Al Shams No 1500,419957005,IND,India,Other,4,791f44c06-655d-eb11-d9c3-1e20845bf270,public-global-vessel-identity:v4.0
+Achilles,671510100,TGO,Togo,Other,4,8cebf3cc4-44f2-ba95-fdac-c960aaec16cb,public-global-vessel-identity:v4.0
+Msv Noore Maryam,419956372,IND,India,Other,4,94592d38e-ed0f-9d99-7f28-7ecc85f6e53a,public-global-vessel-identity:v4.0
+Mk Lamis,312901000,BLZ,Belize,Cargo,4,63d5a54ff-fb74-5ff3-365f-f4ed86f20bd9,public-global-vessel-identity:v4.0
+Cma Cgm Cebu,229831000,MLT,Malta,Other,4,c8bcd131b-b4a7-12c8-4f11-e09d3e407276,public-global-vessel-identity:v4.0
+Al Haji Hasan 1479,419956853,IND,India,Other,4,3bef60414-4b04-2e4b-95e4-19d884f28c61,public-global-vessel-identity:v4.0
+Msval Faizane Sultan,419956371,IND,India,Other,4,fafe865b5-5c89-9233-138a-a4233c575131,public-global-vessel-identity:v4.0
+Msc Juanita F,636017534,LBR,Liberia,Cargo,4,d799bba74-4644-169a-c4e2-67fea9f36491,public-global-vessel-identity:v4.0
+Msv Mashaallah 1444,419956514,IND,India,Other,4,8d89be0c7-7b32-17eb-2c47-db83ef1ad57c,public-global-vessel-identity:v4.0
+Bomustafa O,352001900,PAN,Panama,Cargo,4,96b46df1d-d437-d649-198b-8bd90e4109d3,public-global-vessel-identity:v4.0
+Sama 2,620999062,COM,Comoros,Other,4,f39100755-5957-4938-b3b7-cf249099456a,public-global-vessel-identity:v4.0
+Cma Cgm Nacala,256127000,MLT,Malta,Other,4,f85f9e47b-bb27-dd39-87de-36b254193ab9,public-global-vessel-identity:v4.0
+Msv Mohammed Hasnen,419956133,IND,India,Other,4,4763682f8-8856-7df9-65d9-715725603513,public-global-vessel-identity:v4.0
+Msv Al Simnan,419956795,IND,India,Other,4,73127a60f-f911-5d29-bdd2-3fc58f97d2f8,public-global-vessel-identity:v4.0
+Al Ahmadi,666000311,SOM,Somalia,Cargo,4,984771ffa-af66-43eb-8a3c-ed1486a4f7ae,public-global-vessel-identity:v4.0
+Al Falasi 6418,470641800,ARE,United Arab Emirates,Cargo,4,f967c90f7-7e7c-ccf8-8405-d1c0610a69e4,public-global-vessel-identity:v4.0
+M S V Noor E Hashmi,419956951,IND,India,Other,4,91188eb23-36fd-c961-2f56-16addfa16722,public-global-vessel-identity:v4.0
+Tawakal 1  195,666000195,SOM,Somalia,Other,4,35acd0b0a-a64d-c9c9-7d42-351163e9602a,public-global-vessel-identity:v4.0
+Farah 1,677040300,TZA,Tanzania,Other,4,5472c07a4-4909-e862-a0df-4ca928a733f7,public-global-vessel-identity:v4.0
+Ubena,255805810,PRT,Portugal,Cargo,4,a90d68c07-7e23-4acd-6368-5ca8aeaa40e8,public-global-vessel-identity:v4.0
+Masha.Alla,666000152,SOM,Somalia,Other,4,f6e9e928d-d215-5eaa-5636-c3de024cbd08,public-global-vessel-identity:v4.0
+Al Hamza  127,666000127,SOM,Somalia,Other,4,c5528d449-96ba-d9ca-4750-58bea14103c5,public-global-vessel-identity:v4.0
+Safina Al Sabba 1403,419956124,IND,India,Other,4,092b96e0a-aaac-5f47-6285-e2bfb2abd151,public-global-vessel-identity:v4.0
+Marwan 1,666000041,SOM,Somalia,Fishing,4,0b36088ad-d9f6-e8fa-44cc-a39d69745d81,public-global-vessel-identity:v4.0
+Nordpanther,212531000,CYP,Cyprus,Cargo,4,0d464139e-ea6b-02bb-c18f-ef1c38d2ebef,public-global-vessel-identity:v4.0
+Sofia,677086300,TZA,Tanzania,Other,4,66f5fa6d3-3ae8-09ec-027d-64df9bb9cbe0,public-global-vessel-identity:v4.0
+Rider,341155002,KNA,Saint Kitts and Nevis,Cargo,4,283b6aef5-5c6e-25f6-5404-788f7d27d9b6,public-global-vessel-identity:v4.0
+Msv Al Fazal 2031,419956071,IND,India,Other,4,8b207e95b-b610-8e91-28ac-5cf21ef92e41,public-global-vessel-identity:v4.0
+Msv Al Rehmat 1400,419956057,IND,India,Fishing,4,724be4c39-9b65-362a-71f4-c87e7bf0498b,public-global-vessel-identity:v4.0
+Msv Faizane Chisti,419040800,IND,India,Other,4,f80aa41db-bf2f-2fcf-f9ab-1e68e8af137c,public-global-vessel-identity:v4.0
+Ef Emma,255806209,PRT,Portugal,Cargo,4,113a4676b-bdaf-a137-ae05-efe31beac53c,public-global-vessel-identity:v4.0
+Fahad,669650102,SWZ,Eswatini,Other,4,b6d9a2cee-ea72-6c46-b65f-50105be4a292,public-global-vessel-identity:v4.0
+Safina -Al-Shirazi,419956515,IND,India,Other,4,b37e58e20-03e4-997b-d9fb-6db16e8c3d7a,public-global-vessel-identity:v4.0
+Apollo India,538011594,MHL,Marshall Islands,Other,4,12662e401-120d-3ff8-fea2-60325f1e1562,public-global-vessel-identity:v4.0
+Msv Noore Al Salam,419956513,IND,India,Other,4,b0bdd41b1-180d-5c86-5407-5bafb33181af,public-global-vessel-identity:v4.0
+Zhuchengxinzhou,413556780,CHN,China,Cargo,4,ccb31d830-0451-e287-2caa-137722036a3e,public-global-vessel-identity:v4.0
+Teacher O,353999000,PAN,Panama,Cargo,4,01d6bdf45-5cc5-ad5e-c54e-fae7d19777e9,public-global-vessel-identity:v4.0
+Cma Cgm Saigon,229480000,MLT,Malta,Other,4,0151be073-3063-1bb3-b865-a7388a474c2a,public-global-vessel-identity:v4.0
+Maersk Saratoga,369096000,USA,United States of America,Cargo,4,58f11e019-9a15-b93f-41e1-f8a0ab4f1b26,public-global-vessel-identity:v4.0
+Unknown vessel,419956043,IND,India,Other,3,d7a893e0b-b59c-e4b6-83d9-559723cf280b,public-global-vessel-identity:v4.0
+Marine Ace 1,634176000,KEN,Kenya,Fishing,3,7b3f093c9-9edc-b780-79bc-3f11abc6d471,public-global-vessel-identity:v4.0
+Taiba,677098300,TZA,Tanzania,Cargo,3,7f0cd0529-9310-92b0-1662-45fdf78ef28c,public-global-vessel-identity:v4.0
+Msv.Noore Ganjesakar,419956963,IND,India,Other,3,59ca0b1da-a9d6-03e2-e85c-3f408d7acdbf,public-global-vessel-identity:v4.0
+Cma Cgm Suez,248269000,MLT,Malta,Cargo,3,495eb4089-933c-6535-78bb-c190392c5f68,public-global-vessel-identity:v4.0
+Aliman,334915000,HND,Honduras,Cargo,3,732c9e8ff-fba1-438a-b898-62ae1d69bc46,public-global-vessel-identity:v4.0
+Hawks Glory,352542000,PAN,Panama,Other,3,6571923ca-a8db-6bac-144a-0a8788f01aea,public-global-vessel-identity:v4.0
+Msv Shan-E-Hind 2176,419956392,IND,India,Other,3,9cca58251-1728-b146-3566-39771c3bb842,public-global-vessel-identity:v4.0
+Al Salmy 2,341988001,KNA,Saint Kitts and Nevis,Cargo,3,4e8615cd5-5008-07f7-2160-681101f9dd0a,public-global-vessel-identity:v4.0
+Mustang-1,671426100,TGO,Togo,Cargo,3,536674107-74be-b1a3-1b25-f7e51acef24b,public-global-vessel-identity:v4.0
+Cecellia,668116203,STP,São Tomé and Príncipe,Cargo,3,f94aeadd8-8f7e-359b-c264-b83a32c0acb7,public-global-vessel-identity:v4.0
+Msv Al Gouse Samdani,419957029,IND,India,Other,3,e19d265a3-36c9-ed68-6c7b-6eaa175bf5f4,public-global-vessel-identity:v4.0
+Sidra,677043400,TZA,Tanzania,Cargo,3,38b3f669f-f820-4ff2-9947-fdfe3326f28e,public-global-vessel-identity:v4.0
+Asena,341694001,KNA,Saint Kitts and Nevis,Cargo,3,2de931f7a-a78b-d816-29e2-64391c9f2554,public-global-vessel-identity:v4.0
+Evelpis,636025154,LBR,Liberia,Other,3,558f84301-19a4-bf35-cbe5-e796bcf438b7,public-global-vessel-identity:v4.0
+Msv Al Rashid,419956834,IND,India,Other,3,429817d3f-f85c-81f5-a82d-d9f96a42573e,public-global-vessel-identity:v4.0
+Chance,636023993,LBR,Liberia,Cargo,3,732933ea5-5f0b-f4f3-ffb3-1496e5be9936,public-global-vessel-identity:v4.0
+Voyager Haven,352004496,PAN,Panama,Other,3,99146902a-a7ee-f69b-1a5c-d280d23d0d1b,public-global-vessel-identity:v4.0
+Portland S,341222002,KNA,Saint Kitts and Nevis,Cargo,3,5b83291a7-7a93-9e01-3c50-800270dea0b3,public-global-vessel-identity:v4.0
+Summit Singapore,352005585,PAN,Panama,Cargo,3,18384dc76-6183-b7df-bb48-083c4f0f8aea,public-global-vessel-identity:v4.0
+Reemat,417001342,LKA,Sri Lanka,Cargo,3,e6e31f4cf-f383-493a-b82d-2d5a67549c0a,public-global-vessel-identity:v4.0
+Cma Cgm Fuzhou,229819000,MLT,Malta,Cargo,3,2f772acbd-d7f6-da25-70aa-1e50f8c15583,public-global-vessel-identity:v4.0
+Msv Uweesh Karani,419956094,IND,India,Other,3,7769e34cf-fc2e-3a7d-879e-a5e9c84e1309,public-global-vessel-identity:v4.0
+Msv Quba Mnv 2183,419956531,IND,India,Other,3,d37af394e-ee39-2991-fcad-71a428fb01e8,public-global-vessel-identity:v4.0
+Mashhour 2,616999262,COM,Comoros,Other,3,daec12f77-7a1d-16f4-ed5a-8901ecce73bf,public-global-vessel-identity:v4.0
+Triveni,352003053,PAN,Panama,Other,3,2408aeb6b-b2fc-57d6-7dcd-2b6f407f1f4e,public-global-vessel-identity:v4.0
+Elegance,511100843,PLW,Palau,Other,3,0cc2c1189-9085-bead-0a28-3f3e56d95268,public-global-vessel-identity:v4.0
+MV Alpha Kirawira,341426001,KNA,Saint Kitts and Nevis,Other,3,ec4762764-4f4d-7dae-c62d-5a6c3bb23367,public-global-vessel-identity:v4.0
+Alpha Serengeti,634153000,KEN,Kenya,Fishing,3,7e4f0b859-90a7-f0e5-0a6a-e030ba49b5be,public-global-vessel-identity:v4.0
+Msv Noore Dastgir,419956607,IND,India,Other,3,c73c68f49-9884-2cd8-2b00-51ffebcdfadf,public-global-vessel-identity:v4.0
+Msv Al Ibrahimi,419956013,IND,India,Other,3,330c764f5-5cfb-8a5f-3ac8-571fee3890a5,public-global-vessel-identity:v4.0
+Noore Mustafa 2181,419956488,IND,India,Passenger,3,6d005f9dd-da3d-c4e6-879b-a68d0f277711,public-global-vessel-identity:v4.0
+Dubai 1  988850,417998885,LKA,Sri Lanka,Other,3,e19359f84-4c17-202c-03a5-28ae3ccbe115,public-global-vessel-identity:v4.0
+Ima Glory,312754000,BLZ,Belize,Other,3,a06235762-2562-e734-03da-b07f33bede65,public-global-vessel-identity:v4.0
+Msv Fazlerabbi 2192,419956786,IND,India,Other,3,1143a85ac-c365-c26c-3819-0ae99588e336,public-global-vessel-identity:v4.0
+Alfa Live Stock,671781000,TGO,Togo,Cargo,3,902442e5a-aeb2-9010-5315-f240f0153a32,public-global-vessel-identity:v4.0
+Msv Nabuwat E Isha,419956864,IND,India,Other,3,60347413a-a9eb-2312-6ad3-89d0b6969bad,public-global-vessel-identity:v4.0
+Mustang-1,677063500,TZA,Tanzania,Cargo,3,105c3da6b-b03b-8a4a-cb67-153cc83edd7b,public-global-vessel-identity:v4.0
+Msv Al Mohammed,419956528,IND,India,Other,3,70e3e8360-0b8f-afc2-bfeb-638b1c8d51c2,public-global-vessel-identity:v4.0
+Elreedy Star,622112802,EGY,Egypt,Cargo,3,3745b8aa7-7fee-d9ad-5d31-8664b28b3f77,public-global-vessel-identity:v4.0
+Alfa Bro,677071800,TZA,Tanzania,Cargo,3,14b08df4d-dae3-e1ba-3096-7675ab307e8a,public-global-vessel-identity:v4.0
+Doctor O,671644000,TGO,Togo,Cargo,3,4ce5dfea8-881c-8c0a-a527-a78efb9fa1a8,public-global-vessel-identity:v4.0
+Msv.Safina Al Shifa,419996104,IND,India,Other,3,464df2d3b-b553-e4c7-920b-46815107bf5c,public-global-vessel-identity:v4.0
+Msv Abu Musa,419956553,IND,India,Other,3,965923511-1e0f-6f09-b607-ea3fde845922,public-global-vessel-identity:v4.0
+Msv Al Husein,419956018,IND,India,Other,3,1341be6f9-90cb-bdf9-ed40-e5a300edde23,public-global-vessel-identity:v4.0
+Dsm Liverpool,314835000,BRB,Barbados,Cargo,3,49db06ae8-894c-679b-0d83-a317d7b36325,public-global-vessel-identity:v4.0
+Ye Da 68,341848001,KNA,Saint Kitts and Nevis,Cargo,3,fc9d8583e-e74c-7aa0-6ba5-242ccceffacb,public-global-vessel-identity:v4.0
+Zhong Hang Sheng,413238570,CHN,China,Cargo,3,3e6475de4-4928-e18e-89ea-61ce8e7c544a,public-global-vessel-identity:v4.0
+Cma Cgm Kailas,371866000,PAN,Panama,Cargo,3,db0d03930-0f5e-6afa-0f9e-5003696e78e0,public-global-vessel-identity:v4.0
+Noor E Nabuwat,419956726,IND,India,Other,3,427bd7718-843a-f9fe-5188-78cd6fa50c78,public-global-vessel-identity:v4.0
+Baraawe 1,341987001,KNA,Saint Kitts and Nevis,Other,2,d9807f018-8150-d61c-93cb-278ba084e47b,public-global-vessel-identity:v4.0
+Pegasus 02,511100884,PLW,Palau,Other,2,18ef2dd2f-ffe5-334d-607a-b4a8ef91e825,public-global-vessel-identity:v4.0
+Hamdanyaqoob,671332000,TGO,Togo,Cargo,2,dd8974222-230e-af85-f9a9-03b597aaad3d,public-global-vessel-identity:v4.0
+Hudhud 2,666983450,SOM,Somalia,Fishing,2,49c5e8e33-3300-2ebb-8057-34db9de0de89,public-global-vessel-identity:v4.0
+Haneen,620999295,COM,Comoros,Other,2,759eb393b-bb62-333d-062a-25276cffd3b8,public-global-vessel-identity:v4.0
+Bella A,620999047,COM,Comoros,Cargo,2,5f04ea837-7eb4-1877-5a35-d49024deab53,public-global-vessel-identity:v4.0
+Rising Falcon,671545100,TGO,Togo,Other,2,f6c95bd6f-f5b5-4ba0-6dba-c6222e36f9c5,public-global-vessel-identity:v4.0
+Al Dayeb 1 199,666000199,SOM,Somalia,Other,2,986487d7e-ea28-9bbc-9723-5a58e2029a62,public-global-vessel-identity:v4.0
+Msv Safina Al Zahra,419956221,IND,India,Other,2,e4fc6abfd-d843-3a9e-62d2-3ec8779cc64e,public-global-vessel-identity:v4.0
+Mehboob E Sahidi,419956685,IND,India,Other,2,90cf1cdf9-9223-1355-6632-4b123cac3434,public-global-vessel-identity:v4.0
+Maheboob E Bukhari,419956306,IND,India,Other,2,4053ab1d9-9b28-06c1-ff3c-b0def3159a07,public-global-vessel-identity:v4.0
+Al Khayr,570625751,TON,Tonga,Other,2,23aa9db10-0de8-79e9-3f0e-21926c5f3498,public-global-vessel-identity:v4.0
+Cma Cgm Da Nang,249741000,MLT,Malta,Cargo,2,716318b15-5d41-bb6c-9e4e-0dcfe6c7a129,public-global-vessel-identity:v4.0
+Somal Star 2,666071120,SOM,Somalia,Other,2,cfdbe9d91-1891-00ea-d6dc-140181705606,public-global-vessel-identity:v4.0
+Adonnis,341889001,KNA,Saint Kitts and Nevis,Cargo,2,fd33f6003-3c3b-0be5-6e41-ae2e17c29a8e,public-global-vessel-identity:v4.0
+Amu 2,511101235,PLW,Palau,Other,2,2c6b2becc-ce61-bc1a-419e-335868d859ac,public-global-vessel-identity:v4.0
+Lily J,671734000,TGO,Togo,Cargo,2,da660232e-e5f5-7b27-15c8-0be1fc9d0825,public-global-vessel-identity:v4.0
+Shark 5,630001079,GNB,Guinea-Bissau,Other,2,9c50abe04-4728-4d8c-cf7b-40fb455efb91,public-global-vessel-identity:v4.0
+Abraham A,620993000,COM,Comoros,Other,2,05b06f5e1-16f9-4480-98c6-5988b20096a6,public-global-vessel-identity:v4.0
+Msv Shahe Faizenoori,419956006,IND,India,Other,2,063193099-9077-d466-6abb-ea7a835815c1,public-global-vessel-identity:v4.0
+M Brigit,563237200,SGP,Singapore,Other,2,81b1bd5ca-a815-dc34-84e0-464aad9554aa,public-global-vessel-identity:v4.0
+Rakan 5,341860001,KNA,Saint Kitts and Nevis,Other,2,3057381a7-75ca-3706-3cf6-6d68b4d97fcd,public-global-vessel-identity:v4.0
+Unknown vessel,470000001,ARE,United Arab Emirates,Other,2,5e31780a6-6501-1cf5-6827-56465366a537,public-global-vessel-identity:v4.0
+Crazy,671437100,TGO,Togo,Other,2,80006dd76-6db1-ba30-f7fb-8aa5ec621792,public-global-vessel-identity:v4.0
+Faizemehboobmohyudin,419956315,IND,India,Other,2,70da854fa-af6d-f327-da78-0d563683b627,public-global-vessel-identity:v4.0
+Msv Sea  Queen,419956548,IND,India,Other,2,b13499b45-5eba-7210-ac89-c059946503aa,public-global-vessel-identity:v4.0
+Al Munir,419956049,IND,India,Other,2,06f0075ee-e3e1-bd28-1763-a0e9871a4b64,public-global-vessel-identity:v4.0
+Cstar Voyager,352004791,PAN,Panama,Other,2,3ece52274-4b4f-8b79-eaca-edbd9084d15f,public-global-vessel-identity:v4.0
+Msv.Anjalipuja 3798,419956201,IND,India,Seismic vessel,2,1082e63b6-6240-03a5-4082-883f538ea0fa,public-global-vessel-identity:v4.0
+Dsm London,314709000,BRB,Barbados,Cargo,2,f7bda6ac4-4306-76de-62c9-2c878cedda37,public-global-vessel-identity:v4.0
+Teti,620800152,COM,Comoros,Cargo,2,0ad3181b4-48ce-e8b1-a9c2-d14d53f6e96b,public-global-vessel-identity:v4.0
+Msv Al Bismilla,419035900,IND,India,Other,2,11e4b1e5a-a561-e426-ea30-0bd3089fc556,public-global-vessel-identity:v4.0
+Safina Alpanjatani,419956817,IND,India,Cargo,2,e30eb5cd4-441c-9518-badd-94a8cdb5f3ac,public-global-vessel-identity:v4.0
+Al Khaiber 1300413,616170632,COM,Comoros,Other,2,d866c81cd-d34a-af57-da8e-269d04a2903a,public-global-vessel-identity:v4.0
+Ak Hamburg,613561510,CMR,Cameroon,Cargo,2,fde248bc9-9ced-53c8-d332-f62a9521ff81,public-global-vessel-identity:v4.0
+Msv Noore Hajara,419957034,IND,India,Other,2,d6219bff8-827d-e664-e01d-00609a2bd372,public-global-vessel-identity:v4.0
+Msv Faizesalemohmadi,419040900,IND,India,Other,2,250881cdc-c9d8-e45f-3c51-90f333c3629f,public-global-vessel-identity:v4.0
+Hawks Javaahiru,613731809,CMR,Cameroon,Other,2,c0ab5a666-6589-8600-20c7-c36bcd1d6885,public-global-vessel-identity:v4.0
+Alisa,620999091,COM,Comoros,Other,2,b36aced41-1a18-6e55-60bd-7b759303dad9,public-global-vessel-identity:v4.0
+Faize Shekh Mohyudin,419956024,IND,India,Seismic vessel,2,8947154ed-dce7-621c-d4c5-59c208f4b2ef,public-global-vessel-identity:v4.0
+Al Makhdum,419956454,IND,India,Other,2,e7def30a3-301f-ed42-f493-b23e750b3734,public-global-vessel-identity:v4.0
+Fareeda 5,629009296,GMB,Gambia (Republic of The),Other,2,b5573259b-b888-2470-83a2-b69396540f8c,public-global-vessel-identity:v4.0
+Maysa,630001026,GNB,Guinea-Bissau,Cargo,2,f09c365f5-5fa1-a6fd-8bdc-e07578401d70,public-global-vessel-identity:v4.0
+Al Hamdulilah 1,666000112,SOM,Somalia,Other,2,8dad36f4d-d5cf-2799-5217-7080d0b39295,public-global-vessel-identity:v4.0
+Murtaza,616120103,COM,Comoros,Other,2,6f38da76a-adde-faae-48dd-5ac87f3d817b,public-global-vessel-identity:v4.0
+Hameed 1,671447100,TGO,Togo,Cargo,2,8415f1f5f-f261-84ce-79f3-dc9f1dc17daa,public-global-vessel-identity:v4.0
+Gfs Ruby,563115300,SGP,Singapore,Cargo,2,09dc9977b-b3f7-cde0-8351-fe3bda674a7d,public-global-vessel-identity:v4.0
+M.S.V Noore Al Amina,419956485,IND,India,Other,2,dd406c50f-f376-b403-2a00-8f9e592b0005,public-global-vessel-identity:v4.0
+Msv Faize Hajimalang,419956561,IND,India,Other,2,f9ebc3d9d-d93f-b18f-1c4b-addce013686d,public-global-vessel-identity:v4.0
+Mars J,511101083,PLW,Palau,Cargo,2,dbe3ac35b-b20a-055d-14a4-e72d79f9a00f,public-global-vessel-identity:v4.0
+Mahmoud  A,677086400,TZA,Tanzania,Other,2,9eb224ac3-3a0c-f5dd-f6a8-075b64a3f3b5,public-global-vessel-identity:v4.0
+Med Rose,341869001,KNA,Saint Kitts and Nevis,Cargo,2,c6bc19eb3-3a2a-efb3-6c6b-168a82e4b260,public-global-vessel-identity:v4.0
+Ousha,666305439,SOM,Somalia,Other,2,e8547c278-8cac-48bb-2e10-4027fe724eae,public-global-vessel-identity:v4.0
+Sea World,620999412,COM,Comoros,Other,2,bb332f7f8-8618-1f13-1b12-59b28756ff16,public-global-vessel-identity:v4.0
+Elena,620723000,COM,Comoros,Cargo,2,990512a16-6674-4802-1ec8-9b371bb1e2c8,public-global-vessel-identity:v4.0
+Unknown vessel,419956995,IND,India,Cargo,2,3583c609b-bf84-c47e-18ca-d14ac13fc215,public-global-vessel-identity:v4.0
+Msv-Al-Aqsa,419956003,IND,India,Other,2,52d72747b-b44a-6230-cbee-31221d9a2dbf,public-global-vessel-identity:v4.0
+Alkhdair,677026300,TZA,Tanzania,Cargo,2,68a4dcace-ed6f-2e4f-7231-bfcea21947fc,public-global-vessel-identity:v4.0
+Al Umar 1427,419956337,IND,India,Other,2,0387799aa-ae8b-64cd-6f43-a6035411636f,public-global-vessel-identity:v4.0
+Msv Umarshah Baba,419956511,IND,India,Other,2,44033a0be-e55c-80bf-7d46-68913248c08d,public-global-vessel-identity:v4.0
+Lucky Trader,314586000,BRB,Barbados,Cargo,2,a39bdf69d-d5ca-0764-a3c3-6d7ac9fa1346,public-global-vessel-identity:v4.0
+Msc Mediterraneaniii,357444000,PAN,Panama,Cargo,2,56f67ac0d-d624-99e3-1b84-f882527aabcd,public-global-vessel-identity:v4.0
+Unknown vessel,666118200,SOM,Somalia,Cargo,2,31928aeed-dfb5-1f28-7d5b-699a5835a000,public-global-vessel-identity:v4.0
+Mt Kurt Mas,268248902,SMR,San Marino,Other,2,684e5dd7f-f5ce-b179-e711-2fa7b956ae63,public-global-vessel-identity:v4.0
+Alawad1,671373000,TGO,Togo,Cargo,2,abb356488-8907-042f-ab34-99fb48ccd3a8,public-global-vessel-identity:v4.0
+Msv Al Mukhtar,419956143,IND,India,Other,2,57ea9038b-b956-6608-d17c-523e62de4a7d,public-global-vessel-identity:v4.0
+Sultana 2,666001390,SOM,Somalia,Other,2,cb515967f-fe4e-6e37-2c00-984e1e757210,public-global-vessel-identity:v4.0
+13673,422935000,IRN,Iran (Islamic Republic of),Other,2,e8e14c05d-d267-26d6-3d62-6f3df947c59d,public-global-vessel-identity:v4.0
+Seahorse,356478000,PAN,Panama,Cargo,2,7c7f825a3-35c3-3ab8-bfda-b9697861c3ce,public-global-vessel-identity:v4.0
+Solo 7,341287000,KNA,Saint Kitts and Nevis,Cargo,2,84bfd5955-513e-f4f7-0fe2-da0a9d7fac21,public-global-vessel-identity:v4.0
+Al Noore Usmani-II,419956849,IND,India,Other,2,6f4c7be88-8301-724f-feea-f236bcb46ae8,public-global-vessel-identity:v4.0
+Lotus,511100265,PLW,Palau,Cargo,2,2714484d0-0523-c776-1d89-01cfe9c9a8fd,public-global-vessel-identity:v4.0
+Al- Noor,616002462,COM,Comoros,Other,2,21c45d1fc-c21b-0c92-7c98-4fa994593f84,public-global-vessel-identity:v4.0
+Gas Goodwill,373115000,PAN,Panama,Other,2,938deb36c-c280-d002-0e1a-17d64255ca6f,public-global-vessel-identity:v4.0
+Msv Sikka Star,419041200,IND,India,Other,2,c1c9587e1-15e3-2dd4-633e-4b42354f8ab1,public-global-vessel-identity:v4.0
+Adventure,341978001,KNA,Saint Kitts and Nevis,Cargo,2,994d918bb-b2fd-3081-a4d5-fa2418446c0a,public-global-vessel-identity:v4.0
+Kns Shupavu,634145000,KEN,Kenya,Fishing,1,7dee9e029-9c41-8ce5-d2d1-7da588b1fbe2,public-global-vessel-identity:v4.0
+Unknown vessel,616999262,COM,Comoros,Other,1,77f8baa7d-d59b-211e-72e5-8ed98158648d,public-global-vessel-identity:v4.0
+Haridham,419956509,IND,India,Other,1,e2c65b81d-d2b7-fc37-5252-6bba0c600255,public-global-vessel-identity:v4.0
+Sinfonia,373708000,PAN,Panama,Cargo,1,ca91edfad-d017-3c3b-a35e-d4861020ca2f,public-global-vessel-identity:v4.0
+Shri Narayan,616999521,COM,Comoros,Other,1,5f5bccbce-e0a1-ebca-07a3-64f7910665a5,public-global-vessel-identity:v4.0
+Sara J,511101399,PLW,Palau,Other,1,87270a273-3ee9-5ece-1467-7c813e9bc8ca,public-global-vessel-identity:v4.0
+Mt Maximus,357132000,PAN,Panama,Bunker,1,01d30486b-b7ad-3aee-9067-4be97e33d484,public-global-vessel-identity:v4.0
+Sea Heart,351716000,PAN,Panama,Other,1,69078fbf6-6d47-e9a4-8c8e-66bc1862a45b,public-global-vessel-identity:v4.0
+Msv Medari,620999813,COM,Comoros,Other,1,d61806688-8a84-2efc-d202-4e06bdbb378b,public-global-vessel-identity:v4.0
+Msv Al Shirazi,419956515,IND,India,Other,1,60269cdc9-9a34-4e3a-8836-294d53bf5a15,public-global-vessel-identity:v4.0
+Msv Harihar,419956871,IND,India,Other,1,2e02c1a5a-aaa5-59d7-e03c-94e6b432041f,public-global-vessel-identity:v4.0
+Nordlion,210804000,CYP,Cyprus,Cargo,1,e90e6ece9-9793-47e4-6199-897d15e56a8c,public-global-vessel-identity:v4.0
+Safina Al Sabirpiya,419956000,IND,India,Other,1,bab62de53-3ad1-aea9-f9d6-85f1e91688e1,public-global-vessel-identity:v4.0
+Amu Jameel,636019515,LBR,Liberia,Other,1,4c7b3cf8b-b699-d5f1-b0e2-5269f999b0b9,public-global-vessel-identity:v4.0
+Apus,671706000,TGO,Togo,Cargo,1,f419943a7-7f99-0e1c-9bac-7214134e7627,public-global-vessel-identity:v4.0
+Hud Hud 3,417200171,LKA,Sri Lanka,Other,1,4058820b8-8367-b239-54e1-d74fc94bd588,public-global-vessel-identity:v4.0
+Ps Queen,372288000,PAN,Panama,Other,1,20e172031-14cf-6bb8-b5cb-1e5689b0620a,public-global-vessel-identity:v4.0
+Msv Arjun Sagar16234,419956852,IND,India,Other,1,cedab4d49-9330-228f-9436-5b78416c775c,public-global-vessel-identity:v4.0
+Blue Gold,511101594,PLW,Palau,Other,1,85db7a8b0-0f24-0820-3201-165188d3aa73,public-global-vessel-identity:v4.0
+MOSTAFA_NET2-54%,422120049,IRN,Iran (Islamic Republic of),Gear,1,b0c336b9c-c87d-87cb-61ba-cd8e8b14a8a0,public-global-vessel-identity:v4.0
+Eternity C,636015837,LBR,Liberia,Cargo,1,b89f5496c-cbb8-0cb0-9d55-33896fd28902,public-global-vessel-identity:v4.0
+Msv.Al Noore Marwah,419956571,IND,India,Other,1,5e791cb70-0158-5b5f-871a-ebb18055dcec,public-global-vessel-identity:v4.0
+Msv Virat-1 Mnv 2067,419956232,IND,India,Other,1,7c68798b3-3ae1-568b-d6ea-4979f2e95984,public-global-vessel-identity:v4.0
+Hari Prasad,419956111,IND,India,Other,1,624ac0f77-7014-5259-b636-7b5aea6468ff,public-global-vessel-identity:v4.0
+Mj Massa,314524000,BRB,Barbados,Cargo,1,a1ca25b2f-f858-006f-0d25-441a7cfa20ba,public-global-vessel-identity:v4.0
+Blue Phoenix,613709612,CMR,Cameroon,Other,1,e895cd16f-f004-1228-d215-083e3c3bb4d8,public-global-vessel-identity:v4.0
+Al Aamir  107,666000606,SOM,Somalia,Cargo,1,8d3120ec1-139d-72b5-aaa8-7f38213b1084,public-global-vessel-identity:v4.0
+Falcon-Ua,630001149,GNB,Guinea-Bissau,Cargo,1,026dfe022-219c-6cb1-4fc0-d0c731bb21f7,public-global-vessel-identity:v4.0
+Msv Yasin Mnv 2121,419956326,IND,India,Cargo,1,0108c9232-2886-abd5-356c-dd03dbdcbce5,public-global-vessel-identity:v4.0
+St. John,229949000,MLT,Malta,Cargo,1,65db6dd0c-c93d-16b8-e0b2-70acaa202aeb,public-global-vessel-identity:v4.0
+Narsimhaa,511101578,PLW,Palau,Other,1,b2a2c1777-7fbb-4494-d06c-cb82a94790d1,public-global-vessel-identity:v4.0
+Mt Eureka,671412100,TGO,Togo,Other,1,8fb7be888-8548-b34a-676c-29271118340a,public-global-vessel-identity:v4.0
+Al Azhar 3145,470003145,ARE,United Arab Emirates,Other,1,bc260f3e3-3254-e78d-6bb0-80a94057e167,public-global-vessel-identity:v4.0
+Balosa,314001082,BRB,Barbados,Other,1,20e82d160-04a1-d1d0-6fb3-09ef3bcadbfc,public-global-vessel-identity:v4.0
+Nofal 13103,417713103,LKA,Sri Lanka,Other,1,41b2b9540-0d2f-fc92-38e7-cae775ebd24d,public-global-vessel-identity:v4.0
+Safina Al Dastagir,419040300,IND,India,Other,1,ea6d88ceb-b479-b7a2-de65-606d7bda0b90,public-global-vessel-identity:v4.0
+Mays Al-Raym,671534100,TGO,Togo,Other,1,0b93181cb-b2e5-d489-94b6-06aaa81c08a6,public-global-vessel-identity:v4.0
+Aljabriya,354964000,PAN,Panama,Cargo,1,c04f5fbbe-ec14-a767-181f-53c704623c09,public-global-vessel-identity:v4.0
+Camellia M,511101774,PLW,Palau,Cargo,1,c7eb8dc39-9053-27bb-92cd-5c7cc3a75c05,public-global-vessel-identity:v4.0
+Garnet,355399000,PAN,Panama,Cargo,1,3838199e5-5fbe-eb6b-7595-b27f4876b1b7,public-global-vessel-identity:v4.0
+Harmony Livestock,677054000,TZA,Tanzania,Cargo,1,d0aa643bc-c290-e60e-6add-b91f95382442,public-global-vessel-identity:v4.0
+Mt-Asana,677082900,TZA,Tanzania,Other,1,f273c306e-e638-c0bd-f2cf-f51cf241eaf8,public-global-vessel-identity:v4.0
+Msv Gulshane F.Kadri,419956008,IND,India,Other,1,0e805e699-9218-fc4f-307c-56b90e5f4321,public-global-vessel-identity:v4.0
+Sward,341338002,KNA,Saint Kitts and Nevis,Cargo,1,1edb994c8-8219-079a-aa9c-51c2a516fe34,public-global-vessel-identity:v4.0
+Al Hijrat   1201205,616170627,COM,Comoros,Other,1,0ffa846b1-1398-d642-2e41-7dd88b91d4be,public-global-vessel-identity:v4.0
+Eddystone,235507000,GBR,United Kingdom,Cargo,1,613c5faf4-4e48-0b35-bdaf-a2f558fcd4be,public-global-vessel-identity:v4.0
+Tanais  Flyer,312629000,BLZ,Belize,Cargo,1,c4a12f8a8-8649-0260-4185-c78266e79785,public-global-vessel-identity:v4.0
+Mac London,477987700,HKG,Hong Kong,Other,1,25eec3fe4-491e-f16b-5f28-70918d8167e0,public-global-vessel-identity:v4.0
+Prague,636023238,LBR,Liberia,Other,1,87cb5649a-addc-391b-d4a4-1aaec350e652,public-global-vessel-identity:v4.0
+Gulf Star1,671325100,TGO,Togo,Other,1,cadff5cdc-c75b-85f6-a707-52fa02b520cc,public-global-vessel-identity:v4.0
+Batsa,671430100,TGO,Togo,Other,1,6d67080be-e356-84d0-3a06-ca47bb330fb3,public-global-vessel-identity:v4.0
+Masha.Allah1,666000152,SOM,Somalia,Other,1,bf68616d3-3a35-2d96-f6f4-d7bc9826acbb,public-global-vessel-identity:v4.0
+Msv Al Aqsa,419956344,IND,India,Cargo,1,99725d386-65f7-8984-bd07-a07ff9460f09,public-global-vessel-identity:v4.0
+Ameer  1301606,620999596,COM,Comoros,Other,1,2ed73cc98-81a3-55cd-91c1-011308615e74,public-global-vessel-identity:v4.0
+Horizon 1,511100855,PLW,Palau,Other,1,c162dbd10-05e4-71f9-d5c8-f039a9210685,public-global-vessel-identity:v4.0
+Saturn J,341802001,KNA,Saint Kitts and Nevis,Cargo,1,0661a7fbd-d760-c626-c304-b4bc1714fc50,public-global-vessel-identity:v4.0
+Sm Mahi,419001615,IND,India,Cargo,1,a52094711-1b8b-72f2-434f-49d073d0bd9d,public-global-vessel-identity:v4.0
+Adomy,341882001,KNA,Saint Kitts and Nevis,Cargo,1,5c656eadf-fd99-f9d7-cc3c-db7994995f45,public-global-vessel-identity:v4.0
+Gas Melody,636023743,LBR,Liberia,Other,1,34994547a-a1d2-2119-c6f3-f1bd7d3d9635,public-global-vessel-identity:v4.0
+Lady Maria,677062000,TZA,Tanzania,Cargo,1,ef9d065ad-d1e4-7de6-6246-092eb99d6b3f,public-global-vessel-identity:v4.0
+Hajipeer,419956333,IND,India,Other,1,41d89f38d-de70-fae4-21b8-c67324942464,public-global-vessel-identity:v4.0
+Al Kausar,419956066,IND,India,Other,1,ffff48f6d-d84d-a658-db79-b4572956ba53,public-global-vessel-identity:v4.0
+Almohmedhanifbdi1485,419956736,IND,India,Other,1,3fd51f057-7f36-30fc-5a1e-64277c51f3e6,public-global-vessel-identity:v4.0
+Larissa 1,511101234,PLW,Palau,Cargo,1,d5c5c1312-2af4-c178-8996-b096fe29a80a,public-global-vessel-identity:v4.0
+Mar 28,511101492,PLW,Palau,Other,1,d2adbc028-8bfa-7b32-5c56-90a0caee9bf4,public-global-vessel-identity:v4.0
+Gfs Prime,209849000,CYP,Cyprus,Cargo,1,cfc0fdeb4-45ee-a27d-ff7b-982ac71b10cd,public-global-vessel-identity:v4.0
+Toros M,355851000,PAN,Panama,Cargo,1,d35096583-345f-0a4f-9a21-821a9cafffd4,public-global-vessel-identity:v4.0
+Unknown vessel,419956513,IND,India,Other,1,3d42e0214-4ac5-6a09-d65e-27377307cccc,public-global-vessel-identity:v4.0
+Ncc Nasma,403515001,SAU,Saudi Arabia,Other,1,2bd868389-9124-d888-c645-3f54e5ae6514,public-global-vessel-identity:v4.0
+Caroline,636020186,LBR,Liberia,Other,1,42c2b6c2a-ad57-cab3-1439-3241ea0579df,public-global-vessel-identity:v4.0
+Msv. Al.S.M.Bukhari,419956045,IND,India,Other,1,d9bcc22e1-151e-51e6-2665-cfeb29703240,public-global-vessel-identity:v4.0
+Msv Al Yasin 2,419956032,IND,India,Other,1,fcdcb1dfd-dc35-d9ca-810f-249a42d12d9f,public-global-vessel-identity:v4.0
+Gladiator,671744000,TGO,Togo,Other,1,e5e94f297-73b8-dddc-9b10-77b3a8c037c2,public-global-vessel-identity:v4.0
+Amk Noble,314803000,BRB,Barbados,Cargo,1,0d074bc74-4b04-4d58-a568-9e22bb4802bc,public-global-vessel-identity:v4.0
+Princess Nabiha,353300000,PAN,Panama,Cargo,1,d6fed5a20-043a-8e6b-9f2c-6211c5b57882,public-global-vessel-identity:v4.0
+Happy18,341905001,KNA,Saint Kitts and Nevis,Cargo,1,a9a87690b-b384-ad4f-5899-0412e41e7a18,public-global-vessel-identity:v4.0
+Jasmine,511100266,PLW,Palau,Cargo,1,f4bbe785d-d4ce-b679-cbe2-f9bfa1ab0ad0,public-global-vessel-identity:v4.0
+Paola,636024577,LBR,Liberia,Other,1,ea4fb6c33-326e-1a7c-c145-1406ad503f0b,public-global-vessel-identity:v4.0
+Unknown vessel,500945424,---,---,Gear,1,c1afd1bf8-822d-7d7b-146b-e97fa1543f19,public-global-vessel-identity:v4.0
+MV Martin One,352980869,PAN,Panama,Other,1,7315ae261-19e7-4a5e-d290-59bb92eb7cd0,public-global-vessel-identity:v4.0
+Ssf Dynamic,563194100,SGP,Singapore,Cargo,1,fd9d6fad7-7da9-9145-6cfa-76b0832f2dd5,public-global-vessel-identity:v4.0
+M.S.V.Halima,419034250,IND,India,Other,1,2e7e7ec72-2183-8266-6ee4-9f359b6e2b97,public-global-vessel-identity:v4.0
+Msvalashiqueekirmani,419956338,IND,India,Other,1,1238bd5a3-3924-afb0-c838-4b2b2ea17878,public-global-vessel-identity:v4.0
+Bird 16,620999105,COM,Comoros,Cargo,1,a94642aa3-3e4f-506a-801c-fe04f7433694,public-global-vessel-identity:v4.0
+Rasheeda,629009294,GMB,Gambia (Republic of The),Other,1,d6a883c43-30eb-a6af-cc1a-620dbd96fd6c,public-global-vessel-identity:v4.0
+Unknown vessel,419956571,IND,India,Other,1,253945766-6eaa-7a59-bb74-918d23102713,public-global-vessel-identity:v4.0
+Venus J,341925001,KNA,Saint Kitts and Nevis,Cargo,1,885a387ba-acb5-531b-d05b-81488f8e7fb4,public-global-vessel-identity:v4.0
+Rasha,341365000,KNA,Saint Kitts and Nevis,Other,1,ddbd5e96e-ee70-1025-52a1-0581eff53f18,public-global-vessel-identity:v4.0
+East Wind I,372077000,PAN,Panama,Cargo,1,4db6ec67e-ef74-55ef-2cbb-fa372a83d64e,public-global-vessel-identity:v4.0
+Safina Al Nooreelahi,419956756,IND,India,Other,1,9e26bab69-97ae-596a-8987-496b52a848ab,public-global-vessel-identity:v4.0
+Hua Chuang 66,413572220,CHN,China,Cargo,1,821429ca3-3957-efe7-566f-43947f1490c7,public-global-vessel-identity:v4.0
+Al Hassan 0172,473017200,YEM,Yemen,Other,1,66ac92957-7b02-e362-24ad-bd53775a6785,public-global-vessel-identity:v4.0
+Ata-M,370734000,PAN,Panama,Cargo,1,3ca8bc7a5-556e-8afb-0da2-d335c8687449,public-global-vessel-identity:v4.0
+M.S.V Hari Sagar,419956112,IND,India,Other,1,6081134fc-ceae-e46b-8703-dd99211721d2,public-global-vessel-identity:v4.0
+Lctamu,525901257,IDN,Indonesia,Other,1,d4e25666c-c86e-b019-5525-6580d9248c18,public-global-vessel-identity:v4.0
+Al Hana,417551521,LKA,Sri Lanka,Other,1,3d379e64c-c2da-ae66-a2ed-4e442d9021e5,public-global-vessel-identity:v4.0
+Libra,511101251,PLW,Palau,Cargo,1,429d26fea-a01a-7aa4-548b-fb91787e3ba7,public-global-vessel-identity:v4.0
+Al Fakir Mohammad,419956865,IND,India,Other,1,0b07e77f2-2f02-b775-5850-f38dec7f786f,public-global-vessel-identity:v4.0
+Naseeb-1-No:200;,906152716,---,---,Other,1,34fe1dfff-fabe-8376-f13a-d4f1d0d238a9,public-global-vessel-identity:v4.0
+Tarlan 1,620999619,COM,Comoros,Other,1,25857cb44-4e62-4eeb-40c6-981e0ae76014,public-global-vessel-identity:v4.0
+Gfs Perfect,563127400,SGP,Singapore,Cargo,1,729f4e8f4-4865-f57e-8993-886be51f46eb,public-global-vessel-identity:v4.0
+M.S.V.Gousesamdani,418857029,---,---,Other,1,5fc7d6dbf-fe7b-f894-3783-5ae23b5cd2be,public-global-vessel-identity:v4.0
+Sidra Halima,354380000,PAN,Panama,Cargo,1,1fc52cf4e-e122-3181-c8f7-7e54d317f483,public-global-vessel-identity:v4.0
+Pegasus,341352001,KNA,Saint Kitts and Nevis,Other,1,64280d8ff-f479-8471-24d2-ba6ee3c09024,public-global-vessel-identity:v4.0
+Cpt Grigoriy Vovchuk,352002598,PAN,Panama,Cargo,1,859b0a843-39ff-5357-bf8f-406cc1b3e07b,public-global-vessel-identity:v4.0
+Unknown vessel,666000123,SOM,Somalia,Cargo,1,525600647-7199-8847-cad7-527364412764,public-global-vessel-identity:v4.0
+Reem Alkhaleej,511101707,PLW,Palau,Other,1,d731ed970-054f-8771-06c0-78ef539ffa69,public-global-vessel-identity:v4.0
+Al Falasi,470641800,ARE,United Arab Emirates,Cargo,1,66b738662-22cf-8fdc-5454-5621bb37e97e,public-global-vessel-identity:v4.0
+Prince Khaled,620999168,COM,Comoros,Cargo,1,e83de82e1-1adb-e88e-00dc-9ded7da41710,public-global-vessel-identity:v4.0
+Yellow Stone,352005597,PAN,Panama,Other,1,673701c21-1f97-bd80-dc9b-e6fc7dffc49c,public-global-vessel-identity:v4.0
+Msv Al Gous-E-Aazam,419956121,IND,India,Other,1,85cc86488-8010-261c-7bf6-2314948be04f,public-global-vessel-identity:v4.0
+Unknown vessel,671424000,TGO,Togo,Other,1,631c1d229-9e58-fb12-5fae-9067455c09bd,public-global-vessel-identity:v4.0
+Pacific Pioneer,477156300,HKG,Hong Kong,Other,1,174d9eec1-182b-84a0-77b0-9f33df6f486c,public-global-vessel-identity:v4.0
+Fateh Albari,470314400,ARE,United Arab Emirates,Other,1,1112f266e-e323-b5bf-761f-cf9f7808b1fd,public-global-vessel-identity:v4.0
+Bernice,311001527,BHS,Bahamas,Cargo,1,ca8804d68-8802-2695-4ef6-5916c2f18539,public-global-vessel-identity:v4.0
+Msv.Kwajafakhruddin,419956855,IND,India,Other,1,a7edd8521-1941-0e39-d570-ced86b8226be,public-global-vessel-identity:v4.0
+Lobivia,563183800,SGP,Singapore,Cargo,1,f2cc53cec-cc9d-487b-cbeb-2a9b71c96c74,public-global-vessel-identity:v4.0
+Royal O,341769001,KNA,Saint Kitts and Nevis,Cargo,1,0cb8593f6-6e70-a733-4cd9-ce427162d51a,public-global-vessel-identity:v4.0
+Meera 2,666000387,SOM,Somalia,Other,1,491e3885d-d699-8526-98a9-a353954a0607,public-global-vessel-identity:v4.0
+Enigma,667001227,SLE,Sierra Leone,Other,1,0a55536c3-3d92-3547-8a0a-f71fbf13e670,public-global-vessel-identity:v4.0
+Tihamah,677064900,TZA,Tanzania,Other,1,ca3651d0a-ab08-b37b-b799-5774189c3b85,public-global-vessel-identity:v4.0
+Unknown vessel,419956561,IND,India,Other,1,90c3d5198-8a87-087c-61d5-a72a958b4e50,public-global-vessel-identity:v4.0
+Al Amirali Bdi 1430,419956369,IND,India,Other,1,08488cbed-db4f-f02a-7330-d925508b7731,public-global-vessel-identity:v4.0
+Msv Al Noore Habibi1,419958514,IND,India,Other,1,f30b8c4d8-8604-f09b-af77-2ffc8468d7c0,public-global-vessel-identity:v4.0
+Bozburun-M,355671000,PAN,Panama,Other,1,beffd7730-0cf1-7198-dda1-23d4e95a74a6,public-global-vessel-identity:v4.0
+Msv Shahe Al Hasmi-I,419956252,IND,India,Cargo,1,9c48dd64c-c730-f92d-8ddb-9bd43972fb1a,public-global-vessel-identity:v4.0
+Muslim 1201196,616999044,COM,Comoros,Other,1,6729f2687-7010-9d14-79cb-a76a8f6a0da4,public-global-vessel-identity:v4.0
+Unknown vessel,671402000,TGO,Togo,Cargo,1,a27fca0ca-a308-dbdc-93cd-ad6cbd8732aa,public-global-vessel-identity:v4.0
+Haj Mohamad,356461000,PAN,Panama,Cargo,1,8f94a7c34-4e44-8be6-e540-baf31cac382b,public-global-vessel-identity:v4.0
+Rayan,671208000,TGO,Togo,Cargo,1,2006a2d86-64b7-f370-c5eb-3d9e46a2fcd4,public-global-vessel-identity:v4.0
+Faize Makdum Moyudin,419956757,IND,India,Other,1,04e5f030f-fcc8-384b-8a86-8a044bcb71af,public-global-vessel-identity:v4.0
+Intan Premier,511101645,PLW,Palau,Other,1,002172e86-6687-d3b2-3246-2ec1fa70dd9d,public-global-vessel-identity:v4.0
+Emirates 5,470456400,ARE,United Arab Emirates,Other,1,d2ac4ee6c-c8e5-5e55-3cc5-db9ece6c8a85,public-global-vessel-identity:v4.0
+Sofia II,527353805,---,---,Cargo,1,cca39f3f1-1128-999c-4de9-edb8dae120d3,public-global-vessel-identity:v4.0
+Msv Al Aamir 2072,419956155,IND,India,Other,1,84f88ed26-664d-effe-6c21-e65044d0245b,public-global-vessel-identity:v4.0
+Unknown vessel,666983450,SOM,Somalia,Fishing,1,6c3fb9534-4a29-cbad-040b-4d48ed18fe01,public-global-vessel-identity:v4.0
+New Victory,312043000,BLZ,Belize,Cargo,1,2100782e2-2b7c-a00f-c9ce-c945b1d7e7ce,public-global-vessel-identity:v4.0
+Jabbar,470044000,ARE,United Arab Emirates,Other,1,8d0bf807f-fa73-3683-6e63-e182870d69af,public-global-vessel-identity:v4.0
+Msv Amir Ali 1430,419956369,IND,India,Other,1,4654e2537-7ac7-6ee9-0ba6-d3f588bf7490,public-global-vessel-identity:v4.0
+Mariona Star,677015500,TZA,Tanzania,Cargo,1,629654f88-862d-55fd-3439-420154d269c2,public-global-vessel-identity:v4.0
+Pasco Roni,538010726,MHL,Marshall Islands,Other,1,cdb23646b-b4d1-e0c8-083d-377e3df423dc,public-global-vessel-identity:v4.0
+Msv Al Noore Usmani,419956716,IND,India,Other,1,6e868ed1b-bcfe-2314-c52a-64ebcd7ac080,public-global-vessel-identity:v4.0
+Msv Safina Al Adam,419956221,IND,India,Other,1,cf7a82598-8081-05dc-f1af-45460990e554,public-global-vessel-identity:v4.0
+M.S.V.Gousesamdani,419957029,IND,India,Other,1,22658b9a8-8be8-85d9-66a6-798a783dd5f7,public-global-vessel-identity:v4.0
+Faize Noore Oliya,419956572,IND,India,Cargo,1,271693ed2-2be9-de6b-d077-874cd8b59564,public-global-vessel-identity:v4.0
+Tenacity,636015928,LBR,Liberia,Other,1,20a8de8ae-e88e-c6ec-1116-e8386787a065,public-global-vessel-identity:v4.0
+Dolphin 08,352003628,PAN,Panama,Other,1,9c16d7640-0cae-0b65-a31e-2d7bcb33543c,public-global-vessel-identity:v4.0
+Msv Prem Sagar 1,419908016,IND,India,Cargo,1,c32afb256-6ab8-d6b0-74cc-1cc531c665a3,public-global-vessel-identity:v4.0
+Oruc Reis,271044654,TUR,Turkey,Seismic vessel,1,67c7f91be-e33b-f9cf-60b7-d646911eb72d,public-global-vessel-identity:v4.0
+Sea Citrine VI,511101409,PLW,Palau,Other,1,693d9f3c7-7bc1-2b08-8f6b-8f92d9dbd7b3,public-global-vessel-identity:v4.0
+Faize Khwaja Moyudin,419956123,IND,India,Other,1,a54013f10-0a82-52ef-0829-c449b8e20b2d,public-global-vessel-identity:v4.0
+Msv Al Hayat Mnv2118,419956086,IND,India,Other,1,35aa8a2a7-77da-7e0d-eff3-4943cd37e0cf,public-global-vessel-identity:v4.0
+Sierra,561501063,WSM,Samoa,Other,1,22efe019b-b749-17a1-01b0-fda8c0b1132b,public-global-vessel-identity:v4.0
+Donna Judi,376686000,VCT,Saint Vincent and the Grenadines,Cargo,1,ef059a658-8447-75e7-9582-0428e1568c95,public-global-vessel-identity:v4.0
+Khaled A,671025100,TGO,Togo,Cargo,1,5d9dc4313-3629-00c5-d853-cac2008fc7eb,public-global-vessel-identity:v4.0
+Tuwiq 1,677028600,TZA,Tanzania,Other,1,f8c15ea23-3379-d315-3578-a5e7fc780379,public-global-vessel-identity:v4.0
+Al Shafaq,461269260,OMN,Oman,Other,1,852c91c4e-e7d0-eb4a-ff0a-38b9138eb227,public-global-vessel-identity:v4.0
+Clipper,750768000,GUY,Guyana,Other,1,68ea4ce2f-f029-b8c6-8527-2c5c74fade7d,public-global-vessel-identity:v4.0
+Al Adam,419956083,IND,India,Other,1,39c959012-21da-643a-0163-71b804de28fc,public-global-vessel-identity:v4.0
+Karazi,667005239,SLE,Sierra Leone,Cargo,1,6a869fa1e-e067-9ce3-7a8a-c7ca55e017f0,public-global-vessel-identity:v4.0
+Msv Noore Mehboob,419956611,IND,India,Other,1,0eb9dff8b-b8f3-3a4f-09ec-365c98ead108,public-global-vessel-identity:v4.0
+Cstar Peter,511101288,PLW,Palau,Other,1,a34393029-962f-3b42-394f-7e3b8f29c0bd,public-global-vessel-identity:v4.0
+M Jeex,375161000,VCT,Saint Vincent and the Grenadines,Other,1,b143c0b91-184b-a266-286d-9890cab8a0aa,public-global-vessel-identity:v4.0
+Al Veer,311020800,BHS,Bahamas,Other,1,8a1747935-55a7-cb0e-76e3-4085cf0a67d5,public-global-vessel-identity:v4.0
+Pure Mercy,352004571,PAN,Panama,Cargo,1,150c82ee7-76b0-abdc-bed6-1c3e654fd61c,public-global-vessel-identity:v4.0
+Unknown vessel,666000041,SOM,Somalia,Fishing,1,92468a98a-a86b-a9fd-0b0d-a99948b6c7cb,public-global-vessel-identity:v4.0
+Al Haji Hasan 1479,419956853,IND,India,Other,1,122b55459-9102-4e11-7fef-46a2020fa6cc,public-global-vessel-identity:v4.0
+Msv Savai Tokali 1,419956004,IND,India,Other,1,daaabb9e0-0ca1-6698-c59f-e8ecddccb54b,public-global-vessel-identity:v4.0
+Despina,377277000,VCT,Saint Vincent and the Grenadines,Cargo,1,3a144062c-c5d0-9125-9deb-6cbfb513fc5a,public-global-vessel-identity:v4.0
+Msv Mohammed Hasnen,419956133,IND,India,Other,1,aea5c269f-f40f-4a65-6d0a-d67753f67adb,public-global-vessel-identity:v4.0
+Msv Al Gouse-A-Azam,419956121,IND,India,Other,1,24c142619-91ad-de31-7503-b7ecedbe259f,public-global-vessel-identity:v4.0
+Mk Star,620999357,COM,Comoros,Other,1,7a3933325-5cfe-bf83-fc52-0ddba388ff29,public-global-vessel-identity:v4.0
+Mariam-M,677028200,TZA,Tanzania,Cargo,1,73945ce9d-d8bf-1137-72ad-e5470a915fef,public-global-vessel-identity:v4.0
+Unknown vessel,677078700,TZA,Tanzania,Cargo,1,9a376ad3d-deae-6caf-246c-ef44b0b1668c,public-global-vessel-identity:v4.0
+Nafisha,422935000,IRN,Iran (Islamic Republic of),Other,1,603d6ed67-7fb1-fdae-ee4f-836483422514,public-global-vessel-identity:v4.0
+Thuraya M,341607001,KNA,Saint Kitts and Nevis,Cargo,1,1702cf677-782a-b16d-c881-6fc8891e6f56,public-global-vessel-identity:v4.0
+Msv Medari,417951215,LKA,Sri Lanka,Other,1,4b452cbf8-8964-808a-ef9f-62943c1ff1f0,public-global-vessel-identity:v4.0
+Msv Nawazis E Chisty,419956783,IND,India,Other,1,2a0dc276f-f8f7-3f27-8786-ed46161e7e95,public-global-vessel-identity:v4.0
+Ams Mars,636024978,LBR,Liberia,Other,1,cd3cc0341-16cc-5f3f-63df-6db1e2dc529f,public-global-vessel-identity:v4.0
+Bay 10,677011600,TZA,Tanzania,Other,1,f7a9cff67-7e8f-9cb2-cd55-b565a37cb00e,public-global-vessel-identity:v4.0
+Hmo Leader,620999630,COM,Comoros,Other,1,e68176421-1930-4b5b-8e06-26e85ec6332b,public-global-vessel-identity:v4.0
+Cma Cgm Vitoria,256171000,MLT,Malta,Cargo,1,86082a7cc-c44f-d893-4d4f-eba107191b59,public-global-vessel-identity:v4.0
+Nisha,629009424,GMB,Gambia (Republic of The),Other,1,70e2c1256-657b-654b-c57a-bffbf6a21a15,public-global-vessel-identity:v4.0
+Msc Elizabeth III,636020953,LBR,Liberia,Cargo,1,9d0f6cb9b-bf45-c2e8-daf6-4e8e5d92d6e8,public-global-vessel-identity:v4.0
+Lady Ayana,268257403,SMR,San Marino,Cargo,1,f80a61248-84d3-01e3-1cba-088be37712fb,public-global-vessel-identity:v4.0
+Cma Cgm Davao,229865000,MLT,Malta,Cargo,1,206aeaec7-7382-1cb1-bc80-291358d6b082,public-global-vessel-identity:v4.0
+Knidos-M,352002751,PAN,Panama,Cargo,1,f8e7c1324-490e-a0a4-b6bf-ce86d6f2b927,public-global-vessel-identity:v4.0
+Golden Shark,511100789,PLW,Palau,Cargo,1,239a541a5-5bcf-5eb1-3047-4eb11413088b,public-global-vessel-identity:v4.0
+Msv Alsultane Karim,419956023,IND,India,Other,1,68951b69d-dda6-e385-bc99-3b7001e39290,public-global-vessel-identity:v4.0
+Rula?,620999450,COM,Comoros,Cargo,1,da0178b79-91e1-dca8-b09c-51e62457ee18,public-global-vessel-identity:v4.0
+Unknown vessel,666000146,SOM,Somalia,Other,1,ceff2da53-38a4-3b69-8c60-5ecfe8122b8a,public-global-vessel-identity:v4.0
+Hercules,671187100,TGO,Togo,Other,1,430cb63f4-4ed4-3d89-dd21-143d9950095b,public-global-vessel-identity:v4.0
+Honour 25,511101862,PLW,Palau,Other,1,5f7974252-2a36-1d5b-103c-ddac67755b46,public-global-vessel-identity:v4.0
+Snarth,314995000,BRB,Barbados,Other,1,6a65dee1d-da92-ccff-ddef-49e9f3da3e5f,public-global-vessel-identity:v4.0
+Msv Faizane Hasmi,419956312,IND,India,Other,1,a5fc16fb4-4390-5ec9-fa5e-1f9a8ff5ef39,public-global-vessel-identity:v4.0
+Faize Mkdum Moyudin,419956757,IND,India,Other,1,cecf42cad-de68-9ab9-089d-6091591da543,public-global-vessel-identity:v4.0
+Pioneer Eagle,376818000,VCT,Saint Vincent and the Grenadines,Other,1,4b5b6acb0-034d-f08c-5eec-2892329da6b2,public-global-vessel-identity:v4.0
+Golden Arsenal,375671000,VCT,Saint Vincent and the Grenadines,Other,1,6b1542b31-15b6-3aae-a611-701e8f861071,public-global-vessel-identity:v4.0
+Cma Cgm Gulf Express,256510000,MLT,Malta,Cargo,1,dae087980-0b00-ba3a-4b95-8455b4c30225,public-global-vessel-identity:v4.0
+Unknown vessel,370036000,PAN,Panama,Other,1,5ac65bbdc-c3fa-3397-ac20-7af311d9b7a5,public-global-vessel-identity:v4.0
+Mashallah,666000173,SOM,Somalia,Other,1,2e67463c3-3a30-89f7-a816-76ed8074df62,public-global-vessel-identity:v4.0
+Queen Ghaidaa,312166000,BLZ,Belize,Cargo,1,fb4b48662-2e29-3bd7-c1c9-80b7c11cdfe9,public-global-vessel-identity:v4.0
+Msv Shree Shivshakti,419956056,IND,India,Other,1,c1f2c5d57-7f82-d197-8d7d-2f6a187dd666,public-global-vessel-identity:v4.0
+Alzuber,419956096,IND,India,Other,1,8c38d938d-dfdf-dc1c-3701-ff0d93f8e587,public-global-vessel-identity:v4.0

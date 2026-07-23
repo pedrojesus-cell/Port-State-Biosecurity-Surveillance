@@ -1,0 +1,384 @@
+name,MMSI,flag,flag translated,GFW vessel type,Total port_visit events,vesselId,dataset
+Dintelstroom,246642000,NLD,Netherlands,Other,145,c867b12b2-2205-9163-ae49-ab57803770ca,public-global-vessel-identity:v4.0
+Giessenstroom,246569000,NLD,Netherlands,Other,142,887d2039e-eb4f-3b6e-31c1-378a05a4d908,public-global-vessel-identity:v4.0
+Unispirit,304908000,ATG,Antigua and Barbuda,Cargo,38,288257a74-4717-da78-b6fc-85a3f8379dff,public-global-vessel-identity:v4.0
+Lilibet,232045897,GBR,United Kingdom,Fishing,35,e817c8484-4541-f216-b577-755bff5dd1bf,public-global-vessel-identity:v4.0
+Jason,636017460,LBR,Liberia,Bunker,19,f4172cebc-c89b-06ca-5a66-0a7afbd5026e,public-global-vessel-identity:v4.0
+Pharos Sg,235011790,GBR,United Kingdom,Other,14,73bf81176-6d3b-3f77-e25c-011ae0580628,public-global-vessel-identity:v4.0
+Sil,740356000,FLK,Falkland Islands (Malvinas),Fishing,13,2bf709078-8b2c-8db8-3f02-0ba6d2e5746f,public-global-vessel-identity:v4.0
+Sealion,636014306,LBR,Liberia,Bunker,13,220260b99-9135-0663-aa67-6116729b72f9,public-global-vessel-identity:v4.0
+Kestrel,740349000,FLK,Falkland Islands (Malvinas),Fishing,12,8a6a3d2d7-75b4-0117-262d-75e048ef12c7,public-global-vessel-identity:v4.0
+Seaquest,740381000,FLK,Falkland Islands (Malvinas),Passenger,11,7f9fe7f74-48ec-049c-b19a-d0ceb55953e6,public-global-vessel-identity:v4.0
+Sir D. Attenborough,740405000,FLK,Falkland Islands (Malvinas),Seismic vessel,11,84157556e-eafd-0655-42d6-89e45f12a954,public-global-vessel-identity:v4.0
+Petrel,740333000,FLK,Falkland Islands (Malvinas),Fishing,11,d150740ac-c4b5-cdd4-93ed-77b9be7475df,public-global-vessel-identity:v4.0
+Castelo,740358000,FLK,Falkland Islands (Malvinas),Fishing,11,4c06bdcb4-4a56-f0b3-5c41-ab4ddce178c7,public-global-vessel-identity:v4.0
+New Polar,740372000,FLK,Falkland Islands (Malvinas),Fishing,11,3755cc607-7db3-ff9b-69f9-a1873c8166c5,public-global-vessel-identity:v4.0
+Monteferro,740402000,FLK,Falkland Islands (Malvinas),Fishing,10,ec0ccfb40-0a5f-0713-6195-8e6cc6ec116e,public-global-vessel-identity:v4.0
+Argos Vigo,740359000,FLK,Falkland Islands (Malvinas),Fishing,10,3174edb8f-f7a0-5886-e3af-4d14029e371f,public-global-vessel-identity:v4.0
+Hms Forth,232005742,GBR,United Kingdom,Other,10,8c3a40f1e-ef7f-a6f9-98ff-b4792dfafcce,public-global-vessel-identity:v4.0
+Argos Pereira,740353000,FLK,Falkland Islands (Malvinas),Fishing,9,b382b8f1c-ce5f-8c50-13d5-e4b827802960,public-global-vessel-identity:v4.0
+Prion,740434000,FLK,Falkland Islands (Malvinas),Fishing,9,045a02864-40ff-8024-671a-04951126bc53,public-global-vessel-identity:v4.0
+Venturer,740354000,FLK,Falkland Islands (Malvinas),Fishing,9,cc2b64c23-32a6-c9ba-dad7-df0b625b548f,public-global-vessel-identity:v4.0
+Robin M. Lee,740366000,FLK,Falkland Islands (Malvinas),Fishing,9,ca54d00b6-602b-74bf-0818-1721d4a61e15,public-global-vessel-identity:v4.0
+Montelourido,740422000,FLK,Falkland Islands (Malvinas),Fishing,9,56b6bf0ff-feb7-dcb1-9cad-d066386864b5,public-global-vessel-identity:v4.0
+Falcon,740423000,FLK,Falkland Islands (Malvinas),Fishing,9,9b4da9b7a-af6e-23bc-e687-910600f73398,public-global-vessel-identity:v4.0
+Golden Chicha,740344000,FLK,Falkland Islands (Malvinas),Fishing,8,174d4c4ba-a42e-d1ce-0c25-e3d8c583d270,public-global-vessel-identity:v4.0
+No.107 Eun Hae,440261000,KOR,Republic of Korea,Fishing,8,78d3ccc94-4d98-20a8-d02d-b04aeb7ca30a,public-global-vessel-identity:v4.0
+Hms Forth,232005742,GBR,United Kingdom,Other,8,ad35c9449-9489-aa05-4f34-699dfbd002a7,public-global-vessel-identity:v4.0
+John Davis,740421000,FLK,Falkland Islands (Malvinas),Passenger,8,4efe1baa1-1dc9-67f0-bb55-37e1f49ed88c,public-global-vessel-identity:v4.0
+Argos Berbes,740435000,FLK,Falkland Islands (Malvinas),Fishing,8,19b926bc4-4bf9-c81d-a109-03817276dcc6,public-global-vessel-identity:v4.0
+Concordia Bay,740380000,FLK,Falkland Islands (Malvinas),Passenger,8,3a8a355c4-4d5b-cb6c-1d1a-794c0f4f2378,public-global-vessel-identity:v4.0
+Lagoon Phoenix,311001255,BHS,Bahamas,Carrier,7,6948f9885-5162-d797-1c55-33552340b9f1,public-global-vessel-identity:v4.0
+Stevelly Bay,235082211,GBR,United Kingdom,Passenger,7,5e2410b4a-a044-83d9-9336-5ed00e288f42,public-global-vessel-identity:v4.0
+Hadassa Bay,224891000,ESP,Spain,Fishing,7,5292a6eba-a6e7-c3a4-c77e-7352b39b01f5,public-global-vessel-identity:v4.0
+Silver Wind,308814000,BHS,Bahamas,Passenger,7,2d35bfe50-0b35-3a82-6494-f783fe6dffd1,public-global-vessel-identity:v4.0
+Cfl Hunter,740399000,FLK,Falkland Islands (Malvinas),Fishing,7,4cae31777-7ed8-be16-3034-54fff1e071d3,public-global-vessel-identity:v4.0
+Fram,258932000,NOR,Norway,Passenger,6,248d92b8c-c550-b269-8e91-de031ee45cb4,public-global-vessel-identity:v4.0
+Sea Spirit,255806397,PRT,Portugal,Passenger,6,24a86ec7e-e41b-e7ad-8e2e-5c4708fef43c,public-global-vessel-identity:v4.0
+Festeiro,224710000,ESP,Spain,Fishing,6,f11e488e6-6cda-5060-dd09-9a8968cbf8e2,public-global-vessel-identity:v4.0
+Argos Cies,740406000,FLK,Falkland Islands (Malvinas),Fishing,6,9e6199ee9-9950-da1d-4fe2-46981e6d10a2,public-global-vessel-identity:v4.0
+No.7 Dae Yang,440815000,KOR,Republic of Korea,Fishing,6,4d57f610d-d4d0-fdd9-931c-14aff6d01252,public-global-vessel-identity:v4.0
+Beagle Fi,740337000,FLK,Falkland Islands (Malvinas),Fishing,6,07546d77f-ff2a-4f4b-bea1-1b9b7afe5150,public-global-vessel-identity:v4.0
+Igueldo,740338000,FLK,Falkland Islands (Malvinas),Fishing,6,874d45315-5239-effb-be28-16098ce46899,public-global-vessel-identity:v4.0
+Amundsen,319753600,CYM,Cayman Islands,Passenger,6,b94d72722-204a-6cd0-2c95-2cd5b963dd10,public-global-vessel-identity:v4.0
+Oosterdam,245417000,NLD,Netherlands,Passenger,6,ac1021065-50a1-af2e-45b2-a626ea5bf98e,public-global-vessel-identity:v4.0
+Hermanos Touza,740410000,FLK,Falkland Islands (Malvinas),Fishing,5,93ddc6758-850e-edb4-60ce-8c72843be2bc,public-global-vessel-identity:v4.0
+Esperanza Menduina,224775000,ESP,Spain,Fishing,5,9b267dd84-4266-7610-c5dc-265d57f75d12,public-global-vessel-identity:v4.0
+Paradanta Primero,224378000,ESP,Spain,Fishing,5,6f912b524-426d-e3b4-5ba0-8922681021f8,public-global-vessel-identity:v4.0
+Win Far Ying 8,416004693,TWN,Chinese Taipei,Fishing,5,15cfa5f9c-c8cc-4449-6ab5-6a8d3a9df1b6,public-global-vessel-identity:v4.0
+Roald Amundsen,257425000,NOR,Norway,Other,5,4ebd07e5c-c63e-490c-6896-6a78196f1735,public-global-vessel-identity:v4.0
+MV Frio Hellenic,353981000,PAN,Panama,Carrier,5,fb66c373a-a5d3-ca9d-dcd7-aa3629b27cb2,public-global-vessel-identity:v4.0
+Jyi Yang,416004842,TWN,Chinese Taipei,Fishing,5,ff78645e3-34fd-e286-f6e0-be80d5eb5667,public-global-vessel-identity:v4.0
+5.Dong IL,440502000,KOR,Republic of Korea,Fishing,5,4fd368e18-8cc0-ca28-e8ce-a6bc327e774f,public-global-vessel-identity:v4.0
+Hermanos Gandon 4,224463000,ESP,Spain,Fishing,5,66ea7e283-3ce3-262f-b428-ce7d14c7e0c4,public-global-vessel-identity:v4.0
+27Haein,440108000,KOR,Republic of Korea,Fishing,5,f9cf1e731-1f1d-5b9f-daf0-a50f350dcdcd,public-global-vessel-identity:v4.0
+Ocean Venture 6,577099000,VUT,Vanuatu,Fishing,5,09567cb60-0c9b-b68d-bd2c-46f3223395da,public-global-vessel-identity:v4.0
+Dream Park,441383000,KOR,Republic of Korea,Other,5,376f2fcef-f921-cff9-1e75-f946f6abd7fe,public-global-vessel-identity:v4.0
+Viking Jupiter,257058920,NOR,Norway,Passenger,5,140c0c632-23e3-2713-649d-c6277ced6859,public-global-vessel-identity:v4.0
+Sapphire Princess,235103357,GBR,United Kingdom,Passenger,5,4709755dc-cca3-26e8-b5a1-93bee22e60d3,public-global-vessel-identity:v4.0
+Fu Kuo No6,416171800,TWN,Chinese Taipei,Fishing,4,fa270cdff-feb8-151d-59c1-5a22eadc40bf,public-global-vessel-identity:v4.0
+Scenic Eclipse,311000995,BHS,Bahamas,Passenger,4,e2e04030e-ef6a-9b76-b6b4-1c1afc24668a,public-global-vessel-identity:v4.0
+Costa Do Cabo,224967000,ESP,Spain,Fishing,4,65e5926c0-01b4-3afb-ace4-6941014ee65c,public-global-vessel-identity:v4.0
+Aastroom,244002828,NLD,Netherlands,Other,4,465cce492-2343-223e-7986-8d4d3e6c4525,public-global-vessel-identity:v4.0
+7 Dong IL,440701000,KOR,Republic of Korea,Fishing,4,c459fcb77-7ff8-ddac-4a55-4017b3f59c20,public-global-vessel-identity:v4.0
+Frio Galicia,374996000,PAN,Panama,Carrier,4,766208f70-0759-9f75-911a-85e2f9205201,public-global-vessel-identity:v4.0
+Ocean Venture II,577079000,VUT,Vanuatu,Fishing,4,79486b313-340f-e448-956a-bfac321818d7,public-global-vessel-identity:v4.0
+Firebird,235114751,GBR,United Kingdom,Passenger,4,7fa09d9f0-0cdd-3011-6c76-8df6d7952f13,public-global-vessel-identity:v4.0
+"Sae In No,5",441767000,KOR,Republic of Korea,Fishing,4,643e340f3-3c55-1ea3-3f41-1d7828a018b4,public-global-vessel-identity:v4.0
+101 Eun Hae,441360000,KOR,Republic of Korea,Fishing,4,5b83c1645-565c-08c1-4f70-9a6a5ff68de2,public-global-vessel-identity:v4.0
+808 Tong Young,440652000,KOR,Republic of Korea,Fishing,4,7cbbd11ca-a7dd-2bb9-4440-d0d6db7f99be,public-global-vessel-identity:v4.0
+John Byron,740420000,FLK,Falkland Islands (Malvinas),Passenger,4,03ec1d14e-e4b0-07e9-2c5f-d870a5fc4090,public-global-vessel-identity:v4.0
+An Fong No.116,416241500,TWN,Chinese Taipei,Fishing,4,94b03e913-38ae-2e9a-48e4-9d8e48d02e2a,public-global-vessel-identity:v4.0
+Norwegian Star,311082000,BHS,Bahamas,Passenger,4,4e013a98b-bcb5-e7bd-6d2a-e7f08e8a34de,public-global-vessel-identity:v4.0
+Agnes 110,441351000,KOR,Republic of Korea,Fishing,4,b1f19550e-ee9d-dfba-1512-01a8ee2beffd,public-global-vessel-identity:v4.0
+Zi LI Fa,416189700,TWN,Chinese Taipei,Fishing,4,467fa4356-60f3-d9f7-0625-f32c9b01b2bc,public-global-vessel-identity:v4.0
+601 Dagah,440179000,KOR,Republic of Korea,Fishing,4,63aaec644-4597-3d48-994c-c4c0d630bf87,public-global-vessel-identity:v4.0
+Agnes101,441413000,KOR,Republic of Korea,Fishing,4,76ed0c73b-b565-36c6-e8c4-cb7282ff35b6,public-global-vessel-identity:v4.0
+Agnes 102,441298000,KOR,Republic of Korea,Fishing,4,24d65bbf8-8a84-8ac6-a4ba-283c0d6ba636,public-global-vessel-identity:v4.0
+Altar 11,735058309,ECU,Ecuador,Fishing,4,875b6c345-5171-68cd-e94b-ecc0dad882d5,public-global-vessel-identity:v4.0
+Terror,740409000,FLK,Falkland Islands (Malvinas),Other,4,61c0db1e9-9b06-271e-7bdb-07e390cdec99,public-global-vessel-identity:v4.0
+103Kumyang,440816000,KOR,Republic of Korea,Fishing,4,d6c4a6018-8ddd-fe38-443f-584724a70024,public-global-vessel-identity:v4.0
+Jih Da Yng,416350000,TWN,Chinese Taipei,Fishing,4,b08bb146a-a332-d5fc-3092-d9fe5524440f,public-global-vessel-identity:v4.0
+Vinson Of Antarctica,319207600,CYM,Cayman Islands,Passenger,4,35a9fbc40-0885-30fb-6b3a-3b7e2806dfed,public-global-vessel-identity:v4.0
+Saein No9,440684000,KOR,Republic of Korea,Fishing,4,b2577ca9e-ea19-b5d2-c570-5e773841bfbd,public-global-vessel-identity:v4.0
+Jai Fa No.8,416004857,TWN,Chinese Taipei,Fishing,4,cbdff7a29-9343-68fd-bd5a-16fa6377feda,public-global-vessel-identity:v4.0
+Win Far Yang No.1,416005877,TWN,Chinese Taipei,Fishing,4,32eaa4196-62d8-49b8-83b7-7eb60d777e45,public-global-vessel-identity:v4.0
+Yong Xiang 9,577632000,VUT,Vanuatu,Carrier,4,ba2a6cd53-3611-3bc1-8148-17c1f8768c2a,public-global-vessel-identity:v4.0
+Playa De Rodas,224559000,ESP,Spain,Fishing,4,3b8344313-3a62-f829-1b32-3d6729682285,public-global-vessel-identity:v4.0
+Saein No.1,440811000,KOR,Republic of Korea,Fishing,4,fbe755a20-071f-0269-133e-a5b91755cdf1,public-global-vessel-identity:v4.0
+Fu Kuo No.1,416164900,TWN,Chinese Taipei,Fishing,4,6312cbd6a-aa5f-d101-5d88-874ecac50cff,public-global-vessel-identity:v4.0
+Fu Xing Hai,412217999,CHN,China,Fishing,4,c9cd293cc-cf88-09db-d44d-c42a49e520cc,public-global-vessel-identity:v4.0
+Argos Helena,665111132,SHN,Saint Helena,Fishing,4,84d6e84b4-423a-4e70-d349-b7eab2141292,public-global-vessel-identity:v4.0
+Kano Reefer,354929000,PAN,Panama,Carrier,4,9d5a8adf8-81c3-e561-07ae-f30a67afc1fe,public-global-vessel-identity:v4.0
+Agnes 103,441303000,KOR,Republic of Korea,Fishing,4,e77307342-2d23-533e-eebc-a535c9c09ecb,public-global-vessel-identity:v4.0
+No.805 Tong Young,441384000,KOR,Republic of Korea,Fishing,4,11d99d489-90b9-6eca-931f-903802905f4c,public-global-vessel-identity:v4.0
+Centaurus,636020431,LBR,Liberia,Other,3,818029d5f-f503-87ec-a478-b889d51bf4a7,public-global-vessel-identity:v4.0
+Agnes 108,441404000,KOR,Republic of Korea,Fishing,3,a6e2d3783-3c2c-7010-107b-b562cb02630d,public-global-vessel-identity:v4.0
+Chun Fu Fa No.6,416004981,TWN,Chinese Taipei,Fishing,3,b7e3b778e-ee09-7928-e31b-61c9733b1781,public-global-vessel-identity:v4.0
+Piscator,224547000,ESP,Spain,Fishing,3,08065852c-c683-391d-6715-cd182f2c2565,public-global-vessel-identity:v4.0
+Sae In No.3,441766000,KOR,Republic of Korea,Fishing,3,7011ffc05-5450-bb55-9390-73d7534c3456,public-global-vessel-identity:v4.0
+Fa Da Cai,416006494,TWN,Chinese Taipei,Fishing,3,8c53e8598-8b9d-67e5-6cae-9f54b7731a31,public-global-vessel-identity:v4.0
+Shin Dar,416004903,TWN,Chinese Taipei,Fishing,3,64a6c5548-8c17-ec2f-c795-86a4b04e23b4,public-global-vessel-identity:v4.0
+Jia Long,416005510,TWN,Chinese Taipei,Fishing,3,1b536a8af-f6a1-490f-038f-8421898a05fa,public-global-vessel-identity:v4.0
+Win Far Hui 6,416004684,TWN,Chinese Taipei,Fishing,3,087510178-8b3b-1ab3-b48f-05e966021169,public-global-vessel-identity:v4.0
+Full Load No.898,416005506,TWN,Chinese Taipei,Fishing,3,500ad6048-80cc-41a6-8b7c-0611c9e1f702,public-global-vessel-identity:v4.0
+Plancius,246573000,NLD,Netherlands,Passenger,3,eb3ae9248-8c74-3b85-de27-31010e87afd5,public-global-vessel-identity:v4.0
+Jai Fa No.2,416243800,TWN,Chinese Taipei,Fishing,3,6b3cf818f-f56a-132a-1a0f-29d514e8e3f1,public-global-vessel-identity:v4.0
+Erebus,740408000,FLK,Falkland Islands (Malvinas),Passenger,3,43977e6ee-edde-8577-2bf9-dca1a7551eb4,public-global-vessel-identity:v4.0
+Hans Hansson,377565000,VCT,Saint Vincent and the Grenadines,Passenger,3,8718e9480-0424-a6c1-29d4-4a7ff5cc5b58,public-global-vessel-identity:v4.0
+An Fong No.168,416005007,TWN,Chinese Taipei,Fishing,3,95379431e-edb6-7bd3-0226-384097286282,public-global-vessel-identity:v4.0
+Playa De Sartaxens,224732000,ESP,Spain,Fishing,3,bb943918f-f4e9-7231-d69a-74a0358903ad,public-global-vessel-identity:v4.0
+Runaway Bay,311001116,BHS,Bahamas,Carrier,3,8e54128eb-bb4b-3ce1-5379-f529529cb837,public-global-vessel-identity:v4.0
+No.801Seungjin,441352000,KOR,Republic of Korea,Fishing,3,644849384-4089-ea99-d4c6-1710afbd362b,public-global-vessel-identity:v4.0
+Salerno,210617000,CYP,Cyprus,Carrier,3,3fec2cf8e-e8bf-e495-67fa-b3725a83ca87,public-global-vessel-identity:v4.0
+Agnes 107,441330000,KOR,Republic of Korea,Fishing,3,7bf5e264b-b0b1-a31a-868a-251f5c2cb822,public-global-vessel-identity:v4.0
+Zi Da Hong,416251800,TWN,Chinese Taipei,Fishing,3,d8c38769c-cb14-72ae-ce18-d74a59215d52,public-global-vessel-identity:v4.0
+Eunhae No.109,440201000,KOR,Republic of Korea,Fishing,3,a3d44ae33-3d95-0ceb-8f7f-13c6baf0efd0,public-global-vessel-identity:v4.0
+Seaventure,311001633,BHS,Bahamas,Passenger,3,1fd24c4c5-5d92-3b0b-9d96-e41cd602df2b,public-global-vessel-identity:v4.0
+Fu Kuo No.106,416240700,TWN,Chinese Taipei,Fishing,3,c62c65d6b-ba7c-6620-863d-1a9278490517,public-global-vessel-identity:v4.0
+Sae In No.7,440995000,KOR,Republic of Korea,Fishing,3,16911d230-0c8d-0726-902b-c0f6f5236b96,public-global-vessel-identity:v4.0
+Her  Hung 16,416312000,TWN,Chinese Taipei,Fishing,3,3de7c11c5-546f-b253-0819-cd097728224b,public-global-vessel-identity:v4.0
+Nordic Prince,665111130,SHN,Saint Helena,Fishing,3,dbf8a59dc-c9d3-eb3c-80e1-0597e13175c0,public-global-vessel-identity:v4.0
+Full Load No.858,416004853,TWN,Chinese Taipei,Fishing,3,cf3486460-015e-824f-414d-fe444c3b9147,public-global-vessel-identity:v4.0
+Yuh Sheng No.1,416005531,TWN,Chinese Taipei,Fishing,3,f92fdcf34-409d-2684-3dc4-996bd729fa97,public-global-vessel-identity:v4.0
+Antarctic Provider,257621000,NOR,Norway,Other,3,b9b6e68e2-2a07-24c4-5399-21610fc44856,public-global-vessel-identity:v4.0
+101Haerang,441879000,KOR,Republic of Korea,Fishing,3,f5fd659dd-db3b-b2ed-e449-ae02b68d9571,public-global-vessel-identity:v4.0
+Full Kuo 1  0  1,416180600,TWN,Chinese Taipei,Fishing,3,e8b968f50-00c2-ec45-7b29-5d5316313d97,public-global-vessel-identity:v4.0
+No.103 Bada,441142000,KOR,Republic of Korea,Fishing,3,f926b6662-2d47-7b49-d9fc-85fef97b501f,public-global-vessel-identity:v4.0
+Fakir,224526000,ESP,Spain,Fishing,3,a11faae1b-ba49-5efd-f737-ab722ad1ac2c,public-global-vessel-identity:v4.0
+Win Far Fu No 1,416241900,TWN,Chinese Taipei,Fishing,3,ab3d110d0-056d-a24d-ee63-b9d1637541a5,public-global-vessel-identity:v4.0
+An Fong No 158,416004729,TWN,Chinese Taipei,Fishing,3,3e2b46f5f-f872-ad08-abc1-ac6e3572ef19,public-global-vessel-identity:v4.0
+Man Shuen Fa,416004638,TWN,Chinese Taipei,Fishing,3,3f8d832ef-f188-d6b2-ec92-abc4ebd3efa7,public-global-vessel-identity:v4.0
+Ng Endurance,311000929,BHS,Bahamas,Passenger,3,3c3d01ce1-1db8-64ee-db0c-73c86f2f9aec,public-global-vessel-identity:v4.0
+Anfong 156,416248900,TWN,Chinese Taipei,Fishing,3,4e39050e7-7cd8-1f7a-e964-c6951de791b4,public-global-vessel-identity:v4.0
+An Fong No.138,416005006,TWN,Chinese Taipei,Fishing,3,34cec1596-697b-1612-38d6-8e748df3ec99,public-global-vessel-identity:v4.0
+Hartland Point,235505000,GBR,United Kingdom,Cargo,3,103f8f90a-a869-95f9-0b6e-be1092bce195,public-global-vessel-identity:v4.0
+Shin Yang,416241700,TWN,Chinese Taipei,Fishing,3,0985d4fe6-6d3d-9db2-520f-8500f342046e,public-global-vessel-identity:v4.0
+Guo Tong 3,416004775,TWN,Chinese Taipei,Fishing,3,830d1b488-8948-a38b-4e52-288a776296d0,public-global-vessel-identity:v4.0
+Hondius,244327000,NLD,Netherlands,Passenger,3,2d396eff6-6be3-7c38-f1ed-3c48e4f209e1,public-global-vessel-identity:v4.0
+Magellan Explorer,311000728,BHS,Bahamas,Passenger,3,b4c0ad281-1f0a-06ef-ff3e-30c89a016725,public-global-vessel-identity:v4.0
+L`Austral,578000700,WLF,Wallis and Futuna,Passenger,3,227985e71-1ee0-7055-b45c-d2fff0ba2c1d,public-global-vessel-identity:v4.0
+CM Park,441385000,KOR,Republic of Korea,Fishing,3,9a7a5b88d-d613-2fb3-6d51-1f67df59b052,public-global-vessel-identity:v4.0
+Chun Hao,416004564,TWN,Chinese Taipei,Fishing,3,de75ce6f9-929c-2034-52fa-2cf47cd341df,public-global-vessel-identity:v4.0
+Sylvia Earle,311000867,BHS,Bahamas,Passenger,3,081400e70-0a09-69c4-53c0-577f94753b65,public-global-vessel-identity:v4.0
+Full Load No.518,416005571,TWN,Chinese Taipei,Fishing,3,ba40a22f5-59d7-7606-75bf-4fac8c45d1d1,public-global-vessel-identity:v4.0
+Fitzroy,740391000,FLK,Falkland Islands (Malvinas),Passenger,3,4f4403bd3-3697-9891-bebd-62614227b80f,public-global-vessel-identity:v4.0
+Jenq Da Ming,416505000,TWN,Chinese Taipei,Fishing,3,ebe2df1b1-1637-811d-b356-4466366ed383,public-global-vessel-identity:v4.0
+Shuenn Man No.273,416246900,TWN,Chinese Taipei,Fishing,3,915b3b1c2-2ad7-7227-8e62-da08a86306b3,public-global-vessel-identity:v4.0
+Yi Da Fa,416005995,TWN,Chinese Taipei,Fishing,3,d145c7377-770c-ab6f-0779-f9e1ec022ebf,public-global-vessel-identity:v4.0
+Win Far Sheng No.3,416253500,TWN,Chinese Taipei,Fishing,3,f16136d66-605b-b566-4529-0e14d1efea07,public-global-vessel-identity:v4.0
+Hsiang Ho No.88,416240600,TWN,Chinese Taipei,Fishing,3,4643a0e28-83fb-e4ca-8545-cf6d8d9646ef,public-global-vessel-identity:v4.0
+Hanseatic Nature,215768000,MLT,Malta,Passenger,2,25a490739-90d4-0fa9-fd31-659c11b1f36c,public-global-vessel-identity:v4.0
+Shen Lan,412549114,CHN,China,Other,2,eacc9818b-b776-8bbb-d0bd-70a4bd9ab3bb,public-global-vessel-identity:v4.0
+Anixi,211792990,DEU,Germany,Passenger,2,dea29f3bf-f9cb-1c8a-0680-04a7e45cf5e9,public-global-vessel-identity:v4.0
+Invincible,353190000,PAN,Panama,Carrier,2,1a261652d-d097-ca80-ca34-304554681433,public-global-vessel-identity:v4.0
+Endurance Zodiac 11,983110301,---,---,Passenger,2,6d942ebe5-5226-4aa2-baee-e20b474c7337,public-global-vessel-identity:v4.0
+108Eunhae,441495000,KOR,Republic of Korea,Fishing,2,e9bac0aa9-9baa-c527-6a72-7eaed6b3cd3e,public-global-vessel-identity:v4.0
+Shuenn Man 626,416236900,TWN,Chinese Taipei,Fishing,2,9f0b9b70f-fe44-b67b-e0e9-9390cfd085d3,public-global-vessel-identity:v4.0
+Silver Endeavour,311000932,BHS,Bahamas,Passenger,2,ef523f4f9-9ea7-1254-ab9b-94ce926cfdba,public-global-vessel-identity:v4.0
+Viking Octantis,259070000,NOR,Norway,Cargo,2,c19d16ba5-5adb-e7a3-676a-b7bc6c2bcfc0,public-global-vessel-identity:v4.0
+Ra-Lb5,257425005,NOR,Norway,Passenger,2,162b1e94e-e114-d1f3-b2bc-7d228b80aec1,public-global-vessel-identity:v4.0
+Jih Da Gan,416174500,TWN,Chinese Taipei,Fishing,2,7d63baad5-581a-6504-f0fd-78d9311fb7c8,public-global-vessel-identity:v4.0
+Greg Mortimer,255806396,PRT,Portugal,Passenger,2,542fb8f97-7796-9d83-4d23-da027bf39ec4,public-global-vessel-identity:v4.0
+Le Lyrial,578000800,WLF,Wallis and Futuna,Passenger,2,c5d7b3e02-2b3f-9fde-0a1f-d507dfa7693d,public-global-vessel-identity:v4.0
+Chun I No.6,416005846,TWN,Chinese Taipei,Fishing,2,0c57373ac-c645-2da5-577e-5f61af12f9c9,public-global-vessel-identity:v4.0
+Lian Rong,416239600,TWN,Chinese Taipei,Fishing,2,f91bd6467-79d7-27d5-00ad-047fc693cb84,public-global-vessel-identity:v4.0
+Antarctic Sea,258139000,NOR,Norway,Carrier,2,b030b3c3b-bf13-de92-a11c-dd1ad26d46e2,public-global-vessel-identity:v4.0
+Endurance Zodiac 07,983110297,---,---,Passenger,2,1a537c6e5-513f-8f9c-6837-b0cd801a2603,public-global-vessel-identity:v4.0
+Anvil Point,235572000,GBR,United Kingdom,Cargo,2,48fcacd8c-c782-2209-66d9-f06cf0e96cb5,public-global-vessel-identity:v4.0
+Dah Ming No.8,416254500,TWN,Chinese Taipei,Fishing,2,9d13c23cc-cea3-eea2-fe74-459526b04893,public-global-vessel-identity:v4.0
+Fu Shen No.212,416242500,TWN,Chinese Taipei,Fishing,2,79bf570a6-6a18-9467-49c5-9cf5fb4c0bee,public-global-vessel-identity:v4.0
+Endurance Zodiac 12,983110302,---,---,Passenger,2,3c8fa1716-6308-2131-4796-91141af9c457,public-global-vessel-identity:v4.0
+Pesca Vaqueiro,224540000,ESP,Spain,Fishing,2,e493a7a3f-fc4a-6f59-1290-232ff72893b2,public-global-vessel-identity:v4.0
+Hsin Dah Ming No.16,416005575,TWN,Chinese Taipei,Fishing,2,57e038056-6879-f3c0-61fe-f8e8de391e9d,public-global-vessel-identity:v4.0
+Endurance Zodiac 15,983110303,---,---,Passenger,2,51a7e391e-edd5-20d8-7607-f735ba1f9a0d,public-global-vessel-identity:v4.0
+Skymax 101,440038000,KOR,Republic of Korea,Fishing,2,75959d272-2ae3-e9de-404c-603f24fc98a2,public-global-vessel-identity:v4.0
+Zodiac 10^2C Hondius,982440010,---,---,Other,2,dcb89f11d-deb1-bc5d-65de-66a7fc395602,public-global-vessel-identity:v4.0
+Endurance Zodiac 08,983110298,---,---,Passenger,2,dc61c4913-32e7-07d2-81a0-aba7e245a68d,public-global-vessel-identity:v4.0
+Proa Pioneer,770576305,URY,Uruguay,Fishing,2,bb2cdf102-274a-2fc2-e44e-b54c73d0122a,public-global-vessel-identity:v4.0
+Seven Seas Splendor,538007673,MHL,Marshall Islands,Passenger,2,5bd084088-80f6-e0c8-f77c-f967d4a83ba6,public-global-vessel-identity:v4.0
+Win Far Yu No.2,416252900,TWN,Chinese Taipei,Fishing,2,a1013cd03-3cdc-cac2-8817-d2a99805a89f,public-global-vessel-identity:v4.0
+Fullload-No558,416236500,TWN,Chinese Taipei,Fishing,2,858f7efc7-7f40-d180-e4b8-fb9632196042,public-global-vessel-identity:v4.0
+Hsiang Yun Wang,416005723,TWN,Chinese Taipei,Fishing,2,1e811fc66-67c6-350e-457b-4049f83a0918,public-global-vessel-identity:v4.0
+Octantis Tender 1,982570174,---,---,Passenger,2,cc8a8dda8-81b8-f152-504f-80f91282a77b,public-global-vessel-identity:v4.0
+Lung Soon Fa No.1,416238500,TWN,Chinese Taipei,Fishing,2,f86eb0c32-29eb-dd51-fc73-16b7b19a4ae7,public-global-vessel-identity:v4.0
+Saronic Bay,636019696,LBR,Liberia,Other,2,e55986e4b-b3f4-4e88-3b96-26437f1d4ef2,public-global-vessel-identity:v4.0
+Vis A Vis,261004876,POL,Poland,Passenger,2,b6e4f2439-9189-4d5f-a7d6-f04c14f047cf,public-global-vessel-identity:v4.0
+Polarstern,211202460,DEU,Germany,Seismic vessel,2,0153e8d1d-d444-502b-e5b8-9a40c8622929,public-global-vessel-identity:v4.0
+Podorange,261003110,POL,Poland,Other,2,04431f08b-b637-e924-7b9c-dfcc1ba60c16,public-global-vessel-identity:v4.0
+Zi Da Ye,416234600,TWN,Chinese Taipei,Fishing,2,ea6e52b29-90a3-61ce-35bd-d79664c6455e,public-global-vessel-identity:v4.0
+Cloud 23,983110159,---,---,Passenger,2,0e5ce82da-a7b3-32a8-3fd1-595e3f7f8d3e,public-global-vessel-identity:v4.0
+Shuenn Man No100,416251600,TWN,Chinese Taipei,Fishing,2,806e7127e-e74b-0b8a-941a-a5c72c079ad9,public-global-vessel-identity:v4.0
+Hanseaticinspiration,215766000,MLT,Malta,Passenger,2,8414a39d0-002b-5c14-e310-55cf6557ed00,public-global-vessel-identity:v4.0
+Sola,577670000,VUT,Vanuatu,Fishing,2,07f71510d-d821-87cc-a2df-2138d15e9abe,public-global-vessel-identity:v4.0
+Marina,538003668,MHL,Marshall Islands,Passenger,2,45a91fedd-da78-7d12-1bd5-93dbd175dba8,public-global-vessel-identity:v4.0
+Seabourn Pursuit,311001081,BHS,Bahamas,Passenger,2,f1a737800-004a-04b3-f9b4-bbfe2dda6b84,public-global-vessel-identity:v4.0
+Celebrity Equinox,249667000,MLT,Malta,Passenger,2,d09161c50-0e46-1575-f699-a8d7a92a4615,public-global-vessel-identity:v4.0
+Pursuit Zodiac F,983110354,---,---,Passenger,2,6d6fde345-5a51-d34e-e2c8-7dcce7b5659f,public-global-vessel-identity:v4.0
+Ushuaia,671188100,TGO,Togo,Other,2,28e1dea6a-a4e2-7197-01bf-aa00f8ae5560,public-global-vessel-identity:v4.0
+Wind 12,983110449,---,---,Passenger,2,4efe0d5c2-281f-2581-6dca-f8a24fe4c32f,public-global-vessel-identity:v4.0
+Shuenn Man No.99,416229800,TWN,Chinese Taipei,Fishing,2,61aeacd40-0e30-6039-4b40-22e84f3d3514,public-global-vessel-identity:v4.0
+Ortelius,244180151,NLD,Netherlands,Other,2,0ad5b4dea-a985-9eb4-c7f1-9457c763285f,public-global-vessel-identity:v4.0
+Wind 14,983110451,---,---,Passenger,2,4bb28b95b-b180-d86f-87b0-c8e325065196,public-global-vessel-identity:v4.0
+Unknown vessel,982570202,---,---,Passenger,2,b74c60539-9ffe-329f-7892-67e6667eae15,public-global-vessel-identity:v4.0
+Endurance Zodiac 06,983110296,---,---,Passenger,2,29341bbd1-13e7-cb04-70f1-d2e5412d208a,public-global-vessel-identity:v4.0
+Shin Torng Shing,416251900,TWN,Chinese Taipei,Fishing,2,b1efc4019-9f5a-779a-0bd3-228c24681a33,public-global-vessel-identity:v4.0
+Unknown vessel,983110303,---,---,Passenger,2,d48a6925f-fd13-7692-72c9-11dc32c4c8c3,public-global-vessel-identity:v4.0
+Ocean Victory,255806394,PRT,Portugal,Passenger,2,069b4bc62-2565-1f27-2cb2-f5c9feac7452,public-global-vessel-identity:v4.0
+Caoba,701007087,ARG,Argentina,Passenger,2,d54643122-2374-7d46-d117-642b011a7000,public-global-vessel-identity:v4.0
+Rv Jack Sollis,740429000,FLK,Falkland Islands (Malvinas),Other,2,3e71d1366-61d0-d34e-0ee9-c61edb5df1e7,public-global-vessel-identity:v4.0
+Marama,305999000,ATG,Antigua and Barbuda,Passenger,2,812cc2da5-5375-f03e-d917-c67196152bdd,public-global-vessel-identity:v4.0
+Guo Tong 101,416005752,TWN,Chinese Taipei,Fishing,2,9d793cdb3-3cb5-f35c-ffa4-5a65f5a2c40a,public-global-vessel-identity:v4.0
+Peng Yang,416248500,TWN,Chinese Taipei,Fishing,2,036ea36d0-0efb-cbcb-ff6f-9af04b202b70,public-global-vessel-identity:v4.0
+Ocean Albatros,255915656,PRT,Portugal,Passenger,2,49066034a-a69b-c169-803c-24280902a4f7,public-global-vessel-identity:v4.0
+Sein Sky,440097000,KOR,Republic of Korea,Carrier,2,43b9c0a5e-e4ff-d002-bf96-7da2eefa9cae,public-global-vessel-identity:v4.0
+An Fong No.111,416240500,TWN,Chinese Taipei,Fishing,2,7d5948581-16e1-e322-85a5-d11375c8c030,public-global-vessel-identity:v4.0
+Silver En Zodiac 06,983110223,---,---,Passenger,2,36bf67539-931e-3152-5d66-e6372c3f907d,public-global-vessel-identity:v4.0
+Lien Dar,416242600,TWN,Chinese Taipei,Fishing,2,7c9d9c536-6b48-d653-ab1d-50a616b8be98,public-global-vessel-identity:v4.0
+Silver Cloud,309027000,BHS,Bahamas,Passenger,2,814a5527b-b0c7-601d-cc15-f5babe822f4b,public-global-vessel-identity:v4.0
+"Zodiac 5, Ortelius",982440033,---,---,Passenger,2,90a9662c5-5c0f-7478-2ae4-cf501d24f3d2,public-global-vessel-identity:v4.0
+Le Boreal,578000500,WLF,Wallis and Futuna,Passenger,2,8db2dcbb8-8f90-7111-b085-dd4a063b178b,public-global-vessel-identity:v4.0
+Pursuit Zodiac G,983110355,---,---,Passenger,2,9fcba6798-8280-eff7-0720-3354131d6a09,public-global-vessel-identity:v4.0
+Fridtjof Nansen,257088070,NOR,Norway,Passenger,2,fcf42f41f-f1eb-2474-f83b-82b0ade14be1,public-global-vessel-identity:v4.0
+Fu Chian,416004889,TWN,Chinese Taipei,Fishing,2,677e20f84-4e5e-ae42-e8ea-be05730d463a,public-global-vessel-identity:v4.0
+Pei Yuh No18,416244800,TWN,Chinese Taipei,Fishing,2,c31b490b5-5582-e9a3-dfb6-746598d3face,public-global-vessel-identity:v4.0
+Venture Zodiac E,983110334,---,---,Passenger,2,6d1d45327-725a-5403-c51f-5eb6432829b1,public-global-vessel-identity:v4.0
+Zi Da Wang,416005931,TWN,Chinese Taipei,Fishing,2,51a21d1d3-3135-f8b0-dbe8-ad57612d141e,public-global-vessel-identity:v4.0
+Alanis,305469000,ATG,Antigua and Barbuda,Cargo,2,27a739d4c-c9f3-d783-b519-b54ba5817908,public-global-vessel-identity:v4.0
+Saga Sea,259539000,NOR,Norway,Fishing,2,3d92d0d1e-ed36-e1bd-fd55-3735c2a5485e,public-global-vessel-identity:v4.0
+Win Far Tsair No616,416528000,TWN,Chinese Taipei,Fishing,2,f8fa0a39e-efb2-1454-7bc4-76ffd9740d60,public-global-vessel-identity:v4.0
+An Fong 118,416245500,TWN,Chinese Taipei,Fishing,2,a5115718f-fb6f-2022-4ddd-7fba417961b8,public-global-vessel-identity:v4.0
+Seabourn Venture,311000930,BHS,Bahamas,Passenger,2,398106466-6dc8-efc8-e8c8-5aaf0155e77c,public-global-vessel-identity:v4.0
+Antarctic Endurance,257400000,NOR,Norway,Fishing,2,43b59dcf9-9aaf-2af1-52be-d33c594501fe,public-global-vessel-identity:v4.0
+Shuenn Man No.23,416006763,TWN,Chinese Taipei,Fishing,2,1506d08ec-c65b-afc8-76dc-3d1e78d7a33e,public-global-vessel-identity:v4.0
+Frio Marathon,311001593,BHS,Bahamas,Carrier,1,f9534c19e-e2ce-1a02-5f59-ace5f93c0be4,public-global-vessel-identity:v4.0
+Pursuit Zodiac X,983110372,---,---,Passenger,1,3ae568c83-3fcf-2864-8232-88b14dbbed74,public-global-vessel-identity:v4.0
+Zodiac 3^2C Ortelius,982440031,---,---,Passenger,1,6bfd7f334-40b0-f818-b893-c85add5af357,public-global-vessel-identity:v4.0
+Unknown vessel,309581760,BHS,Bahamas,Passenger,1,bdc007b09-9559-28a6-667e-dc64db36cd77,public-global-vessel-identity:v4.0
+"Zodiac 4, Plancius",982440020,---,---,Passenger,1,c8fc91641-1d7f-0b0c-f84e-e08bac08f428,public-global-vessel-identity:v4.0
+Sae In Leader,440863000,KOR,Republic of Korea,Fishing,1,5d2cf7dcf-f3d1-6e93-5fd6-ad7b46761e4a,public-global-vessel-identity:v4.0
+Ocean Nova,309051000,BHS,Bahamas,Passenger,1,d4c0def2c-c9ff-9a71-0658-f8964b248e2d,public-global-vessel-identity:v4.0
+Hsiang Ching Tsai,416253600,TWN,Chinese Taipei,Fishing,1,bcf5b6a52-2f13-1c13-67bc-ed231f528cd8,public-global-vessel-identity:v4.0
+Frank Wild,740419000,FLK,Falkland Islands (Malvinas),Other,1,f9710d526-6285-7989-f4c1-10a9e3595418,public-global-vessel-identity:v4.0
+World Traveller 04,982550038,---,---,Passenger,1,5d8e0d972-2ebb-c938-af2c-6a04f75d131b,public-global-vessel-identity:v4.0
+Unknown vessel,982570093,---,---,Passenger,1,f9e7665b8-8661-df04-e8ff-35e9dce5473a,public-global-vessel-identity:v4.0
+Sh Diana,636093228,LBR,Liberia,Passenger,1,bf1813ec2-2358-c741-0e64-b6f80912adb8,public-global-vessel-identity:v4.0
+Frio Aegean,353773000,PAN,Panama,Carrier,1,61873de6b-bf54-b750-165e-55c12eafdbc1,public-global-vessel-identity:v4.0
+"Zodiac 4, Ortelius",982440032,---,---,Other,1,877b43aad-d1d5-c16f-fc7c-2732ac513efb,public-global-vessel-identity:v4.0
+Unknown vessel,284170176,---,---,Other,1,2bb0a22bc-cf6d-0b35-c0c1-e3fedcc0b01a,public-global-vessel-identity:v4.0
+Island Sky,311743000,BHS,Bahamas,Passenger,1,7d435b8d4-42c8-f724-843d-17f4938a5845,public-global-vessel-identity:v4.0
+Endurance Zodiac 04,983110294,---,---,Passenger,1,66cdd332b-b9a9-a02a-9832-e1f5ce2d0fea,public-global-vessel-identity:v4.0
+Wind 10,983110447,---,---,Passenger,1,8cca03aff-f7fb-d8ed-be0a-0ee118bbfb52,public-global-vessel-identity:v4.0
+LL Zodiac 03,985780038,---,---,Passenger,1,3db0c3d17-7b3c-83ab-37d1-07b6d39b1206,public-global-vessel-identity:v4.0
+Talya,546020540,PYF,French Polynesia,Passenger,1,46c14128e-e597-36c0-10bb-672a0665b4c7,public-global-vessel-identity:v4.0
+La Marguerite,227491590,FRA,France,Other,1,426ce7121-1f28-a8c6-b6bb-82fc9167a5ae,public-global-vessel-identity:v4.0
+Silver Ev Zodiac 8,983110222,---,---,Passenger,1,095fc3fe6-66e6-32a2-bb58-d1518026e3a0,public-global-vessel-identity:v4.0
+Endurance Zodiac 09,983110299,---,---,Passenger,1,50ecc6787-7d1a-6101-1cf0-f254004de181,public-global-vessel-identity:v4.0
+Ngex Zodiac #2,983110611,---,---,Other,1,aefebe985-56d8-d1ae-06ea-9bb13c7e0981,public-global-vessel-identity:v4.0
+Venture Zodiac D,983110325,---,---,Passenger,1,27c8ef168-8884-3d81-58da-697784003b65,public-global-vessel-identity:v4.0
+Cloud 27,983110458,---,---,Other,1,89097bbab-b49d-c4f7-47c9-1320d611f6b5,public-global-vessel-identity:v4.0
+Selma Expeditions,261415000,POL,Poland,Other,1,fb4c7bf72-251d-5c08-f602-96bee0a6dc8a,public-global-vessel-identity:v4.0
+Unknown vessel,983110221,---,---,Passenger,1,345c7dacc-c1fc-a9f8-59ac-c8c3a11b970a,public-global-vessel-identity:v4.0
+Lifeboat 3,982570219,---,---,Other,1,3d8ed0fe8-8756-b990-1907-a3755face1bd,public-global-vessel-identity:v4.0
+Unknown vessel,232048792,GBR,United Kingdom,Other,1,8bbb22947-77fe-8925-9300-43c744644abb,public-global-vessel-identity:v4.0
+Venture Zodiac U,983110315,---,---,Passenger,1,6d16183ef-f120-d607-8490-7c79d9a43191,public-global-vessel-identity:v4.0
+"Zodiac 7, Ortelius",982440035,---,---,Passenger,1,28c5e4d21-1b23-00ed-a8f1-1b24c66fbba3,public-global-vessel-identity:v4.0
+Hsiang Ho No.8,416252600,TWN,Chinese Taipei,Fishing,1,43a62e804-41a5-1dcc-f71b-f884ff7fe427,public-global-vessel-identity:v4.0
+Pursuit Zodiac B,983110350,---,---,Passenger,1,85f7aeddf-f84c-d916-defd-83eb1f653abc,public-global-vessel-identity:v4.0
+Unknown vessel,982157661,---,---,Passenger,1,dbef97da1-1b56-0254-4096-061a6b9b8e41,public-global-vessel-identity:v4.0
+Crystal Serenity,311536000,BHS,Bahamas,Passenger,1,fba414c87-7e0c-2b3e-9fc5-6b801245215a,public-global-vessel-identity:v4.0
+Venture Zodiac M,983110337,---,---,Passenger,1,b4e2409fb-b203-25fe-376b-57abef86061d,public-global-vessel-identity:v4.0
+An Fong No.888,416007978,TWN,Chinese Taipei,Fishing,1,2f61383da-a4af-63bd-1924-95d8224f37b7,public-global-vessel-identity:v4.0
+Vasco Da Gama,255806445,PRT,Portugal,Passenger,1,f1fa4ec10-0d6f-d5c7-7f94-820c81851d44,public-global-vessel-identity:v4.0
+Zi Da Hsin,416253700,TWN,Chinese Taipei,Fishing,1,591ef6318-817a-9fe6-e91d-413d09fcbbd0,public-global-vessel-identity:v4.0
+Icebird,375264000,VCT,Saint Vincent and the Grenadines,Other,1,fda856c68-8965-e540-ff9b-04a30da624a2,public-global-vessel-identity:v4.0
+Zodiac 03^2C Hondius,982440003,---,---,Passenger,1,244175112-2556-b01f-e244-b7531e71a237,public-global-vessel-identity:v4.0
+World Traveller 11,982550045,---,---,Passenger,1,46db8584b-b01c-5475-c649-ea81d1c7cc6b,public-global-vessel-identity:v4.0
+Oosterschelde,246011000,NLD,Netherlands,Passenger,1,0cd595e5a-a817-1ee0-5e74-eec0284aacc8,public-global-vessel-identity:v4.0
+Fr Zodiak 12,982570212,---,---,Passenger,1,068b61b1d-d14c-979c-98b5-80fd421644d4,public-global-vessel-identity:v4.0
+Resolution Zodiac 8,983110417,---,---,Passenger,1,716f74d5c-c08b-813c-b598-bbdf786608fc,public-global-vessel-identity:v4.0
+Endurance Zodiac 03,983110293,---,---,Passenger,1,72e914d42-2972-40c1-95cd-45d7149ded8c,public-global-vessel-identity:v4.0
+Hanseatic Spirit,215973000,MLT,Malta,Passenger,1,c584ee12c-cf68-f5da-ef35-9ad71188a821,public-global-vessel-identity:v4.0
+Wind 11,983110448,---,---,Other,1,adc1e7e6a-a1ab-1613-0bc7-70ee8f26f620,public-global-vessel-identity:v4.0
+Clio Fi,740411000,FLK,Falkland Islands (Malvinas),Passenger,1,84c11d344-4a77-1d27-6fdb-7e749ffeb99a,public-global-vessel-identity:v4.0
+Seabourn Odyssey,309416000,BHS,Bahamas,Passenger,1,f30b9bceb-b5f4-b8d5-598d-e67aa2112da1,public-global-vessel-identity:v4.0
+Zodiac 7 Plancius,982440023,---,---,Passenger,1,35b622f4b-b04e-7e1e-7edf-95f6eaaaaa58,public-global-vessel-identity:v4.0
+Zodiac 17,982570233,---,---,Passenger,1,346e02227-72d4-6a7f-f1a9-5f75f9f63ce7,public-global-vessel-identity:v4.0
+Ocean Splendid,374245000,PAN,Panama,Other,1,919376e80-0a0a-2b2a-0139-5972df572690,public-global-vessel-identity:v4.0
+"Zodiac 10, Ortelius",982440038,---,---,Passenger,1,20f0e5429-9e40-304e-a338-e7963b4e117a,public-global-vessel-identity:v4.0
+Tronio,224623000,ESP,Spain,Fishing,1,970790c6e-eae0-7dad-b935-4b7f0828aad4,public-global-vessel-identity:v4.0
+An Fong No.188,416250700,TWN,Chinese Taipei,Fishing,1,fc959287d-d3b9-da99-0bd2-d94aac91d811,public-global-vessel-identity:v4.0
+Silver En Zodiac 2,983110220,---,---,Passenger,1,dc45d7658-8098-3c14-087a-28162b56cf0f,public-global-vessel-identity:v4.0
+Ng Explorer,309336000,BHS,Bahamas,Passenger,1,3240a0e40-09d9-c96e-ce06-4aac47869831,public-global-vessel-identity:v4.0
+Resolution Zodiac 2,983110411,---,---,Passenger,1,2a6af3c6f-f87b-32c4-22f9-85168de82bd7,public-global-vessel-identity:v4.0
+Fullload No189,416241600,TWN,Chinese Taipei,Fishing,1,e0455d14a-a62b-cc6d-6778-add66376b6d1,public-global-vessel-identity:v4.0
+Kingstar,440203000,KOR,Republic of Korea,Fishing,1,e908103e6-612e-2de0-8d4d-6a532071be24,public-global-vessel-identity:v4.0
+Venture Zodiac B,983110326,---,---,Passenger,1,8eab3332d-dd08-dc26-52cb-b9cd26a6bdd9,public-global-vessel-identity:v4.0
+Cloud 21,983110161,---,---,Passenger,1,2c07b81e7-7ba2-4fb0-2dbd-80bd51f0623f,public-global-vessel-identity:v4.0
+Wind 25,368091490,USA,United States of America,Passenger,1,33f433613-3595-243a-4602-6b1faec083e9,public-global-vessel-identity:v4.0
+Silver Ev Zodiac 9,983110214,---,---,Passenger,1,29a9cd639-9616-2b43-62f4-3f414783ab89,public-global-vessel-identity:v4.0
+Solo Sailor Tb,232020914,GBR,United Kingdom,Other,1,ba5c4343d-d31d-a35e-5885-b376b39f2baf,public-global-vessel-identity:v4.0
+Blue Ocean,441389000,KOR,Republic of Korea,Fishing,1,9a5cbb08a-a928-9aeb-cae5-049bd4f81044,public-global-vessel-identity:v4.0
+Zodiac 16^2C Hondius,982440016,---,---,Passenger,1,476e34e1f-f7b6-0e21-687a-108e73d87b2a,public-global-vessel-identity:v4.0
+Unknown vessel,232002833,GBR,United Kingdom,Seismic vessel,1,22f004d54-4686-04cb-cb4f-42ffa8185d02,public-global-vessel-identity:v4.0
+Ocean Endeavour,255806401,PRT,Portugal,Other,1,b392c4631-1b6b-19f2-8d6f-5011007af6e4,public-global-vessel-identity:v4.0
+Wind 17,368091810,USA,United States of America,Other,1,5970b48ed-d972-517f-8f14-7b977dafe58a,public-global-vessel-identity:v4.0
+Volendam,245968000,NLD,Netherlands,Passenger,1,610234d8d-d2b3-cf76-727f-89e0a717428a,public-global-vessel-identity:v4.0
+Cloud 16,983110156,---,---,Other,1,b1b2d392a-a403-2326-acab-45a36e533e76,public-global-vessel-identity:v4.0
+Frio Chikuma,311001575,BHS,Bahamas,Carrier,1,99978859a-a724-2fdc-81f3-5539b528a994,public-global-vessel-identity:v4.0
+Expedition,255806402,PRT,Portugal,Passenger,1,9297ec449-9333-7ebf-c0b9-cb123a5353a7,public-global-vessel-identity:v4.0
+Ng Resolution,311000893,BHS,Bahamas,Other,1,5193a151b-b466-4585-f776-e30a7b35d3ff,public-global-vessel-identity:v4.0
+Resolution Zodiac 7,983110416,---,---,Passenger,1,ee3506743-3808-41bd-edc9-71ecfc261704,public-global-vessel-identity:v4.0
+Hsiang Hao No:6,416536000,TWN,Chinese Taipei,Fishing,1,cfb3c22ea-a708-041f-c95d-0e5dbbf52ab8,public-global-vessel-identity:v4.0
+An Fong No.136,416004892,TWN,Chinese Taipei,Fishing,1,5de9b7bdf-f827-b04d-0c05-074e535b6c70,public-global-vessel-identity:v4.0
+Kerina 1,503733800,AUS,Australia,Passenger,1,5bf17800d-dac8-3dd8-1435-8c1e0c0c7365,public-global-vessel-identity:v4.0
+Hanse Explorer,304977000,ATG,Antigua and Barbuda,Passenger,1,55c76d20d-d7ad-a749-0024-923d96efb03d,public-global-vessel-identity:v4.0
+Unknown vessel,257425006,NOR,Norway,Passenger,1,0eafd5d31-18ec-82b1-7ca2-41df621afd0d,public-global-vessel-identity:v4.0
+World Voyager,255806150,PRT,Portugal,Passenger,1,35bbe7cdc-ce8f-6de2-7195-f1d0d75f86b8,public-global-vessel-identity:v4.0
+An Fong No.868,416008893,TWN,Chinese Taipei,Fishing,1,eefc7c50b-b63d-2f77-0974-451446598fa7,public-global-vessel-identity:v4.0
+Wind 9,983110446,---,---,Passenger,1,8c243f608-8a98-f8ef-92a3-ea3c3a66be10,public-global-vessel-identity:v4.0
+Ra-Lb6,257425006,NOR,Norway,Passenger,1,43f3d519e-e7d2-8826-c6e2-71cb4e1164ab,public-global-vessel-identity:v4.0
+Sapphire Princess,310867000,BMU,Bermuda,Passenger,1,307b46fcd-ddea-a1f9-a81e-dfcfebe80eba,public-global-vessel-identity:v4.0
+Chin Chuan Hsing,416246500,TWN,Chinese Taipei,Fishing,1,e33cb2ad7-78ad-b744-bdb3-a710a62d8a6d,public-global-vessel-identity:v4.0
+Unknown vessel,982464424,---,---,Passenger,1,22bfa3a96-6618-680c-bfb6-6967540cb455,public-global-vessel-identity:v4.0
+Libertad (Nz3010),512010784,NZL,New Zealand,Passenger,1,8de44969c-c838-b825-4a75-cf8e3d9b4181,public-global-vessel-identity:v4.0
+World Traveller,255806210,PRT,Portugal,Passenger,1,f380d522d-decd-14c0-9629-0f85c37914ac,public-global-vessel-identity:v4.0
+Resolution Zodiac 3,983110412,---,---,Passenger,1,070a5a84b-bf35-4790-a49a-4a682726eeaf,public-global-vessel-identity:v4.0
+Zodiac 12^2C Hondius,982440012,---,---,Passenger,1,a3a90b2f7-7814-413c-054f-fb4901f171c9,public-global-vessel-identity:v4.0
+Lifeboat 4,982570225,---,---,Other,1,7b2e252f0-04df-6dd4-9e84-e659c89a32dd,public-global-vessel-identity:v4.0
+Unknown vessel,309333952,BHS,Bahamas,Other,1,d59b17b5a-aa0a-2b5e-8b97-b574cb817c57,public-global-vessel-identity:v4.0
+Asteria,518999313,COK,Cook Islands,Other,1,d84e03e8f-f3c9-58fe-f589-d98fe1b0ddfa,public-global-vessel-identity:v4.0
+Wind 03,983110440,---,---,Passenger,1,900d75da9-96f9-ec71-7a95-41f3380a8a70,public-global-vessel-identity:v4.0
+Global Surveyor,270699000,CZE,Czech Republic,Passenger,1,903f52e78-88eb-67d9-693b-5a2f0b67fcf4,public-global-vessel-identity:v4.0
+World Traveller 06,982550040,---,---,Passenger,1,d86000524-4343-8d61-48d5-e655bda416b6,public-global-vessel-identity:v4.0
+World Voyager 07,982550072,---,---,Passenger,1,9ed661b74-44a2-9f94-12e8-b32e537261bf,public-global-vessel-identity:v4.0
+Cloud 24,983110160,---,---,Passenger,1,4633fb176-6bc0-455d-58b2-52e7930f77e6,public-global-vessel-identity:v4.0
+"Zodiac 6, Ortelius",982440034,---,---,Other,1,2100bd04f-f5cd-f9f3-b7f0-a3650ba34a80,public-global-vessel-identity:v4.0
+Chun I No.1,416239500,TWN,Chinese Taipei,Fishing,1,9e9e2bd23-35dc-8602-ef1a-353004a38a58,public-global-vessel-identity:v4.0
+Unknown vessel,982570204,---,---,Passenger,1,55f824568-8c22-8e78-5654-090793b6c44f,public-global-vessel-identity:v4.0
+Casa,740401000,FLK,Falkland Islands (Malvinas),Other,1,136e66df7-7a94-1115-219c-c430205fd376,public-global-vessel-identity:v4.0
+Full Load No168,416248800,TWN,Chinese Taipei,Fishing,1,c6302e27d-d114-e574-9b44-e1e0d9a918ec,public-global-vessel-identity:v4.0
+El Holandes,225992312,ESP,Spain,Passenger,1,3cdd60dc8-8d4c-33e0-eb47-0c905d41bc04,public-global-vessel-identity:v4.0
+Splendor - Tender 5,985380673,---,---,Passenger,1,1ef97e5a2-28df-c08e-ecc2-72a2509939ca,public-global-vessel-identity:v4.0
+Silver En Zodiac 5,983110210,---,---,Passenger,1,d5a4ec2fc-ccb8-29be-8225-81b416950f05,public-global-vessel-identity:v4.0
+Chin Lin,416137600,TWN,Chinese Taipei,Fishing,1,667e779cd-d2d5-5ed5-9fdf-d38b1cdf6717,public-global-vessel-identity:v4.0
+Meredian,671546100,TGO,Togo,Passenger,1,7eb402b38-8b41-58d5-18e8-11e98aa2f433,public-global-vessel-identity:v4.0
+Pursuit Zodiac D,983110352,---,---,Passenger,1,3fb0d9367-7ed8-3f73-7117-3856f4b6abd8,public-global-vessel-identity:v4.0
+Sh Minerva,636093399,LBR,Liberia,Passenger,1,8424b77af-f232-080e-ef61-0e37d4185d87,public-global-vessel-identity:v4.0
+Nat Larsen,982157687,---,---,Passenger,1,b4ad02fd8-8a77-2a0c-f0f2-d30dfae13698,public-global-vessel-identity:v4.0
+Fr Zodiak 06,982570206,---,---,Passenger,1,c64a8d29f-f567-15b4-6b0e-53898cf5f488,public-global-vessel-identity:v4.0
+Sea 13,983110599,---,---,Other,1,87653b649-965e-b480-4a65-d619ee5a6c36,public-global-vessel-identity:v4.0
+World Voyager 05,982550070,---,---,Passenger,1,07b7678af-ff1e-5d2e-b703-92a568dd2c43,public-global-vessel-identity:v4.0
+Sea 9,983110595,---,---,Other,1,e8b698d7c-c982-8e90-e278-57a33fe066ca,public-global-vessel-identity:v4.0
+Jin Yi,416238600,TWN,Chinese Taipei,Fishing,1,c7ea1a35d-dedc-1a8f-a598-450e4089b869,public-global-vessel-identity:v4.0
+Moli,367791220,USA,United States of America,Passenger,1,942d5c928-828b-6eb5-a8f2-990f31168a7d,public-global-vessel-identity:v4.0
+Resolution Zodiac 12,983110421,---,---,Passenger,1,40e96d175-50b4-5583-915f-4277bb3a440c,public-global-vessel-identity:v4.0
+Endurance Zodiac 10,983110300,---,---,Passenger,1,6821bc870-010b-466e-1d36-60b052765e75,public-global-vessel-identity:v4.0
+Zodiak Ra04,982570087,---,---,Passenger,1,295bb07f2-2ffc-4d6e-2f56-6b799dbc9e7e,public-global-vessel-identity:v4.0
+Sh Vega,636093187,LBR,Liberia,Passenger,1,2e0ef0968-8f34-9cdd-e8c3-db165c260355,public-global-vessel-identity:v4.0
+Endurance Zodiac 14,983110304,---,---,Passenger,1,7aad05d3f-fd6c-5d37-f6cb-2214dd7e2c6b,public-global-vessel-identity:v4.0
+Pursuit Zodiac C,983110351,---,---,Passenger,1,4d3462c2a-ae7c-c5a0-7eb0-6650975078c4,public-global-vessel-identity:v4.0
+Pursuit Zodiac A,983110349,---,---,Passenger,1,fbce57422-2d00-711e-e04d-432a472e8878,public-global-vessel-identity:v4.0
+Hurst Point,235500000,GBR,United Kingdom,Cargo,1,2433707aa-a89d-4cf7-2934-0571c391d086,public-global-vessel-identity:v4.0
+Unknown vessel,982570212,---,---,Passenger,1,7b2da55ab-b5f8-72bf-bcd6-ad910c64175d,public-global-vessel-identity:v4.0
+Sea 7,983110593,---,---,Other,1,9fb334c57-7580-3845-c7fe-87018ed98e8a,public-global-vessel-identity:v4.0
+Hms Medway,232005753,GBR,United Kingdom,Other,1,2f56548a8-8579-f702-ca81-db0f55d8fae9,public-global-vessel-identity:v4.0
+Unknown vessel,982570233,---,---,Passenger,1,a7fb95b71-13ea-2486-7283-f00c1c18d4b7,public-global-vessel-identity:v4.0
+Expedition,636013956,LBR,Liberia,Passenger,1,e2ff0e27d-d3fa-44b7-d481-920a9ad0f153,public-global-vessel-identity:v4.0
+Silver En Zodiac 1,983110215,---,---,Passenger,1,d5226d3d7-7a7b-7086-d0f8-95a295b487f2,public-global-vessel-identity:v4.0
+Zodiac 06^2C Hondius,982440006,---,---,Passenger,1,4f16bc83f-fdb9-61b9-4e80-ac2bb551627e,public-global-vessel-identity:v4.0
+Endurance Zodiac 05,983110295,---,---,Passenger,1,04aaa69b8-8d07-b3be-4cd8-b2ac8e326985,public-global-vessel-identity:v4.0
+Unknown vessel,982570210,---,---,Passenger,1,6e435bc42-2419-31aa-310c-eb78e435ef24,public-global-vessel-identity:v4.0
+Zodiac 06^2C Planciu,982440022,---,---,Passenger,1,dc6e3bb8a-ac33-efd9-315b-6124a98d8426,public-global-vessel-identity:v4.0
+Frio Oceanic,311001580,BHS,Bahamas,Carrier,1,70db791f6-6c59-dfda-b80f-ff22f2bf15a0,public-global-vessel-identity:v4.0
+Unknown vessel,111232001,---,---,Passenger,1,dbabbed44-48b7-1e6b-90e0-f9aa01f6c28b,public-global-vessel-identity:v4.0
+Havorn,512011145,NZL,New Zealand,Passenger,1,bf97ce042-2ea7-c89a-7313-cd012059af88,public-global-vessel-identity:v4.0
+World Traveller 12,982550044,---,---,Passenger,1,8cfc34de7-7f3d-69e5-c6c0-fdfe9bfafed1,public-global-vessel-identity:v4.0
+All-In Solo Sailor,228165920,FRA,France,Other,1,afa151491-17cc-b449-46e3-d2d23ac37733,public-global-vessel-identity:v4.0
+Cloud 8,983110148,---,---,Other,1,be7f2741d-db4f-4e96-5b35-4e19cdaef062,public-global-vessel-identity:v4.0
+Wind 16,983110454,---,---,Passenger,1,a83ac5fa0-00ee-095f-dd9a-099e1da7c1c9,public-global-vessel-identity:v4.0
+Unknown vessel,257425005,NOR,Norway,Passenger,1,af34892a9-9c7d-f718-0634-79b267bbb77e,public-global-vessel-identity:v4.0
+Taganrogskiy Zaliv,353946000,PAN,Panama,Carrier,1,9d051c9fd-d0da-2f99-013c-a2ae937734db,public-global-vessel-identity:v4.0
+Pionero,701001372,ARG,Argentina,Other,1,4545a6437-7609-89de-bace-c6ef118814ea,public-global-vessel-identity:v4.0
+Zodiac 1  Plancius,982440017,---,---,Passenger,1,00df3cafb-b682-8947-1682-89fbb813e128,public-global-vessel-identity:v4.0
+Zodiac 07^2C Hondius,982440007,---,---,Passenger,1,cf520ebbf-f733-3847-dc2b-8d0b10b19f2d,public-global-vessel-identity:v4.0

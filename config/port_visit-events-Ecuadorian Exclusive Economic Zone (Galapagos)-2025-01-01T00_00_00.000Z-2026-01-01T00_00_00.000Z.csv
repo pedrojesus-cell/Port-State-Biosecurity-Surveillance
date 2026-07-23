@@ -1,0 +1,974 @@
+name,MMSI,flag,flag translated,GFW vessel type,Total port_visit events,vesselId,dataset
+Wolf,735059970,ECU,Ecuador,Passenger,686,6e5c8c03c-c9b7-6f40-45f7-2877d6adce44,public-global-vessel-identity:v4.0
+Sigiloza,735058367,ECU,Ecuador,Passenger,681,1575011ff-f324-e713-9743-b86d41fed69b,public-global-vessel-identity:v4.0
+Queen Jenny,735060423,ECU,Ecuador,Passenger,667,1a52772b5-51ea-1d1e-d4c6-882ce11e9250,public-global-vessel-identity:v4.0
+Susy Love,735060019,ECU,Ecuador,Passenger,632,caed89fbd-df0f-9690-3c83-e98bf99d4460,public-global-vessel-identity:v4.0
+Legendary,735060422,ECU,Ecuador,Passenger,580,9cea0f341-1139-3b4c-2930-4ee5b1d8e22f,public-global-vessel-identity:v4.0
+Brithanny I,735059228,ECU,Ecuador,Passenger,559,7daeafe7a-a4ea-93da-42eb-64b3c4d1815c,public-global-vessel-identity:v4.0
+Angel Kellie I,735060389,ECU,Ecuador,Passenger,554,3ecae7bc3-36e2-0644-421b-8cd5bb0dd49d,public-global-vessel-identity:v4.0
+D Luis,735059180,ECU,Ecuador,Passenger,543,37555affb-b081-0a73-1580-37686770b06f,public-global-vessel-identity:v4.0
+Andy,735058546,ECU,Ecuador,Passenger,510,40e1bd1a6-633e-4567-c243-6c739c1c6fbf,public-global-vessel-identity:v4.0
+Andy II,735059676,ECU,Ecuador,Passenger,506,5e1d90d4d-d818-4e56-de1a-c7fabc592bef,public-global-vessel-identity:v4.0
+King Marine II,735058745,ECU,Ecuador,Passenger,502,5e307803a-a479-e752-2405-5fcf47a93a58,public-global-vessel-identity:v4.0
+Gaviota,735059994,ECU,Ecuador,Passenger,502,49f0d4dd2-21d8-8f50-f5fe-deea3b1bcac6,public-global-vessel-identity:v4.0
+Destiny I,735060399,ECU,Ecuador,Passenger,497,2182e8d4d-d709-65da-32e7-e19b12f5ace6,public-global-vessel-identity:v4.0
+Sea Baby,735060111,ECU,Ecuador,Passenger,493,68cb4353c-c2cf-de8e-0089-62ab5e1ed151,public-global-vessel-identity:v4.0
+Spondylus,735059184,ECU,Ecuador,Passenger,486,abccec817-7413-37bd-03cd-02d5543e2d46,public-global-vessel-identity:v4.0
+Arrecife,735058048,ECU,Ecuador,Passenger,479,3f9bf90b6-62d7-2fa1-3164-c49d58f6723d,public-global-vessel-identity:v4.0
+Gladel,735058707,ECU,Ecuador,Passenger,477,d49579bc2-2648-67e1-ee8c-32a063546ce7,public-global-vessel-identity:v4.0
+Cactus,735059695,ECU,Ecuador,Passenger,466,0ce7d6688-8005-aeb1-ec32-dcd11ebce85b,public-global-vessel-identity:v4.0
+Dorada,735059219,ECU,Ecuador,Passenger,448,9d95b5204-40a3-2155-8d72-19c9701600d2,public-global-vessel-identity:v4.0
+Golden Ray I,735060418,ECU,Ecuador,Passenger,445,daae34c09-97e8-65c5-92c6-b9b886661e14,public-global-vessel-identity:v4.0
+Maranatha,735059200,ECU,Ecuador,Passenger,429,862b34edb-bbe3-90ca-e3d5-01e0fd3a4c64,public-global-vessel-identity:v4.0
+Nabiry,735059250,ECU,Ecuador,Passenger,429,dc9ab3113-33c6-5d26-0a06-24a0f338864b,public-global-vessel-identity:v4.0
+Anita,735058969,ECU,Ecuador,Passenger,428,0867e448b-b539-aff8-ff6d-c1bb8da5b25a,public-global-vessel-identity:v4.0
+Diana II,735060557,ECU,Ecuador,Passenger,416,19937fc92-28eb-9109-841f-b2f1c512076a,public-global-vessel-identity:v4.0
+New Cristel,735059248,ECU,Ecuador,Passenger,416,f7377951c-c244-c61c-3115-7789db3a46b7,public-global-vessel-identity:v4.0
+Isabela II,735059039,ECU,Ecuador,Passenger,414,23307dc9e-e7ac-5ff8-23ef-a3415f1001b7,public-global-vessel-identity:v4.0
+Speed Pacific I,735059907,ECU,Ecuador,Passenger,411,4b93b9e3f-f479-5e69-059d-393b26f79d9e,public-global-vessel-identity:v4.0
+Galapagos Endemic,735059796,ECU,Ecuador,Passenger,405,04456fc22-2d09-b287-51c3-4f1537fe549e,public-global-vessel-identity:v4.0
+Rafaela,735058550,ECU,Ecuador,Passenger,404,74c76ab98-82b4-97c4-3b16-de67368a0721,public-global-vessel-identity:v4.0
+Windrose,735059799,ECU,Ecuador,Passenger,397,e4c5eb195-5b28-53e6-2df0-1b7ffc6e5f4d,public-global-vessel-identity:v4.0
+Theory,735059899,ECU,Ecuador,Passenger,394,2abc77e99-9cf5-c40c-6b83-96edc4c2acee,public-global-vessel-identity:v4.0
+Grand Majestic,735059854,ECU,Ecuador,Passenger,392,ba10b6f5c-cbde-dd3f-667d-c272f31744d8,public-global-vessel-identity:v4.0
+Endevour II,735059655,ECU,Ecuador,Passenger,390,04a1c8791-15bc-2451-890e-b9e357e19861,public-global-vessel-identity:v4.0
+Monserrat,735059018,ECU,Ecuador,Cargo,389,53e2ad6be-e3f3-739b-739b-e0ed2fda5c1b,public-global-vessel-identity:v4.0
+Alya,735059689,ECU,Ecuador,Passenger,388,264a3418a-a5f4-ae5c-6960-c7afcdf91d49,public-global-vessel-identity:v4.0
+Sun Ray,735059588,ECU,Ecuador,Passenger,388,ab15c27ca-a0d0-b663-fe56-7a9c723de28a,public-global-vessel-identity:v4.0
+Evolve,735060293,ECU,Ecuador,Passenger,387,f893cc0d8-8b27-04d3-f12a-5c6589e11f86,public-global-vessel-identity:v4.0
+Angelito II,735060128,ECU,Ecuador,Passenger,386,228811c60-09b2-0855-3fd8-4b28ff241cdd,public-global-vessel-identity:v4.0
+Grand Daphne,735060020,ECU,Ecuador,Passenger,386,fb04fe1df-fe32-3788-a05e-51d40f16cf34,public-global-vessel-identity:v4.0
+Sea Finch,735057744,ECU,Ecuador,Passenger,385,b58ef85af-f0c7-9df2-e1a0-8c859dec78fe,public-global-vessel-identity:v4.0
+Vision,735060291,ECU,Ecuador,Passenger,384,3e7ae7ab7-7f6a-46bf-86a8-e618264d75ce,public-global-vessel-identity:v4.0
+Bonita,735023460,ECU,Ecuador,Other,382,1a36accd4-4b8f-32a4-7710-8c5381e7c48c,public-global-vessel-identity:v4.0
+Natural Paradise,735059612,ECU,Ecuador,Passenger,381,bcf62f342-2f9a-79fa-7f26-ef04e4609554,public-global-vessel-identity:v4.0
+Mary Angelica I,735058098,ECU,Ecuador,Passenger,380,9b7a29c75-54d8-5150-59ea-f7779679c2a2,public-global-vessel-identity:v4.0
+La Pinta,735058068,ECU,Ecuador,Passenger,379,69fca5aa3-3d77-9d83-cc55-e812c9f67a03,public-global-vessel-identity:v4.0
+Grace,735058790,ECU,Ecuador,Passenger,379,2d67f04c3-3d23-ed85-e2bf-ed77af2db4c6,public-global-vessel-identity:v4.0
+Tip Top V,735059938,ECU,Ecuador,Passenger,379,4ddb3f28d-d987-be3b-5121-dad76330812f,public-global-vessel-identity:v4.0
+Sea Lion,735023429,ECU,Ecuador,Passenger,379,072b0c522-23b1-9ebc-3b33-63f4e58af26b,public-global-vessel-identity:v4.0
+Blessing,735058862,ECU,Ecuador,Passenger,378,3456d8cc5-58be-94ad-9970-051a280aeb8a,public-global-vessel-identity:v4.0
+Coral 1,735023470,ECU,Ecuador,Passenger,375,791f32f2c-c861-ba5b-707b-ca0fa754fa34,public-global-vessel-identity:v4.0
+Infinity,735059843,ECU,Ecuador,Passenger,370,e58b4d13f-fa0b-52e1-4880-f2c8b9ad6bd9,public-global-vessel-identity:v4.0
+Galapagos Osprey I,735060456,ECU,Ecuador,Passenger,367,42e4e9f3c-caa2-3598-857a-97a7df66a9de,public-global-vessel-identity:v4.0
+Reina Silvia Voyager,735060209,ECU,Ecuador,Passenger,365,a529e13db-bb2b-80fb-84d5-fd4a1feb925f,public-global-vessel-identity:v4.0
+Galaxy,735057983,ECU,Ecuador,Passenger,365,1186fd160-0704-17a5-ee87-53b29dad5234,public-global-vessel-identity:v4.0
+Medusa,735058013,ECU,Ecuador,Passenger,364,7eecf86a6-6f6d-16a0-2a60-52c35b84a97f,public-global-vessel-identity:v4.0
+Calipso,735023481,ECU,Ecuador,Other,363,1f263cab0-0936-4815-ae73-4019b35f3404,public-global-vessel-identity:v4.0
+Anahi,735057743,ECU,Ecuador,Passenger,363,7a4da6799-92e0-f62b-4ada-4f2122b9577f,public-global-vessel-identity:v4.0
+Camila,735059795,ECU,Ecuador,Passenger,362,5e9112e4e-e29b-fd35-7766-a4c0e4e9731d,public-global-vessel-identity:v4.0
+Petrel,735059370,ECU,Ecuador,Passenger,361,98e945b2f-f384-759c-88ff-5d2e67d690ca,public-global-vessel-identity:v4.0
+Tropical II,735060441,ECU,Ecuador,Passenger,361,9de0bd5d9-9572-e88f-a271-4f966d4e51b0,public-global-vessel-identity:v4.0
+Nat Geo Islander 2,735060256,ECU,Ecuador,Passenger,360,f97f489e3-3da0-7617-a23f-70550ea0de3e,public-global-vessel-identity:v4.0
+Evolution,735057612,ECU,Ecuador,Passenger,358,8b502445b-b6f4-d81b-d23d-f5d09f1160a3,public-global-vessel-identity:v4.0
+Tiptop-II,735059770,ECU,Ecuador,Cargo,352,b4edb1192-2f8d-6ac3-ee90-501ce6cf1e7a,public-global-vessel-identity:v4.0
+Galaxy Orion,735023441,ECU,Ecuador,Other,352,6012fdd6e-e27d-370f-38e5-19e5b26373bd,public-global-vessel-identity:v4.0
+Fragata,735023415,ECU,Ecuador,Other,350,8edbdae4a-a3ee-2483-0c82-8ff20f10ebfe,public-global-vessel-identity:v4.0
+Tip Top 4,735057700,ECU,Ecuador,Passenger,350,a977d7177-71bd-4928-14a7-0693a91b21d7,public-global-vessel-identity:v4.0
+Patricia,735058847,ECU,Ecuador,Passenger,345,a544e1e03-3758-f245-bc9f-4526c1a3ac0f,public-global-vessel-identity:v4.0
+Nat Geo Delfina,735057940,ECU,Ecuador,Passenger,345,34b61796f-f072-9fff-838d-99e15b6202fe,public-global-vessel-identity:v4.0
+Beluga,735057505,ECU,Ecuador,Passenger,343,4bb116a0b-b6db-97b8-ed2a-224fe08c5679,public-global-vessel-identity:v4.0
+Coral II,735057574,ECU,Ecuador,Passenger,342,3007b0cb8-87a3-518b-a6a5-f18e88348d55,public-global-vessel-identity:v4.0
+Celebrity Flora,735059945,ECU,Ecuador,Passenger,342,117a907e6-661d-d41c-2918-01979c54fec4,public-global-vessel-identity:v4.0
+Capricornio,735059318,ECU,Ecuador,Passenger,341,6881cea96-6e88-1e3e-1bcf-ebacebd6f6d1,public-global-vessel-identity:v4.0
+Archipell-II,735057542,ECU,Ecuador,Passenger,339,12bceaefc-c441-190d-904c-d371723abb73,public-global-vessel-identity:v4.0
+Integrity,735057501,ECU,Ecuador,Fishing,333,0eac4a76e-e526-7f03-948a-0e962029d9b2,public-global-vessel-identity:v4.0
+Archipell,735057618,ECU,Ecuador,Passenger,331,2b505468c-c6ce-b1f5-ce9d-3b44969a26bf,public-global-vessel-identity:v4.0
+Samba,735023498,ECU,Ecuador,Other,327,a3ee27ffc-c2ca-b6ea-4556-6b74e1dd610a,public-global-vessel-identity:v4.0
+Eco Galaxy,735059295,ECU,Ecuador,Passenger,327,f78643465-5d8f-62ba-45b1-a532bcb85a98,public-global-vessel-identity:v4.0
+Silver Origin,735060058,ECU,Ecuador,Passenger,326,d330f2d71-104e-6b9b-1cfb-3376a5a36d3f,public-global-vessel-identity:v4.0
+Galapagos Legend,735057603,ECU,Ecuador,Passenger,325,851a9744f-f0f5-7150-ffe3-c3b77d0f4daf,public-global-vessel-identity:v4.0
+Galapagos Elite,735059942,ECU,Ecuador,Passenger,325,226ea58ca-a5ad-843b-62e3-8fc5adb56419,public-global-vessel-identity:v4.0
+Celebrity Xpedition,735023483,ECU,Ecuador,Passenger,321,8c7210898-8fe7-4212-6e98-aee802de4378,public-global-vessel-identity:v4.0
+Eden,735023474,ECU,Ecuador,Passenger,321,c9e2690b8-8ec0-75d5-f7e4-b97b013e2452,public-global-vessel-identity:v4.0
+San Jacinto,735059893,ECU,Ecuador,Cargo,319,dd1d6195d-d18d-a3b2-37c7-da9145c660b9,public-global-vessel-identity:v4.0
+Galaxy  Sirius,735060455,ECU,Ecuador,Passenger,319,fd629a700-0173-9bd2-708d-52fbe1fb12f5,public-global-vessel-identity:v4.0
+Golden Reel,735060452,ECU,Ecuador,Passenger,319,6fc68fbd4-49ef-2f51-9e7b-99f6f6ae45b9,public-global-vessel-identity:v4.0
+El Galapago I,735058110,ECU,Ecuador,Other,317,007de76c5-5f3a-bf5b-e7f1-a29c83ce3365,public-global-vessel-identity:v4.0
+Santa Cruz II,735059355,ECU,Ecuador,Passenger,316,1745f98a1-103b-fe6c-88c4-2cd1dc5c9825,public-global-vessel-identity:v4.0
+Varkiyo,735057966,ECU,Ecuador,Other,312,d99c82d45-5444-b737-07ec-f13d0096efcc,public-global-vessel-identity:v4.0
+Letty,735057504,ECU,Ecuador,Other,312,e3bffeef0-0dd9-c7ee-e036-08e3cc9ad79b,public-global-vessel-identity:v4.0
+Espaola I,735058304,ECU,Ecuador,Passenger,312,d1a27a432-2364-7a55-7812-29fc15d6dbf0,public-global-vessel-identity:v4.0
+Seaman II,735058057,ECU,Ecuador,Passenger,311,df8949321-154e-674c-1c9e-8ff6e91480c8,public-global-vessel-identity:v4.0
+Origin,735059381,ECU,Ecuador,Passenger,309,6cd143608-8a73-eb63-9527-413564d79e60,public-global-vessel-identity:v4.0
+Nemo III,735059230,ECU,Ecuador,Other,309,b7d9f31d4-489a-20d3-c150-98a9776ba0ed,public-global-vessel-identity:v4.0
+Yolita 2,735058239,ECU,Ecuador,Passenger,308,82b67507f-f15a-760d-16d3-68d8fa304655,public-global-vessel-identity:v4.0
+Cachalote Explorer,735059859,ECU,Ecuador,Other,307,fba11c08b-b2e8-1b10-6868-c17c579d7c24,public-global-vessel-identity:v4.0
+Aida Maria,735023404,ECU,Ecuador,Other,299,29048f8e0-0cf1-e750-1db8-5165932b197a,public-global-vessel-identity:v4.0
+Nemo II,735057788,ECU,Ecuador,Fishing,297,ed6945a83-3bc5-002a-3218-66ee60a04296,public-global-vessel-identity:v4.0
+Altamar,735057521,ECU,Ecuador,Passenger,295,b4d78aaa6-64b1-e222-eed5-cc9c4234c647,public-global-vessel-identity:v4.0
+Santa Fe III,735058312,ECU,Ecuador,Passenger,294,97a4b2a82-2c49-30d8-da7c-f99bc9ed66d1,public-global-vessel-identity:v4.0
+Stella Maris,735059223,ECU,Ecuador,Passenger,289,ed8973543-339e-89f6-200e-7f3cfe3caaa3,public-global-vessel-identity:v4.0
+Coyote II,735058699,ECU,Ecuador,Passenger,286,524170bd0-0b14-c58a-f88d-41ac8637c722,public-global-vessel-identity:v4.0
+Aqua Mare,735060248,ECU,Ecuador,Passenger,284,7308cc04b-b0df-a6d5-2cc5-e8e322240349,public-global-vessel-identity:v4.0
+Queen Arlett,735060616,ECU,Ecuador,Passenger,283,1eb6d32a9-9366-1d56-c6bb-e506b0972e55,public-global-vessel-identity:v4.0
+M/Y-Koln,735057503,ECU,Ecuador,Passenger,277,34fb1e697-7667-09ee-6553-c55536f395d5,public-global-vessel-identity:v4.0
+Denali,735060011,ECU,Ecuador,Passenger,276,55bc89006-6b78-8304-e11f-4f9d38d35f69,public-global-vessel-identity:v4.0
+Adriana,735059319,ECU,Ecuador,Passenger,274,265655dca-afaf-a3f9-eb46-9f989935b6ba,public-global-vessel-identity:v4.0
+Melito,735060274,ECU,Ecuador,Passenger,274,ab0d8dddc-c823-826a-5f66-a4073b31af6b,public-global-vessel-identity:v4.0
+Grand-Queen-Beatriz,735059797,ECU,Ecuador,Passenger,272,b11218a65-5d51-41b1-6336-d5106bb81ac9,public-global-vessel-identity:v4.0
+Nautilus,735023438,ECU,Ecuador,Passenger,271,a3521a4e0-0824-555e-78d5-ddf9598dcd2e,public-global-vessel-identity:v4.0
+Galapagos Privilegio,735059154,ECU,Ecuador,Passenger,271,ab2c9c596-6bb6-50b8-d69e-ef4ca232686a,public-global-vessel-identity:v4.0
+Pacific Seahorse,735059386,ECU,Ecuador,Other,271,60cb42885-5258-6756-94c9-272a89348476,public-global-vessel-identity:v4.0
+Tongo Reef,735059997,ECU,Ecuador,Passenger,270,1c9aa055f-f247-a326-b156-82aa12457a23,public-global-vessel-identity:v4.0
+Narel,735057533,ECU,Ecuador,Passenger,268,778f9ede1-1f60-dbce-5a3a-34b4030c270c,public-global-vessel-identity:v4.0
+Sharksky I,735058724,ECU,Ecuador,Passenger,267,d57f46355-5586-e0a3-467e-1e98ec616113,public-global-vessel-identity:v4.0
+Golondrina,735023408,ECU,Ecuador,Other,251,1f3c35761-1d85-9f42-4e03-e68f8b9b6097,public-global-vessel-identity:v4.0
+Passion,735059321,ECU,Ecuador,Passenger,249,817af3d62-2fea-190c-df0f-c7a2aa033e76,public-global-vessel-identity:v4.0
+Hermes,735060574,ECU,Ecuador,Passenger,248,d9ad58105-5a3f-d347-656e-1982c5a5f35e,public-global-vessel-identity:v4.0
+Galaxy Daily,735060304,ECU,Ecuador,Passenger,245,374cdc940-0869-7c4d-5d06-021f00ded7ea,public-global-vessel-identity:v4.0
+Sofia Girl I,735058855,ECU,Ecuador,Passenger,244,705b1da68-8a3e-56ec-b2d1-9692a3182d6e,public-global-vessel-identity:v4.0
+Tropical Bird,735057773,ECU,Ecuador,Passenger,244,549e5063f-fbe1-7bbd-db06-aba611ed8c73,public-global-vessel-identity:v4.0
+Ammy I,735060265,ECU,Ecuador,Passenger,242,b2483d513-3091-1ee5-39c2-96f7a36d4edb,public-global-vessel-identity:v4.0
+Galapagos Party,735057760,ECU,Ecuador,Passenger,242,053baffc1-1f79-687b-248c-65bf5f7b8ad1,public-global-vessel-identity:v4.0
+Valeria 1,745060008,GUF,French Guiana,Passenger,240,9c4e87534-4c7e-0dc5-6c26-5aa2e97d5137,public-global-vessel-identity:v4.0
+Esmeralda II,735058485,ECU,Ecuador,Other,238,b499b84b2-2dba-8e03-16da-be5bda5703a6,public-global-vessel-identity:v4.0
+Virgen Del Cisne II,735059985,ECU,Ecuador,Passenger,233,bc5073554-4e9c-d632-800d-105e30e0d890,public-global-vessel-identity:v4.0
+Galapagos Shark II,735057820,ECU,Ecuador,Passenger,232,2571a2586-66e3-ea60-81dc-59d30b1fc6af,public-global-vessel-identity:v4.0
+Andry II,735060492,ECU,Ecuador,Passenger,230,ac47d8b83-3ffa-04e3-987a-b17be82444e6,public-global-vessel-identity:v4.0
+Cally I,735059265,ECU,Ecuador,Passenger,227,d3ef28194-4252-bfa1-1dd7-f50afcd81e50,public-global-vessel-identity:v4.0
+Treasure Of Galapago,735058659,ECU,Ecuador,Passenger,226,edb02c022-2841-7507-27d7-3f365b2b0438,public-global-vessel-identity:v4.0
+Iemanja,735060494,ECU,Ecuador,Other,221,f8d158981-195c-2e99-88af-47a277a2dc06,public-global-vessel-identity:v4.0
+Kpitana,735058054,ECU,Ecuador,Passenger,220,d2712f976-6b67-6522-9b42-adb9617a3361,public-global-vessel-identity:v4.0
+Carina,735057648,ECU,Ecuador,Passenger,220,0bd0c0b01-12cb-3c45-fb6b-1c0201c2cd0f,public-global-vessel-identity:v4.0
+Ocean Spray,735058956,ECU,Ecuador,Passenger,209,ef2fc4ba6-6724-cc57-fc87-33bdce617d85,public-global-vessel-identity:v4.0
+Roal,735057888,ECU,Ecuador,Passenger,206,c0278a9ea-ab0c-4444-7e68-a6aa86af69ef,public-global-vessel-identity:v4.0
+Union II,735059792,ECU,Ecuador,Passenger,198,815ffb7dd-d297-e7e8-5187-c5be1e6c3310,public-global-vessel-identity:v4.0
+Suquito,735059838,ECU,Ecuador,Passenger,197,864c2fc33-3bc8-648a-2801-c6a51cbd347d,public-global-vessel-identity:v4.0
+Galaxy Diver II,735058877,ECU,Ecuador,Fishing,195,864002818-89d8-e210-8bb4-ba0db1766c5f,public-global-vessel-identity:v4.0
+Fioval I,735060378,ECU,Ecuador,Other,194,59b7507ca-a251-5b17-6dbe-c972c3575da6,public-global-vessel-identity:v4.0
+Andrea,735058943,ECU,Ecuador,Passenger,194,5bc0bc0ea-a4a7-d9d9-6c61-52d56f29e4b6,public-global-vessel-identity:v4.0
+Jesus Del Gran Poder,735023427,ECU,Ecuador,Other,192,3e1fa02d1-105a-639d-ec8a-43adc28fc3c7,public-global-vessel-identity:v4.0
+Rey Paul II,735058839,ECU,Ecuador,Passenger,187,fa9758d0c-c20c-3870-f214-80ca4f879050,public-global-vessel-identity:v4.0
+Galapagos Adventure,735058941,ECU,Ecuador,Passenger,186,52266bd46-6a33-c29e-91aa-ac64c0d45e80,public-global-vessel-identity:v4.0
+New Ocean,735058824,ECU,Ecuador,Passenger,185,e6b0154c8-87bc-162e-4ed0-2ab49b1946bf,public-global-vessel-identity:v4.0
+Domenica,735058808,ECU,Ecuador,Passenger,184,652df256c-c925-03e9-d410-7bec9792f6da,public-global-vessel-identity:v4.0
+Star Fisher 1,735060411,ECU,Ecuador,Passenger,183,2646d8928-82af-cb2b-8a5e-4686f18fa68d,public-global-vessel-identity:v4.0
+Deep Blue,735057617,ECU,Ecuador,Passenger,175,2f2b7e3c3-34df-b14b-ffb9-5413f8af39c1,public-global-vessel-identity:v4.0
+Mantarraya1,735023447,ECU,Ecuador,Other,175,17df9600e-e81c-420f-b9e4-30272f7f492a,public-global-vessel-identity:v4.0
+Extasis II,735060129,ECU,Ecuador,Other,173,ccedd4867-7a0b-e815-bdfd-8b3f31bf442c,public-global-vessel-identity:v4.0
+New Nena,735060618,ECU,Ecuador,Passenger,172,591291ef3-3d9c-7533-88cb-5e1a99dfe17f,public-global-vessel-identity:v4.0
+Ballet Azul II,735058366,ECU,Ecuador,Other,169,f5a4f96a6-65fb-cfa4-0e93-91fe6d2b7006,public-global-vessel-identity:v4.0
+Freddy`S Legacy,735058210,ECU,Ecuador,Passenger,166,9bf887833-3307-959a-29cf-5c20d01f6bb6,public-global-vessel-identity:v4.0
+Undertake I,735058303,ECU,Ecuador,Passenger,165,9fad0cff4-423b-7600-895e-47280c0ec261,public-global-vessel-identity:v4.0
+Invicta II,735057878,ECU,Ecuador,Passenger,163,970d43bb1-1954-74da-ae6f-f2ef67bb1b24,public-global-vessel-identity:v4.0
+Dios Me Guie,735059504,ECU,Ecuador,Other,162,03dd91a1c-c442-1a60-abdd-7e1b172a5a01,public-global-vessel-identity:v4.0
+Faby,735058285,ECU,Ecuador,Other,160,eccf5c683-3399-03cc-e88b-98a1eda7288b,public-global-vessel-identity:v4.0
+Mark I,735059487,ECU,Ecuador,Other,154,cce1f35c8-8db9-54c9-5a25-65f8ea338ed4,public-global-vessel-identity:v4.0
+Nina Alondrita,735059532,ECU,Ecuador,Other,149,b8d99b70c-c686-cbab-c79e-5099abda7171,public-global-vessel-identity:v4.0
+Galap. Element Fire,735059897,ECU,Ecuador,Passenger,145,594bba564-4f35-9d7b-fead-d3d5e7968a81,public-global-vessel-identity:v4.0
+Paraiso I,735059636,ECU,Ecuador,Other,141,53a4dc37c-cde9-ddfb-4b28-05f1b42d3f78,public-global-vessel-identity:v4.0
+Vertigo 1,735058700,ECU,Ecuador,Other,141,309448672-20d5-3570-c948-1384aa83e6b1,public-global-vessel-identity:v4.0
+Galapagos Element,735059874,ECU,Ecuador,Passenger,132,2c802c5f2-26e6-3515-9053-9cf493419666,public-global-vessel-identity:v4.0
+Sky Blue,735060436,ECU,Ecuador,Passenger,126,5c04a4079-9378-1515-59ef-ce665d2173de,public-global-vessel-identity:v4.0
+Bartolome,735059700,ECU,Ecuador,Passenger,125,68e9f4f2a-ac35-8753-3454-5e52c8881371,public-global-vessel-identity:v4.0
+Galapagos Sky,735057585,ECU,Ecuador,Passenger,124,a707aacc9-92c5-9294-2df1-63f0f492707b,public-global-vessel-identity:v4.0
+Maria De Los Angeles,735059990,ECU,Ecuador,Other,122,85410d930-0070-afde-4e62-e725ad29db00,public-global-vessel-identity:v4.0
+Sirenita,735060250,ECU,Ecuador,Fishing,122,b510169e4-40ad-3b55-b74c-d0767b136b07,public-global-vessel-identity:v4.0
+Rosita,735060470,ECU,Ecuador,Other,121,eb0da03ac-c957-a638-50e4-71c06e69295e,public-global-vessel-identity:v4.0
+Odalissa I,735060463,ECU,Ecuador,Other,120,9349509a8-8221-172b-d147-68cda08139fd,public-global-vessel-identity:v4.0
+Gisella,735059467,ECU,Ecuador,Other,118,b4f065804-4379-12f3-7f16-a77849795932,public-global-vessel-identity:v4.0
+Pierina,735059481,ECU,Ecuador,Fishing,117,3e0078ea4-4e13-807a-d0c0-27e10ad02681,public-global-vessel-identity:v4.0
+Neptuno III,735059209,ECU,Ecuador,Passenger,116,6a62f8feb-beb7-8bb3-a29e-026c459b4139,public-global-vessel-identity:v4.0
+Marlin P,735059671,ECU,Ecuador,Passenger,114,e7118c4a5-523c-debf-27ff-892b2ee7ff76,public-global-vessel-identity:v4.0
+Big Fish,735058730,ECU,Ecuador,Passenger,113,70f986ad8-8a93-2eb1-da11-a1c03ac752c7,public-global-vessel-identity:v4.0
+Nortada,735023435,ECU,Ecuador,Other,113,676c85639-95b1-c844-ed05-f1222f887b68,public-global-vessel-identity:v4.0
+Corazon Alegre II,735059624,ECU,Ecuador,Other,112,28770f3e1-18f4-1dba-7009-c06c65843ff5,public-global-vessel-identity:v4.0
+Vertigo II,735058858,ECU,Ecuador,Other,110,daeec720e-e8e6-9c7c-7e1c-9fc750b81b5b,public-global-vessel-identity:v4.0
+Brack Harold,735058737,ECU,Ecuador,Passenger,110,f9b0ea6ef-ffe7-3563-092d-7efda8fee3d2,public-global-vessel-identity:v4.0
+La Cangreja,735059418,ECU,Ecuador,Fishing,108,e00533247-7269-eca2-6acd-a03bbe02eaa3,public-global-vessel-identity:v4.0
+Darwin,735057514,ECU,Ecuador,Other,108,85e8f6a68-884c-69e9-d0c8-e78940029188,public-global-vessel-identity:v4.0
+Mileny,735059251,ECU,Ecuador,Fishing,108,4feb47202-2ec3-6b64-2db5-a1694cf0709a,public-global-vessel-identity:v4.0
+Shalom Mainao II,735057867,ECU,Ecuador,Other,104,89d88cad5-52b0-0a66-cade-efe0578acb1d,public-global-vessel-identity:v4.0
+=Spartaco,735059575,ECU,Ecuador,Other,104,bbf781ae8-8c71-9ef3-2ff0-b320f4b035ad,public-global-vessel-identity:v4.0
+Chandy,735059433,ECU,Ecuador,Fishing,103,1a2703eee-ead4-4828-0a09-d9d432046dde,public-global-vessel-identity:v4.0
+Mateo Jose,735059470,ECU,Ecuador,Other,101,46144c003-30f0-c0aa-69cf-1300be4e9fd0,public-global-vessel-identity:v4.0
+Danubio Azul,735058988,ECU,Ecuador,Passenger,98,edd968180-0195-bfe5-4c40-d63af97fcf17,public-global-vessel-identity:v4.0
+Yakupi,735058909,ECU,Ecuador,Passenger,98,544c5814f-f337-dd53-4ae4-c60885dc0128,public-global-vessel-identity:v4.0
+Samy Sol III,735059718,ECU,Ecuador,Passenger,97,a4ecc9a1d-d96d-49dd-4977-1984b69fdce7,public-global-vessel-identity:v4.0
+Jazmin,735057973,ECU,Ecuador,Passenger,96,a511ab715-5099-511b-f8b5-22c6c5553b8c,public-global-vessel-identity:v4.0
+Tiburon-Explorer,735060035,ECU,Ecuador,Passenger,96,5ee8d7395-5d04-d742-ba62-d2b7d26f70f5,public-global-vessel-identity:v4.0
+Dorita,735059640,ECU,Ecuador,Passenger,94,9a1a2b3ac-c587-cae7-db54-647f950f4429,public-global-vessel-identity:v4.0
+Daphne David,735060587,ECU,Ecuador,Fishing,93,4d2157987-710d-df8a-b6e4-1e2247dfd350,public-global-vessel-identity:v4.0
+Cruceros Humboldt,735058752,ECU,Ecuador,Passenger,89,2a59bb60a-a88f-3ac8-1322-b9835d5249bd,public-global-vessel-identity:v4.0
+7 Mares I,735057885,ECU,Ecuador,Fishing,89,45ac6be78-8437-e4e1-ab70-78be00e00a01,public-global-vessel-identity:v4.0
+Sebastian C.,735057988,ECU,Ecuador,Fishing,88,c8d261667-7294-dbea-1d03-f8890ffd62a9,public-global-vessel-identity:v4.0
+Salgari I,735059464,ECU,Ecuador,Other,82,d73b5e144-409e-dfb2-8276-afc7eaf34a00,public-global-vessel-identity:v4.0
+Marea Real,735060652,ECU,Ecuador,Passenger,81,33811146f-f954-6e79-7c45-80e9782bd46d,public-global-vessel-identity:v4.0
+Hammer Head,735059898,ECU,Ecuador,Passenger,80,28421f64d-db66-63de-d37b-50ffda49ee06,public-global-vessel-identity:v4.0
+Valeska Yamile,735059160,ECU,Ecuador,Passenger,80,5b20b5f66-6ff0-794d-95a1-ba70d9a4fe2b,public-global-vessel-identity:v4.0
+Nao,735059509,ECU,Ecuador,Other,80,099d2ee3e-e8f9-4e18-76a8-7757a54d8e3a,public-global-vessel-identity:v4.0
+Capitan Freud,735059553,ECU,Ecuador,Other,78,10c6498b0-0819-237e-f334-295de38a05a1,public-global-vessel-identity:v4.0
+Gima2,735059741,ECU,Ecuador,Fishing,78,8c5730595-539a-2df0-2782-cef0161ed511,public-global-vessel-identity:v4.0
+Los Gabinos,735059410,ECU,Ecuador,Other,78,a48288e71-1f6d-16ba-36b1-d3d46e464fdd,public-global-vessel-identity:v4.0
+On The Hook,735058727,ECU,Ecuador,Passenger,76,349f4e233-3094-6160-bc02-43f8986c7fdb,public-global-vessel-identity:v4.0
+Hippo Campus,735057824,ECU,Ecuador,Passenger,76,a6eeeb472-241a-b26c-627e-b6e3f0fac5fe,public-global-vessel-identity:v4.0
+Yualka II,735059293,ECU,Ecuador,Other,76,adcb6ec35-5754-494d-d36b-4f4fe8241b9f,public-global-vessel-identity:v4.0
+Shark,735059474,ECU,Ecuador,Other,75,64dd2c728-88b6-8553-db5c-e6db34d51361,public-global-vessel-identity:v4.0
+Luna Azul,735058295,ECU,Ecuador,Passenger,74,88b261247-73e1-d4ab-237c-a0eedcbcbbe5,public-global-vessel-identity:v4.0
+Nina Danesa,735059550,ECU,Ecuador,Other,74,64b0a6b98-83b1-aea1-38b4-22e3f4f8a479,public-global-vessel-identity:v4.0
+Gringa Jacky,735059445,ECU,Ecuador,Fishing,73,8d0589e57-7464-4ba8-4e1a-de473ee08ef3,public-global-vessel-identity:v4.0
+Sarai,735059500,ECU,Ecuador,Other,72,378ed4cfe-ebe2-57ea-aa9e-3c069b4ab036,public-global-vessel-identity:v4.0
+Paola,735059426,ECU,Ecuador,Other,72,463a030a7-7bae-76d2-faa7-bbdfb658abff,public-global-vessel-identity:v4.0
+Orca,735057763,ECU,Ecuador,Other,72,d534d5103-3072-ffb5-864f-5e01f02e7988,public-global-vessel-identity:v4.0
+Mabren,735060361,ECU,Ecuador,Passenger,71,02a58b5f3-35db-dd08-78e1-af586d089af1,public-global-vessel-identity:v4.0
+Hippo Campus,735057824,ECU,Ecuador,Passenger,71,30674d0f8-8ad4-ff40-5b29-0f0d5c0e7aa6,public-global-vessel-identity:v4.0
+Don Wacho,735060150,ECU,Ecuador,Passenger,70,fad9f66d4-4170-f178-4f64-f6b0b530db45,public-global-vessel-identity:v4.0
+Envidia,735059395,ECU,Ecuador,Passenger,69,7e635be55-5b57-1394-0dd4-735e2cb81ae8,public-global-vessel-identity:v4.0
+Ballenato,735060435,ECU,Ecuador,Passenger,68,4213a64b6-6efc-268c-43fc-4bba27869112,public-global-vessel-identity:v4.0
+Cormorant II,735060380,ECU,Ecuador,Passenger,67,67d07b244-4252-8dcc-32a5-9b208c7c008d,public-global-vessel-identity:v4.0
+Megalodon,735059883,ECU,Ecuador,Other,67,469e08534-41af-5ce9-5841-d1138375ab0b,public-global-vessel-identity:v4.0
+Charito,735059554,ECU,Ecuador,Fishing,67,5870b1d3f-f105-5bc8-f1af-947076851bc2,public-global-vessel-identity:v4.0
+San Pablo,735060461,ECU,Ecuador,Other,66,777907ff3-3aa1-c826-0624-2c0bbea3857b,public-global-vessel-identity:v4.0
+Valeria 1,735060008,ECU,Ecuador,Other,63,d83678068-8a34-536e-da0e-40baabe4735f,public-global-vessel-identity:v4.0
+Galapagos Adventures,735058941,ECU,Ecuador,Passenger,63,fa291db34-4ed0-abdd-a329-baa118ba4bf5,public-global-vessel-identity:v4.0
+Genesis,735059483,ECU,Ecuador,Other,63,81c15d73c-c254-2c51-099b-cdb4ea0509a7,public-global-vessel-identity:v4.0
+Tender 2,980599452,---,---,Passenger,63,50a8297a0-0cb5-a0b6-4b21-e0d44aa9ce06,public-global-vessel-identity:v4.0
+Patricia Mishell II,735059538,ECU,Ecuador,Other,62,cf7e481ec-cbe2-2ea7-9a53-67cfd281f4cf,public-global-vessel-identity:v4.0
+Karen,735059583,ECU,Ecuador,Other,62,b6c56ad76-63e3-0950-94b2-7216bfbea29e,public-global-vessel-identity:v4.0
+Don Victor I,735059437,ECU,Ecuador,Other,62,454c2b0a4-4ff4-d118-4d0a-95fa6fae5012,public-global-vessel-identity:v4.0
+Carina,735057648,ECU,Ecuador,Passenger,61,413db927c-ca28-59e3-045e-f9ddeffbd323,public-global-vessel-identity:v4.0
+Sea Quest,735059581,ECU,Ecuador,Other,61,99eae46d3-3616-a5b6-d39b-3027e0628a97,public-global-vessel-identity:v4.0
+Sirena Alison,735059456,ECU,Ecuador,Other,61,532fe0cd1-1954-de41-6d4c-0c55ba8c78a2,public-global-vessel-identity:v4.0
+Principe Carlos I,735059582,ECU,Ecuador,Other,59,d9d481ee0-0a86-f661-60f7-979a16223553,public-global-vessel-identity:v4.0
+Ingrith,735060472,ECU,Ecuador,Other,58,d2eb9f379-98a8-9ed2-e647-0eefc158231f,public-global-vessel-identity:v4.0
+Sandra,735059469,ECU,Ecuador,Other,58,b0b40ba5a-a4eb-127b-471f-8dc5aaafc03e,public-global-vessel-identity:v4.0
+Flower,735060622,ECU,Ecuador,Passenger,57,d5822b6f9-990e-aae6-3d28-60868bf248e1,public-global-vessel-identity:v4.0
+Unknown vessel,735059858,ECU,Ecuador,Other,57,0930c6d6a-a9b0-a5d6-bc19-22cb49cf0d4d,public-global-vessel-identity:v4.0
+Tesoro,735059339,ECU,Ecuador,Other,57,172ef75c9-9da0-ef20-9945-4d1c9169272b,public-global-vessel-identity:v4.0
+Enis Boan,735059516,ECU,Ecuador,Other,56,9a6db5cc1-1227-2f69-d971-b94300c3a5c6,public-global-vessel-identity:v4.0
+Scarlet,735059396,ECU,Ecuador,Other,55,35fca5e17-776a-5562-e104-b1f55f7ed862,public-global-vessel-identity:v4.0
+Meysi,735059431,ECU,Ecuador,Other,55,6bf1e62c8-84dc-b930-eeb2-8da96574d712,public-global-vessel-identity:v4.0
+Unknown vessel,735057506,ECU,Ecuador,Other,54,67f4b533d-d409-3cbd-4967-538c5650147c,public-global-vessel-identity:v4.0
+Yualka III,735060359,ECU,Ecuador,Other,54,479731114-4ea3-dbc8-84ab-f977a8e3413c,public-global-vessel-identity:v4.0
+Asi Es La Vida II,735059497,ECU,Ecuador,Other,53,5f46ecfd0-050a-9d9c-8c05-917c2c47a022,public-global-vessel-identity:v4.0
+Guayacan,735060464,ECU,Ecuador,Other,53,c69d441a7-7ffd-e531-e20a-7661354ee1ca,public-global-vessel-identity:v4.0
+Romy I,735059541,ECU,Ecuador,Fishing,53,23d4a6738-81f2-7afb-a327-3b5ee1a40d01,public-global-vessel-identity:v4.0
+Scuba Eden,735059301,ECU,Ecuador,Other,52,c430f0132-2e93-7006-4cce-46b17e700509,public-global-vessel-identity:v4.0
+Fragata,735058431,ECU,Ecuador,Passenger,52,10b5c5b77-79f7-2e0c-1e29-c709a5cad798,public-global-vessel-identity:v4.0
+Newposeidon,735060117,ECU,Ecuador,Passenger,51,700bc3c78-8470-c211-27d8-640ac89b46a2,public-global-vessel-identity:v4.0
+Turbo,735059451,ECU,Ecuador,Other,51,650f8dad2-24f3-94d1-3e94-17b1587cfee0,public-global-vessel-identity:v4.0
+No Te Piques,735059565,ECU,Ecuador,Other,51,6cb856eb1-1d00-e730-7b9a-11dd9a0635fb,public-global-vessel-identity:v4.0
+So Z 9,311000947,BHS,Bahamas,Passenger,50,b8ae57ae9-956b-49e0-eafe-23905adf66e2,public-global-vessel-identity:v4.0
+Cristo Rey,735060416,ECU,Ecuador,Other,50,7ac2f1658-8f60-f2fe-9480-05cd7fac19b5,public-global-vessel-identity:v4.0
+Villafu,735060539,ECU,Ecuador,Other,50,617ed173a-a719-f0a4-360c-99500cc55941,public-global-vessel-identity:v4.0
+Esperanza,735059569,ECU,Ecuador,Other,50,24c31533f-f483-fbe9-7fa0-e62a13f114f7,public-global-vessel-identity:v4.0
+Dios Me Guie II,735059082,ECU,Ecuador,Other,50,8cc44e760-0680-e9cc-2b94-2290f326f441,public-global-vessel-identity:v4.0
+Libertad I,735059882,ECU,Ecuador,Fishing,49,bbba10336-6336-a1ab-9ed5-dea938859d2f,public-global-vessel-identity:v4.0
+Pinguino Explorer,735057539,ECU,Ecuador,Other,48,208d521c8-809e-cec8-d825-1e9c1183f709,public-global-vessel-identity:v4.0
+Danubio Azul,735059524,ECU,Ecuador,Other,48,a6a045001-1d29-c4b6-8386-81cbecc3ca19,public-global-vessel-identity:v4.0
+Virgen Del Carmen,735059490,ECU,Ecuador,Other,48,6c1d6f1dd-d18e-1733-3c3a-8a1f70976549,public-global-vessel-identity:v4.0
+Unknown vessel,735059896,ECU,Ecuador,Other,48,1420e5e01-1906-6598-2305-b1a61ef790bb,public-global-vessel-identity:v4.0
+Jesudey,735059440,ECU,Ecuador,Fishing,47,e90fa5b3b-bb17-a7c4-dede-cd032ed6fbed,public-global-vessel-identity:v4.0
+Tender 1,980599451,---,---,Passenger,47,a5bd28828-8642-ad85-0756-3917840b77f7,public-global-vessel-identity:v4.0
+Unknown vessel,735059944,ECU,Ecuador,Other,46,263b55189-9fcd-b5da-51d1-225fa91af078,public-global-vessel-identity:v4.0
+Gavilan I,735059454,ECU,Ecuador,Other,46,74b458126-6c56-2f64-da1e-181a978ad580,public-global-vessel-identity:v4.0
+Endemica,735058977,ECU,Ecuador,Passenger,46,0cd0994ee-ee73-82c1-8462-8fb065b5709b,public-global-vessel-identity:v4.0
+Tender 6,980599456,---,---,Passenger,46,2e4497a12-2a13-8b73-8637-dda6909c897c,public-global-vessel-identity:v4.0
+Cataja,368416340,USA,United States of America,Passenger,45,97633b9ac-cacd-a5f7-f0e6-4201fc584307,public-global-vessel-identity:v4.0
+Eagle Ray,735059489,ECU,Ecuador,Other,45,92d224c24-495b-9f23-8414-796abfa88f9a,public-global-vessel-identity:v4.0
+Lorenita,735059776,ECU,Ecuador,Fishing,45,d89854218-88ad-e885-c8e5-1428c348daf1,public-global-vessel-identity:v4.0
+Juanita II,735059765,ECU,Ecuador,Passenger,45,ee41bbe05-53f6-e777-c8d2-1e130d236864,public-global-vessel-identity:v4.0
+Unknown vessel,735023473,ECU,Ecuador,Other,45,b77f1eec9-96ac-f8bc-c8e9-0d58a3a826ec,public-global-vessel-identity:v4.0
+Rafaela I,735060598,ECU,Ecuador,Passenger,44,693090c6f-ff4c-5f09-ee76-c5331387867c,public-global-vessel-identity:v4.0
+El Delfin,735058694,ECU,Ecuador,Other,43,3604f9b1a-a767-6aac-f931-b6ce5fa101ac,public-global-vessel-identity:v4.0
+Ocean Life,735059677,ECU,Ecuador,Other,43,59d0ac704-44ce-4293-9b51-d53177ba30e5,public-global-vessel-identity:v4.0
+Trixi,735059462,ECU,Ecuador,Other,42,f45419235-5f02-e0ad-29f7-872a72ffea83,public-global-vessel-identity:v4.0
+Stephania,735059466,ECU,Ecuador,Other,42,f05638e24-4ff4-6dd7-e74f-812d5bd13c0a,public-global-vessel-identity:v4.0
+Jesus Luz Y Vida,735059425,ECU,Ecuador,Other,42,d6f39b5a5-5e80-582b-414b-d18f95c8d3b2,public-global-vessel-identity:v4.0
+Aleta Amarilla,735059408,ECU,Ecuador,Other,42,87afe8a03-39e0-0dd0-a847-068d2372c5dc,public-global-vessel-identity:v4.0
+Cristofher,735059488,ECU,Ecuador,Other,42,e6326c1bc-ca2a-7de7-b2a3-baf6bfef6b55,public-global-vessel-identity:v4.0
+Anfann,735059559,ECU,Ecuador,Fishing,41,caf97dcb1-191d-32ae-0b58-f98e9be2d4f6,public-global-vessel-identity:v4.0
+Unknown vessel,735059856,ECU,Ecuador,Other,41,59880ec42-2b85-7286-e9fc-119cf125a710,public-global-vessel-identity:v4.0
+Unknown vessel,735059857,ECU,Ecuador,Other,41,5894a4a33-3d7b-837f-d2db-c04a2bd865a8,public-global-vessel-identity:v4.0
+Aidee,735059463,ECU,Ecuador,Fishing,41,2681ba6e5-5e6f-a838-6f8a-49036ba24e9d,public-global-vessel-identity:v4.0
+Johanita,735059468,ECU,Ecuador,Other,40,d468e5f9d-d44f-4d4f-95e1-b45938cae4fa,public-global-vessel-identity:v4.0
+Nino Alex,735059576,ECU,Ecuador,Other,40,ba0adc963-3d54-fabf-7279-385dab79222b,public-global-vessel-identity:v4.0
+Ferry,735060026,ECU,Ecuador,Other,40,982f23b1c-c67d-3d2c-87cf-98d2169f6e54,public-global-vessel-identity:v4.0
+Rs Pioneer,735060424,ECU,Ecuador,Cargo,40,9561036aa-a83f-bb43-6dce-87ec1fcf57f2,public-global-vessel-identity:v4.0
+La Ma II,735059579,ECU,Ecuador,Other,40,147df21bf-fa1b-9c35-d734-51221f12e4d6,public-global-vessel-identity:v4.0
+Vertom Thea,253829000,LUX,Luxembourg,Cargo,39,fab14e3a8-88f5-51b8-686a-88ba7a6de7cc,public-global-vessel-identity:v4.0
+Galapagos Shark II,735057820,ECU,Ecuador,Passenger,39,e3bc94210-017f-443c-df5c-775d2e24b28a,public-global-vessel-identity:v4.0
+Juanin Mar,735060030,ECU,Ecuador,Other,39,2062c4065-5714-9984-dff5-7179c817f524,public-global-vessel-identity:v4.0
+Unknown vessel,735057616,ECU,Ecuador,Other,39,7b6ee5cf9-989e-3c9b-3b26-69967dde2def,public-global-vessel-identity:v4.0
+Melba Cruise,735059450,ECU,Ecuador,Other,39,c07535a70-0f72-46b3-50ae-e09b48314206,public-global-vessel-identity:v4.0
+Anita II,735059735,ECU,Ecuador,Other,37,609f1773a-a04b-d4d5-126f-1240257b8944,public-global-vessel-identity:v4.0
+Kerak,735059638,ECU,Ecuador,Other,37,716035de9-993e-9bc8-51fd-527f4d362fba,public-global-vessel-identity:v4.0
+Los Tres Pinguinos,735059352,ECU,Ecuador,Other,37,202de2266-6cbb-dce5-d535-9d65be5b5488,public-global-vessel-identity:v4.0
+Unknown vessel,735059368,ECU,Ecuador,Cargo,37,e099f915b-b6df-c893-0562-e7f3c6a2ef78,public-global-vessel-identity:v4.0
+T/T Ad-Vantage,985380125,---,---,Passenger,37,ec43e80cd-dfe8-6d29-8dd8-1593afedc11c,public-global-vessel-identity:v4.0
+So Z 8,311000946,BHS,Bahamas,Passenger,37,d9a900fcf-f894-2cd2-d7d5-ebe8741468ef,public-global-vessel-identity:v4.0
+Priscila,735059586,ECU,Ecuador,Passenger,36,87ca8046b-bdf6-8cee-aebf-289f284ee21f,public-global-vessel-identity:v4.0
+Don Pati IV,735060625,ECU,Ecuador,Other,36,bdd26b1d6-6f34-ca9e-a513-0ba4d3f78462,public-global-vessel-identity:v4.0
+Zeahorse,319265200,CYM,Cayman Islands,Passenger,36,f31811907-7c0f-347f-a1aa-dd33175a7d6d,public-global-vessel-identity:v4.0
+Areanna,735059864,ECU,Ecuador,Other,36,156b0c90e-e03a-8d07-7055-97a043abb35d,public-global-vessel-identity:v4.0
+Popeye,735059539,ECU,Ecuador,Passenger,36,4594150c0-04a5-9bd3-9240-09fdafcb8f24,public-global-vessel-identity:v4.0
+Unknown vessel,735059016,ECU,Ecuador,Other,36,1929295e6-66a9-97be-dae2-253500724a07,public-global-vessel-identity:v4.0
+San Antonio,735059517,ECU,Ecuador,Other,36,bb71bd3a8-860f-cf12-6a01-d75e30961183,public-global-vessel-identity:v4.0
+Maritza,735059510,ECU,Ecuador,Other,35,1eb7287c8-8a03-1070-d1e0-6c9b654e971b,public-global-vessel-identity:v4.0
+Dayanara,735060382,ECU,Ecuador,Other,35,1fe5f27d2-26b1-8781-75f5-24ac8162b0fc,public-global-vessel-identity:v4.0
+Gloria,735059495,ECU,Ecuador,Other,35,25820bd34-4032-a0c9-ca15-339074c4057f,public-global-vessel-identity:v4.0
+Humberta,735060063,ECU,Ecuador,Other,35,915d9dd70-0fcc-a64f-9bae-5bd71f0c7248,public-global-vessel-identity:v4.0
+Unknown vessel,735059936,ECU,Ecuador,Other,35,01e2bceef-fe6e-e12a-8ada-3b13d78f1ea9,public-global-vessel-identity:v4.0
+Mayimar,735059527,ECU,Ecuador,Other,34,45822220b-b03e-292f-129f-4551b73881c9,public-global-vessel-identity:v4.0
+Rabida,735059690,ECU,Ecuador,Gear,34,4e1465832-2a05-d6dc-e492-e12161532483,public-global-vessel-identity:v4.0
+Good Luck,735059498,ECU,Ecuador,Other,34,d34a104e9-92ab-248f-abeb-2160c9db25a3,public-global-vessel-identity:v4.0
+Albacora II,735059630,ECU,Ecuador,Other,33,07805083c-cc12-38f2-92cf-7d6476e8a6e7,public-global-vessel-identity:v4.0
+Isla Isabella,735059717,ECU,Ecuador,Other,33,95586973a-a1ea-aee6-18e4-a790b91d9f81,public-global-vessel-identity:v4.0
+Varkiyo I,735060643,ECU,Ecuador,Other,33,125c051a1-19ea-052a-ab83-f2f5a15cdcae,public-global-vessel-identity:v4.0
+Brillo De Mar III,735060149,ECU,Ecuador,Fishing,33,1c01c0956-6efd-6299-d141-8b3697f9e72c,public-global-vessel-identity:v4.0
+Ocean Planet,735057671,ECU,Ecuador,Passenger,33,44f6e5d95-51aa-a335-d774-be96a99ea017,public-global-vessel-identity:v4.0
+Unknown vessel,735058236,ECU,Ecuador,Other,33,4696d55d0-056c-5f87-3f3c-78b55c41721a,public-global-vessel-identity:v4.0
+Bluemarlyn,735059631,ECU,Ecuador,Passenger,32,ea47fcae4-4193-1b28-d30c-1af9a292a373,public-global-vessel-identity:v4.0
+Trueno,735057769,ECU,Ecuador,Other,31,26ff8a23c-c8a3-50d9-a426-2b4f8d6f211a,public-global-vessel-identity:v4.0
+Tsunami,735060421,ECU,Ecuador,Gear,31,db7c55a7f-fe00-941a-0347-309b32bd670f,public-global-vessel-identity:v4.0
+Angeles Thaiz,735058869,ECU,Ecuador,Passenger,31,04800fb60-01a1-b6fc-b2a2-a66188edcc2d,public-global-vessel-identity:v4.0
+Isabella,735058664,ECU,Ecuador,Cargo,31,89c33e977-71bb-b48f-69b1-c88d2f24362f,public-global-vessel-identity:v4.0
+Guadalupe River,735057541,ECU,Ecuador,Other,30,528750702-2962-b0ea-3b8d-e6283afb2675,public-global-vessel-identity:v4.0
+Marmol,735059423,ECU,Ecuador,Other,30,2b9aaf691-1491-0c59-abc3-23703f2b5afd,public-global-vessel-identity:v4.0
+Javelin,735059535,ECU,Ecuador,Gear,30,8af42ad12-220b-1e79-0bfe-53fbdf53d636,public-global-vessel-identity:v4.0
+Unknown vessel,735060018,ECU,Ecuador,Other,30,9631db053-3d24-5d08-dce2-2ac2641fe901,public-global-vessel-identity:v4.0
+Unknown vessel,735059798,ECU,Ecuador,Other,30,003be1e31-126f-d714-fd47-3c3e80469e0b,public-global-vessel-identity:v4.0
+Ad-Vantage,538071125,MHL,Marshall Islands,Passenger,29,d08b93c67-76ea-69bb-555b-eebc556273f9,public-global-vessel-identity:v4.0
+Danielita,735060136,ECU,Ecuador,Other,29,45a994c10-0bc2-2440-4dd5-18180f2f37e9,public-global-vessel-identity:v4.0
+Marymar,735059455,ECU,Ecuador,Other,29,f96c702b3-3130-d2bd-d2a7-55b1caf5192e,public-global-vessel-identity:v4.0
+Virvane II,735059513,ECU,Ecuador,Other,29,c066ae007-7d7e-edf6-ecc6-10cacc88178f,public-global-vessel-identity:v4.0
+Unknown vessel,735059768,ECU,Ecuador,Other,29,268d83362-21ad-3d4f-dbef-8e819d6ef614,public-global-vessel-identity:v4.0
+Stefa,735059871,ECU,Ecuador,Other,29,0cc2271a9-937b-13e0-f9d4-33b91162432a,public-global-vessel-identity:v4.0
+Hermano Gregorio,735059491,ECU,Ecuador,Other,29,aba68e56e-e923-f19d-e491-ffafb8da8360,public-global-vessel-identity:v4.0
+Sea Turis,735059213,ECU,Ecuador,Passenger,29,ff27e9cb1-1d3f-4b28-6f62-3d2ed102afac,public-global-vessel-identity:v4.0
+Mantarraya 1,735023447,ECU,Ecuador,Other,29,199664b9c-c832-1607-a1ae-599604616228,public-global-vessel-identity:v4.0
+El Pin,735059981,ECU,Ecuador,Passenger,29,f5894425f-f059-ffc1-86de-25430b27d354,public-global-vessel-identity:v4.0
+Kastdalen,735059442,ECU,Ecuador,Fishing,29,40541bcc3-3e30-21e4-937e-c1b1bebe35da,public-global-vessel-identity:v4.0
+Unknown vessel,735057500,ECU,Ecuador,Other,28,79f9d096c-caa3-06ae-36b9-cdaa548f7872,public-global-vessel-identity:v4.0
+Anne Bonny,735060550,ECU,Ecuador,Passenger,28,66933630b-b00c-f681-255c-b6e9d69480e9,public-global-vessel-identity:v4.0
+Unknown vessel,735057742,ECU,Ecuador,Other,28,3352c44bf-f2c2-49ac-8827-113234b7b6de,public-global-vessel-identity:v4.0
+Victorio,735059413,ECU,Ecuador,Other,28,55eebec1a-aabf-5a35-6e5c-71c5f0246f6c,public-global-vessel-identity:v4.0
+Unknown vessel,735023472,ECU,Ecuador,Other,28,ef893d26a-a7e9-4d90-6322-b94ffa53f71a,public-global-vessel-identity:v4.0
+Omaha,319141800,CYM,Cayman Islands,Passenger,28,6ebe62abd-d932-da1e-ffdc-586d5ed64436,public-global-vessel-identity:v4.0
+La Jaiba,735059556,ECU,Ecuador,Other,28,f0ea559aa-a1f4-2760-c180-643a778f29e4,public-global-vessel-identity:v4.0
+DI Piero I,735060548,ECU,Ecuador,Other,28,529a0be4e-ed9d-8f7c-2b87-ed2db9966d01,public-global-vessel-identity:v4.0
+Unknown vessel,735059292,ECU,Ecuador,Other,28,9c4889cd0-0719-c3ed-0ff6-6c1f947de495,public-global-vessel-identity:v4.0
+Katty Tatiana,735059649,ECU,Ecuador,Other,27,ce65a92fa-ae1f-d30e-852f-2b467d6b676d,public-global-vessel-identity:v4.0
+Cheverito,735059506,ECU,Ecuador,Other,27,5a116f994-4bf9-81d7-b64e-19b96cc48c08,public-global-vessel-identity:v4.0
+Unknown vessel,735057572,ECU,Ecuador,Other,27,748cea334-44d2-6bac-7a0c-ef5a72b3bdc8,public-global-vessel-identity:v4.0
+Unknown vessel,735023496,ECU,Ecuador,Other,27,4e1f94cd9-999a-8d09-4253-2cf2b2d6f9b1,public-global-vessel-identity:v4.0
+Nina Jhoselin,735060243,ECU,Ecuador,Fishing,27,700175ade-ef43-4f86-1a9a-073fcb005d32,public-global-vessel-identity:v4.0
+Unknown vessel,735023414,ECU,Ecuador,Other,27,30f219217-7ada-7e7a-9ab6-82cddcf60536,public-global-vessel-identity:v4.0
+Unknown vessel,735058238,ECU,Ecuador,Other,27,bcafb1ee1-1225-4ad4-941d-992ac4c9ca86,public-global-vessel-identity:v4.0
+Unknown vessel,735060056,ECU,Ecuador,Other,27,0962db33f-f660-2c6a-8722-1e96b9541762,public-global-vessel-identity:v4.0
+Unknown vessel,735023412,ECU,Ecuador,Other,26,997848014-40e0-4c62-bb69-0d646092d40a,public-global-vessel-identity:v4.0
+Unknown vessel,735058788,ECU,Ecuador,Other,26,142037e4f-f85e-30c1-5150-43146bf960eb,public-global-vessel-identity:v4.0
+Pelagic,735059484,ECU,Ecuador,Other,26,056114d51-1f27-b302-f363-386f1b934aab,public-global-vessel-identity:v4.0
+Angelita Lucia,735059476,ECU,Ecuador,Other,26,e12ae6b20-0b22-39ec-973b-c249df4c9a42,public-global-vessel-identity:v4.0
+La Jaiba,735059556,ECU,Ecuador,Other,25,892a0decb-b340-8c5d-b2fd-3301e03367cc,public-global-vessel-identity:v4.0
+Unknown vessel,735057980,ECU,Ecuador,Other,25,c9782ab28-887c-3269-1406-ffbbf90abb18,public-global-vessel-identity:v4.0
+Nina Danesa,735059550,ECU,Ecuador,Other,25,563ea100f-fb00-4f0f-d029-1cf26f221b87,public-global-vessel-identity:v4.0
+Enderby,735059398,ECU,Ecuador,Fishing,25,1d1ee662a-aefd-c8c1-1318-43acc5b80b47,public-global-vessel-identity:v4.0
+Jhonamar II,735059644,ECU,Ecuador,Other,24,521f57597-73f0-c358-48e2-d6aba589a2a3,public-global-vessel-identity:v4.0
+Isla Puna,735058315,ECU,Ecuador,Other,24,312b1383f-fc62-c025-6420-2dcbe5ad7839,public-global-vessel-identity:v4.0
+Costa,735057832,ECU,Ecuador,Passenger,24,fdcaa2d06-6478-1d0e-6476-327bf4a7f378,public-global-vessel-identity:v4.0
+Lady Beth,319931000,CYM,Cayman Islands,Passenger,24,c211e6b52-2da4-af00-105e-758e920c73ff,public-global-vessel-identity:v4.0
+Acadia,319092700,CYM,Cayman Islands,Passenger,24,d11776e7b-bb87-d451-cf06-30429b0eea86,public-global-vessel-identity:v4.0
+Isla Trinitaria,735057600,ECU,Ecuador,Other,24,9d753a759-9b4d-dc7e-bda0-b175be5fcc2f,public-global-vessel-identity:v4.0
+Cormoran,735059480,ECU,Ecuador,Other,24,d71178df6-66a9-8f1f-9a64-3984a7930621,public-global-vessel-identity:v4.0
+Xavier,735058061,ECU,Ecuador,Other,24,42018ff85-593e-5a7b-1feb-68e3f774d88d,public-global-vessel-identity:v4.0
+Unknown vessel,735057540,ECU,Ecuador,Other,24,fd42d3d0f-fd4a-dad3-4622-596d80519ca0,public-global-vessel-identity:v4.0
+Tender 4,980599454,---,---,Passenger,23,7d22f926c-c504-fec7-bfe8-7ddc0a06f016,public-global-vessel-identity:v4.0
+Virgen Del Cisne,735059486,ECU,Ecuador,Other,23,2bdd12fe1-1c97-abfc-c8bc-983f904184af,public-global-vessel-identity:v4.0
+Galamarine I,735057880,ECU,Ecuador,Passenger,23,58f20d685-510e-a35b-9b43-d24125a592f4,public-global-vessel-identity:v4.0
+Titanic I,735060229,ECU,Ecuador,Fishing,23,e04ebeb2e-e2ac-d4a4-48ca-477388554293,public-global-vessel-identity:v4.0
+DI`Piero,735060548,ECU,Ecuador,Other,22,eac808973-3f9e-3e34-bc00-2049c265a14a,public-global-vessel-identity:v4.0
+White Tip I,735059537,ECU,Ecuador,Fishing,22,58b6caf84-4184-0098-6a94-f08041dcf88d,public-global-vessel-identity:v4.0
+Pesquero Piquero,735059536,ECU,Ecuador,Other,22,e01adfc9c-c71b-f7f6-348d-7cdd4452f547,public-global-vessel-identity:v4.0
+Centurion,735057636,ECU,Ecuador,Other,21,b5787fee2-2d94-3408-e131-6c1a41fc6770,public-global-vessel-identity:v4.0
+Unknown vessel,735059017,ECU,Ecuador,Na,21,799b4a3f1-154d-4d12-0a60-2b438a9807db,public-global-vessel-identity:v4.0
+Nina Akemy,735059399,ECU,Ecuador,Other,21,059bcc57d-dc5c-5caa-1f07-c3e8564c2ac7,public-global-vessel-identity:v4.0
+Galapaguenita,735059732,ECU,Ecuador,Other,21,d0adbf36d-d046-effa-d044-3f27cf1ffb98,public-global-vessel-identity:v4.0
+Unknown vessel,735023405,ECU,Ecuador,Other,21,d8e06c6bb-b33a-ac60-0914-5e03abd7fe07,public-global-vessel-identity:v4.0
+Anabella II,735059402,ECU,Ecuador,Other,21,8ace83bd3-318e-fafc-b260-cdb0c801c370,public-global-vessel-identity:v4.0
+Unknown vessel,735059688,ECU,Ecuador,Other,21,2de029828-8ab1-f439-c42a-355d929c2f9d,public-global-vessel-identity:v4.0
+Unknown vessel,735059769,ECU,Ecuador,Other,21,2ffc6deb9-91c9-d2d2-3a48-d5dc6d564d4c,public-global-vessel-identity:v4.0
+San Jose,735060175,ECU,Ecuador,Other,21,06d07de38-85b3-bf93-a201-4684c3e95276,public-global-vessel-identity:v4.0
+Fusion 3,735060592,ECU,Ecuador,Cargo,21,f8a4fcf8b-b2b7-9537-a57d-20323df86a27,public-global-vessel-identity:v4.0
+El Primo,735057860,ECU,Ecuador,Other,20,b40fc742f-f638-48ca-c5ff-ce48f375a0bc,public-global-vessel-identity:v4.0
+Unknown vessel,735058208,ECU,Ecuador,Other,20,eb0894a1c-ccf4-db25-6583-1b26efb60708,public-global-vessel-identity:v4.0
+Unknown vessel,735058789,ECU,Ecuador,Other,20,a81ae6ae6-6dd1-ed2e-7688-3a4ec200bc1a,public-global-vessel-identity:v4.0
+Damielito,735059549,ECU,Ecuador,Other,20,b6213708d-d5c2-15a5-be98-dc648799dda5,public-global-vessel-identity:v4.0
+Galapagos Divers I,735059237,ECU,Ecuador,Other,20,0ad43e353-38a3-c0ef-9a90-a5d96ae0aa84,public-global-vessel-identity:v4.0
+Revelry G T,319301500,CYM,Cayman Islands,Other,20,14ddbf371-1a99-35f4-d27d-327a9876f85c,public-global-vessel-identity:v4.0
+Vittoria,735060646,ECU,Ecuador,Other,19,9bca82e4c-c3ac-ab07-8076-b7ef3ab1befc,public-global-vessel-identity:v4.0
+Irvin II,735060347,ECU,Ecuador,Other,19,6718c8e86-6c6a-121d-021f-d40ee0dc79d0,public-global-vessel-identity:v4.0
+Caracha,735060031,ECU,Ecuador,Other,19,d39e6f311-1fac-0dc1-e438-b1e528ccd331,public-global-vessel-identity:v4.0
+Gaia Surf,735060364,ECU,Ecuador,Other,19,1fbdacdbc-c495-a6b5-187f-5d7a722c9efb,public-global-vessel-identity:v4.0
+Santanamar,735059475,ECU,Ecuador,Other,19,9bc250aa6-68a7-86f4-dd9c-398db237e34b,public-global-vessel-identity:v4.0
+Unknown vessel,735060572,ECU,Ecuador,Other,19,f8c480ea2-22ec-285c-9014-59b5393248e3,public-global-vessel-identity:v4.0
+Brisa Del Mar,735059518,ECU,Ecuador,Gear,19,6a8b02acb-bfdc-d8e8-f052-ffd88f5ca03c,public-global-vessel-identity:v4.0
+Revelry,319009700,CYM,Cayman Islands,Passenger,19,31c29ad30-0bb3-330f-5e2b-c560fceba0d2,public-global-vessel-identity:v4.0
+Unknown vessel,735058237,ECU,Ecuador,Other,19,f226ea4ed-d113-3679-bdd4-e592e8b4781b,public-global-vessel-identity:v4.0
+Unknown vessel,735057613,ECU,Ecuador,Other,19,3c8ee8c4c-ca00-9f8f-443d-ec207dd37af1,public-global-vessel-identity:v4.0
+Unknown vessel,735023440,ECU,Ecuador,Other,18,fdea72037-7bba-2437-f99a-17390bd75a23,public-global-vessel-identity:v4.0
+Bae Hualcopo Tr61,412440493,CHN,China,Carrier,18,c1ddc2ff9-968f-214b-d8d9-55c72ce76917,public-global-vessel-identity:v4.0
+Isla San Cristobal,735059709,ECU,Ecuador,Other,18,0d7b38f81-1379-fce5-cef2-3419ad2876ff,public-global-vessel-identity:v4.0
+Unknown vessel,735059937,ECU,Ecuador,Other,18,2ed120587-7347-f1b6-2f40-d212f4adf665,public-global-vessel-identity:v4.0
+Sarai II,735059501,ECU,Ecuador,Other,18,765792569-931a-debb-7424-3f9aaca279ca,public-global-vessel-identity:v4.0
+Unknown vessel,735059038,ECU,Ecuador,Other,18,868605e05-5bd9-d54e-35e8-89d4cf9014e8,public-global-vessel-identity:v4.0
+Apex A20,941500242,---,---,Gear,18,fd7f54d9c-cc1b-f44b-0bd1-b3d23b815a6d,public-global-vessel-identity:v4.0
+Unknown vessel,735059294,ECU,Ecuador,Passenger,18,d914608cd-d0aa-01ed-fff0-b0c60fff51b1,public-global-vessel-identity:v4.0
+Jos,735059525,ECU,Ecuador,Other,18,3af3394e7-722f-3db9-0d9a-400035f860d4,public-global-vessel-identity:v4.0
+Luis Angel,735058348,ECU,Ecuador,Other,18,aa6b558c5-59a2-8544-9478-7d295a46975c,public-global-vessel-identity:v4.0
+Educar,735059888,ECU,Ecuador,Other,18,3c35170b9-98c3-ef02-103b-0d80f98459c0,public-global-vessel-identity:v4.0
+Sea Ranger II,735060556,ECU,Ecuador,Passenger,18,6b2ea15ec-c4bf-a619-1924-e178f095ce39,public-global-vessel-identity:v4.0
+Nilaya,256002853,MLT,Malta,Passenger,17,84d3feb24-4054-b2ad-7d78-8eee41a26b58,public-global-vessel-identity:v4.0
+Unknown vessel,735023424,ECU,Ecuador,Other,17,e96648961-1202-f3e8-40b6-d56550c44f0e,public-global-vessel-identity:v4.0
+Unknown vessel,735059894,ECU,Ecuador,Passenger,17,72c99d42c-cc56-8de4-58a0-ebde9f077046,public-global-vessel-identity:v4.0
+Unknown vessel,735058990,ECU,Ecuador,Other,17,4cf8bc3ad-ddca-c169-dd6b-eda2ee496bce,public-global-vessel-identity:v4.0
+Unknown vessel,735060131,ECU,Ecuador,Other,17,5f2a39029-997b-4c1a-90a5-ee2668092e13,public-global-vessel-identity:v4.0
+Unknown vessel,980599453,---,---,Passenger,17,bbbec4114-440a-8259-c38c-5bc78d81f133,public-global-vessel-identity:v4.0
+Puyo,735059394,ECU,Ecuador,Fishing,17,71d718e72-24eb-5ac4-4581-b0ed1973d0d9,public-global-vessel-identity:v4.0
+Erika,735059880,ECU,Ecuador,Other,17,733c40ef0-0e78-c1a8-83c9-462383636684,public-global-vessel-identity:v4.0
+Unknown vessel,735060454,ECU,Ecuador,Other,17,6ba2ec1a1-1427-9441-5c36-37ab0fbfdc3d,public-global-vessel-identity:v4.0
+Don Mario,735023482,ECU,Ecuador,Fishing,16,c418829d7-794b-26ad-2a93-5dba09bf550d,public-global-vessel-identity:v4.0
+21.12,319230500,CYM,Cayman Islands,Gear,16,a653fa77c-c1b4-26e8-3e59-2a6c3bc5f825,public-global-vessel-identity:v4.0
+Bait Master,735060208,ECU,Ecuador,Other,16,b181bfca9-9529-e62b-cfb3-1b18c4b3c47d,public-global-vessel-identity:v4.0
+Che,538071842,MHL,Marshall Islands,Passenger,16,597b0f079-9403-64c4-a86c-78b9f4a6ac9e,public-global-vessel-identity:v4.0
+Angreju I,735058458,ECU,Ecuador,Passenger,16,c8a23f8d0-006a-40a9-aa33-9108f9e548ab,public-global-vessel-identity:v4.0
+Carmelita,735060061,ECU,Ecuador,Other,16,2c52658e0-0391-4aa7-54c2-f35d8192658c,public-global-vessel-identity:v4.0
+Bundalong,319203800,CYM,Cayman Islands,Passenger,16,4a2fa9ce9-9ddf-a232-4681-a1f5649e20a4,public-global-vessel-identity:v4.0
+Unknown vessel,735060292,ECU,Ecuador,Other,16,ceb6297ce-ecc3-cc30-8ecc-0b8690da83fa,public-global-vessel-identity:v4.0
+Talo,735059523,ECU,Ecuador,Other,16,babe71894-435c-6890-79fb-2a99eb763719,public-global-vessel-identity:v4.0
+Unknown vessel,735059380,ECU,Ecuador,Other,16,9f4cec07d-dca9-ddb6-74a4-d5cdbbb63cc8,public-global-vessel-identity:v4.0
+Galapagos Serenity,735057761,ECU,Ecuador,Passenger,16,62cc760d8-812b-0c0b-b080-3149be82e613,public-global-vessel-identity:v4.0
+Jared II,735059555,ECU,Ecuador,Other,16,ac96a65c8-8b29-0277-8276-695f0d6b05a6,public-global-vessel-identity:v4.0
+Hampshire,319092100,CYM,Cayman Islands,Passenger,16,b4cd02010-0403-b50a-3db8-0ca8f183c0d8,public-global-vessel-identity:v4.0
+Alacran,735059551,ECU,Ecuador,Other,16,f3459dadf-f26e-9acd-1538-5e87c49be88d,public-global-vessel-identity:v4.0
+Janina Belen,735060237,ECU,Ecuador,Other,16,339d209f3-3724-3690-3054-7e7dfede2051,public-global-vessel-identity:v4.0
+Sea Ranger 11,735057768,ECU,Ecuador,Passenger,16,90e02ad6d-d3c1-03f7-9073-0b92eac8754e,public-global-vessel-identity:v4.0
+Unknown vessel,735060294,ECU,Ecuador,Na,16,e12b3c8f2-20cd-07bc-b448-3565b0190158,public-global-vessel-identity:v4.0
+Oceans Seven,319044000,CYM,Cayman Islands,Passenger,15,f3b90e750-0ce3-4baf-221a-d756f337a1e1,public-global-vessel-identity:v4.0
+Fiorella L,735057790,ECU,Ecuador,Fishing,15,8f9216109-91c8-57cf-7bf2-198fe36b0bee,public-global-vessel-identity:v4.0
+Unknown vessel,735057502,ECU,Ecuador,Other,15,5ea021a7b-bb6b-4096-72d2-f0bbbe09dc7d,public-global-vessel-identity:v4.0
+Unknown vessel,735023413,ECU,Ecuador,Other,15,df44204e4-4914-535f-57bd-85dd702e28a5,public-global-vessel-identity:v4.0
+Safeboat,983192371,---,---,Passenger,15,c2415e5ce-e5d0-534a-4fcf-1584f6db5a07,public-global-vessel-identity:v4.0
+Pinta III,735059634,ECU,Ecuador,Gear,15,98db0dd60-0ee3-1073-f9b0-1986f4e1c12b,public-global-vessel-identity:v4.0
+Sebastian Sea,735060638,ECU,Ecuador,Passenger,15,7bbf98a06-684e-05e5-f28d-d392ce087101,public-global-vessel-identity:v4.0
+Unknown vessel,735059842,ECU,Ecuador,Other,15,8fc823ab3-3717-5718-8cc1-ef38c2e02b87,public-global-vessel-identity:v4.0
+Mar Caribe I,735060351,ECU,Ecuador,Other,15,5e50204b3-3780-e886-badf-806e5810bf65,public-global-vessel-identity:v4.0
+Unknown vessel,735057541,ECU,Ecuador,Other,15,f1221ff9f-fa5d-df1d-35fb-72394c2fea9b,public-global-vessel-identity:v4.0
+Tt Multiverse P68,983192151,---,---,Passenger,14,f6ed26941-1fd5-4b70-2df7-eb5a1e97b48e,public-global-vessel-identity:v4.0
+So Z 3,311000943,BHS,Bahamas,Other,14,4188a255a-add6-72ed-e2e2-2f9be7dda2ae,public-global-vessel-identity:v4.0
+Unknown vessel,735023434,ECU,Ecuador,Other,14,fea563a55-5b4a-0f08-ec06-761ba68599d1,public-global-vessel-identity:v4.0
+Sirena,735060637,ECU,Ecuador,Other,14,3eec00e56-6b60-0078-9861-f84455ac102d,public-global-vessel-identity:v4.0
+Grace,319061600,CYM,Cayman Islands,Passenger,14,3f00b1e44-417d-ca02-2a04-5f4e77f7026b,public-global-vessel-identity:v4.0
+Capella C,232111000,GBR,United Kingdom,Passenger,14,98989d192-27ae-8629-f0bf-5ad6904ce440,public-global-vessel-identity:v4.0
+Regata,735059894,ECU,Ecuador,Passenger,14,b02295c06-635a-684f-6528-46bcb6113da8,public-global-vessel-identity:v4.0
+Aducito,735060471,ECU,Ecuador,Other,14,d089bad9e-e0ed-fbcf-d79f-fa260f6801ef,public-global-vessel-identity:v4.0
+Unknown vessel,735058753,ECU,Ecuador,Other,14,bf4439b49-9cf4-b39b-62de-0f855de4298b,public-global-vessel-identity:v4.0
+Unknown vessel,735058754,ECU,Ecuador,Other,14,ffb6ca15c-caf7-1cb4-0c07-9830b6d89579,public-global-vessel-identity:v4.0
+So Z 1,311000941,BHS,Bahamas,Passenger,14,3150a2172-2b2a-663e-b2ed-426b8965d409,public-global-vessel-identity:v4.0
+Unknown vessel,735059369,ECU,Ecuador,Other,14,d60c9057d-d2e5-8f8b-d8b1-dc55a7fc24a9,public-global-vessel-identity:v4.0
+Rosario,735059544,ECU,Ecuador,Other,13,ccfbdf6b6-6bb3-76cf-b54f-f1a299a69375,public-global-vessel-identity:v4.0
+Booby,735059577,ECU,Ecuador,Other,13,34eafd927-763b-8662-6765-f0acec715fc8,public-global-vessel-identity:v4.0
+Unknown vessel,735023442,ECU,Ecuador,Na,13,7b7a05669-984d-1246-0571-68a34e09e701,public-global-vessel-identity:v4.0
+San Antonio I,735059460,ECU,Ecuador,Passenger,13,e43b10fd3-3390-3d79-f435-b13b427fc848,public-global-vessel-identity:v4.0
+New Poseidon,735060117,ECU,Ecuador,Passenger,13,2e3bf3f26-610b-46ca-ead2-34cc47108c04,public-global-vessel-identity:v4.0
+Unknown vessel,735023406,ECU,Ecuador,Other,13,bb48dccc1-10ec-e68b-499d-852e8b374bf3,public-global-vessel-identity:v4.0
+Unknown vessel,735023462,ECU,Ecuador,Na,13,727cfccb6-6d80-4c64-99c6-c185d4bc6a55,public-global-vessel-identity:v4.0
+Jessica Joel,735059441,ECU,Ecuador,Other,13,55bdd9db1-14c4-5f7f-4666-681e5a9ad94c,public-global-vessel-identity:v4.0
+Bae Imbabura,735060419,ECU,Ecuador,Seismic vessel,13,c3337a733-33fb-9146-b0b3-a1ed9e19bbeb,public-global-vessel-identity:v4.0
+Kailah,735060098,ECU,Ecuador,Other,13,91400236e-e82d-3f9c-1d67-19b0323583d6,public-global-vessel-identity:v4.0
+Nomad,368307560,USA,United States of America,Passenger,13,302d0b904-4c5b-7441-eb63-274aa1f413f0,public-global-vessel-identity:v4.0
+Gloria,735059762,ECU,Ecuador,Other,13,c055f0f56-68e6-93c1-a117-84626b009b74,public-global-vessel-identity:v4.0
+Booby,735059577,ECU,Ecuador,Other,13,e71a203cf-fc28-07c3-c3d8-e6bef6826823,public-global-vessel-identity:v4.0
+Maria Janina,735059472,ECU,Ecuador,Other,13,b15f07947-7c0f-e68c-e5a0-15caf3afc6c9,public-global-vessel-identity:v4.0
+Multiverse,319105100,CYM,Cayman Islands,Other,12,e3667f35c-cb09-555e-b831-8f6c08c1e64c,public-global-vessel-identity:v4.0
+San Martin II,735059719,ECU,Ecuador,Other,12,ece1ee81d-d82c-e9cc-5f8e-8f6655dc0739,public-global-vessel-identity:v4.0
+Angelo         11.4V,735060047,ECU,Ecuador,Gear,12,5d06937cc-c8ea-2149-174f-515821643d78,public-global-vessel-identity:v4.0
+Santa Maria,735059572,ECU,Ecuador,Other,12,2aedcddce-e004-1463-b45f-728e14637d55,public-global-vessel-identity:v4.0
+Bae Atahualpa,735059040,ECU,Ecuador,Other,12,a8f04c2f5-5243-7ae2-e8bf-3b756cb666cd,public-global-vessel-identity:v4.0
+Senor De Las Aguas,735059459,ECU,Ecuador,Other,12,a32f5ccd4-4a92-768c-2841-9b26066f9eb4,public-global-vessel-identity:v4.0
+Pinta,735059574,ECU,Ecuador,Other,12,6419c31b5-5789-0538-f9e8-050a44f215e2,public-global-vessel-identity:v4.0
+Ita & Nico,735059507,ECU,Ecuador,Other,12,54c05ef73-3a75-174a-c5f9-ff56660b218d,public-global-vessel-identity:v4.0
+Unknown vessel,735057982,ECU,Ecuador,Other,12,96f797075-56da-7bc4-48c6-89d6328d4b63,public-global-vessel-identity:v4.0
+Tsunami,735060421,ECU,Ecuador,Gear,12,dfa226236-60d8-9990-f17a-dfaa27902416,public-global-vessel-identity:v4.0
+So Z 7,311000947,BHS,Bahamas,Passenger,12,6dc37722a-aa4a-d726-87fc-3f253a375d31,public-global-vessel-identity:v4.0
+Unknown vessel,735059852,ECU,Ecuador,Other,12,17f3c3a5d-d488-e390-398b-9dc24f3a92ed,public-global-vessel-identity:v4.0
+Unknown vessel,735023480,ECU,Ecuador,Other,12,85a19fcd7-738b-27f4-be52-e38904402ef9,public-global-vessel-identity:v4.0
+Ambition,319662000,CYM,Cayman Islands,Passenger,12,781961f0c-c1ed-59b3-e2fe-9b8b8ce1efac,public-global-vessel-identity:v4.0
+Flor Maria,735059511,ECU,Ecuador,Other,11,68e4d767c-c3a3-74d1-18ba-2b9f504cd17d,public-global-vessel-identity:v4.0
+Mayrita,735059411,ECU,Ecuador,Passenger,11,dfc304fc9-9408-289d-2412-82688ddf71cd,public-global-vessel-identity:v4.0
+Virvane II,735059513,ECU,Ecuador,Other,11,ad4067c11-132a-61e6-41df-84bbe9d72993,public-global-vessel-identity:v4.0
+Unknown vessel,735059892,ECU,Ecuador,Other,11,45f37ef84-4d0d-3799-4f4d-33fabce6d210,public-global-vessel-identity:v4.0
+Angelita III,735059401,ECU,Ecuador,Other,11,ce67556fd-d3e1-82fd-a656-135d8ad011d9,public-global-vessel-identity:v4.0
+Unknown vessel,735059653,ECU,Ecuador,Other,11,d58120e83-34df-7b41-177c-faa42b0613f5,public-global-vessel-identity:v4.0
+Unknown vessel,735059943,ECU,Ecuador,Other,11,70e97e325-5392-94db-74e4-669688a32530,public-global-vessel-identity:v4.0
+Maria,538071121,MHL,Marshall Islands,Passenger,11,64b46f8bb-bde7-7b75-8f1c-7cae00380b0e,public-global-vessel-identity:v4.0
+Unknown vessel,735060021,ECU,Ecuador,Other,11,4547c45d9-90e9-7741-5e56-b03d7bb10766,public-global-vessel-identity:v4.0
+Tt Firebird Ribeye,983192450,---,---,Passenger,10,b38c72f71-1b93-356d-b1d4-7a1647a33a57,public-global-vessel-identity:v4.0
+Unknown vessel,735058656,ECU,Ecuador,Other,10,f52b45669-99fa-e689-7923-134fd8ee0070,public-global-vessel-identity:v4.0
+Unknown vessel,735059794,ECU,Ecuador,Na,10,a341c1925-5a54-b72e-ec80-f832817354bc,public-global-vessel-identity:v4.0
+Unknown vessel,735059613,ECU,Ecuador,Na,10,dc011ee27-7bd8-97e9-6b5a-061c7f2f5fc6,public-global-vessel-identity:v4.0
+Unknown vessel,735060210,ECU,Ecuador,Other,10,631d4b28b-b682-4912-febb-c588cfe7b067,public-global-vessel-identity:v4.0
+Jordyfer I,735060241,ECU,Ecuador,Other,10,1331ad9c8-886d-6280-99f8-ea7322b7769b,public-global-vessel-identity:v4.0
+Savinovich,735059545,ECU,Ecuador,Passenger,10,dc4df5200-05de-85da-6e28-e918f879d9b5,public-global-vessel-identity:v4.0
+Marlin,735059484,ECU,Ecuador,Other,10,237416b3c-c9ce-a0ca-03bb-ba43f45232af,public-global-vessel-identity:v4.0
+Ingermare,735059482,ECU,Ecuador,Other,10,7bb8817c8-82a3-26e2-914e-22d22a5c0282,public-global-vessel-identity:v4.0
+Don Bis,735059734,ECU,Ecuador,Other,10,7cabab18d-dc95-038c-edd3-449f6afc1af5,public-global-vessel-identity:v4.0
+Asia,319187400,CYM,Cayman Islands,Passenger,10,60db401a8-8816-3d6b-c3f3-64c060cb9435,public-global-vessel-identity:v4.0
+Felix,319369000,CYM,Cayman Islands,Passenger,10,950c9059f-fcc3-ebce-2e88-bec05f743c2b,public-global-vessel-identity:v4.0
+San Pedro,735058189,ECU,Ecuador,Other,10,2dcdb1d03-3c46-0b17-fdc0-8ec30efd41d9,public-global-vessel-identity:v4.0
+Unknown vessel,735059652,ECU,Ecuador,Other,10,be05c17b5-5da6-9ea6-8c2f-b6d87717b16b,public-global-vessel-identity:v4.0
+Unknown vessel,735059220,ECU,Ecuador,Na,10,30d728e7d-d7c9-6b44-e68f-7f6f77e854a7,public-global-vessel-identity:v4.0
+Bliss,538071599,MHL,Marshall Islands,Passenger,9,3eaa69f42-2b94-cc1d-7580-329c469f5304,public-global-vessel-identity:v4.0
+Alma Dive I,735060462,ECU,Ecuador,Other,9,d8ee3fc45-5a0d-06b6-8ebf-ce8aca61833e,public-global-vessel-identity:v4.0
+Erika Maria,735059563,ECU,Ecuador,Other,9,6367b2326-6b71-feba-e2b0-f24be0813ed0,public-global-vessel-identity:v4.0
+Destination,319590000,CYM,Cayman Islands,Passenger,9,538845f8b-bdfa-a1d2-67ca-a2a90e97a365,public-global-vessel-identity:v4.0
+Unknown vessel,735059354,ECU,Ecuador,Na,9,f62dd2e53-314e-0e70-2041-bbad1f8a8b9b,public-global-vessel-identity:v4.0
+Nautilus,232037727,GBR,United Kingdom,Passenger,9,c07adcc8c-ca6f-adec-5274-77cd32373e2c,public-global-vessel-identity:v4.0
+Galicia,735057809,ECU,Ecuador,Passenger,9,7125a9b0d-d316-8cc5-c8bd-99b1a2a50875,public-global-vessel-identity:v4.0
+La Rana I,735060002,ECU,Ecuador,Other,9,14ccae294-4da5-ee47-354e-7d19b1ba06d1,public-global-vessel-identity:v4.0
+Pez Espada,735059458,ECU,Ecuador,Fishing,9,f16f796df-fa0d-b165-8883-a7c9a3c731a2,public-global-vessel-identity:v4.0
+Unknown vessel,735057943,ECU,Ecuador,Other,9,4b1fdcc3d-ddf8-3422-8804-09829e3d3330,public-global-vessel-identity:v4.0
+Gloria C,735023497,ECU,Ecuador,Fishing,9,ffbb0870c-cfc7-5d82-9b2a-c6f7df2a58d6,public-global-vessel-identity:v4.0
+Carabali,735059421,ECU,Ecuador,Other,9,de4a62a88-8421-5df3-d066-521de7e9e12e,public-global-vessel-identity:v4.0
+Unknown vessel,735059353,ECU,Ecuador,Na,9,a95742671-190b-d71c-2562-fb7d6060ae64,public-global-vessel-identity:v4.0
+Susan,735059548,ECU,Ecuador,Passenger,9,04a34b46c-c27b-627d-42c9-0d5d43d63c8a,public-global-vessel-identity:v4.0
+Unknown vessel,735060032,ECU,Ecuador,Na,9,57e8db3c0-08d7-25bd-900f-9bbec73b1754,public-global-vessel-identity:v4.0
+Unknown vessel,735059382,ECU,Ecuador,Na,8,3c8727ae9-9587-451a-4514-ef96e1e2e1f7,public-global-vessel-identity:v4.0
+Unknown vessel,735058666,ECU,Ecuador,Other,8,a531fc034-4af0-f6b6-0c06-9d74ca789474,public-global-vessel-identity:v4.0
+Andy Marymar,735060104,ECU,Ecuador,Passenger,8,6b1027815-59e1-4c02-b8ec-2b79211753f2,public-global-vessel-identity:v4.0
+Game Changer,538071183,MHL,Marshall Islands,Other,8,3e2a48d88-8749-c77d-1f83-3392c8cbcb3f,public-global-vessel-identity:v4.0
+Sea Hand,735057855,ECU,Ecuador,Passenger,8,4c2cc61bf-f99c-af10-f77f-798df95286d0,public-global-vessel-identity:v4.0
+New Anita,735060599,ECU,Ecuador,Passenger,8,c4bdf3911-1d4e-3704-72d2-3c93a65f1452,public-global-vessel-identity:v4.0
+Unknown vessel,735059690,ECU,Ecuador,Gear,8,a46284392-2a95-b796-5f83-90505b73155c,public-global-vessel-identity:v4.0
+Sea XII,368362120,USA,United States of America,Passenger,8,14ba76c6d-d26e-0e93-546b-556b93074d55,public-global-vessel-identity:v4.0
+Samaya,735060648,ECU,Ecuador,Passenger,8,56d723116-602b-d9a1-963e-4a59793cc54f,public-global-vessel-identity:v4.0
+Unknown vessel,735057619,ECU,Ecuador,Other,8,669c59a69-9344-86fb-3606-f6a192f7fd50,public-global-vessel-identity:v4.0
+Reina De Los Mares,735059790,ECU,Ecuador,Passenger,8,5b2c3621d-df8f-8ecc-26cb-cd272ab3cb56,public-global-vessel-identity:v4.0
+Unknown vessel,735023468,ECU,Ecuador,Na,8,e79e8bff1-1b45-1cf8-45df-da88ef9204b8,public-global-vessel-identity:v4.0
+Rocinante,319840000,CYM,Cayman Islands,Passenger,8,c5e4cec46-6b0b-10a2-96bd-a455c45a982e,public-global-vessel-identity:v4.0
+Wild Rumpus,368270480,USA,United States of America,Passenger,8,c32c910e1-1b4b-f2e0-9c8f-47b2a6d3d0aa,public-global-vessel-identity:v4.0
+Sebastian C.,735057988,ECU,Ecuador,Fishing,8,609dcb1c2-2b0f-ff95-509a-063db1884155,public-global-vessel-identity:v4.0
+Junela II,735059726,ECU,Ecuador,Fishing,8,8aecb3577-784e-3ec7-188b-df83174f221e,public-global-vessel-identity:v4.0
+Unknown vessel,735023410,ECU,Ecuador,Other,8,36ef08f41-182f-e54c-b988-a70e9496b997,public-global-vessel-identity:v4.0
+Antonella,735059757,ECU,Ecuador,Other,8,7e74e1da5-5077-f0ed-138c-e6a809effa1a,public-global-vessel-identity:v4.0
+Mayari,538071980,MHL,Marshall Islands,Passenger,8,d4bf9b48c-c6ae-42b9-250a-7c26b32ff5e8,public-global-vessel-identity:v4.0
+Isla De La Plata,735059950,ECU,Ecuador,Cargo,8,d1efe5b8b-b1c7-8389-8c58-dddfbafe9597,public-global-vessel-identity:v4.0
+Unknown vessel,735060573,ECU,Ecuador,Other,8,14e051410-0868-bb45-0df8-4dac11cb75e9,public-global-vessel-identity:v4.0
+Cataleya,735059452,ECU,Ecuador,Other,8,64bc1d37f-fb4b-cc90-306a-4e87806015d2,public-global-vessel-identity:v4.0
+Licet,735058007,ECU,Ecuador,Other,8,b8339507a-a60f-bf0e-a729-4c1d246cef8d,public-global-vessel-identity:v4.0
+Unknown vessel,735057507,ECU,Ecuador,Other,8,0ac23663b-b795-9a29-08f8-d2eda022599a,public-global-vessel-identity:v4.0
+Livin`It,368110820,USA,United States of America,Passenger,8,c96a03595-5378-0b08-57fd-0117d2d5deeb,public-global-vessel-identity:v4.0
+Tt Multiverse Hs53,983192152,---,---,Passenger,7,4fe1f9fe8-8158-52c8-63db-1201671c5c12,public-global-vessel-identity:v4.0
+Anthonella,735059868,ECU,Ecuador,Other,7,dc55fe477-7501-ae87-3cc6-81630665110a,public-global-vessel-identity:v4.0
+Good Mood 4,235021734,GBR,United Kingdom,Passenger,7,0af1c8d27-75aa-6217-7a0d-9846b6979601,public-global-vessel-identity:v4.0
+Unknown vessel,735057584,ECU,Ecuador,Other,7,2590d372f-f505-c6fc-9653-a229447c8e07,public-global-vessel-identity:v4.0
+Gaby,735059682,ECU,Ecuador,Other,7,511013792-2793-34bc-722d-b2c6cf40206d,public-global-vessel-identity:v4.0
+Sea Ranger 7,735058050,ECU,Ecuador,Passenger,7,6c3525bb9-9816-e305-5655-9bddaae2254c,public-global-vessel-identity:v4.0
+Marianela II,735059417,ECU,Ecuador,Other,7,e55892cb7-7e92-6727-0492-bb69775f3b3c,public-global-vessel-identity:v4.0
+Leodan,735057840,ECU,Ecuador,Passenger,7,d723c8c6a-ac80-908c-c176-764339e6abbb,public-global-vessel-identity:v4.0
+Unknown vessel,735057649,ECU,Ecuador,Other,7,c81b3921a-a6a4-dd4c-43c4-e41f82b86c38,public-global-vessel-identity:v4.0
+Guaba           8.0V,735059571,ECU,Ecuador,Gear,7,87bb312e8-8ca6-22c1-8eff-220f0d2d4c06,public-global-vessel-identity:v4.0
+Angelo         11.5V,735060047,ECU,Ecuador,Gear,7,24612270f-f201-ff1e-f51d-80b0e0182046,public-global-vessel-identity:v4.0
+Eugen Seibold,255913282,PRT,Portugal,Other,7,1bd6fbeb5-5c02-ef1e-955b-509904e573d9,public-global-vessel-identity:v4.0
+Jesus Es Vida,735059392,ECU,Ecuador,Other,7,e614caf64-4f41-7352-b060-25c2094ccea9,public-global-vessel-identity:v4.0
+Domenica L,735057650,ECU,Ecuador,Fishing,7,5486988f2-23a6-2cee-1b22-84352f5c88a6,public-global-vessel-identity:v4.0
+Danica,319288700,CYM,Cayman Islands,Passenger,6,ee073912c-c219-f3b2-d3ef-18e50af514fc,public-global-vessel-identity:v4.0
+Elizabeth,735059404,ECU,Ecuador,Fishing,6,4e3634cac-c13b-67b5-fd50-87f78a91115f,public-global-vessel-identity:v4.0
+Unknown vessel,980599456,---,---,Passenger,6,d363bb268-8822-693f-ec92-8d59984a07d4,public-global-vessel-identity:v4.0
+Diana I,735058532,ECU,Ecuador,Passenger,6,198646c5a-a67c-55cb-1d0f-936ccb4c70ad,public-global-vessel-identity:v4.0
+Beothuk,319257000,CYM,Cayman Islands,Passenger,6,4aad2af60-08dd-cae1-b3b2-8187e6849628,public-global-vessel-identity:v4.0
+El Patron,735059415,ECU,Ecuador,Other,6,6ce2dbb66-6adb-ca82-eb78-f72c3f7bdf22,public-global-vessel-identity:v4.0
+Unknown vessel,735058058,ECU,Ecuador,Na,6,fc59e48d2-20c5-a817-35b7-862a8510f84b,public-global-vessel-identity:v4.0
+Meraki,319177700,CYM,Cayman Islands,Passenger,6,7beb7a314-4a3d-5335-95a2-56811f66b747,public-global-vessel-identity:v4.0
+T/T 21 12 Rb,983192512,---,---,Passenger,6,0781ea366-66ca-6618-b6f1-3e51dbe60572,public-global-vessel-identity:v4.0
+Osiris,735059862,ECU,Ecuador,Gear,6,3255361dd-d8e9-04c3-614f-688ab041325c,public-global-vessel-identity:v4.0
+Star Fish,735060030,ECU,Ecuador,Other,6,1afd40bd5-5dc3-d3ec-1a86-887b01b5f665,public-global-vessel-identity:v4.0
+Unknown vessel,735057586,ECU,Ecuador,Other,6,8ac6defe5-5600-6172-61e6-538eb1da4520,public-global-vessel-identity:v4.0
+La Perle,228247330,FRA,France,Passenger,6,1804acfc7-7858-4a52-5469-42f401896d63,public-global-vessel-identity:v4.0
+Unknown vessel,735060208,ECU,Ecuador,Other,6,77086f34c-cb04-a320-4da5-7f2bdbd6625c,public-global-vessel-identity:v4.0
+Gc Ribeye,985380183,---,---,Passenger,6,4da6183f8-8a47-98bc-4d8a-dbaeee26e901,public-global-vessel-identity:v4.0
+Yshirus,735059727,ECU,Ecuador,Other,6,d0b0affaa-adf1-13de-d45e-616b5500a821,public-global-vessel-identity:v4.0
+Klaus Stoertebeker,257035310,NOR,Norway,Passenger,6,7c947e8a2-2498-20cd-bad4-dfac22555e6e,public-global-vessel-identity:v4.0
+Walkabout,244020198,NLD,Netherlands,Passenger,6,a09794159-90cc-e092-4c5b-f7bba25fb92c,public-global-vessel-identity:v4.0
+Unknown vessel,735059614,ECU,Ecuador,Na,6,3d60c55b1-18ca-e9ca-bac9-27fe4289a958,public-global-vessel-identity:v4.0
+Caracol,735059962,ECU,Ecuador,Passenger,6,7ca0ee632-28a5-5a16-65f9-5c8a0092c3fc,public-global-vessel-identity:v4.0
+Unknown vessel,256002852,MLT,Malta,Other,6,42ee60b5a-ae41-5fd8-f695-b0333b2a99b5,public-global-vessel-identity:v4.0
+Blue Blue Blue,261002988,POL,Poland,Passenger,6,cfa7e6c99-9877-2b21-ff67-025482455a83,public-global-vessel-identity:v4.0
+Dt One,983192233,---,---,Passenger,6,770ff2f63-3f14-a5ce-ae09-c0e41830c4ee,public-global-vessel-identity:v4.0
+Alize,735057701,ECU,Ecuador,Fishing,6,db5cd7a2a-a9dd-4c52-00ac-4c6980d9a029,public-global-vessel-identity:v4.0
+Sd-2007 (Uncrewed),338431538,USA,United States of America,Other,6,f4ed18ffc-ccdd-7548-ef9f-2d3f8e132391,public-global-vessel-identity:v4.0
+Sea Ranger 12,735059030,ECU,Ecuador,Passenger,5,4bdfa9dd1-1814-cb83-bc1c-2b8100b5e5cd,public-global-vessel-identity:v4.0
+Begonia,367543090,USA,United States of America,Passenger,5,a8507038c-c4cf-63da-8bf3-7b755ebbbe79,public-global-vessel-identity:v4.0
+Rosario,735059544,ECU,Ecuador,Other,5,d6f092ebb-be26-56dc-4be6-517d56ad8871,public-global-vessel-identity:v4.0
+Modus Vivendi,235004000,GBR,United Kingdom,Passenger,5,df7cff724-4b46-f863-72ab-0d321a0fd7a6,public-global-vessel-identity:v4.0
+Pepe,735060060,ECU,Ecuador,Other,5,63c1ff312-2c73-3ac5-3618-6a1d6e7bf837,public-global-vessel-identity:v4.0
+Bae Orion,735059036,ECU,Ecuador,Seismic vessel,5,0abe5cdde-e521-4563-ee8b-7371719216e1,public-global-vessel-identity:v4.0
+One Piece,211851050,DEU,Germany,Passenger,5,5840e2e60-0a05-05b7-9873-fa8d2337399c,public-global-vessel-identity:v4.0
+Jesudey,735059440,ECU,Ecuador,Fishing,5,6aa936fbc-c512-702a-6dfb-9fbb4f119f7f,public-global-vessel-identity:v4.0
+Yggdrasil,259034420,NOR,Norway,Passenger,5,c48d35417-7d9a-6770-6893-ac13a6f5ad9e,public-global-vessel-identity:v4.0
+North Star Rg,538071968,MHL,Marshall Islands,Passenger,5,82e31088c-cd4e-fc7f-d674-64c2b21f0d2e,public-global-vessel-identity:v4.0
+Buque Escuela Guayas,735059037,ECU,Ecuador,Other,5,3ff54d55c-cb2f-24a6-a326-144db77acefc,public-global-vessel-identity:v4.0
+Unknown vessel,735058978,ECU,Ecuador,Other,5,27cc61b9d-d876-36f4-ae3c-bd9c07b17126,public-global-vessel-identity:v4.0
+S/V Luna,368200220,USA,United States of America,Passenger,5,8c0c90f90-0227-3b77-2eb7-373d89c543c3,public-global-vessel-identity:v4.0
+Unknown vessel,735023409,ECU,Ecuador,Na,5,b3980346d-dc32-1e9f-c72e-5913b8934fbd,public-global-vessel-identity:v4.0
+Altair,228218430,FRA,France,Passenger,5,a0e08895e-e403-5f03-4b64-3ff0254bfa97,public-global-vessel-identity:v4.0
+Unknown vessel,735059549,ECU,Ecuador,Other,5,937dba8ee-e2f1-afaf-54b3-15385c6f68eb,public-global-vessel-identity:v4.0
+Sy Amokura,232004035,GBR,United Kingdom,Passenger,5,eda6b3fc8-8d89-78cf-a8ce-0c5556ef9bb0,public-global-vessel-identity:v4.0
+Pinnacle,235117123,GBR,United Kingdom,Passenger,5,4cc799b29-9dea-7aee-e0d4-1ba04c69d96d,public-global-vessel-identity:v4.0
+Ninodavid,735058130,ECU,Ecuador,Other,5,c81e0a0fa-a131-d6fd-5d8f-2223474ed59f,public-global-vessel-identity:v4.0
+Unknown vessel,735059375,ECU,Ecuador,Fishing,5,c59263be8-8a95-bfa6-90e9-73350a1c8a61,public-global-vessel-identity:v4.0
+Scout,232038844,GBR,United Kingdom,Passenger,5,3e5093271-1ed4-82cd-187d-f197e548b04c,public-global-vessel-identity:v4.0
+Unknown vessel,735059671,ECU,Ecuador,Passenger,5,4b73f8620-0e95-684b-0782-14b746bb95c1,public-global-vessel-identity:v4.0
+Deriska,271044621,TUR,Turkey,Passenger,5,432f9b936-63a3-c296-659d-47ba4c4d6787,public-global-vessel-identity:v4.0
+Arabesque,232036189,GBR,United Kingdom,Passenger,5,cce399535-5227-1aef-b9fe-f8520d90cd18,public-global-vessel-identity:v4.0
+Teamspirit,211877050,DEU,Germany,Passenger,5,0675e937f-f81e-6c6a-7680-1d238f906a19,public-global-vessel-identity:v4.0
+Sea Rover II,316021693,CAN,Canada,Other,5,172c45de5-5beb-1bb1-c829-8fc1e2f66267,public-global-vessel-identity:v4.0
+Angelina,265733830,SWE,Sweden,Passenger,5,e11d21543-387f-515a-a392-193edb23a2bb,public-global-vessel-identity:v4.0
+Ora Pai,368069660,USA,United States of America,Passenger,5,ad75214fb-bcb4-8fcb-732d-6ef12bf88d41,public-global-vessel-identity:v4.0
+Victoria Del Mar,735058810,ECU,Ecuador,Fishing,5,8da5193c8-8218-f9b0-3a06-24b6166786bd,public-global-vessel-identity:v4.0
+Sv Tipota,247194180,ITA,Italy,Passenger,5,92c318cd4-450a-f8ff-a050-85d44935b361,public-global-vessel-identity:v4.0
+Alondra,735060564,ECU,Ecuador,Fishing,5,96719dc3e-e933-7ec1-5c4b-04fa78b107d9,public-global-vessel-identity:v4.0
+Horizon,244153446,NLD,Netherlands,Passenger,5,11d62493d-d99d-3d73-9758-23d1f5971fff,public-global-vessel-identity:v4.0
+Pouch,228086320,FRA,France,Passenger,5,7dbc9820b-bc2c-bb76-e986-e326114a401b,public-global-vessel-identity:v4.0
+Carmen Amanda,970855506,---,---,Other,5,4d2f97d06-6dfd-0c71-4aae-4e404fce04fc,public-global-vessel-identity:v4.0
+Unknown vessel,538071124,MHL,Marshall Islands,Other,4,b2c46dacc-c87b-9e0a-821d-3a05267cdef1,public-global-vessel-identity:v4.0
+Cokema,368152710,USA,United States of America,Passenger,4,30c6e555a-a29a-5f68-17fb-5094774ad21c,public-global-vessel-identity:v4.0
+Unknown vessel,735059322,ECU,Ecuador,Fishing,4,f21678431-1d68-561f-2f51-0309dfd2c777,public-global-vessel-identity:v4.0
+Unknown vessel,735060034,ECU,Ecuador,Na,4,a42257659-9d5b-10cb-5736-c1afb54d3e17,public-global-vessel-identity:v4.0
+Pathfinder,338301032,USA,United States of America,Passenger,4,b60444d5d-d293-21b6-c086-63d1ac08fee0,public-global-vessel-identity:v4.0
+Unknown vessel,735023482,ECU,Ecuador,Fishing,4,561493cc5-5057-0b96-ba08-5ce809a46a1c,public-global-vessel-identity:v4.0
+Five Oceans,232039705,GBR,United Kingdom,Passenger,4,6179661bd-d9ef-4b98-3056-ce46fd6f1430,public-global-vessel-identity:v4.0
+Apricus,338414478,USA,United States of America,Passenger,4,07095ee42-21c5-da98-abd2-00858f5b5f77,public-global-vessel-identity:v4.0
+Unknown vessel,980599451,---,---,Passenger,4,7ed05bbaa-a295-0657-b931-4d2006327cb8,public-global-vessel-identity:v4.0
+Marelief,244100202,NLD,Netherlands,Passenger,4,fc9d8dc60-029c-b55c-2ef3-eb877bdfa84e,public-global-vessel-identity:v4.0
+Sd-2035 (Uncrewed),338486366,USA,United States of America,Other,4,bfe9e3460-0dad-ca28-3c7a-2f4c21845a98,public-global-vessel-identity:v4.0
+Gradus,269116540,CHE,Switzerland,Passenger,4,a696aa895-53c1-96c6-f829-984bfbc4da9b,public-global-vessel-identity:v4.0
+Sy Spirit,503145140,AUS,Australia,Passenger,4,7fb36459b-b815-37b7-0c56-2db32eba870c,public-global-vessel-identity:v4.0
+Gran Azul,735060272,ECU,Ecuador,Other,4,26156f034-4328-de3c-87a1-a047404d257f,public-global-vessel-identity:v4.0
+Sir Pancho I    7.6V,735059632,ECU,Ecuador,Gear,4,e64d8644a-aa4f-4721-1371-5ed6e57bfb84,public-global-vessel-identity:v4.0
+Morena,735059477,ECU,Ecuador,Other,4,336be806e-ea0c-dd36-99d4-3034f8229e13,public-global-vessel-identity:v4.0
+Le Tournesol,244615465,NLD,Netherlands,Passenger,4,893749cd2-27df-d355-77f3-0dc87a887590,public-global-vessel-identity:v4.0
+Andes VI,735059235,ECU,Ecuador,Other,4,9c0d91dd9-9efd-c5b8-615f-413e3e60135e,public-global-vessel-identity:v4.0
+Nieves,735059526,ECU,Ecuador,Other,4,51c0c2e0c-c12b-3de4-2887-78897a65cade,public-global-vessel-identity:v4.0
+Marcus G. Langseth,367059880,USA,United States of America,Seismic vessel,4,690700fec-ca09-8ef5-3a3e-0ebf8a16e3c1,public-global-vessel-identity:v4.0
+Unknown vessel,735060364,ECU,Ecuador,Other,4,7fb6c249e-ed86-b592-7e4f-43b20116eb66,public-global-vessel-identity:v4.0
+Soa,227328120,FRA,France,Passenger,4,fc823b1a7-7287-c667-72da-b2b71b2fa493,public-global-vessel-identity:v4.0
+Carmen Amanda,735059416,ECU,Ecuador,Gear,4,7b5f08cc2-2c6d-b348-9f7f-909d7048e881,public-global-vessel-identity:v4.0
+LC Pelikano,735060480,ECU,Ecuador,Other,4,93a5f4ed7-78a6-b70d-21bb-3fce6fe0ae9d,public-global-vessel-identity:v4.0
+Xploration,735057940,ECU,Ecuador,Passenger,4,9f9f12476-6b8b-4d89-8d7d-48c4c0fe8659,public-global-vessel-identity:v4.0
+Fernandina,735058552,ECU,Ecuador,Passenger,4,1c267a91d-dc00-672d-186e-364a115b8c03,public-global-vessel-identity:v4.0
+Axurit,254821000,MCO,Monaco,Passenger,4,34ec826f2-2c92-7340-9225-fd0ac5d69b90,public-global-vessel-identity:v4.0
+Sd-2038 (Uncrewed),338486371,USA,United States of America,Other,4,2b23063b4-491a-916e-02a4-71e0cec5abc0,public-global-vessel-identity:v4.0
+Capella C Tender Jet,232036847,GBR,United Kingdom,Passenger,4,ee1eafa1f-f159-6ad0-1b30-0523f1ce597a,public-global-vessel-identity:v4.0
+Alegria,367787210,USA,United States of America,Passenger,4,cc109d933-3922-6f39-9f92-5e066a1edb96,public-global-vessel-identity:v4.0
+Freebird,338514108,USA,United States of America,Passenger,4,e97fbd559-91a1-cbd4-13f8-a031053ef2da,public-global-vessel-identity:v4.0
+Unknown vessel,735059463,ECU,Ecuador,Fishing,4,d35e4f3f8-8792-b708-4a52-13183e48142d,public-global-vessel-identity:v4.0
+Sd-2039 (Uncrewed),338486372,USA,United States of America,Other,4,5945d281a-afd8-4ef2-9693-856f46b252c2,public-global-vessel-identity:v4.0
+Black Marlin,219030806,DNK,Denmark,Passenger,4,1d3bd3718-8793-06a6-fbfb-a1ea83a463ce,public-global-vessel-identity:v4.0
+Unknown vessel,368196780,USA,United States of America,Passenger,4,fc6b21efb-b7f9-841a-3d8c-6507340a1ee9,public-global-vessel-identity:v4.0
+Halcyon,368356980,USA,United States of America,Other,4,ff2f4e589-9f43-a0fc-8f80-ee46479be2cf,public-global-vessel-identity:v4.0
+Sd-2012,338431562,USA,United States of America,Other,4,3897b132d-d7b9-a422-a4f9-a1c5f69342a0,public-global-vessel-identity:v4.0
+In Cahoots,368313960,USA,United States of America,Passenger,4,8c56a85f5-54d1-a165-951a-bb562b0dda34,public-global-vessel-identity:v4.0
+Bae-Orion,735059036,ECU,Ecuador,Seismic vessel,4,0ddd36a34-420b-812b-2d34-b4dae6700c54,public-global-vessel-identity:v4.0
+T/T Hampshire,983192318,---,---,Passenger,4,e6e17f5fc-cdc0-047c-b33d-b34473b797e0,public-global-vessel-identity:v4.0
+Flying Tiger,538072259,MHL,Marshall Islands,Passenger,4,d10aa3d65-56e1-e52a-55ff-b5ab971d7193,public-global-vessel-identity:v4.0
+Fantasia,269109280,CHE,Switzerland,Passenger,4,1579bc8c6-6a37-93c1-0f14-4de9f7142cf3,public-global-vessel-identity:v4.0
+Water Lilly,261007611,POL,Poland,Other,4,8bc834265-5969-782f-ed3c-32522ad905bc,public-global-vessel-identity:v4.0
+Tender To Nilaya,982562853,---,---,Passenger,4,83d4cb9c0-090a-42cc-7260-2e21f3ab0238,public-global-vessel-identity:v4.0
+Jordyfer,735059422,ECU,Ecuador,Other,4,ccc8dbc6a-a346-a881-d2fc-b5c65aefeef3,public-global-vessel-identity:v4.0
+Perlita,735059430,ECU,Ecuador,Other,4,7e32733f9-9846-ca26-69c7-ab8266154009,public-global-vessel-identity:v4.0
+Via Simoun,735057573,ECU,Ecuador,Fishing,4,fecfad4b7-72f2-b450-6a35-9e402375a717,public-global-vessel-identity:v4.0
+Bestevaer 2,244030672,NLD,Netherlands,Passenger,4,7bf7013f0-00f5-9b4b-757e-167af29eec5c,public-global-vessel-identity:v4.0
+My Way,261008219,POL,Poland,Passenger,4,8c34342ac-c167-28bb-28b3-904eebd009b3,public-global-vessel-identity:v4.0
+Unknown vessel,671579562,TGO,Togo,Other,4,d4c9aedf3-301b-228f-40de-f37498665b04,public-global-vessel-identity:v4.0
+Unknown vessel,735058059,ECU,Ecuador,Na,4,096122cb1-1be5-d174-749e-460292f3a456,public-global-vessel-identity:v4.0
+Vilja,265524610,SWE,Sweden,Passenger,4,b6cb2b6cc-cbca-bc20-213e-3ef5612ad957,public-global-vessel-identity:v4.0
+Tender 3,980599453,---,---,Passenger,4,2c63de211-1955-4f83-1bc5-87b07ae077c5,public-global-vessel-identity:v4.0
+Novel,378111932,VGB,British Virgin Islands,Passenger,4,93818af05-5707-8ce5-7295-06f8c177f7ad,public-global-vessel-identity:v4.0
+Lottus 2,352002698,PAN,Panama,Passenger,4,93ce3150b-b20f-bbfd-ef53-7ee0762f15d9,public-global-vessel-identity:v4.0
+Sommerwind,219028496,DNK,Denmark,Passenger,4,3f5e2bd0c-c7c2-9da7-560f-95e02641e0c2,public-global-vessel-identity:v4.0
+Unknown vessel,671612347,TGO,Togo,Other,4,3719714b7-7e04-6a0c-fd47-2b4b71fc2c86,public-global-vessel-identity:v4.0
+Amitie,735059317,ECU,Ecuador,Passenger,4,0c26a1433-37a1-a7a4-096a-5820c2c78059,public-global-vessel-identity:v4.0
+Jupiter,735059974,ECU,Ecuador,Other,4,495ffb605-51ff-3466-13d2-6b44bf9c2fca,public-global-vessel-identity:v4.0
+Hawk,206680000,BLR,Belarus,Passenger,4,e24539311-1d64-238b-c767-72ad7160f0de,public-global-vessel-identity:v4.0
+El Aventurero,735053436,ECU,Ecuador,Passenger,4,dd50c0ac5-5267-55a2-4a0d-72e070237ce2,public-global-vessel-identity:v4.0
+Christina O,248383000,MLT,Malta,Passenger,4,6622c13d9-907e-a2dd-37bc-df7e44e6195c,public-global-vessel-identity:v4.0
+Van Uden,244810377,NLD,Netherlands,Passenger,4,588dabe54-49a6-0327-45e5-d9ae5b8e0cee,public-global-vessel-identity:v4.0
+Pure Joy,232048791,GBR,United Kingdom,Passenger,3,1e948e644-41ff-8650-5e03-0d6476daa047,public-global-vessel-identity:v4.0
+Walrus,235114894,GBR,United Kingdom,Passenger,3,aa324d691-134e-037e-befc-66806b02558a,public-global-vessel-identity:v4.0
+Sailing Katerina,263805660,PRT,Portugal,Passenger,3,7ca4ecca1-142f-292e-de3a-5c796d6edcbd,public-global-vessel-identity:v4.0
+Galpagos Adventure,735058941,ECU,Ecuador,Passenger,3,417f2046d-dc67-d236-f722-16bf30aeb3ab,public-global-vessel-identity:v4.0
+Envidea,735059395,ECU,Ecuador,Passenger,3,468ccf58f-fc6a-de97-c21c-85a54ef3fcd4,public-global-vessel-identity:v4.0
+Zen,319200300,CYM,Cayman Islands,Passenger,3,6b1807cb2-2970-a35a-fe0d-c54b7223deeb,public-global-vessel-identity:v4.0
+Unknown vessel,735057988,ECU,Ecuador,Fishing,3,c968fecdd-ded4-14b8-c675-061cd9384ca8,public-global-vessel-identity:v4.0
+La Perla,735059150,ECU,Ecuador,Passenger,3,b75bf7911-1b34-6b0e-7486-821c078f72cc,public-global-vessel-identity:v4.0
+Volans,368284560,USA,United States of America,Passenger,3,f6fcf6985-552f-db2a-8368-7b7c9fc7a2d5,public-global-vessel-identity:v4.0
+Tambulerito,735060273,ECU,Ecuador,Passenger,3,26c23c145-57ba-aff9-da0b-e6b9b8489b2d,public-global-vessel-identity:v4.0
+Bluewater Mooney,211438580,DEU,Germany,Passenger,3,28333a455-5b6f-ca22-ec5f-9cce010e1e35,public-global-vessel-identity:v4.0
+Bonvivent,205329070,BEL,Belgium,Passenger,3,a41d994e0-037b-5835-0138-2e2ccc0b62db,public-global-vessel-identity:v4.0
+Far Out 2,316028359,CAN,Canada,Passenger,3,832a8597d-d4e6-da0a-0488-e620b2c7d126,public-global-vessel-identity:v4.0
+Saltair,368321440,USA,United States of America,Passenger,3,85cb2859f-feae-f0d7-a826-fae05d58ad63,public-global-vessel-identity:v4.0
+Unknown vessel,671661406,TGO,Togo,Other,3,db90e7991-1c4a-a3fd-ab45-36a044883eba,public-global-vessel-identity:v4.0
+Pelican,232041227,GBR,United Kingdom,Passenger,3,18b7ccd38-8ad3-feb9-d903-4312e02abf29,public-global-vessel-identity:v4.0
+Mageia,232049332,GBR,United Kingdom,Passenger,3,f82996093-36a5-6a25-4208-c9d41f274847,public-global-vessel-identity:v4.0
+Salto,259031220,NOR,Norway,Passenger,3,c491a75ef-f1f8-91e0-e302-7a100cfa84bc,public-global-vessel-identity:v4.0
+Akoya,503152160,AUS,Australia,Passenger,3,453a78697-73b2-958e-2eb7-34dfcaf3c622,public-global-vessel-identity:v4.0
+Unknown vessel,735059222,ECU,Ecuador,Na,3,e03e1de4c-c1a3-3bfe-5c4f-4f6238ec6689,public-global-vessel-identity:v4.0
+Jared II       12.0V,735059555,ECU,Ecuador,Other,3,22060e709-9337-fcb7-f190-11eb870a4a48,public-global-vessel-identity:v4.0
+Galapaguenita,735059732,ECU,Ecuador,Other,3,a9131c298-8911-83a7-5cf9-aefc0931f304,public-global-vessel-identity:v4.0
+Musketeer Of Cowes,232052005,GBR,United Kingdom,Passenger,3,05ad67d27-7454-724c-fa73-ab80277c0c5e,public-global-vessel-identity:v4.0
+Naty,735059446,ECU,Ecuador,Other,3,28cd05014-4b00-8315-4043-1b0f07efe358,public-global-vessel-identity:v4.0
+Porrima,244183751,NLD,Netherlands,Passenger,3,c66d7a699-9f60-92a0-df5b-889d6d00b3f4,public-global-vessel-identity:v4.0
+Sd-2013,338432775,USA,United States of America,Other,3,afff52ffd-d1ee-bff1-238e-afcb39597a5e,public-global-vessel-identity:v4.0
+Tender 5,980599455,---,---,Passenger,3,b55b5bad0-029b-bb4f-47f5-b649cc7ba8df,public-global-vessel-identity:v4.0
+Pat Bon,235112945,GBR,United Kingdom,Passenger,3,47407fa88-861f-1675-c631-598826277c1f,public-global-vessel-identity:v4.0
+Amelia,232021242,GBR,United Kingdom,Passenger,3,11fd37315-5b2b-3b5f-3582-8515490a36f0,public-global-vessel-identity:v4.0
+Unknown vessel,735058876,ECU,Ecuador,Passenger,3,e8962b067-7b34-0a3a-e65a-8ed952f2ee69,public-global-vessel-identity:v4.0
+Ariel 1,503035070,AUS,Australia,Passenger,3,f0fe19e32-2191-6688-9cdd-9eebbdbd1d9a,public-global-vessel-identity:v4.0
+Vmstrack-Pro-27385,877227385,---,---,Other,3,54c6c5deb-b766-7a6e-c976-f84eb0da684a,public-global-vessel-identity:v4.0
+One Distraction,232057517,GBR,United Kingdom,Passenger,3,87ad04b23-3a7d-6b07-79e5-d893377340ed,public-global-vessel-identity:v4.0
+Sd-2037 (Uncrewed),338486368,USA,United States of America,Other,3,1fa0f9a81-12e1-3d75-cd9d-b22e44774203,public-global-vessel-identity:v4.0
+Sd-2006,338431605,USA,United States of America,Other,3,cd148b41d-dab4-7ce7-3624-5b9577aed743,public-global-vessel-identity:v4.0
+Aqualuna,235108003,GBR,United Kingdom,Passenger,3,3a8d44fb6-673e-92c9-83b0-7d2acc7cee13,public-global-vessel-identity:v4.0
+Tsunami,735060421,ECU,Ecuador,Gear,3,8f2f97027-75a1-dcde-a540-54ad3fe1ad65,public-global-vessel-identity:v4.0
+Sd-2043 (Uncrewed),338494375,USA,United States of America,Other,3,48a475132-276c-0cc0-b051-849ba95b075d,public-global-vessel-identity:v4.0
+Vaihere,503156280,AUS,Australia,Passenger,3,12d12d17a-aa87-9665-1544-fec0f421d1cd,public-global-vessel-identity:v4.0
+Nautigirl,368385320,USA,United States of America,Passenger,3,e6b09226f-fd85-5dfc-092b-56679d433960,public-global-vessel-identity:v4.0
+Path,229428000,MLT,Malta,Other,3,f0a6fc518-8ca9-ce18-d8a5-7debb85beef0,public-global-vessel-identity:v4.0
+Rainbow,219030985,DNK,Denmark,Passenger,3,f08f51446-61f3-e8c7-70c2-a06653c4690f,public-global-vessel-identity:v4.0
+Fruition,235388000,GBR,United Kingdom,Passenger,3,d6272ea2d-daf7-5bde-5caa-b7d6997ed21d,public-global-vessel-identity:v4.0
+Angelo         11.6V,735060047,ECU,Ecuador,Gear,3,8b485d623-314a-44de-b992-061c257f1353,public-global-vessel-identity:v4.0
+Calm,227811210,FRA,France,Passenger,3,d4cb98c42-2ef4-2da0-7355-45b1d9b8c92c,public-global-vessel-identity:v4.0
+Samsara,368281070,USA,United States of America,Passenger,3,cd8d04bed-db73-ed8a-ce81-5291b9b868c6,public-global-vessel-identity:v4.0
+Kincsem,367722090,USA,United States of America,Passenger,3,19084b420-009b-42dc-72f2-49ef05c35c1c,public-global-vessel-identity:v4.0
+Mimosaa,228186320,FRA,France,Passenger,3,e971555fd-d9de-e895-8df8-aff828f55537,public-global-vessel-identity:v4.0
+Living The Dream,232048505,GBR,United Kingdom,Passenger,3,76c2321e6-6158-2f27-08cf-ffe8654dfb89,public-global-vessel-identity:v4.0
+Unknown vessel,311000943,BHS,Bahamas,Other,3,8bba220c5-58aa-dca6-2319-24234999dabd,public-global-vessel-identity:v4.0
+Rio Guayas,735058825,ECU,Ecuador,Fishing,3,4915e8824-4979-808d-1aeb-9206c1f26b2f,public-global-vessel-identity:v4.0
+Unknown vessel,735059864,ECU,Ecuador,Other,3,743fd3cdc-c00b-167a-a233-a6d4c2a8d044,public-global-vessel-identity:v4.0
+IMI Ola,232052121,GBR,United Kingdom,Passenger,3,0a6cd8d93-3ba2-e36d-834d-a987940c3d1f,public-global-vessel-identity:v4.0
+Tugnacious,276016810,EST,Estonia,Passenger,3,a80a0430f-fb13-59bf-b2e2-b206601f788b,public-global-vessel-identity:v4.0
+Maria Candelaria,735057981,ECU,Ecuador,Fishing,3,8bee9be2f-fef6-2ca7-976c-9b2849d1e11c,public-global-vessel-identity:v4.0
+Leia,219026702,DNK,Denmark,Passenger,3,595539b05-5566-c460-2874-189c510cb263,public-global-vessel-identity:v4.0
+Sd-2036,338486367,USA,United States of America,Other,3,06091a43e-e67b-39f9-3085-908ea3eb1f17,public-global-vessel-identity:v4.0
+Queen`S Dream,368288410,USA,United States of America,Passenger,3,b623baa67-78ab-b4ab-3af1-daeef7b35596,public-global-vessel-identity:v4.0
+Horizon Discovery,533132711,MYS,Malaysia,Passenger,3,ce2dd78f3-3881-442f-fa15-b6bd1b972895,public-global-vessel-identity:v4.0
+Evenstar,368215990,USA,United States of America,Passenger,3,594d792da-a144-b316-724d-d4fe46c7dcb8,public-global-vessel-identity:v4.0
+Nautilus,735059514,ECU,Ecuador,Other,3,fe32ef5e2-256d-0cc3-201e-5df224e21cf5,public-global-vessel-identity:v4.0
+Gavianofelice,735059631,ECU,Ecuador,Passenger,3,3f729f8fd-d848-3dba-aa6a-a5af839adce1,public-global-vessel-identity:v4.0
+Kontiki Wayra,735058876,ECU,Ecuador,Passenger,3,942bd2aab-bf9a-2c0c-35fa-da2a4711e5c4,public-global-vessel-identity:v4.0
+Silverwind,512201900,NZL,New Zealand,Passenger,3,494d82f88-8a6e-0f9f-b60e-743a0261ff30,public-global-vessel-identity:v4.0
+Country Roads,368322720,USA,United States of America,Passenger,3,9ce034861-1f68-d490-18ca-2a1b70c0aa23,public-global-vessel-identity:v4.0
+Unknown vessel,671464838,TGO,Togo,Other,3,6935de256-6d94-b842-1eac-6f1e57102001,public-global-vessel-identity:v4.0
+Brillo Del Mar III,735060149,ECU,Ecuador,Fishing,3,41bc25c8c-cc66-d1ba-5c3a-2fc74d4bd514,public-global-vessel-identity:v4.0
+Misfit,368335620,USA,United States of America,Other,3,88e83ec13-3556-7fce-bf5d-97e327e65cfe,public-global-vessel-identity:v4.0
+Holoholo,368324680,USA,United States of America,Passenger,3,480b8d9dd-db1e-6c0a-5a9e-e6dfe2e5714d,public-global-vessel-identity:v4.0
+Samuray,735059453,ECU,Ecuador,Fishing,3,7bf04ede4-4830-a8be-f161-33523af8be7b,public-global-vessel-identity:v4.0
+Salinity,368368140,USA,United States of America,Passenger,3,83d984aab-b5dc-8d21-8010-36b98c62d080,public-global-vessel-identity:v4.0
+Vela Dare,368073860,USA,United States of America,Passenger,3,5d7c94f3c-c460-bcb0-3ab1-8e94e5e2781a,public-global-vessel-identity:v4.0
+Oasis I,735059519,ECU,Ecuador,Fishing,3,65d441cca-ab14-ffac-29a5-131ede493d82,public-global-vessel-identity:v4.0
+Unknown vessel,735059792,ECU,Ecuador,Passenger,3,b962ec38e-e0ac-262b-0740-bfb8f08c1576,public-global-vessel-identity:v4.0
+Aura,265523290,SWE,Sweden,Passenger,3,af66932c0-03a6-677f-ace7-f6f04163562e,public-global-vessel-identity:v4.0
+Magic,338739000,USA,United States of America,Passenger,3,e9464eed6-6b9e-b23d-5c34-47aceba1997f,public-global-vessel-identity:v4.0
+Pax,228040610,FRA,France,Passenger,2,0e2d5de29-9fb3-77e1-5762-e7e58ddaf0a0,public-global-vessel-identity:v4.0
+Sd-2009 (Uncrewed),338431549,USA,United States of America,Other,2,87c264d42-2d15-072e-ac76-5bdd18f66c75,public-global-vessel-identity:v4.0
+Bait Master,735060208,ECU,Ecuador,Other,2,c73d3c9f2-2409-c861-4309-fe24a7bda87f,public-global-vessel-identity:v4.0
+Cg Escanaba,367262000,USA,United States of America,Other,2,d77086c48-80c0-1c7f-0dc6-747439108438,public-global-vessel-identity:v4.0
+Teleost,319451000,CYM,Cayman Islands,Passenger,2,b7edd7ee5-53c0-393f-ce9b-98b32ec23832,public-global-vessel-identity:v4.0
+Tembo,203245945,AUT,Austria,Passenger,2,ee9a37bdd-df89-7394-bdfd-3ec3ad91e2c4,public-global-vessel-identity:v4.0
+Sy Meltemi,265036060,SWE,Sweden,Passenger,2,402db46d8-8dd9-3e43-54be-42b29c58e422,public-global-vessel-identity:v4.0
+Escapade,211813470,DEU,Germany,Passenger,2,ef10e166d-df83-742b-aa20-93fd25a526a6,public-global-vessel-identity:v4.0
+Unknown vessel,412440492,CHN,China,Fishing,2,39048dab9-947d-e5a7-9f00-f6fe985bf476,public-global-vessel-identity:v4.0
+Unknown vessel,671596009,TGO,Togo,Other,2,978f8c6fe-e131-8bec-2e5d-c0c22285d978,public-global-vessel-identity:v4.0
+Sd-2037 (Uncrewed),338486368,USA,United States of America,Other,2,268725e88-8d5b-8936-d0f8-6f239060b656,public-global-vessel-identity:v4.0
+Gulf Carrier,760043910,PER,Peru,Passenger,2,34675c318-8791-c45a-2de0-709085a44902,public-global-vessel-identity:v4.0
+Genestho,211395380,DEU,Germany,Passenger,2,eab8a12f2-2629-3e12-f9ba-140b10ddd60a,public-global-vessel-identity:v4.0
+Montana,211224920,DEU,Germany,Passenger,2,6d86fe8f2-2687-bd8e-1a4f-85e9a9602605,public-global-vessel-identity:v4.0
+Unknown vessel,735058056,ECU,Ecuador,Na,2,291ab0db5-58be-70ed-fa43-23958cae3d8c,public-global-vessel-identity:v4.0
+Unknown vessel,735059432,ECU,Ecuador,Na,2,f3990e965-59f3-8446-c766-232e2ad3f00c,public-global-vessel-identity:v4.0
+Mulan,211103610,DEU,Germany,Passenger,2,3844b8396-61fa-e4a8-2ac0-70d10c688f88,public-global-vessel-identity:v4.0
+Elconde,735058209,ECU,Ecuador,Fishing,2,eb1c66c43-3cf8-6157-acb0-e12bb0f6e434,public-global-vessel-identity:v4.0
+Unknown vessel,735059037,ECU,Ecuador,Other,2,35a1899ce-ebe9-d925-7121-ef14c4d09819,public-global-vessel-identity:v4.0
+Nordic Falken,235094977,GBR,United Kingdom,Passenger,2,219b8eef5-59a4-db94-9159-4b39d5aa571b,public-global-vessel-identity:v4.0
+Alpha Centauri Of Lo,235062799,GBR,United Kingdom,Passenger,2,f55ee3feb-b7ee-4322-97c3-0a2070a3cbba,public-global-vessel-identity:v4.0
+Ataraxia,244086525,NLD,Netherlands,Other,2,ae5dfdef1-1709-d904-7b42-4d4965c1f60c,public-global-vessel-identity:v4.0
+Hebe,228078090,FRA,France,Passenger,2,eb4b2dd23-30bf-efaa-dd9e-6c0f19624967,public-global-vessel-identity:v4.0
+Fu Yuan Yu 8782,412440495,CHN,China,Fishing,2,9d15f3df3-311e-a895-a1b6-38b47916e5e1,public-global-vessel-identity:v4.0
+Unknown vessel,980599455,---,---,Passenger,2,009361bd7-7b84-abc1-c3f8-c45523c8ffbc,public-global-vessel-identity:v4.0
+Unknown vessel,671612291,TGO,Togo,Other,2,b5e0eb355-5926-e63a-6b50-75a5736a7a2d,public-global-vessel-identity:v4.0
+Unknown vessel,256002854,MLT,Malta,Na,2,3a4d507f4-40b6-62cf-9af3-1b3e1785a3de,public-global-vessel-identity:v4.0
+Southern Wing,503015050,AUS,Australia,Passenger,2,220ba7892-2bae-c000-dffe-7346432ba3ed,public-global-vessel-identity:v4.0
+Fusion 2,735059713,ECU,Ecuador,Cargo,2,d78cd1d8a-ab97-82e2-4b14-f9dbfb10b104,public-global-vessel-identity:v4.0
+Icenic,219032111,DNK,Denmark,Passenger,2,5d6ebf51d-d409-cf7b-4f53-f17788b17077,public-global-vessel-identity:v4.0
+Unknown vessel,671464914,TGO,Togo,Other,2,f53c0a404-4406-6d43-1b21-5959e0c0e774,public-global-vessel-identity:v4.0
+Sir Pancho I    7.7V,735059632,ECU,Ecuador,Gear,2,4fc03f53b-b05d-2805-6961-6d29b922983c,public-global-vessel-identity:v4.0
+Unknown vessel,735057536,ECU,Ecuador,Na,2,37ac5f72d-df66-561a-cd55-4f477a84e6af,public-global-vessel-identity:v4.0
+Capitan R,735059322,ECU,Ecuador,Fishing,2,40159c24d-db8e-eb6e-e8e0-364150180cfb,public-global-vessel-identity:v4.0
+Chillalot,244029642,NLD,Netherlands,Passenger,2,d9890d104-4017-7e48-68ca-7c6779645314,public-global-vessel-identity:v4.0
+Yolo,227288620,FRA,France,Passenger,2,178619af3-3ecb-5fe8-e078-5668e5b03d59,public-global-vessel-identity:v4.0
+Tosca 4,256004102,MLT,Malta,Passenger,2,8ab87aeca-abfa-e423-fcb7-50814050c287,public-global-vessel-identity:v4.0
+Santo,228203530,FRA,France,Passenger,2,65c9d55ee-e859-037a-9002-77fbc3ec786e,public-global-vessel-identity:v4.0
+Unknown vessel,736394295,---,---,Other,2,58149e1f2-286d-704f-9cb1-aa8391b45a36,public-global-vessel-identity:v4.0
+Marguerite,503171170,AUS,Australia,Passenger,2,0a7b06649-95a6-d18a-2a12-6471aaed7501,public-global-vessel-identity:v4.0
+Fortuna,261003120,POL,Poland,Passenger,2,024f0ffe1-1498-7a47-60a8-f07edb362a75,public-global-vessel-identity:v4.0
+Water Sprite,503082960,AUS,Australia,Passenger,2,d265f0907-7f60-67ee-b6bb-0b2d6be5fd1b,public-global-vessel-identity:v4.0
+Altair,367539250,USA,United States of America,Passenger,2,60e3a54ce-ec4a-33c9-ade2-63960e2404d8,public-global-vessel-identity:v4.0
+Platina II,316048662,CAN,Canada,Passenger,2,3554adc17-73f9-bb81-0050-092579e2ae2b,public-global-vessel-identity:v4.0
+Nakula,533001810,MYS,Malaysia,Passenger,2,f19aede0b-bd21-0247-e9b6-094a7cad40b9,public-global-vessel-identity:v4.0
+Buena Vista,431009248,JPN,Japan,Passenger,2,c86f6cf20-05f9-acc7-0342-a4a18c6124e7,public-global-vessel-identity:v4.0
+Oasis I,735059519,ECU,Ecuador,Fishing,2,1d7cf62cb-bd1d-d709-27dc-4e4bb0eadb5b,public-global-vessel-identity:v4.0
+Vifrati,735060478,ECU,Ecuador,Other,2,2bd1ab24d-db51-a21a-9992-3f3f7eef5b19,public-global-vessel-identity:v4.0
+Unknown vessel,671579487,TGO,Togo,Other,2,51d678c6d-df3f-06b7-95e8-733076ad089f,public-global-vessel-identity:v4.0
+Sir Pancho I    7.5V,735059632,ECU,Ecuador,Gear,2,b154da7c5-53c1-0eea-fe31-06c24b8f22dd,public-global-vessel-identity:v4.0
+Unknown vessel,736394284,---,---,Other,2,950926e2e-ea8f-9ab1-0ed8-8a7f2325c519,public-global-vessel-identity:v4.0
+Happy Together,232057979,GBR,United Kingdom,Passenger,2,f43b6e65f-f61f-b055-8831-c6707965bc6b,public-global-vessel-identity:v4.0
+Unknown vessel,671464908,TGO,Togo,Other,2,5d7ed90fc-c9ea-f998-c4f1-03ec4fd00c25,public-global-vessel-identity:v4.0
+Salty Dancer,368224560,USA,United States of America,Passenger,2,ac544f32f-f35a-7aca-fbdd-d0aa3fdf932c,public-global-vessel-identity:v4.0
+Kutsunga,319274500,CYM,Cayman Islands,Passenger,2,5401c2b4f-f42b-177f-e96c-c9c88071ac4c,public-global-vessel-identity:v4.0
+Talo,735059523,ECU,Ecuador,Other,2,2fffd3f07-74da-3cc9-bb5d-b2d877fa765b,public-global-vessel-identity:v4.0
+Gran Sunka,225996932,ESP,Spain,Passenger,2,b4d1c52d7-7037-e9d7-b1d4-e5e729915be6,public-global-vessel-identity:v4.0
+Unknown vessel,735058810,ECU,Ecuador,Fishing,2,05cddb33e-e60a-fb38-eb40-704c5b33fb93,public-global-vessel-identity:v4.0
+Tsunami,735060421,ECU,Ecuador,Gear,2,553e81d0a-ad27-3c99-5fb0-4a48d55faac1,public-global-vessel-identity:v4.0
+Unknown vessel,671612307,TGO,Togo,Other,2,d8179fab2-22c5-b8ee-b516-fa38aecaeb73,public-global-vessel-identity:v4.0
+Angelo         11.3V,735060047,ECU,Ecuador,Gear,1,e995a15a1-1844-6708-f203-071639d39ced,public-global-vessel-identity:v4.0
+Mikado,227619410,FRA,France,Passenger,1,21c0c08e8-8741-a8c0-3c04-f7f28ee6c273,public-global-vessel-identity:v4.0
+Unknown vessel,671464881,TGO,Togo,Other,1,de2e8d8c4-43a2-8f21-1503-831e41591f8a,public-global-vessel-identity:v4.0
+Oasis I,735059519,ECU,Ecuador,Fishing,1,907b18e37-7e7d-159a-e98d-b0164ca864d5,public-global-vessel-identity:v4.0
+San Pedro II,735059653,ECU,Ecuador,Other,1,81a0661cd-d297-d56c-ec0f-3cc24808d620,public-global-vessel-identity:v4.0
+Unknown vessel,980599454,---,---,Passenger,1,0faa61380-0e0c-764b-46cb-0cf501527086,public-global-vessel-identity:v4.0
+Eleonore,269109370,CHE,Switzerland,Passenger,1,f6fe33427-76a7-0c74-20c8-c382644ed5e2,public-global-vessel-identity:v4.0
+Unknown vessel,735059407,ECU,Ecuador,Fishing,1,76de11cdb-b95e-7c80-f653-3cf22d203acb,public-global-vessel-identity:v4.0
+Angelo         11.7V,735060047,ECU,Ecuador,Gear,1,bd3f2b7cb-b79c-4739-06b2-32bb661bedb6,public-global-vessel-identity:v4.0
+Lickety,378113413,VGB,British Virgin Islands,Passenger,1,e76cc4f93-3636-e6c0-2615-7870c92b2202,public-global-vessel-identity:v4.0
+Tsunami,735060421,ECU,Ecuador,Gear,1,81b3b6f68-80e6-972f-340d-a908a2eb1928,public-global-vessel-identity:v4.0
+Commandant Costo,227959240,FRA,France,Passenger,1,439c22017-783c-bce4-2be5-3dfe768e1d01,public-global-vessel-identity:v4.0
+Penguin,219025998,DNK,Denmark,Passenger,1,364dbe057-7bc0-10cc-921a-911636048654,public-global-vessel-identity:v4.0
+Dorothea III,538070803,MHL,Marshall Islands,Passenger,1,c76586b8c-c0d0-0817-91d0-7732b3ca5e29,public-global-vessel-identity:v4.0
+Unknown vessel,735059632,ECU,Ecuador,Gear,1,24cdc89f0-06ca-04fb-9b7d-72027b3db0af,public-global-vessel-identity:v4.0
+Unknown vessel,735059477,ECU,Ecuador,Other,1,91ee430b0-0729-5dce-e522-b1faacf86159,public-global-vessel-identity:v4.0
+Unknown vessel,735059841,ECU,Ecuador,Other,1,db78dcf49-9338-65e6-5915-2faa569226bb,public-global-vessel-identity:v4.0
+Argo Solo Sailor,218063200,DEU,Germany,Passenger,1,6aacec2d5-5076-f424-bbb8-099c6bc87675,public-global-vessel-identity:v4.0
+Laura Del Mar,735059512,ECU,Ecuador,Other,1,f3745fd4c-c25e-f312-a53f-68ce05757220,public-global-vessel-identity:v4.0
+Osiris,735059862,ECU,Ecuador,Gear,1,dd21005d7-774f-50f4-2576-584172dc0e07,public-global-vessel-identity:v4.0
+San Martini,218025740,DEU,Germany,Passenger,1,b247bdb51-16d7-7f12-a57e-8f75a7f5ce31,public-global-vessel-identity:v4.0
+Lady Blue,227046830,FRA,France,Passenger,1,6764480dc-c82c-3df4-2c14-3b7ccd49316a,public-global-vessel-identity:v4.0
+Boomerang 1,367175460,USA,United States of America,Passenger,1,5e07852cc-c341-0e22-f376-9fdb2c8d2ffe,public-global-vessel-identity:v4.0
+Yualkaiii,735060359,ECU,Ecuador,Other,1,4b174ed08-8588-b80d-5248-485756a1759b,public-global-vessel-identity:v4.0
+Zaria,205498830,BEL,Belgium,Passenger,1,1a874f58f-fe14-83d8-6a7f-954b2726b781,public-global-vessel-identity:v4.0
+Ohana,265057490,SWE,Sweden,Passenger,1,ee0a7ce69-9617-e5aa-5ee5-da053d8d94d1,public-global-vessel-identity:v4.0
+Virvane II,735059513,ECU,Ecuador,Other,1,b9a59a03d-dc5e-21ef-339b-b2af625dcc0c,public-global-vessel-identity:v4.0
+Breeze,276573000,EST,Estonia,Passenger,1,a3f5877c7-7798-20c3-46f8-4648732ac60f,public-global-vessel-identity:v4.0
+Sestri,354572000,PAN,Panama,Other,1,1982e52dd-d14e-70da-f48b-5eddc50ff4fc,public-global-vessel-identity:v4.0
+Unknown vessel,735059948,ECU,Ecuador,Na,1,ad6d89569-938a-d7ed-0c45-dbc37f6fc01d,public-global-vessel-identity:v4.0
+Unknown vessel,735059221,ECU,Ecuador,Other,1,fb7dccdea-a96b-9e8c-b869-75abc74c625f,public-global-vessel-identity:v4.0
+Unknown vessel,318834696,---,---,Other,1,ca537c8d4-4421-8dac-599f-3c45039f2263,public-global-vessel-identity:v4.0
+Equus,367151640,USA,United States of America,Passenger,1,66af05845-504b-e924-d510-36b4367fdf0d,public-global-vessel-identity:v4.0
+Sd-2038 (Uncrewed),338486371,USA,United States of America,Other,1,ee7ccdcc2-291c-e31d-001a-57e3ceb2dbfb,public-global-vessel-identity:v4.0
+Hms Victory,735060440,ECU,Ecuador,Other,1,893b27c5c-cd6e-d369-c853-29152ba95636,public-global-vessel-identity:v4.0
+Unknown vessel,735023497,ECU,Ecuador,Fishing,1,0df0b17fc-c207-a794-f98b-38c702d5cc36,public-global-vessel-identity:v4.0
+Cg Tahoma,367288000,USA,United States of America,Other,1,bf67b4371-1686-18e6-b98b-c4ad06bb254b,public-global-vessel-identity:v4.0
+Terrapin,368381130,USA,United States of America,Passenger,1,1165244d0-0aff-d602-342f-bf532339e5c1,public-global-vessel-identity:v4.0
+Cap. Berny B,735057538,ECU,Ecuador,Fishing,1,558b78a65-5215-e489-6307-8f6d0f0ed32f,public-global-vessel-identity:v4.0
+Educar,735059888,ECU,Ecuador,Other,1,e2edae723-3fed-857d-1108-dc174fb05ae5,public-global-vessel-identity:v4.0
+Unknown vessel,671579547,TGO,Togo,Na,1,09ac685ba-aa7c-09f6-1800-7ac03e0bddb6,public-global-vessel-identity:v4.0
+Tt Zen,983192534,---,---,Other,1,1057b2a15-59aa-2ac2-8d0d-ee4a17c52db9,public-global-vessel-identity:v4.0
+Incantation,316005349,CAN,Canada,Passenger,1,e65a17468-8418-b83a-28f2-954976ba3f58,public-global-vessel-identity:v4.0
+Unknown vessel,735057617,ECU,Ecuador,Passenger,1,592347215-5b31-15c1-a32b-35072d5fb571,public-global-vessel-identity:v4.0
+Akela II,265833750,SWE,Sweden,Passenger,1,10352bab4-4432-29ce-4214-e6e480afebfe,public-global-vessel-identity:v4.0
+Ryu,268231700,SMR,San Marino,Passenger,1,f8f9ad5d9-9a82-65fb-3eb2-d846d596527d,public-global-vessel-identity:v4.0
+Unknown vessel,671579573,TGO,Togo,Na,1,84b07af4c-ccbe-816e-e383-c2162698694d,public-global-vessel-identity:v4.0
+Unknown vessel,736394340,---,---,Na,1,228a0db1c-cb1a-a11a-0359-92d056cf15e0,public-global-vessel-identity:v4.0
+Giver,316053501,CAN,Canada,Passenger,1,19d34e714-43b8-b380-7115-1eee6093936a,public-global-vessel-identity:v4.0
+Nirvana Formentera,224320930,ESP,Spain,Passenger,1,6adb7a512-2064-6320-9efd-3a1c3829ca5b,public-global-vessel-identity:v4.0
+Twizzle,319117400,CYM,Cayman Islands,Passenger,1,d027507c2-20f7-9149-e8e4-c7b435b72d54,public-global-vessel-identity:v4.0
+Copihue,235056128,GBR,United Kingdom,Passenger,1,f34fae6ff-f9c2-27cc-9dc4-44182673d9b9,public-global-vessel-identity:v4.0
+Educar,735059888,ECU,Ecuador,Other,1,57a2dd936-6168-565c-215f-9281fec07de1,public-global-vessel-identity:v4.0
+Sy Melek,319057100,CYM,Cayman Islands,Passenger,1,f04b7f8df-f438-6ced-db01-ff56184b997a,public-global-vessel-identity:v4.0
+Tsunami,735060421,ECU,Ecuador,Gear,1,d328bdc55-53f9-71da-3cc1-0e06c3ce9b4e,public-global-vessel-identity:v4.0
+June,316051768,CAN,Canada,Passenger,1,e567035c5-5226-4307-e53a-f5583a046bbe,public-global-vessel-identity:v4.0
+Jared II       12.1V,735059555,ECU,Ecuador,Other,1,db70d630a-a3be-9664-7d48-6b8ad31e3400,public-global-vessel-identity:v4.0
+Sebastian C.,735057988,ECU,Ecuador,Fishing,1,d742f23a2-2cec-fab6-173f-7e4803b320b4,public-global-vessel-identity:v4.0
+Tsunami,735060421,ECU,Ecuador,Gear,1,9949be6ea-a81c-dd96-9932-b0a48249f648,public-global-vessel-identity:v4.0
+Unknown vessel,232807651,GBR,United Kingdom,Na,1,f1f158139-9f63-c476-3d45-45dcacb26826,public-global-vessel-identity:v4.0
+New Brithany,735059195,ECU,Ecuador,Passenger,1,e1a23f295-5ebb-d4b0-3688-50f9edc3dff9,public-global-vessel-identity:v4.0
+Fat Kat II,503150710,AUS,Australia,Passenger,1,687f37b4b-b477-5ad6-5c73-239a0538494f,public-global-vessel-identity:v4.0
+818,319176700,CYM,Cayman Islands,Passenger,1,8406ad9e1-17fb-43f2-f5a4-c6cb333ef908,public-global-vessel-identity:v4.0
+Big Picture,319281900,CYM,Cayman Islands,Passenger,1,a38bc6bd6-6a5f-f640-ff00-ff8bccc14c88,public-global-vessel-identity:v4.0
+Stv Vela,378113343,VGB,British Virgin Islands,Passenger,1,5e3d9078c-c343-46ed-977d-0018bdc0ca10,public-global-vessel-identity:v4.0
+Ethereal,319680000,CYM,Cayman Islands,Passenger,1,92d6cb4ba-a1cd-676a-9b5c-fb65fbddbee6,public-global-vessel-identity:v4.0
+Unknown vessel,671628785,TGO,Togo,Other,1,9393542f5-5f4f-d10c-8e8c-7502e3ef6e33,public-global-vessel-identity:v4.0
+Dana,735059648,ECU,Ecuador,Other,1,4c015aa0d-d77b-db14-0915-bcfb2c662415,public-global-vessel-identity:v4.0
+T/T Beothuk,338211984,USA,United States of America,Passenger,1,9f951a717-7a00-3f24-2d4b-060ef75123d7,public-global-vessel-identity:v4.0
+Unknown vessel,735057701,ECU,Ecuador,Fishing,1,55c37401d-d672-cee8-2043-6ab508d4a2d7,public-global-vessel-identity:v4.0
+Yakana,725000379,CHL,Chile,Passenger,1,90e94df47-7629-e296-f9da-cc67810e3186,public-global-vessel-identity:v4.0
+Lianda,205577400,BEL,Belgium,Passenger,1,e0b914142-27fa-5b05-5eca-a70f251d07b4,public-global-vessel-identity:v4.0
+One Love,227359670,FRA,France,Passenger,1,16276f4e5-573d-3ad6-9787-33b48ef28efa,public-global-vessel-identity:v4.0
+Lila,261009068,POL,Poland,Passenger,1,9062c4fa5-5f44-92e6-4ef3-e6a015823301,public-global-vessel-identity:v4.0
+Osiris,735059862,ECU,Ecuador,Gear,1,982748c49-9fe1-ae35-a0a5-53f80231c611,public-global-vessel-identity:v4.0
+Unknown vessel,735060008,ECU,Ecuador,Other,1,8c5dbe83b-b79d-047e-a89c-d02d669c26b1,public-global-vessel-identity:v4.0
+Educar,735059888,ECU,Ecuador,Other,1,23a18e7db-bab5-980e-af7e-570a613b803e,public-global-vessel-identity:v4.0
+Unknown vessel,671612218,TGO,Togo,Other,1,536153fea-af7b-8279-4cf5-f54165e5b975,public-global-vessel-identity:v4.0
+Danza,338066264,USA,United States of America,Passenger,1,392b9ca55-503a-684e-c8f7-dfa37b94dfbe,public-global-vessel-identity:v4.0
+Unknown vessel,735058941,ECU,Ecuador,Passenger,1,b58833055-590c-eaef-8d3b-d32ceb8cc16e,public-global-vessel-identity:v4.0
+Maria Isabel,735058004,ECU,Ecuador,Passenger,1,d4224420b-b4a9-3936-d230-12428f880f2a,public-global-vessel-identity:v4.0
+Tomahawk,228017940,FRA,France,Passenger,1,2304c25c1-1436-796a-f7d9-c23a307b25be,public-global-vessel-identity:v4.0
+Unknown vessel,671628704,TGO,Togo,Na,1,47a0de9ff-f46e-10db-d1e1-9632df3b8976,public-global-vessel-identity:v4.0
+Neptun,219032574,DNK,Denmark,Other,1,52e742cc9-959a-8a01-199b-ed869e5b959c,public-global-vessel-identity:v4.0
+Unknown vessel,671612245,TGO,Togo,Na,1,89fc3454c-cd8f-9a3e-99cc-658f50ff016a,public-global-vessel-identity:v4.0
+Unknown vessel,735057537,ECU,Ecuador,Na,1,5a08e8ec1-1a17-eb6e-9663-913ad6d12f62,public-global-vessel-identity:v4.0
+Nightstar,338481156,USA,United States of America,Passenger,1,b968d3e56-6694-d09e-7b9f-8a990a32c98a,public-global-vessel-identity:v4.0
+Xp Z1,981023483,---,---,Passenger,1,3a4cc1a5a-ac6b-3512-db1a-79625ffc7644,public-global-vessel-identity:v4.0
+Unknown vessel,671579422,TGO,Togo,Na,1,82264d69f-ffc5-9f69-821c-623cade82b5f,public-global-vessel-identity:v4.0
+Ti Ama,228143860,FRA,France,Passenger,1,35338443a-af24-8979-0b8a-ef4403105967,public-global-vessel-identity:v4.0
+Unknown vessel,671497535,TGO,Togo,Na,1,6cc88b7df-fc42-0908-c03c-21f97ac72777,public-global-vessel-identity:v4.0
+G4CE,215742000,MLT,Malta,Passenger,1,8c39c931e-eabe-ea9f-0499-3b8b4c452c07,public-global-vessel-identity:v4.0
+Unknown vessel,735059352,ECU,Ecuador,Other,1,a1cae37ad-d1cb-5ec4-8e1c-30fb2d2ca214,public-global-vessel-identity:v4.0
+Mpola Mpola,512209770,NZL,New Zealand,Passenger,1,066e9a4a1-1bc1-aff4-2d9b-62c0e4620d80,public-global-vessel-identity:v4.0
+Tiburon,735059755,ECU,Ecuador,Passenger,1,4ecba8431-1832-f875-558b-ba82574d8b66,public-global-vessel-identity:v4.0
+Mar,225998129,ESP,Spain,Passenger,1,6b9e29aed-d151-1dfb-b90f-1266cc62c1f7,public-global-vessel-identity:v4.0
+Kharites,319181100,CYM,Cayman Islands,Passenger,1,f3d917f11-1381-3e1d-9ea9-5ffaa8d34677,public-global-vessel-identity:v4.0
+Maranatha I,735060661,ECU,Ecuador,Other,1,682ff28e4-4e52-7c0d-2feb-0f06e0dbff82,public-global-vessel-identity:v4.0
+Shaima,339572000,JAM,Jamaica,Passenger,1,ef11bf0b4-46d8-a86c-efb8-ef38c3901629,public-global-vessel-identity:v4.0
+Oatao V,227919260,FRA,France,Passenger,1,0813cf797-7a0c-dc9c-7b6f-ded714c76c4f,public-global-vessel-identity:v4.0
+Allison Ex-Anita,735060649,ECU,Ecuador,Other,1,485372238-88c8-9f10-30ae-1287b0d97d19,public-global-vessel-identity:v4.0
+Bolla Sogno II,227996190,FRA,France,Passenger,1,8b1d3e0b0-06a3-565b-1453-417f69cf6c94,public-global-vessel-identity:v4.0
+Unknown vessel,671464913,TGO,Togo,Na,1,88edb3f59-9f8a-336b-0d3e-c3abc94add9a,public-global-vessel-identity:v4.0
+Meribel,276014770,EST,Estonia,Passenger,1,bbb15b549-9c3b-6f79-9032-dd0f1a68b6cf,public-global-vessel-identity:v4.0
+Midori,227927550,FRA,France,Passenger,1,0b1543477-7a46-6add-14f4-4537990509bd,public-global-vessel-identity:v4.0
+Valeria 1,745060008,GUF,French Guiana,Passenger,1,392b69774-4f5d-e688-f57f-f4cd45ce5158,public-global-vessel-identity:v4.0
+Virvane II,735059513,ECU,Ecuador,Other,1,a49669988-8a0f-d8d0-5aef-5c7bf27ef5fe,public-global-vessel-identity:v4.0
+Sd-2035 (Uncrewed),338486366,USA,United States of America,Other,1,3d5c5bc01-1338-126b-4db7-03897e537663,public-global-vessel-identity:v4.0
+Artemis,218055150,DEU,Germany,Passenger,1,3c28e6e34-4bfb-a539-2b3a-d9ccdc4ebb75,public-global-vessel-identity:v4.0
+Rupert,985380126,---,---,Passenger,1,5552f6290-02bc-7a3f-7f29-a49a21ddc6f3,public-global-vessel-identity:v4.0
+Entre Nous,503110320,AUS,Australia,Passenger,1,abf058079-9585-d6c6-6684-4818281999d2,public-global-vessel-identity:v4.0
+Sexy Badass,232022796,GBR,United Kingdom,Passenger,1,78eeea8ec-c568-77ed-430a-82f91a3988c7,public-global-vessel-identity:v4.0
+Pegasus,232055266,GBR,United Kingdom,Other,1,a546b4141-1390-a58b-731b-1534b62267e7,public-global-vessel-identity:v4.0
+Sy Hemisphere,319430000,CYM,Cayman Islands,Passenger,1,0b2ad5e96-6d7c-6005-8e1c-2fd27b9fa4c3,public-global-vessel-identity:v4.0
+Morena,735059477,ECU,Ecuador,Other,1,7ddfb1940-0542-4525-9bf3-a38da805423c,public-global-vessel-identity:v4.0
+Unknown vessel,671612386,TGO,Togo,Na,1,dad7da7d0-0a89-ca43-316e-a65b1520a1b1,public-global-vessel-identity:v4.0
+Unknown vessel,671612243,TGO,Togo,Na,1,5db956882-25b3-e4f6-fa8f-4e16e7a2465c,public-global-vessel-identity:v4.0
+Swanning Around,316055697,CAN,Canada,Passenger,1,2db5427bb-b854-df65-f102-d4ec1ab83f94,public-global-vessel-identity:v4.0
+Umoya,386233820,---,---,Passenger,1,6ca3936d0-0d5b-27c0-9368-c7ee42c0cf5d,public-global-vessel-identity:v4.0
+Makani,269119050,CHE,Switzerland,Passenger,1,d8e809645-59ca-7436-afd2-8a8add8e0bef,public-global-vessel-identity:v4.0
+Tacocat,232041855,GBR,United Kingdom,Passenger,1,8da77691d-dd48-b2e5-a9b5-5f9819f25d87,public-global-vessel-identity:v4.0
+Unknown vessel,735059394,ECU,Ecuador,Fishing,1,5691cf5ad-dfda-af6b-4b1b-263528bb963d,public-global-vessel-identity:v4.0
+Maria Mercedes,735059400,ECU,Ecuador,Other,1,087ee71d5-5ba0-4e9b-892c-ae23a4001b2c,public-global-vessel-identity:v4.0
+Oasis I,735059519,ECU,Ecuador,Fishing,1,7fdd89368-8520-691a-ee0d-ef6165207e18,public-global-vessel-identity:v4.0
+Sy Adele,319353000,CYM,Cayman Islands,Passenger,1,876faba62-2948-4f04-a03b-b81eed1c882b,public-global-vessel-identity:v4.0
+Perspective,228161470,FRA,France,Passenger,1,53b35cb08-8085-f121-12ac-d8b3ded3a9e4,public-global-vessel-identity:v4.0
+Halcon,735059409,ECU,Ecuador,Passenger,1,08c124b85-5363-db86-f51d-194b9d4e5cb4,public-global-vessel-identity:v4.0
+Unknown vessel,735059880,ECU,Ecuador,Other,1,28d04d948-85a6-5d03-6864-d8c2178ec755,public-global-vessel-identity:v4.0
+Felicia Av Stockholm,261003572,POL,Poland,Passenger,1,58edeb681-1e41-ddca-dbe8-21fb8ac3e653,public-global-vessel-identity:v4.0
+Unknown vessel,735023469,ECU,Ecuador,Na,1,1f45fc410-0bd4-2c0b-8293-5466c5dc4c97,public-global-vessel-identity:v4.0
+Unknown vessel,671563082,TGO,Togo,Other,1,375d28180-018c-0d5f-a869-0723e6880abf,public-global-vessel-identity:v4.0
+Unknown vessel,671644997,TGO,Togo,Other,1,9876bbc81-1001-522c-6389-1db9cf32ae6b,public-global-vessel-identity:v4.0
+Pelki,378113238,VGB,British Virgin Islands,Passenger,1,5cef1464f-ff48-2a36-251d-4e6365d89c26,public-global-vessel-identity:v4.0
+Sebastian C.,735057988,ECU,Ecuador,Fishing,1,9ef872d1b-b928-41c1-c119-10f4a4a1fa3f,public-global-vessel-identity:v4.0
+Sd-2043 (Uncrewed),338494375,USA,United States of America,Other,1,23fb814f4-4b8a-da96-80ec-81c7ffafecf3,public-global-vessel-identity:v4.0
+Valeria Dayanna,735059403,ECU,Ecuador,Other,1,a0e12fdde-ef40-dcb6-771f-502b313a9643,public-global-vessel-identity:v4.0
+Sd-2039 (Uncrewed),338486372,USA,United States of America,Other,1,48f023d3f-fefd-5c14-aee3-56d67585ed69,public-global-vessel-identity:v4.0
+Unknown vessel,735057538,ECU,Ecuador,Fishing,1,fcea72bdf-feeb-4902-1c27-dfb90fcfc8b3,public-global-vessel-identity:v4.0
+Fabulous,338443041,USA,United States of America,Passenger,1,41356ffc8-859e-aee9-214d-5ce3319f66e9,public-global-vessel-identity:v4.0
+Cosmos,735059233,ECU,Ecuador,Fishing,1,044a87815-5074-bfaf-07b4-c150fdc79310,public-global-vessel-identity:v4.0
+Carpe Diem,368284390,USA,United States of America,Other,1,6e10ace88-8723-af88-b446-7acd5b634a7e,public-global-vessel-identity:v4.0

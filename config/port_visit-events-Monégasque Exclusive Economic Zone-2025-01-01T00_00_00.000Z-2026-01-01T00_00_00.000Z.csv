@@ -1,0 +1,357 @@
+name,MMSI,flag,flag translated,GFW vessel type,Total port_visit events,vesselId,dataset
+Saint Georges,254760000,MCO,Monaco,Passenger,10,0e96ddd16-63bf-54a6-96c6-1045545b6f32,public-global-vessel-identity:v4.0
+Princesse Gabriella,254329000,MCO,Monaco,Other,9,93a309a02-2410-f030-b9bf-14160f08f63a,public-global-vessel-identity:v4.0
+Seabourn Ovation,311000585,BHS,Bahamas,Passenger,7,9757dada4-4711-6cf4-70f4-6d6d7a90d001,public-global-vessel-identity:v4.0
+Mana,254465000,MCO,Monaco,Other,6,a4e2f500b-b95a-8ccd-50ff-104f2bdade15,public-global-vessel-identity:v4.0
+Rocambole,254069000,MCO,Monaco,Passenger,4,98bd1affb-ba22-fbcd-9b3a-628bd1eebd2f,public-global-vessel-identity:v4.0
+Breakthrough,319300600,CYM,Cayman Islands,Other,4,e6c438c81-13dd-94c1-64e0-6cf7859374c6,public-global-vessel-identity:v4.0
+Zen,319200300,CYM,Cayman Islands,Passenger,3,6b1807cb2-2970-a35a-fe0d-c54b7223deeb,public-global-vessel-identity:v4.0
+Twins Epg,232063183,GBR,United Kingdom,Other,3,4510cf55d-d6a1-65c7-159a-4a48726b8202,public-global-vessel-identity:v4.0
+Mirovia,256003783,MLT,Malta,Passenger,3,5996a8642-2954-1d19-9b55-e0fde121b7af,public-global-vessel-identity:v4.0
+Beastie,254854000,MCO,Monaco,Passenger,3,f31c6205b-bafa-5ea1-100c-a1e1b1bb07fc,public-global-vessel-identity:v4.0
+Ahs One,232056111,GBR,United Kingdom,Passenger,3,4711ca071-1902-bfd3-e35d-a2ea1697d978,public-global-vessel-identity:v4.0
+Dar,319133300,CYM,Cayman Islands,Passenger,3,faa336791-18cd-0ec2-a898-e3867d90843f,public-global-vessel-identity:v4.0
+Viking Star,257903000,NOR,Norway,Passenger,3,a389e2679-9450-b752-e921-2a94a9a0fc0e,public-global-vessel-identity:v4.0
+Love The Sea,235040042,GBR,United Kingdom,Passenger,3,479df1734-4186-8ce1-4af2-524b0bcf94c0,public-global-vessel-identity:v4.0
+Viking Sea,258215000,NOR,Norway,Passenger,3,25103f51b-bf45-d42b-aff6-9631704006cf,public-global-vessel-identity:v4.0
+Squiz2,254487000,MCO,Monaco,Passenger,3,bb897d6e9-93ca-006b-6790-9b54a4c69c97,public-global-vessel-identity:v4.0
+Alidea,254048000,MCO,Monaco,Passenger,3,b666ebebf-ffe7-fcce-49af-9913ef115303,public-global-vessel-identity:v4.0
+Proton,983192600,---,---,Gear,2,62af12690-0acb-7fcc-a60a-46f9f1be139c,public-global-vessel-identity:v4.0
+K`Mena Solo Sailor,254429000,MCO,Monaco,Passenger,2,a4b5caa18-899e-f857-d8ae-913f4ed003bd,public-global-vessel-identity:v4.0
+CC-Summer,538071410,MHL,Marshall Islands,Passenger,2,55266fc13-3a46-5f9b-489d-ca4db5f7699e,public-global-vessel-identity:v4.0
+T/T Home,985380201,---,---,Passenger,2,ac2a8a5ca-a763-222a-78a9-9b9d9ba724aa,public-global-vessel-identity:v4.0
+M\Y Yas,319085200,CYM,Cayman Islands,Passenger,2,2ccbc3f1b-b7c0-ab14-ffa1-a890e6c9db1a,public-global-vessel-identity:v4.0
+Ellen,254276000,MCO,Monaco,Passenger,2,570aec870-09d4-df72-0d7c-b5ddc317777d,public-global-vessel-identity:v4.0
+Scenic Eclipse,311000995,BHS,Bahamas,Passenger,2,e2e04030e-ef6a-9b76-b6b4-1c1afc24668a,public-global-vessel-identity:v4.0
+Mimtee,538071497,MHL,Marshall Islands,Passenger,2,ceb1c47c3-3488-45e2-87ca-3cd9c5d4c196,public-global-vessel-identity:v4.0
+Viking Vesta,257944000,NOR,Norway,Other,2,c81c5a303-3039-94b6-502d-d3364535d58a,public-global-vessel-identity:v4.0
+La Voglia Matta,254289000,MCO,Monaco,Other,2,80f384ce6-6211-1934-b3b0-fef0a4416e3c,public-global-vessel-identity:v4.0
+Jacaranda,254116000,MCO,Monaco,Fishing,2,1051b6d9d-dd42-35cf-5715-03da32b58ca1,public-global-vessel-identity:v4.0
+Mizar,229431000,MLT,Malta,Passenger,2,2aba53e49-9a66-9d8f-9b1e-e2cbbcba0363,public-global-vessel-identity:v4.0
+T/T Lucky Lady,338060241,USA,United States of America,Passenger,2,8f6ef3a7b-b8aa-a3f9-f3fb-d072c2dd4f3a,public-global-vessel-identity:v4.0
+Rush,247387840,ITA,Italy,Passenger,2,164e05b3c-cbb7-5893-abff-f6e7f66b9856,public-global-vessel-identity:v4.0
+Unleash The Lion,256004264,MLT,Malta,Passenger,2,44cc3f560-032a-9c93-5024-ca9c78ccf1a0,public-global-vessel-identity:v4.0
+S/Y Imagine D,378316000,VGB,British Virgin Islands,Passenger,2,a66bc5150-07b3-fa4c-7114-5b2355b37fb3,public-global-vessel-identity:v4.0
+Penelope 8,254833000,MCO,Monaco,Passenger,2,011813c34-4631-c287-e5d2-2ccd906eb1bf,public-global-vessel-identity:v4.0
+Malstrom,254583000,MCO,Monaco,Passenger,2,e26203395-5b0b-1c45-ef06-2fbfdf56f951,public-global-vessel-identity:v4.0
+Favourite Mistake,229341000,MLT,Malta,Other,2,c178b20c0-0c8a-5237-e22d-ef83786efe85,public-global-vessel-identity:v4.0
+Ilma,256343000,MLT,Malta,Passenger,2,8226a4ddf-fb9f-2c62-d461-27c4d3d14dd8,public-global-vessel-identity:v4.0
+Happy,227432210,FRA,France,Passenger,2,ff838d83c-cb63-289d-2707-44001b70b0d2,public-global-vessel-identity:v4.0
+Drizzle,256867000,MLT,Malta,Passenger,2,b5fc27310-058a-525d-b18c-39444ac48f6b,public-global-vessel-identity:v4.0
+Blue Eyes,249619000,MLT,Malta,Cargo,2,7589e155a-a57a-b065-3d7f-d0eb220c14c7,public-global-vessel-identity:v4.0
+Coco Y,249713000,MLT,Malta,Cargo,2,e676dd6a5-5374-68ea-1556-0845577ceb1f,public-global-vessel-identity:v4.0
+Luminara,249161000,MLT,Malta,Cargo,2,7ece7f30d-d479-6dad-3708-92664e331758,public-global-vessel-identity:v4.0
+Energy,319239800,CYM,Cayman Islands,Passenger,2,9e9775fde-e965-7a3d-66cf-2d655535557e,public-global-vessel-identity:v4.0
+Seadream 1,308908000,BHS,Bahamas,Passenger,2,5c49b48a8-87ff-8625-a9a5-b1d970f9f7d1,public-global-vessel-identity:v4.0
+Tjo,256003848,MLT,Malta,Passenger,2,187e67c9a-a69d-a2ce-94b4-157e84397a01,public-global-vessel-identity:v4.0
+La Bandita,256003322,MLT,Malta,Passenger,2,b66994b18-82ac-2f66-0419-fc84691516ee,public-global-vessel-identity:v4.0
+Pornstar,319270800,CYM,Cayman Islands,Passenger,2,5e52e4b9d-d7e4-7db7-e7f8-cc2807872b8c,public-global-vessel-identity:v4.0
+Dojo,248233000,MLT,Malta,Passenger,2,a5394f4c0-02d6-5a3e-b4e8-24242ebaee0c,public-global-vessel-identity:v4.0
+Pioneer Rb1,983192599,---,---,Gear,2,030bb9c4d-dba8-d08e-b57f-ba4df34ffab7,public-global-vessel-identity:v4.0
+Supernova,254734000,MCO,Monaco,Other,2,bb79eb6d6-6799-1076-f340-44e2aaa26906,public-global-vessel-identity:v4.0
+Alp,232054687,GBR,United Kingdom,Passenger,2,2493a57ac-c3a1-6dd2-7a73-c68f5017464a,public-global-vessel-identity:v4.0
+Kismet,319069900,CYM,Cayman Islands,Passenger,2,73f28cd63-3dbb-6cae-ec14-137322ac8283,public-global-vessel-identity:v4.0
+Provocateur,538071939,MHL,Marshall Islands,Passenger,2,68677615a-adb1-6c60-00f9-532abd06eb0f,public-global-vessel-identity:v4.0
+Evrima,215001000,MLT,Malta,Passenger,2,944e92826-6386-9e60-931e-3039dcd51ac3,public-global-vessel-identity:v4.0
+Tributo,256001585,MLT,Malta,Passenger,2,e9effdd19-9131-4e55-eb1d-0bd324c178ea,public-global-vessel-identity:v4.0
+Sosa,319131600,CYM,Cayman Islands,Passenger,2,a918e7e5a-a27f-89bb-5b51-da1f029f0bb4,public-global-vessel-identity:v4.0
+P`Ocean,232035037,GBR,United Kingdom,Passenger,2,8f544367b-b7af-3bd3-a8d4-615c654e787c,public-global-vessel-identity:v4.0
+M/Y Joy,319099200,CYM,Cayman Islands,Passenger,2,ced2079c7-796d-fdec-ad0d-3dc63799b65d,public-global-vessel-identity:v4.0
+Wildone,256001055,MLT,Malta,Passenger,2,e824f7678-81dc-db07-be12-5488fc76a1e3,public-global-vessel-identity:v4.0
+Georgius De Monaco,232021993,GBR,United Kingdom,Passenger,2,959270126-6c1d-a31b-83c6-f356136d30f2,public-global-vessel-identity:v4.0
+Rad Sport Tender,983192522,---,---,Passenger,2,d073ebef1-1a4d-17ce-f18f-4d7b4b92e4e4,public-global-vessel-identity:v4.0
+Hermina,261003602,POL,Poland,Passenger,1,6e74656ea-a6d4-12a7-f584-4c26151a3b84,public-global-vessel-identity:v4.0
+Slipstream,319005400,CYM,Cayman Islands,Passenger,1,f45df7813-3954-514d-2de7-f6a9d82849d8,public-global-vessel-identity:v4.0
+Falcon,247314510,ITA,Italy,Other,1,0f9c61d53-377b-f781-a022-b06bbac85728,public-global-vessel-identity:v4.0
+Reduce,538072249,MHL,Marshall Islands,Passenger,1,ab26aafa0-0e05-0a45-e44e-86abc3daf14f,public-global-vessel-identity:v4.0
+Axioma,229894000,MLT,Malta,Passenger,1,bce04e21b-b59f-e70a-1303-1677411534f1,public-global-vessel-identity:v4.0
+Persuader,248487000,MLT,Malta,Passenger,1,744660c0b-ba95-bfca-9547-60e08b407286,public-global-vessel-identity:v4.0
+Icon,319124900,CYM,Cayman Islands,Passenger,1,ab0cad5d7-7865-d737-27db-2f90e10a683b,public-global-vessel-identity:v4.0
+Ps6,232061183,GBR,United Kingdom,Passenger,1,5ca139540-0de0-516b-cb92-244c6eadffaf,public-global-vessel-identity:v4.0
+Clever Twice,228235320,FRA,France,Passenger,1,1d1b8088f-fe66-d4a0-f4fd-16fb8512b446,public-global-vessel-identity:v4.0
+Twins,247199810,ITA,Italy,Passenger,1,56869e733-325c-d317-c909-074e6e6747d7,public-global-vessel-identity:v4.0
+Unknown vessel,228263480,FRA,France,Passenger,1,0113bd106-6ebf-d580-b377-1a3ca7d97418,public-global-vessel-identity:v4.0
+Formosa,228017530,FRA,France,Passenger,1,2afffe133-3a80-cd0a-f82f-3cdae61d5626,public-global-vessel-identity:v4.0
+Linoa,227156370,FRA,France,Passenger,1,68f287ee6-625e-a69e-078a-7bf932c9de2f,public-global-vessel-identity:v4.0
+T/T Andiamo,983192604,---,---,Passenger,1,31a04eeb4-489d-28e5-d993-8b4d7e78f9e3,public-global-vessel-identity:v4.0
+Emotions,247523940,ITA,Italy,Passenger,1,afad3b518-81ba-93f8-4eda-f8414022d5c2,public-global-vessel-identity:v4.0
+Club M,319195600,CYM,Cayman Islands,Passenger,1,4490794bd-d7e1-c215-dde9-10cf163d57ec,public-global-vessel-identity:v4.0
+Silver Fox,319151700,CYM,Cayman Islands,Passenger,1,e143a902a-abdc-4a7c-6e19-a6e2845b5c11,public-global-vessel-identity:v4.0
+Imagine 2,227203130,FRA,France,Passenger,1,6ab0b055a-a879-93a2-3ebb-d102a6528804,public-global-vessel-identity:v4.0
+Symphony,319076700,CYM,Cayman Islands,Passenger,1,9041ff3bd-df2e-c7a7-ab14-bc432fbc1e06,public-global-vessel-identity:v4.0
+Weexplore Solosailor,228124020,FRA,France,Other,1,028367a28-8fd7-ea93-dcaa-e14724c036aa,public-global-vessel-identity:v4.0
+Zig Zag Ocean,538072165,MHL,Marshall Islands,Passenger,1,ec85904a9-942c-ce16-5c10-1a79ed31dec9,public-global-vessel-identity:v4.0
+Kasper 7,256517000,MLT,Malta,Other,1,2686de169-9deb-eea3-0d06-530ccf5f0148,public-global-vessel-identity:v4.0
+Harle,319323000,CYM,Cayman Islands,Passenger,1,28fc42f8d-d227-f07c-4d7c-0cf8d3018c3b,public-global-vessel-identity:v4.0
+Radiant,310864000,BMU,Bermuda,Passenger,1,2eb6b7572-2b3c-8592-a667-640c043d56e1,public-global-vessel-identity:v4.0
+S/Y Silent Wish,235200000,GBR,United Kingdom,Passenger,1,8b61015e3-3570-fe39-4a06-95d10ca805f3,public-global-vessel-identity:v4.0
+Kora,232048882,GBR,United Kingdom,Passenger,1,650730e7c-cd31-e717-d304-2eafe8a70cb4,public-global-vessel-identity:v4.0
+Ahpo,538071653,MHL,Marshall Islands,Passenger,1,9d1a0acf1-15a0-e7e1-41fb-67da4e404105,public-global-vessel-identity:v4.0
+Jaya 4,249516000,MLT,Malta,Cargo,1,d8635acee-e133-1e08-0cce-2e08676bef8d,public-global-vessel-identity:v4.0
+I`M Bad,247164050,ITA,Italy,Passenger,1,15a14dfae-e442-ef2d-73e5-39627ba17185,public-global-vessel-identity:v4.0
+Lady In Blue,249818000,MLT,Malta,Passenger,1,bed4d7b6b-b47e-bb94-141b-3362ec044858,public-global-vessel-identity:v4.0
+Sealion,319252600,CYM,Cayman Islands,Passenger,1,fdb4f12b4-4884-ba4c-94b5-0d0ed20a15a2,public-global-vessel-identity:v4.0
+Talila,235037014,GBR,United Kingdom,Passenger,1,dcdff8c98-8984-0124-8228-c7ed92230ff1,public-global-vessel-identity:v4.0
+Dixie,247524880,ITA,Italy,Passenger,1,4d525fb96-6948-a904-e4c0-ea766a79951f,public-global-vessel-identity:v4.0
+Mikel Angelo,254076000,MCO,Monaco,Passenger,1,1bfebb153-3c49-3544-3d09-cf4eb1b4de25,public-global-vessel-identity:v4.0
+Imperial P.Beatrice,227842650,FRA,France,Passenger,1,60f6763fd-dba4-364e-3dd8-2f38dc74772f,public-global-vessel-identity:v4.0
+Mikoh,249267000,MLT,Malta,Other,1,5605cefa7-75d0-ad75-6dfd-2017c5f6214f,public-global-vessel-identity:v4.0
+Solaris,232042520,GBR,United Kingdom,Passenger,1,558b269c0-0939-031c-0d22-7a3015f471a2,public-global-vessel-identity:v4.0
+Esmeralda,308645000,BHS,Bahamas,Passenger,1,ffe40017a-afdb-8629-789f-88ed316c7adc,public-global-vessel-identity:v4.0
+Plan B,228222440,FRA,France,Passenger,1,5e729343d-d467-877d-0aef-028d5de77bc1,public-global-vessel-identity:v4.0
+Angelica  II,247108800,ITA,Italy,Passenger,1,a5e409730-0925-393c-7dcb-522264b183c8,public-global-vessel-identity:v4.0
+Prima Donna,518999774,COK,Cook Islands,Passenger,1,443893c85-5b5e-0b17-f64d-07357be6e292,public-global-vessel-identity:v4.0
+Akaroa,227789330,FRA,France,Passenger,1,8f9ccd7fc-c3ea-3357-bc0d-ef9449fee039,public-global-vessel-identity:v4.0
+R.Darenben,319314800,CYM,Cayman Islands,Passenger,1,126834139-9e68-60bc-4959-b5490e06b437,public-global-vessel-identity:v4.0
+Maraya,319192000,CYM,Cayman Islands,Passenger,1,e3c2edba3-3d35-cc03-f546-4f04c0f000bf,public-global-vessel-identity:v4.0
+Ireal,232054266,GBR,United Kingdom,Other,1,3892a8a77-7848-f62d-798e-93cad9b89751,public-global-vessel-identity:v4.0
+Aura Of Lymington,235009705,GBR,United Kingdom,Passenger,1,8329da2c1-1f70-642e-806f-c092d0c1c478,public-global-vessel-identity:v4.0
+Croce Del Sud,247613000,ITA,Italy,Passenger,1,afde2e4be-eb6c-9f6d-7888-04ad6bc75a61,public-global-vessel-identity:v4.0
+No Stress,249716000,MLT,Malta,Cargo,1,5faead61a-a6fe-71c4-e0c7-5661e250d7a3,public-global-vessel-identity:v4.0
+Fredrikstad,256003697,MLT,Malta,Passenger,1,0a1b283cf-fab7-19df-465f-a57759708169,public-global-vessel-identity:v4.0
+Allesammen,211339730,DEU,Germany,Passenger,1,d0118d846-6b52-2e18-3a83-d27ef97a71c8,public-global-vessel-identity:v4.0
+Refer,247038130,ITA,Italy,Passenger,1,166c067e7-7222-b89e-d76a-6e1ca80a375c,public-global-vessel-identity:v4.0
+La Mouette II,232028354,GBR,United Kingdom,Passenger,1,0217d4613-3ef6-e48c-7882-3ddb4a731420,public-global-vessel-identity:v4.0
+Fierty Chris 3,227883240,FRA,France,Passenger,1,e72fe354d-d2c8-adbb-8614-0799f7df5eb9,public-global-vessel-identity:v4.0
+Panam,253752000,LUX,Luxembourg,Passenger,1,746c0d088-8396-18aa-79f7-573a81ff0ddd,public-global-vessel-identity:v4.0
+Tiny Wave,253000006,LUX,Luxembourg,Passenger,1,7363332e0-0b81-6e81-024a-2e5649907ded,public-global-vessel-identity:v4.0
+Ecstasea,319009900,CYM,Cayman Islands,Passenger,1,cd13839da-a3e6-bf0a-0d00-7c69b63939a4,public-global-vessel-identity:v4.0
+FAN2SEA,518999312,COK,Cook Islands,Passenger,1,972718067-7449-0c33-da4e-853db01bc546,public-global-vessel-identity:v4.0
+Luisa,255913275,PRT,Portugal,Passenger,1,c6c713c63-326d-07d3-7edd-01f9444fb337,public-global-vessel-identity:v4.0
+Indigo,211765090,DEU,Germany,Passenger,1,cf3cbc782-21e6-1a22-8d5e-c614de1ec5e4,public-global-vessel-identity:v4.0
+Azahar,228081920,FRA,France,Passenger,1,57902cead-d967-f784-8f0e-64696af47f26,public-global-vessel-identity:v4.0
+Grannie Too,235065104,GBR,United Kingdom,Passenger,1,72dfd2606-6b19-308d-df9f-606fbbd472b3,public-global-vessel-identity:v4.0
+Grace,228035010,FRA,France,Passenger,1,f8dd2dbe7-7bf5-3bd3-a15e-e5cc4dabce49,public-global-vessel-identity:v4.0
+Octavius,228123170,FRA,France,Passenger,1,9573bc332-2fe8-d3b3-8bf0-2b63d627ebdc,public-global-vessel-identity:v4.0
+Lemon Tree,319197100,CYM,Cayman Islands,Passenger,1,a02b668d3-3b0d-e488-f154-15d825ccbd39,public-global-vessel-identity:v4.0
+Summer,319218300,CYM,Cayman Islands,Passenger,1,ddadeffe3-3868-7f83-6a84-64810d8c2924,public-global-vessel-identity:v4.0
+Egal,247034080,ITA,Italy,Passenger,1,b5d949804-46a6-4087-7dad-ca637e559b0e,public-global-vessel-identity:v4.0
+The Bull,254083000,MCO,Monaco,Other,1,3da023086-611c-7ca4-6a04-9f62c794954d,public-global-vessel-identity:v4.0
+Harmonia,256002868,MLT,Malta,Passenger,1,18f274e88-88fc-0a27-4f5a-5512e476c68c,public-global-vessel-identity:v4.0
+Mahephi,228126180,FRA,France,Passenger,1,e77945016-6b93-0870-a49c-7353e34f93a2,public-global-vessel-identity:v4.0
+Frish,215260000,MLT,Malta,Passenger,1,7552c7441-1c6d-fb81-883c-81a4324c7533,public-global-vessel-identity:v4.0
+Moonrise,319178500,CYM,Cayman Islands,Passenger,1,559a132a8-8334-ec3b-0724-adf6c7c8dc4d,public-global-vessel-identity:v4.0
+H-Plus,227247470,FRA,France,Passenger,1,50f8e483d-d1b8-9e22-6045-89e79641aa7c,public-global-vessel-identity:v4.0
+Universe,256002698,MLT,Malta,Other,1,63cb60476-6ef0-52e9-e7da-bd7b2f80fbbb,public-global-vessel-identity:v4.0
+Lady Lilian,319119400,CYM,Cayman Islands,Passenger,1,00cc02856-6b25-4e53-3831-56e3f6a4b181,public-global-vessel-identity:v4.0
+April Dawn,235039184,GBR,United Kingdom,Passenger,1,42b8bbe94-45e9-f4e1-4910-432b8d0e0508,public-global-vessel-identity:v4.0
+Smol,232038727,GBR,United Kingdom,Passenger,1,9af611f8b-b122-f7d7-f9bf-a52e70618fae,public-global-vessel-identity:v4.0
+Estia,247191970,ITA,Italy,Passenger,1,5b3c3b47f-fc1a-868d-1c49-07a212d771f1,public-global-vessel-identity:v4.0
+Away,339211000,JAM,Jamaica,Passenger,1,9c928682a-aa95-d46f-55fb-18bb1a6ba6af,public-global-vessel-identity:v4.0
+Jasmine Luna,235117618,GBR,United Kingdom,Passenger,1,1bdb9b8fe-e05f-5af6-691a-ac323890994a,public-global-vessel-identity:v4.0
+Drum Of Drake,205906200,BEL,Belgium,Passenger,1,1549e149e-e18b-a643-e67a-82f353a15a17,public-global-vessel-identity:v4.0
+White Rib,983192283,---,---,Passenger,1,65da9ca5a-a625-7edd-fd93-91d58be39294,public-global-vessel-identity:v4.0
+Prana,319100000,CYM,Cayman Islands,Passenger,1,bdd549830-0175-3c1a-80dd-cdcb67822c92,public-global-vessel-identity:v4.0
+Soulmate,538072499,MHL,Marshall Islands,Passenger,1,94267a1ee-e5c5-acfb-818a-4f56b6134dcf,public-global-vessel-identity:v4.0
+Unicorn,319100100,CYM,Cayman Islands,Passenger,1,25c1dab92-2ed7-1877-c3ca-32152772b6ab,public-global-vessel-identity:v4.0
+Witchcraft,538071863,MHL,Marshall Islands,Passenger,1,362f6ce42-23dc-06ba-6e9e-cf3b378bc4c8,public-global-vessel-identity:v4.0
+No Stress,205242670,BEL,Belgium,Passenger,1,149651a08-8bef-16e0-26fa-a9daadf60bb9,public-global-vessel-identity:v4.0
+Tahaa,269104790,CHE,Switzerland,Passenger,1,f0739123f-fb80-54fe-d7cc-9222488afab7,public-global-vessel-identity:v4.0
+S/Y Blue Clipper,232014202,GBR,United Kingdom,Passenger,1,f73fd39dc-cd47-2275-26c6-b310b9000b6c,public-global-vessel-identity:v4.0
+Queen Martina,256003917,MLT,Malta,Passenger,1,9227ff8f0-04ba-7356-89af-05297c869458,public-global-vessel-identity:v4.0
+Seanna,235088016,GBR,United Kingdom,Passenger,1,8e451aa12-2769-9cff-bb5f-8a27d290cb8e,public-global-vessel-identity:v4.0
+Felix III,247522650,ITA,Italy,Passenger,1,728495c70-049e-a0e1-e0d3-531b5cbe4f63,public-global-vessel-identity:v4.0
+Melony,319083200,CYM,Cayman Islands,Passenger,1,b2f3f76de-e43b-def1-9774-3bca76699bae,public-global-vessel-identity:v4.0
+Ios III,227242330,FRA,France,Passenger,1,6a96b18c3-3b22-8b54-a97e-1bb825f1cd2f,public-global-vessel-identity:v4.0
+Dea,254991000,MCO,Monaco,Passenger,1,b0bf69387-7683-acbf-a8af-b8392b60c91c,public-global-vessel-identity:v4.0
+Jas,319305700,CYM,Cayman Islands,Passenger,1,103061df8-8aa4-afbe-444f-1dee2408c127,public-global-vessel-identity:v4.0
+Timeout Together,229156000,MLT,Malta,Passenger,1,21e4aca6c-c717-8c3c-d3a1-1dbef7271eaa,public-global-vessel-identity:v4.0
+Taouey,310079000,BMU,Bermuda,Passenger,1,f7352ada6-659a-ae5c-ba10-7a32919b84ff,public-global-vessel-identity:v4.0
+Discovery,211302830,DEU,Germany,Passenger,1,8e0ca5d2c-c4cd-e6d8-2f3e-b824326d3ce0,public-global-vessel-identity:v4.0
+Seven Seas Splendor,538007673,MHL,Marshall Islands,Passenger,1,5bd084088-80f6-e0c8-f77c-f967d4a83ba6,public-global-vessel-identity:v4.0
+Tuma,232031149,GBR,United Kingdom,Passenger,1,7c1ec8547-7274-20ef-0822-bb6c2c6b07c9,public-global-vessel-identity:v4.0
+Mariella,304990000,ATG,Antigua and Barbuda,Passenger,1,165b52f79-9f12-b920-6432-33e3fab37e24,public-global-vessel-identity:v4.0
+S/Y Tuiga,254711000,MCO,Monaco,Passenger,1,e92685cee-ec01-97c8-0dcf-a06549d1d7df,public-global-vessel-identity:v4.0
+Sv Paroo,503035900,AUS,Australia,Passenger,1,0d420acf6-6c87-1771-4896-98799e3591d1,public-global-vessel-identity:v4.0
+Anne,538071877,MHL,Marshall Islands,Passenger,1,4bfec1a2e-e198-7843-49b7-c90fd4676a36,public-global-vessel-identity:v4.0
+Becool 128,232060962,GBR,United Kingdom,Passenger,1,8b456bc88-8a13-ffc2-0370-7fe0b6826b9e,public-global-vessel-identity:v4.0
+J And LI,256115000,MLT,Malta,Passenger,1,ee36a1732-2420-9fe2-53b0-dc245b35945d,public-global-vessel-identity:v4.0
+Best Off,248520000,MLT,Malta,Passenger,1,be2d2966c-c3fa-e76e-595f-9e661505419e,public-global-vessel-identity:v4.0
+Point Break,256004533,MLT,Malta,Passenger,1,e7f009c8d-dfb5-d358-51b7-0998a22bd870,public-global-vessel-identity:v4.0
+Slow III,254313000,MCO,Monaco,Passenger,1,68b02164f-f91c-e82e-127b-9f4d4757edac,public-global-vessel-identity:v4.0
+Oceanxplorer,538009611,MHL,Marshall Islands,Seismic vessel,1,2cde16e0e-e977-0771-f3de-bd87520db93a,public-global-vessel-identity:v4.0
+Gioia,319189900,CYM,Cayman Islands,Passenger,1,d2dc307ef-f5e8-a705-030b-9ac1838f9e8a,public-global-vessel-identity:v4.0
+Chaplin,247249400,ITA,Italy,Passenger,1,2817f48ba-a29a-0bc0-dd23-119981789ea5,public-global-vessel-identity:v4.0
+Sofia 3,538070791,MHL,Marshall Islands,Passenger,1,825cecc1c-c65b-ff65-0148-cb4059af963c,public-global-vessel-identity:v4.0
+Viking Vela,257526000,NOR,Norway,Other,1,e455025fd-dd9e-b512-1c1b-9df392c8f2c8,public-global-vessel-identity:v4.0
+Belle Ile,378114084,VGB,British Virgin Islands,Passenger,1,9ac8a19a5-5f97-0c59-716b-8f73e182b574,public-global-vessel-identity:v4.0
+Vintag,254989000,MCO,Monaco,Passenger,1,c0e127a1b-b535-9911-778a-62d2349fda71,public-global-vessel-identity:v4.0
+Tengher,247367890,ITA,Italy,Passenger,1,bd34548a0-0c53-76f2-7ed9-2f9da09f2804,public-global-vessel-identity:v4.0
+Sur,247384150,ITA,Italy,Passenger,1,95fba39d4-43c6-c4ff-5585-19d61abb6828,public-global-vessel-identity:v4.0
+White Star,319035000,CYM,Cayman Islands,Passenger,1,1a37ad699-99ff-dd9e-0ab6-44b392b44006,public-global-vessel-identity:v4.0
+La Pausa,256002799,MLT,Malta,Passenger,1,68e0686b8-8cab-2b65-011c-2174a7bd5518,public-global-vessel-identity:v4.0
+Impromptu,319769000,CYM,Cayman Islands,Passenger,1,8100b87f5-5656-7992-5d24-a9fdd80a8357,public-global-vessel-identity:v4.0
+Rama,232005083,GBR,United Kingdom,Passenger,1,7ac3a717a-ae08-2e1f-95fd-d62f90ab9a5f,public-global-vessel-identity:v4.0
+T/T C&C,982560011,---,---,Other,1,339b058f9-9e00-cc07-c6cf-6eee749636d1,public-global-vessel-identity:v4.0
+Luna B,319398000,CYM,Cayman Islands,Passenger,1,66b7f2729-9d06-8bf1-409a-ae5042d72195,public-global-vessel-identity:v4.0
+Pot Bihan,227371890,FRA,France,Passenger,1,b684b6f37-7bfe-cd26-3732-90d166f5f363,public-global-vessel-identity:v4.0
+T/T Lady Volantis,982150751,---,---,Passenger,1,ea49ceff9-9e8a-bdb0-d91f-5e704c87744c,public-global-vessel-identity:v4.0
+Arina,378114259,VGB,British Virgin Islands,Passenger,1,11e8f45e3-341b-12dd-3520-2986745bb3f6,public-global-vessel-identity:v4.0
+Revati,228247020,FRA,France,Passenger,1,9dd337431-1657-2e20-9b2a-5806388f7be9,public-global-vessel-identity:v4.0
+Tt Maximilian MMIV,982158311,---,---,Passenger,1,27d2ebd2e-e348-64c0-70b6-fa5bdb62876c,public-global-vessel-identity:v4.0
+Lady A,319187600,CYM,Cayman Islands,Passenger,1,db1a54073-3fcf-6fbb-cfbd-028735a08da6,public-global-vessel-identity:v4.0
+Ing,256003544,MLT,Malta,Other,1,e26a4334c-ce81-e900-9ad6-b93263998922,public-global-vessel-identity:v4.0
+G,228180180,FRA,France,Passenger,1,76ac8df14-4b4c-1845-e371-d3850eab71fa,public-global-vessel-identity:v4.0
+Forever One,319072200,CYM,Cayman Islands,Passenger,1,3af1ddb80-0df7-4f0f-b44a-22316ad3d498,public-global-vessel-identity:v4.0
+Come Together,319226800,CYM,Cayman Islands,Passenger,1,a7dfadb1d-dd04-0f61-5bf9-41fa5fee6546,public-global-vessel-identity:v4.0
+Volga,232040782,GBR,United Kingdom,Passenger,1,cd1d54d37-77b8-c93b-92b0-8c421eca0cdf,public-global-vessel-identity:v4.0
+Gaherau VII,254791000,MCO,Monaco,Passenger,1,2ca1a283f-fb9d-261c-b323-b952eb6fbb6e,public-global-vessel-identity:v4.0
+Sm Open,232010948,GBR,United Kingdom,Passenger,1,331c391d6-6904-9e92-d985-7ace95b4c2bb,public-global-vessel-identity:v4.0
+C Star,319597000,CYM,Cayman Islands,Passenger,1,f92bbd432-2617-b33e-8530-fefc7ed6d0f2,public-global-vessel-identity:v4.0
+South Paw C,229092000,MLT,Malta,Passenger,1,f9e8753f7-75a8-aa72-82f5-d7c86651f8a1,public-global-vessel-identity:v4.0
+Morning Star,227986780,FRA,France,Passenger,1,841a386bb-bf76-ef9c-8477-6b695f93f0b6,public-global-vessel-identity:v4.0
+Eh2,256030000,MLT,Malta,Passenger,1,c87f1d2de-e529-8107-a9c9-be98061813c0,public-global-vessel-identity:v4.0
+Ebyshine,232050623,GBR,United Kingdom,Passenger,1,1413af17c-ccf0-ab97-8ee1-d1d5644b3724,public-global-vessel-identity:v4.0
+Aramis,248407000,MLT,Malta,Passenger,1,d193ebbfe-eeaf-8896-9ab8-c13dc33a3379,public-global-vessel-identity:v4.0
+Marina IV,247037020,ITA,Italy,Passenger,1,fb40beb09-990e-37e4-775d-13918bad2744,public-global-vessel-identity:v4.0
+Sophy,228018060,FRA,France,Passenger,1,ecdec5b8a-aea6-43d9-91f2-062fcb5a5412,public-global-vessel-identity:v4.0
+Adva,228136350,FRA,France,Passenger,1,e5ca19723-3145-65f9-ab11-10066f19c388,public-global-vessel-identity:v4.0
+Dagobah 2,247057770,ITA,Italy,Passenger,1,2cbcfd981-1312-ccb1-bbe4-c24e4e882cdf,public-global-vessel-identity:v4.0
+Blues,229000950,MLT,Malta,Passenger,1,960927db2-2d15-dc12-9886-dc778e5c58ff,public-global-vessel-identity:v4.0
+Roma Chase,256971000,MLT,Malta,Cargo,1,022b3487c-c2df-8e10-cd3e-935a477bc9af,public-global-vessel-identity:v4.0
+Celtic 2,250002801,IRL,Ireland,Passenger,1,cff91e5cf-fff3-bcaa-6379-fecae7f2d6e3,public-global-vessel-identity:v4.0
+Adrenalina,538072406,MHL,Marshall Islands,Passenger,1,3828187f5-566d-864f-397f-e3deb547df0f,public-global-vessel-identity:v4.0
+Starfly,247071210,ITA,Italy,Passenger,1,b3966aa3c-ca0e-7e6e-23d9-6f944e6e6731,public-global-vessel-identity:v4.0
+Amare,319284600,CYM,Cayman Islands,Passenger,1,16fe8480e-ed95-32c9-2c19-8a71ea05a071,public-global-vessel-identity:v4.0
+Le Joy,254277000,MCO,Monaco,Passenger,1,d76ab1381-1fd3-4ea4-42fa-c9d1399568fe,public-global-vessel-identity:v4.0
+Savannah,232733000,GBR,United Kingdom,Passenger,1,22eb38d66-658e-34da-ef96-5de6c09bd39b,public-global-vessel-identity:v4.0
+Viking Neptune,257850000,NOR,Norway,Passenger,1,8f9dae932-2ae2-dbdb-1c9c-4474f63bf891,public-global-vessel-identity:v4.0
+Seabus,254745000,MCO,Monaco,Other,1,97c892598-864b-2934-47aa-fa27e25f934b,public-global-vessel-identity:v4.0
+Andiamo,249482000,MLT,Malta,Passenger,1,acd784a7a-a934-bef8-992c-7b618fa2e1b9,public-global-vessel-identity:v4.0
+Entourage,538071854,MHL,Marshall Islands,Passenger,1,95cdcbc06-60e5-bfcf-a4b6-64cc5543f11f,public-global-vessel-identity:v4.0
+Bb One,228172860,FRA,France,Passenger,1,b58289cd7-7c41-430a-b4df-50a0dd9918c3,public-global-vessel-identity:v4.0
+Chapiman IIII,227447950,FRA,France,Passenger,1,b6a084d3c-c542-ea2b-535a-b0ca83e7f00a,public-global-vessel-identity:v4.0
+Khalilah,538071243,MHL,Marshall Islands,Passenger,1,6514eb1f2-26ae-bd37-2830-d6fd47198fbd,public-global-vessel-identity:v4.0
+Okko,248486000,MLT,Malta,Passenger,1,ce6aff98f-feac-f595-0058-e0d0012be5bf,public-global-vessel-identity:v4.0
+Luna B,232048334,GBR,United Kingdom,Passenger,1,c1e74e841-1e18-f77f-57b2-d23b14b9dfba,public-global-vessel-identity:v4.0
+Resonance,339000221,JAM,Jamaica,Passenger,1,64d52503d-db5f-ece2-aec0-0fbcab35cba8,public-global-vessel-identity:v4.0
+Nakura,256004346,MLT,Malta,Passenger,1,131352f5d-d9ea-5351-8c4e-6737b7243593,public-global-vessel-identity:v4.0
+Anjelif,256500000,MLT,Malta,Other,1,f3d8e7dbf-f03b-d4a3-17eb-713235596003,public-global-vessel-identity:v4.0
+Byeee,256003857,MLT,Malta,Passenger,1,1915f3fa2-2bd1-ca25-4aff-d4433ec7cee6,public-global-vessel-identity:v4.0
+Madcap,227960020,FRA,France,Passenger,1,e7f14f536-60c4-59d1-640f-a404562b5bbc,public-global-vessel-identity:v4.0
+Pakap,227888940,FRA,France,Passenger,1,67abba08c-c1b0-3548-a1d7-6302c2a0055d,public-global-vessel-identity:v4.0
+Promise.,319144900,CYM,Cayman Islands,Passenger,1,f4cd4905d-dcdc-5349-d5e7-b0f0dcad1bdc,public-global-vessel-identity:v4.0
+Tender To Eleni,982150887,---,---,Passenger,1,8e3bcfee1-1cb3-407e-d613-c8e94dbd9934,public-global-vessel-identity:v4.0
+Dolce Vitae,254220000,MCO,Monaco,Passenger,1,63c22db86-6fb7-dc61-cb9f-e4584cd125ee,public-global-vessel-identity:v4.0
+Leti,211280790,DEU,Germany,Passenger,1,37188ca34-4364-6a5b-1bbf-1d2e65a60863,public-global-vessel-identity:v4.0
+Mr John VII,232008705,GBR,United Kingdom,Passenger,1,24a6605fe-e125-27ea-bd35-734b0694a9d3,public-global-vessel-identity:v4.0
+Altavita,538071673,MHL,Marshall Islands,Passenger,1,eea0be184-4b68-ba34-d4d2-eae36499bd1a,public-global-vessel-identity:v4.0
+Overdose Charly,227377610,FRA,France,Passenger,1,1c1b9c77c-cb16-bba0-ab9e-87593bc2e159,public-global-vessel-identity:v4.0
+Haiami 1,249018000,MLT,Malta,Other,1,b017d5b90-0dee-3670-caad-d3920179ba7b,public-global-vessel-identity:v4.0
+T/T Impromptu,319324600,CYM,Cayman Islands,Passenger,1,667b8fe93-399b-90ae-2ccc-3ec673f1ff8f,public-global-vessel-identity:v4.0
+Brainstorm,227805620,FRA,France,Passenger,1,3cb9de3ac-ccbf-31b0-cd0e-98f3ed1a6968,public-global-vessel-identity:v4.0
+Olympus,319915000,CYM,Cayman Islands,Passenger,1,f97eb9002-2875-076c-6f8c-f4ebe0538dd3,public-global-vessel-identity:v4.0
+T/T Joy,319285800,CYM,Cayman Islands,Passenger,1,e0581c038-8ee2-4942-de3a-9d92ae234f70,public-global-vessel-identity:v4.0
+Utopia,319326000,CYM,Cayman Islands,Passenger,1,590b4658a-aad2-ade0-1823-68f38414d926,public-global-vessel-identity:v4.0
+Heart Breaker,232049624,GBR,United Kingdom,Passenger,1,9c0142510-0fbc-0f9e-3351-42c5685d21a5,public-global-vessel-identity:v4.0
+Bold,538071072,MHL,Marshall Islands,Passenger,1,0b3aca19f-fdbc-7c52-d9ed-7cea4e673cd9,public-global-vessel-identity:v4.0
+Sea Cloud Spirit,215855000,MLT,Malta,Other,1,b4bb6c0ab-bc3e-50c6-f947-4c4fa68be982,public-global-vessel-identity:v4.0
+Oli,378112699,VGB,British Virgin Islands,Passenger,1,1d9decd5e-e983-0a7e-4974-c8ae5a1bc9ae,public-global-vessel-identity:v4.0
+My May,518101002,COK,Cook Islands,Passenger,1,6ddc67c06-6c38-5f40-3085-47c3e37ecacd,public-global-vessel-identity:v4.0
+Plan A,256002231,MLT,Malta,Passenger,1,ee946482b-b2a4-cd7a-b397-71eb16f434e7,public-global-vessel-identity:v4.0
+Savana,310868000,BMU,Bermuda,Passenger,1,b9d621b0c-c4fb-fbab-60e9-cce3c843dc52,public-global-vessel-identity:v4.0
+Adessias,227351610,FRA,France,Passenger,1,560611de4-4dfd-3b00-b534-e66046c2fcb4,public-global-vessel-identity:v4.0
+V6,319295800,CYM,Cayman Islands,Passenger,1,5f93ef650-061a-edc9-694c-b88d26cd162e,public-global-vessel-identity:v4.0
+Canvas,248883000,MLT,Malta,Passenger,1,ecd6c2ad7-7cfd-dcba-ad31-3cc55248e63a,public-global-vessel-identity:v4.0
+Rocket,319152100,CYM,Cayman Islands,Passenger,1,b5db48729-9bd3-e0fa-b74a-5de9afe2bdf1,public-global-vessel-identity:v4.0
+Leonardo III,256224000,MLT,Malta,Passenger,1,4deeea241-11c2-5962-93c3-b94f3c3d017a,public-global-vessel-identity:v4.0
+Freedom,518213000,COK,Cook Islands,Passenger,1,d1e14fa12-22ae-4b49-1f42-8914348ca334,public-global-vessel-identity:v4.0
+Kairos,254953000,MCO,Monaco,Passenger,1,820eab3cd-da40-d658-c532-d6cf59bae4b5,public-global-vessel-identity:v4.0
+Balhimbar,466501190,QAT,Qatar,Passenger,1,79f05d6dd-d45c-e073-ec75-45dee6ab28e0,public-global-vessel-identity:v4.0
+Star Flyer,248785000,MLT,Malta,Passenger,1,37854a75a-a314-59fd-3fdf-806766574375,public-global-vessel-identity:v4.0
+Silver Ray,311001496,BHS,Bahamas,Passenger,1,a14315455-50a5-4b9a-c554-3d679c5ea811,public-global-vessel-identity:v4.0
+Little Leonardo III,248000694,MLT,Malta,Passenger,1,2f98a6d21-1dae-bce0-4939-619a998fdd6a,public-global-vessel-identity:v4.0
+Sereen,319287600,CYM,Cayman Islands,Passenger,1,1a3853d76-6398-d6cd-3ac3-997491b372e4,public-global-vessel-identity:v4.0
+We By Loewe,256004657,MLT,Malta,Passenger,1,771356879-910b-a7ee-cc5e-860963dc280d,public-global-vessel-identity:v4.0
+Sagola,247164090,ITA,Italy,Other,1,621db4687-7ed1-f66d-60cf-b82b674b4fe2,public-global-vessel-identity:v4.0
+Go,319135400,CYM,Cayman Islands,Passenger,1,94a6d834f-fb04-5cc8-f826-e23e0b96ad3f,public-global-vessel-identity:v4.0
+Defiant,538071937,MHL,Marshall Islands,Passenger,1,f60acc100-05b2-7930-87bb-4e53ac1760a7,public-global-vessel-identity:v4.0
+Marcus Aurelius,319294900,CYM,Cayman Islands,Cargo,1,99af6d39b-b764-c12e-3def-43a1c827ed8f,public-global-vessel-identity:v4.0
+Rino,538072429,MHL,Marshall Islands,Passenger,1,5212b0d8b-b016-7593-ee72-928f16278f5f,public-global-vessel-identity:v4.0
+Xeia,256002166,MLT,Malta,Passenger,1,81f83c518-86b8-0b02-4d77-2661af7887eb,public-global-vessel-identity:v4.0
+Windcross 3,235086417,GBR,United Kingdom,Passenger,1,5ae726115-5857-2a0f-62b3-7d062cccf0e6,public-global-vessel-identity:v4.0
+Triskel,254070000,MCO,Monaco,Passenger,1,6becaccd7-7a72-f74b-bdea-8b2d20163e08,public-global-vessel-identity:v4.0
+Bagheera,312641000,BLZ,Belize,Other,1,df20480a7-7cc0-a580-232f-267b86537013,public-global-vessel-identity:v4.0
+75 Express,368407070,USA,United States of America,Passenger,1,20bd85cc9-9a57-12c2-3b0c-16ad76668e96,public-global-vessel-identity:v4.0
+Manticore,247210020,ITA,Italy,Passenger,1,599d59514-4165-6f8e-c84e-1b4687b347a9,public-global-vessel-identity:v4.0
+Dagnar IV,248000107,MLT,Malta,Passenger,1,a2242f027-712f-b014-8e33-54f316d52df0,public-global-vessel-identity:v4.0
+Pelagos,227840050,FRA,France,Passenger,1,60075dcc0-0ab9-db1d-0b84-bea2aacc76d1,public-global-vessel-identity:v4.0
+Absolute,205579030,BEL,Belgium,Passenger,1,2098afab7-7afa-b5c7-cbbd-47a19073d991,public-global-vessel-identity:v4.0
+Sherakhan,246370000,NLD,Netherlands,Passenger,1,2208c751b-b46d-0332-8296-efb61aeb9979,public-global-vessel-identity:v4.0
+Fifty,319214600,CYM,Cayman Islands,Passenger,1,598d32cc8-89b6-211d-de2a-7610c358f5fd,public-global-vessel-identity:v4.0
+Taoutou3,254471000,MCO,Monaco,Other,1,8d89e7752-28d0-5993-4aeb-1ffa3269f953,public-global-vessel-identity:v4.0
+Lite Fandango,254835000,MCO,Monaco,Passenger,1,ae650cc3c-ce8c-2eb9-f053-db91fb5b9d29,public-global-vessel-identity:v4.0
+Somnium,215941000,MLT,Malta,Passenger,1,dd49b435e-e6e2-7b23-16fb-8304ad3d135d,public-global-vessel-identity:v4.0
+Lady Volantis,215000751,MLT,Malta,Passenger,1,e330cea70-018b-863d-9fd0-29ee3960db04,public-global-vessel-identity:v4.0
+Galvas,319156600,CYM,Cayman Islands,Passenger,1,b703a9f8e-e65f-71e2-719c-218bc34f8bef,public-global-vessel-identity:v4.0
+Dragoluna,247392100,ITA,Italy,Passenger,1,fbecb0fe4-403c-cca2-4fc1-d460d27a35db,public-global-vessel-identity:v4.0
+Starburst III,215200000,MLT,Malta,Other,1,157907d0f-fd98-9057-1e05-95eab74cef5d,public-global-vessel-identity:v4.0
+Aquila,235108582,GBR,United Kingdom,Passenger,1,aecf4b854-4148-980b-42dd-9fbcb09bf28f,public-global-vessel-identity:v4.0
+White Rose Of Drachs,235862000,GBR,United Kingdom,Passenger,1,e273cdcd4-4218-49c5-0ab6-bafbc2656dcf,public-global-vessel-identity:v4.0
+Ana Too,256001168,MLT,Malta,Passenger,1,1a31813dc-ca9f-97f3-7eff-a99b54236ba5,public-global-vessel-identity:v4.0
+Clementimo,228262740,FRA,France,Passenger,1,9189faa1d-dbe4-f38b-25a5-e1b499fa3628,public-global-vessel-identity:v4.0
+Sofleurtie,235937393,GBR,United Kingdom,Passenger,1,fbb9d1c7a-a04a-ca4b-ac03-6ccb7cc70518,public-global-vessel-identity:v4.0
+Fancy,235009800,GBR,United Kingdom,Passenger,1,815dcefd4-492c-81c5-87d3-20e8d79dae81,public-global-vessel-identity:v4.0
+Sonic,538072223,MHL,Marshall Islands,Passenger,1,03a4e5e3f-f594-6327-54f7-1662384578f4,public-global-vessel-identity:v4.0
+Moka,319237700,CYM,Cayman Islands,Passenger,1,193fe7eb4-43c5-c6da-f5ea-5b8685f4b9b5,public-global-vessel-identity:v4.0
+T/T  Queen Miri,985380066,---,---,Passenger,1,5c6651d13-39a7-d2c4-dbbf-f7d8ded1d906,public-global-vessel-identity:v4.0
+Viking Mars,257800000,NOR,Norway,Passenger,1,ca01fe65c-c830-6cff-af3c-506f1dd56495,public-global-vessel-identity:v4.0
+Moon Sand,319208400,CYM,Cayman Islands,Passenger,1,28c67a132-2fb4-cccb-c019-c73c029204c7,public-global-vessel-identity:v4.0
+Home,538071196,MHL,Marshall Islands,Passenger,1,b7b6d7621-14bf-cd44-68b1-4cd0dfb86b53,public-global-vessel-identity:v4.0
+Scott Free,319506000,CYM,Cayman Islands,Passenger,1,c709fd1e4-4ece-345a-14a1-05648300ca79,public-global-vessel-identity:v4.0
+Tigrou,227191810,FRA,France,Passenger,1,b20eb8f99-9fe8-b496-87e2-022eb352f6ff,public-global-vessel-identity:v4.0
+Bluegirea,247259320,ITA,Italy,Passenger,1,dd70bb0a3-3cde-d5fd-1763-f40c4dcd96dd,public-global-vessel-identity:v4.0
+Seadream II,308311000,BHS,Bahamas,Passenger,1,7d0172fc1-14ce-2b7f-3c0b-aa0f1b719d6b,public-global-vessel-identity:v4.0
+Janette,232029676,GBR,United Kingdom,Passenger,1,8cd279999-96a5-0fcc-5e16-a109ecaf2a55,public-global-vessel-identity:v4.0
+Amigos,319118300,CYM,Cayman Islands,Passenger,1,d33f39199-90b2-fa6a-2d19-91562e3efbf7,public-global-vessel-identity:v4.0
+Irock,229679000,MLT,Malta,Passenger,1,f670b0512-209b-3336-8b4d-cd5b2fd98520,public-global-vessel-identity:v4.0
+Cinnamon 2,232060513,GBR,United Kingdom,Passenger,1,ed7bcdad6-6ddc-a41f-c6f1-0474322eb60c,public-global-vessel-identity:v4.0
+South Kensington,247162710,ITA,Italy,Passenger,1,abf5268f4-47a9-eca3-0d82-bd44d72452a6,public-global-vessel-identity:v4.0
+Juhulo,229000259,MLT,Malta,Passenger,1,896a177b7-77d3-8b7f-22ae-e2a3f1397f7d,public-global-vessel-identity:v4.0
+Moana,228046780,FRA,France,Passenger,1,231729634-4c5d-0223-87f1-0d06b4c1e794,public-global-vessel-identity:v4.0
+Triumph II,256004220,MLT,Malta,Passenger,1,57f2e88c1-1499-9b61-f4af-e78afd6522a3,public-global-vessel-identity:v4.0
+Lady Beatrice,233219000,GBR,United Kingdom,Passenger,1,1f5ca66e5-5eef-2106-6315-fdacb22c0756,public-global-vessel-identity:v4.0
+Isabel,227836470,FRA,France,Passenger,1,aafbda13c-c156-6ae6-1d00-ae3a9066078f,public-global-vessel-identity:v4.0
+Imperium,228469800,FRA,France,Passenger,1,bbf661fe0-039d-3d9b-632e-f288bd403bd5,public-global-vessel-identity:v4.0
+Sy Miquette,211397460,DEU,Germany,Passenger,1,7d41b8119-997b-ca0a-fee2-2842fe8c4ce1,public-global-vessel-identity:v4.0
+Amaryllis,319036400,CYM,Cayman Islands,Passenger,1,b91dc05e9-96e5-aa37-2c02-90df26636cbe,public-global-vessel-identity:v4.0
+Sirena,538006842,MHL,Marshall Islands,Passenger,1,573b62665-593a-f776-a508-bb83c752e1da,public-global-vessel-identity:v4.0
+Mosaique,319137700,CYM,Cayman Islands,Passenger,1,b43bfe577-7608-d2b4-9a0a-e3eeebb02958,public-global-vessel-identity:v4.0
+The Great Escape,254713000,MCO,Monaco,Passenger,1,ec2a6b193-33b0-a64e-8967-8690eeed316e,public-global-vessel-identity:v4.0
+Sedici,256004742,MLT,Malta,Passenger,1,97ad04dcd-d096-888a-1054-25bab1ed0570,public-global-vessel-identity:v4.0
+Azamara Onward,229765000,MLT,Malta,Other,1,1bf62ee46-6789-db16-7dae-7fe126535cf2,public-global-vessel-identity:v4.0
+Alchemy,319261300,CYM,Cayman Islands,Passenger,1,11be951c8-810f-ef55-de43-d33336b59c4b,public-global-vessel-identity:v4.0
+L`Aleph,254600000,MCO,Monaco,Passenger,1,42cd30fe3-3e58-cef1-39a3-49bbc40a7e88,public-global-vessel-identity:v4.0
+T S T,376709000,VCT,Saint Vincent and the Grenadines,Other,1,494019752-227d-bbdd-b8db-586ffd9356d4,public-global-vessel-identity:v4.0
+Garota De Ipanema,227186980,FRA,France,Passenger,1,d5ed75d51-17cf-9694-166b-70ba3f17f700,public-global-vessel-identity:v4.0
+Quasar,249730000,MLT,Malta,Passenger,1,db5c90e70-0f2b-123d-4238-5b679ff4ea43,public-global-vessel-identity:v4.0
+Newyork,228482900,FRA,France,Passenger,1,f90186737-7f34-351d-056a-c75c92deda41,public-global-vessel-identity:v4.0
+Stella Maris,319088700,CYM,Cayman Islands,Passenger,1,f4f116ef1-1524-6729-870f-4554dc9815ff,public-global-vessel-identity:v4.0
+Discovery Tender,983192601,---,---,Passenger,1,d0cca131d-ddf9-e264-f29a-721eaefbffa2,public-global-vessel-identity:v4.0
+Belle Aventure,367409660,USA,United States of America,Other,1,d3298d692-22ac-e14a-cc20-c45e821111d9,public-global-vessel-identity:v4.0
+Mateon,254228000,MCO,Monaco,Passenger,1,f2c4a0414-4bd5-ad19-7c39-dabc46c96b9a,public-global-vessel-identity:v4.0
+Taravana,227353650,FRA,France,Passenger,1,b3337f224-4cfa-56aa-cd73-da20f039bd73,public-global-vessel-identity:v4.0
+Tt Titian Pearl,982290721,---,---,Passenger,1,8859748a1-1a01-bfea-ca70-49b5dcc4ca56,public-global-vessel-identity:v4.0
+Ruya,319085300,CYM,Cayman Islands,Passenger,1,c92991db0-04a1-6f6b-aaa3-b076fa096a63,public-global-vessel-identity:v4.0
+Ventus I,232061987,GBR,United Kingdom,Passenger,1,5490ef68c-ceb8-58d4-ea23-d59f68d421f0,public-global-vessel-identity:v4.0
+Solana,235091207,GBR,United Kingdom,Passenger,1,8e82b5830-0b34-dfd4-bea6-2881f3c16cf3,public-global-vessel-identity:v4.0
+Nautica,538001665,MHL,Marshall Islands,Passenger,1,c149cedf3-3be8-467a-403b-5085eb0fa8e3,public-global-vessel-identity:v4.0
+Eden Fox,227767720,FRA,France,Fishing,1,2af2fecec-c128-0010-7904-df4e3634a3d5,public-global-vessel-identity:v4.0
+Beachouse,538071916,MHL,Marshall Islands,Passenger,1,b8bb5a04c-c798-41de-fd61-0c40d5432be2,public-global-vessel-identity:v4.0
+Roma,229018000,MLT,Malta,Other,1,6947a3534-4747-1142-2ff2-d01e710366cf,public-global-vessel-identity:v4.0
+Arcadia,247520360,ITA,Italy,Passenger,1,0ef6c6091-1e0b-5336-21b8-2b38293e82de,public-global-vessel-identity:v4.0
+Aaa,229052000,MLT,Malta,Other,1,8ec76181b-bff6-e2e5-6c1a-fb8687e56a12,public-global-vessel-identity:v4.0
+Alfred Merlin,228404700,FRA,France,Passenger,1,26109f9d0-011f-19d4-1c08-d1e14b1ffb14,public-global-vessel-identity:v4.0
+Seabourn Venture,311000930,BHS,Bahamas,Passenger,1,398106466-6dc8-efc8-e8c8-5aaf0155e77c,public-global-vessel-identity:v4.0
+Pole Pole,227365360,FRA,France,Passenger,1,556fb79a7-7807-6154-71af-0b463e49c5e3,public-global-vessel-identity:v4.0
+Bora Fast,247383150,ITA,Italy,Passenger,1,04adffcf3-3485-43bb-e2a1-3f9edac1db6b,public-global-vessel-identity:v4.0
+Viking Jupiter,257058920,NOR,Norway,Passenger,1,140c0c632-23e3-2713-649d-c6277ced6859,public-global-vessel-identity:v4.0
+Sts Pogoria,261146000,POL,Poland,Other,1,f71986e55-5134-fa1f-c923-6c39bc063c14,public-global-vessel-identity:v4.0
+Project-X,229063000,MLT,Malta,Other,1,11f4db88a-ae1b-e225-d618-baa0da71ad8b,public-global-vessel-identity:v4.0
+Coral Ocean,538071163,MHL,Marshall Islands,Passenger,1,10d3d5fea-ac80-b045-f176-8eca327a2263,public-global-vessel-identity:v4.0
+Up Time,254617000,MCO,Monaco,Passenger,1,2a6342cec-c450-994d-123d-8ca88059c1ee,public-global-vessel-identity:v4.0
+Silver Spirit,311022500,BHS,Bahamas,Passenger,1,8715cd71e-e85d-b1bf-25fa-c24a493255aa,public-global-vessel-identity:v4.0
+Seabourn Sojourn,311027100,BHS,Bahamas,Passenger,1,76f5fe489-9bb3-36e9-9818-38babe04d4c0,public-global-vessel-identity:v4.0
+Jj`S Circus,232055291,GBR,United Kingdom,Passenger,1,ab03413bd-d2cf-c2a3-f800-0279a610e306,public-global-vessel-identity:v4.0
+Sns207 Saint Michel2,227174340,FRA,France,Passenger,1,dd22bf34b-b84d-b835-049e-87270127388c,public-global-vessel-identity:v4.0
+Samadhi,319420000,CYM,Cayman Islands,Passenger,1,fe2f7a9d8-8383-6e00-f246-c40e11ce97bd,public-global-vessel-identity:v4.0

@@ -1,0 +1,144 @@
+name,MMSI,flag,flag translated,GFW vessel type,Total port_visit events,vesselId,dataset
+Fort Trio,745003380,GUF,French Guiana,Passenger,262,6603760f3-3d8c-b1ab-712c-ed85ca4eb91e,public-global-vessel-identity:v4.0
+Fregate,745005800,GUF,French Guiana,Other,102,1b8656cdc-c709-a8ba-223e-1509893002fe,public-global-vessel-identity:v4.0
+Dreyfus,352938000,PAN,Panama,Cargo,76,ca8d07161-11ea-b8ec-a348-88c71868c6ad,public-global-vessel-identity:v4.0
+Kabalebo,353779000,PAN,Panama,Passenger,53,063d69a5e-e719-580a-0fea-8d675223553a,public-global-vessel-identity:v4.0
+Delta Queen II,373443000,PAN,Panama,Other,47,64773188e-e259-e914-6a41-23eaf09e5ac0,public-global-vessel-identity:v4.0
+Morlander,235101545,GBR,United Kingdom,Fishing,47,70e79d397-7351-5c7d-60f0-c17340c32915,public-global-vessel-identity:v4.0
+Demerara,229754000,MLT,Malta,Other,34,8996f2f90-06f3-2799-a568-1987e5ebd232,public-global-vessel-identity:v4.0
+Pilote Joseph,745000310,GUF,French Guiana,Passenger,26,f713a0329-9fc0-06b6-dd5e-1b084ddc310b,public-global-vessel-identity:v4.0
+Ilhan Bayrak,256438000,MLT,Malta,Other,24,15c9f5b6c-c203-a9a2-8547-e75d0789d1e0,public-global-vessel-identity:v4.0
+Papillon,745005700,GUF,French Guiana,Other,18,396f81556-6197-e20b-27e8-caeebb719a2e,public-global-vessel-identity:v4.0
+Unknown vessel,745000310,GUF,French Guiana,Passenger,17,d137ced34-495b-e82a-83e8-cc8e0e121b17,public-global-vessel-identity:v4.0
+F/V Antillaise 2,745004200,GUF,French Guiana,Fishing,17,4828516b6-6f00-53dc-0b8d-f534e9e4730e,public-global-vessel-identity:v4.0
+Janina,304373000,ATG,Antigua and Barbuda,Cargo,12,70c4225b1-1140-90eb-e558-afb31d00a318,public-global-vessel-identity:v4.0
+Nadja,304460000,ATG,Antigua and Barbuda,Cargo,12,a09307328-89c8-fb4e-c49d-cb08d2deea6c,public-global-vessel-identity:v4.0
+Mauritius Pride II,210503000,CYP,Cyprus,Cargo,11,f75ef4432-2f5a-03fa-3827-bd8c8d28b6a6,public-global-vessel-identity:v4.0
+Hoegh Caribia,538009725,MHL,Marshall Islands,Cargo,10,686a920e8-8f86-a3ff-21e1-7d3abc4e0307,public-global-vessel-identity:v4.0
+F/V Stereden,745002800,GUF,French Guiana,Fishing,10,caaa6364f-feb3-2d73-7a3f-de1424566dad,public-global-vessel-identity:v4.0
+Basaran Bayrak,229878000,MLT,Malta,Other,9,16b31a9fb-b098-f1d9-7b24-656c577b7839,public-global-vessel-identity:v4.0
+F/V La Floridienne 2,745004600,GUF,French Guiana,Fishing,9,d33021d73-3061-8d87-d6b9-a0e997707329,public-global-vessel-identity:v4.0
+Marfret Niolon,253343000,LUX,Luxembourg,Cargo,8,702484156-6117-7075-03a4-71061e0a1cc6,public-global-vessel-identity:v4.0
+Douce France,228395600,FRA,France,Cargo,8,e127f6d2e-e6c3-c05c-a7b3-724554021c4b,public-global-vessel-identity:v4.0
+Asg Kherson,511101311,PLW,Palau,Other,8,49f4acfb1-1d82-d371-a45d-0b9163bd5e5a,public-global-vessel-identity:v4.0
+Canopee,228438700,FRA,France,Cargo,7,6cb9213a1-1e09-f510-c296-39bf7e05a325,public-global-vessel-identity:v4.0
+Puka,210517000,CYP,Cyprus,Cargo,7,033fafd01-1e08-bddb-c847-dc4a054a53be,public-global-vessel-identity:v4.0
+Neptun Viking,244170050,NLD,Netherlands,Other,7,173bb8552-2198-e882-9ddc-597a33fc95fc,public-global-vessel-identity:v4.0
+Altamira III,775993205,VEN,Venezuela,Fishing,6,93bc00642-2929-37fd-51e0-f5cd9df0e0d6,public-global-vessel-identity:v4.0
+Mieke Schulte,563545000,SGP,Singapore,Cargo,6,db411322c-c927-4dc2-bf26-22cba527930a,public-global-vessel-identity:v4.0
+Petratina,775993222,VEN,Venezuela,Fishing,6,c07b4ca38-8a63-e76b-8d6a-00d7d44c5fb1,public-global-vessel-identity:v4.0
+Cma Cgm St. Laurent,228369800,FRA,France,Cargo,6,5599cb6ce-e1e7-2b78-6585-67e5c77b61d2,public-global-vessel-identity:v4.0
+Julie C,255915870,PRT,Portugal,Cargo,6,290c2cfc6-6e05-c534-4011-ecf1d13981c6,public-global-vessel-identity:v4.0
+Kensington Lg,229482000,MLT,Malta,Other,6,cf702c3e9-9a31-b108-dfeb-ebc01d8f606d,public-global-vessel-identity:v4.0
+Cleyfimar I,775993305,VEN,Venezuela,Fishing,6,f7b7bada8-8cab-2f00-5fea-65ea5219384b,public-global-vessel-identity:v4.0
+Cma Cgm Sinnamary,228403700,FRA,France,Cargo,6,37c7ae483-3512-b97c-50b7-752d2cb23ee7,public-global-vessel-identity:v4.0
+F/V Caraibeenne 2,745001500,GUF,French Guiana,Fishing,6,403123863-3e70-ac38-6166-bed99f7a3224,public-global-vessel-identity:v4.0
+Cma Cgm Cayenne,229747000,MLT,Malta,Cargo,5,0a2fd4b37-7d90-7a61-bb38-f56eeb652de7,public-global-vessel-identity:v4.0
+Peticar,775993215,VEN,Venezuela,Fishing,5,f2522cd1e-e5f9-e0ea-1a0d-2189eba98285,public-global-vessel-identity:v4.0
+Cma Cgm Kourou,228403800,FRA,France,Cargo,5,2c524b684-4abc-61fe-23fe-947cebe7bc13,public-global-vessel-identity:v4.0
+Blanca Marina,775993219,VEN,Venezuela,Fishing,5,1e0196ee8-809a-e81c-9de7-251e68883dd0,public-global-vessel-identity:v4.0
+El Latin0,775993308,VEN,Venezuela,Fishing,4,15a9f1d97-786e-c4b3-2d65-d3a7df777b7d,public-global-vessel-identity:v4.0
+Unknown vessel,373443000,PAN,Panama,Other,4,d7f2edc70-069b-87e3-4408-bdf98c5b3bdd,public-global-vessel-identity:v4.0
+Saint James Lg,256394000,MLT,Malta,Other,4,a0dca757b-b921-8273-9da7-e6ca3111349e,public-global-vessel-identity:v4.0
+Unknown vessel,745001590,GUF,French Guiana,Other,4,f11d72992-2f41-d4fd-aa16-ed0a12c801bb,public-global-vessel-identity:v4.0
+Cma Cgm Marseille,229749000,MLT,Malta,Cargo,4,f6e874a5c-c024-350a-f1af-a498cfc5456f,public-global-vessel-identity:v4.0
+Giordana,775993342,VEN,Venezuela,Fishing,4,faa7e2016-67e4-2491-e9e9-c0634c1b9be0,public-global-vessel-identity:v4.0
+Happy Falcon,219876000,DNK,Denmark,Other,3,337782288-898f-ec53-4aa5-3d687c38965b,public-global-vessel-identity:v4.0
+Johanna C,255915838,PRT,Portugal,Other,3,a99e77dfd-dbe7-4940-778a-59c0dc746f63,public-global-vessel-identity:v4.0
+Charente,228817200,FRA,France,Other,3,3ac9a2d70-06ee-92aa-52fc-aa6dec253ee7,public-global-vessel-identity:v4.0
+Jacqueline C,255915762,PRT,Portugal,Cargo,3,01d97b8fb-b092-7b4d-2302-c83b65592628,public-global-vessel-identity:v4.0
+Salomon,775993764,VEN,Venezuela,Fishing,3,96256a805-5d48-3632-87ca-5365a072ea37,public-global-vessel-identity:v4.0
+Unknown vessel,745001580,GUF,French Guiana,Fishing,3,e5683c5da-a1b9-0c80-0fdf-c061e879e2f5,public-global-vessel-identity:v4.0
+Rainer D,636092880,LBR,Liberia,Cargo,3,33054ce10-07eb-8af2-32da-b975c423895c,public-global-vessel-identity:v4.0
+Pointe Behague,745001590,GUF,French Guiana,Other,3,e1b2242a0-084c-a343-5469-12985c0ae81a,public-global-vessel-identity:v4.0
+Herbeira,255872000,PRT,Portugal,Cargo,3,22ddec88a-aaf6-b46c-1708-edc211e5bae0,public-global-vessel-identity:v4.0
+Kees Jr,244810225,NLD,Netherlands,Other,3,0d7b97d98-8d43-dd44-d50a-79e6b7401c6d,public-global-vessel-identity:v4.0
+Unknown vessel,352938000,PAN,Panama,Cargo,3,f968dafa0-098d-1a2b-cd29-91c3443637ea,public-global-vessel-identity:v4.0
+French Warship,228866300,FRA,France,Other,3,231aae671-178d-4b48-ba6c-0da04b5c7abb,public-global-vessel-identity:v4.0
+Morlander,235101545,GBR,United Kingdom,Fishing,3,86c434c84-43c5-527e-341c-946a9c541c86,public-global-vessel-identity:v4.0
+Mn Colibri,228057000,FRA,France,Cargo,3,14bbb1053-3206-0780-a431-b61ccbe38e7d,public-global-vessel-identity:v4.0
+Morbihan,229083000,MLT,Malta,Other,3,0f18ee94d-d47b-1cc7-0e3f-31b46ef0eebb,public-global-vessel-identity:v4.0
+La Mano De Dios,775993124,VEN,Venezuela,Fishing,2,b225f5714-44a4-043d-a6df-a94b938d4151,public-global-vessel-identity:v4.0
+Bubayeh,503070520,AUS,Australia,Passenger,2,2c9262f5b-bb72-a1a8-3aa9-1c3afa36887e,public-global-vessel-identity:v4.0
+Kahu,512202400,NZL,New Zealand,Passenger,2,0d21b3431-15c4-352b-2908-8715db2d501c,public-global-vessel-identity:v4.0
+Horus 1,710007199,BRA,Brazil,Other,2,e23d22167-78ba-05d3-7bb9-8615257fa2ab,public-global-vessel-identity:v4.0
+Moonbird,236112834,GIB,Gibraltar,Passenger,2,a58b73550-0a02-8b7f-7647-7d31e05ce54e,public-global-vessel-identity:v4.0
+Dona Salome,775993199,VEN,Venezuela,Fishing,2,8d3e31c3e-e14f-4ed4-5b6b-c06034a82644,public-global-vessel-identity:v4.0
+Shamaness,503156250,AUS,Australia,Passenger,2,f28165efa-a769-5266-9788-c4ce34b5fcb7,public-global-vessel-identity:v4.0
+Yannickii,745000400,GUF,French Guiana,Fishing,2,b2f283926-6b0d-a71b-a880-2f928bfcb01a,public-global-vessel-identity:v4.0
+Unknown vessel,745003380,GUF,French Guiana,Passenger,2,4f5cb6d37-788a-f4bb-247c-cec9a32163ea,public-global-vessel-identity:v4.0
+Unknown vessel,235101545,GBR,United Kingdom,Fishing,2,978d98352-2a5d-dccc-9f8e-190ff7450c4b,public-global-vessel-identity:v4.0
+Maryfel,775993134,VEN,Venezuela,Fishing,2,97565536c-c123-52ec-b517-03900afb0f54,public-global-vessel-identity:v4.0
+Leukothea,211477740,DEU,Germany,Other,2,cefe43f6f-f4ad-c4b1-83d7-c753a487f345,public-global-vessel-identity:v4.0
+Mn Calao,228027900,FRA,France,Cargo,2,a4f2f5187-7a4f-b3d1-9af0-3f74f6c3c964,public-global-vessel-identity:v4.0
+Roibeira,255878000,PRT,Portugal,Other,2,42d0af831-15bd-ff67-3ef9-f0e8caffb373,public-global-vessel-identity:v4.0
+Marfret Guyane,226324000,FRA,France,Cargo,2,4e7c6f4d1-1366-8dd0-d603-a60dd05b5375,public-global-vessel-identity:v4.0
+Mn Toucan,227278000,FRA,France,Cargo,2,16a66a618-88f7-9704-e4c5-00c5f97a56e0,public-global-vessel-identity:v4.0
+Anne Marie II,228866300,FRA,France,Other,2,a3db7dc2d-d9a0-86db-ede4-2d4e6b7b22dd,public-global-vessel-identity:v4.0
+Le Lambert,660002970,REU,Réunion,Passenger,2,b51e93933-3c8e-037d-4ea9-5235246ac403,public-global-vessel-identity:v4.0
+Excelsior,503061680,AUS,Australia,Passenger,2,63c843c46-68f3-7a32-fc26-83ad7a7af791,public-global-vessel-identity:v4.0
+Don Leandro I,775993352,VEN,Venezuela,Fishing,2,797f7b142-28f5-7841-daaf-fce6dff9ce25,public-global-vessel-identity:v4.0
+Blu Balu,211507460,DEU,Germany,Passenger,2,093c55b0d-dc4c-161a-e77e-864cbbf08e7d,public-global-vessel-identity:v4.0
+La Patrona,775993346,VEN,Venezuela,Fishing,2,5e7d3feef-f445-d08e-96ea-9c4041f8209f,public-global-vessel-identity:v4.0
+Capella,227741980,FRA,France,Passenger,1,85023ee87-72c3-86f7-ccd8-031551895183,public-global-vessel-identity:v4.0
+Npa Guanabara,710421000,BRA,Brazil,Other,1,9daad6220-0fe7-01db-747b-c806b439920c,public-global-vessel-identity:v4.0
+Cma Cgm White,249203000,MLT,Malta,Cargo,1,7096e6a79-9f7f-f900-51bc-c3a683962dec,public-global-vessel-identity:v4.0
+Hanna,203622400,AUT,Austria,Passenger,1,c6da3d2dd-d060-a96e-7bba-5f0a340ebfdd,public-global-vessel-identity:v4.0
+Majestic,563549000,SGP,Singapore,Cargo,1,d6f6e498e-e625-ef23-ea88-8631b020461d,public-global-vessel-identity:v4.0
+Cma Cgm Surabaya,256170000,MLT,Malta,Cargo,1,5e89a3892-2bb6-a9df-21bb-691caaaf0c66,public-global-vessel-identity:v4.0
+Salomon,775992876,VEN,Venezuela,Other,1,010ff529e-efe6-e5d3-f887-6352eae31e75,public-global-vessel-identity:v4.0
+Oslo Bulk 8,255916045,PRT,Portugal,Cargo,1,89d0a68df-f9eb-57ad-c9dc-b7c1a1ecab6a,public-global-vessel-identity:v4.0
+Unknown vessel,228793002,FRA,France,Other,1,95bac94c3-38e3-2ffa-3b24-57b04dcdbc02,public-global-vessel-identity:v4.0
+Akaroa III,503118160,AUS,Australia,Passenger,1,553a88f3b-b9b8-70a7-5b9d-8327d3869d1a,public-global-vessel-identity:v4.0
+Sara,227550860,FRA,France,Passenger,1,c07f4003f-febb-4e6a-a174-19a9e99cba27,public-global-vessel-identity:v4.0
+Unknown vessel,775993148,VEN,Venezuela,Fishing,1,da836e61e-e271-c74d-adb2-404a9b889699,public-global-vessel-identity:v4.0
+De Dolemieu 3,227325270,FRA,France,Passenger,1,e3bc8264c-c681-f987-8c21-e87d1cf38f83,public-global-vessel-identity:v4.0
+Demian,227265420,FRA,France,Other,1,bee0c6e49-96d5-36e7-4c59-33f7eab3cb76,public-global-vessel-identity:v4.0
+Maresia,227527610,FRA,France,Passenger,1,a76b26269-9d32-bcd2-b8dd-74256e8704f6,public-global-vessel-identity:v4.0
+Inky Blue,232029602,GBR,United Kingdom,Passenger,1,4544d940f-f4e8-bb85-ac81-03ff15ca2ede,public-global-vessel-identity:v4.0
+Pura Vida,265044830,SWE,Sweden,Passenger,1,b46b38fdd-df33-560c-1d88-715685e96708,public-global-vessel-identity:v4.0
+Unknown vessel,745001590,GUF,French Guiana,Other,1,f39522a9c-c8bd-fe7d-0675-580aa67b958b,public-global-vessel-identity:v4.0
+Inuksuk III,268245801,SMR,San Marino,Other,1,2055bca31-1856-2c27-b8eb-9a121a7b8abd,public-global-vessel-identity:v4.0
+Janet C,255915829,PRT,Portugal,Other,1,53cc95dbc-cd97-cfe4-20da-3249b3370533,public-global-vessel-identity:v4.0
+Pluma De Dios III,775993368,VEN,Venezuela,Fishing,1,c3a53ce6f-f98b-25d7-2ba7-509d24e5a9a2,public-global-vessel-identity:v4.0
+Sea Magix,269630000,CHE,Switzerland,Passenger,1,1fd9d5a24-4e01-c9b0-1444-037fb78ea710,public-global-vessel-identity:v4.0
+Ual Texas,246876000,NLD,Netherlands,Cargo,1,8c153cc5a-a93b-cfe1-d8f5-db4c2f3ef587,public-global-vessel-identity:v4.0
+Champagne,601027560,ZAF,South Africa,Passenger,1,395cc8f5a-aa5a-9ba8-80a1-7fce56d28475,public-global-vessel-identity:v4.0
+Australe,205278310,BEL,Belgium,Passenger,1,2269bcde3-33e0-7551-59f1-e941012b7376,public-global-vessel-identity:v4.0
+Samc Swan,477231800,HKG,Hong Kong,Other,1,3536fd0a6-67e5-84ca-f229-54383bc4b928,public-global-vessel-identity:v4.0
+Unknown vessel,269111320,CHE,Switzerland,Passenger,1,d20039ad5-5921-dc70-c756-6cebcbc7d60c,public-global-vessel-identity:v4.0
+Aliena,232039759,GBR,United Kingdom,Passenger,1,528f3c615-5420-bf2d-326b-ddbb202d9196,public-global-vessel-identity:v4.0
+Unknown vessel,660006690,REU,Réunion,Passenger,1,3a298138d-d3ad-9357-8ff2-aae1bf2b0090,public-global-vessel-identity:v4.0
+Unknown vessel,775993544,VEN,Venezuela,Other,1,360d87b82-2596-8e6c-ffcc-0d37ccd5ee56,public-global-vessel-identity:v4.0
+Trillium,316044872,CAN,Canada,Passenger,1,3e071704b-b78f-c285-c88d-aac362daaeb9,public-global-vessel-identity:v4.0
+Lucy,538072443,MHL,Marshall Islands,Passenger,1,f90a7cf9b-bda2-d08e-870f-6712e633afb5,public-global-vessel-identity:v4.0
+Enmanuel       @@@@,775993148,VEN,Venezuela,Fishing,1,1200acbfd-dc2f-0c75-2a74-7643caa566ab,public-global-vessel-identity:v4.0
+Unknown vessel,775993381,VEN,Venezuela,Fishing,1,0032e530d-da9b-1040-74a7-4576f7262530,public-global-vessel-identity:v4.0
+Canmer,249198000,MLT,Malta,Cargo,1,9dd776840-0120-7dbd-db07-925fa7392b9f,public-global-vessel-identity:v4.0
+Olicecante,261003980,POL,Poland,Passenger,1,d6a0c0374-4eab-6b21-f21b-d7a0cdf23909,public-global-vessel-identity:v4.0
+Cagouille,228144640,FRA,France,Passenger,1,9c22a9b30-0e71-c471-0a20-ca4ab66a5e8f,public-global-vessel-identity:v4.0
+Mn Tangara,228027800,FRA,France,Cargo,1,ea696b62d-d9e2-566c-55ee-547b791b1848,public-global-vessel-identity:v4.0
+Unknown vessel,352938000,PAN,Panama,Cargo,1,57a0fd646-6722-d0df-3ae2-74237bfcb661,public-global-vessel-identity:v4.0
+Napoc Iguatemi,710507000,BRA,Brazil,Seismic vessel,1,39b628be4-479d-e0d0-ef8b-efa26d35be5e,public-global-vessel-identity:v4.0
+Marilyn M,244700957,NLD,Netherlands,Other,1,fa071a14d-d40b-0960-5273-f8f7edbc5dff,public-global-vessel-identity:v4.0
+Npa Boca,710419256,BRA,Brazil,Seismic vessel,1,04b2968e7-7ee8-13d6-f3c0-8f1885bcd27d,public-global-vessel-identity:v4.0
+Ambrym,347022510,MTQ,Martinique,Other,1,e11f9fa65-510b-7418-a07e-d4daa523a61f,public-global-vessel-identity:v4.0
+Pangaea,256004172,MLT,Malta,Other,1,c04e66c7c-cb5b-ce2a-e886-bf48f9b7e265,public-global-vessel-identity:v4.0
+Oslo Bulk 14,259164000,NOR,Norway,Cargo,1,4ba85923c-ce18-8df6-0629-7dfcc8137279,public-global-vessel-identity:v4.0
+Palawann,228194060,FRA,France,Passenger,1,ec7f77e7a-ac0a-cbbe-b3b3-cf12730a4604,public-global-vessel-identity:v4.0
+Kestrel Fisher,244810490,NLD,Netherlands,Other,1,469bcfd23-3381-5332-6a50-2cbf3a3c340d,public-global-vessel-identity:v4.0
+Club Med 2,227194000,FRA,France,Passenger,1,243ae60d8-8e7d-f58b-3ed8-573ba29727aa,public-global-vessel-identity:v4.0
+Delta Queen,371182000,PAN,Panama,Other,1,79afecdff-fa0c-db0e-50c6-f8b915e15657,public-global-vessel-identity:v4.0
+Altamira II,775993354,VEN,Venezuela,Fishing,1,36fa38520-0282-aa4d-c4db-49a9931c83d9,public-global-vessel-identity:v4.0
+Asg Portofino,511101258,PLW,Palau,Cargo,1,28e88219e-e238-234a-71f7-1e7dbff003b1,public-global-vessel-identity:v4.0
+Mathilde Schulte,565376000,SGP,Singapore,Cargo,1,c348946a8-85d3-0d4c-c34a-942e0026beaf,public-global-vessel-identity:v4.0
+F/V Antillaise 2,745004200,GUF,French Guiana,Fishing,1,63e43fa3a-ab67-a763-9964-003e7e50c73b,public-global-vessel-identity:v4.0
+Ual Osprey,255802350,PRT,Portugal,Cargo,1,d2ea97129-9e6c-c6e7-b2b3-4a1e0dc8f428,public-global-vessel-identity:v4.0
+El Lider,775990331,VEN,Venezuela,Other,1,26db1bf21-140f-d6a0-2a3c-6c62cd2b571c,public-global-vessel-identity:v4.0
+Pointe Behague,745001590,GUF,French Guiana,Other,1,7f4e7308a-ab13-2090-07e5-13dae11eba2f,public-global-vessel-identity:v4.0
+Tao,228216230,FRA,France,Passenger,1,076232c6d-d451-316c-9752-4da5c35d89b5,public-global-vessel-identity:v4.0
+Unknown vessel,211814731,DEU,Germany,Other,1,bb1c807ee-efcf-7775-ee7a-1a80b3229b1d,public-global-vessel-identity:v4.0
+Happy River,244559000,NLD,Netherlands,Cargo,1,143a53c89-97c8-3841-b9f6-1e8ae80dde83,public-global-vessel-identity:v4.0
+Martina,304367000,ATG,Antigua and Barbuda,Cargo,1,054d952cc-c4e0-bd17-d006-7f5047a0f31f,public-global-vessel-identity:v4.0
+Geomax,775993381,VEN,Venezuela,Fishing,1,a1ede885c-c965-d9a9-a9d2-e5a8ba8fa3cc,public-global-vessel-identity:v4.0
+Ngaru,228223720,FRA,France,Passenger,1,d4bdb77c0-0753-94b3-44e5-8483a6153b0c,public-global-vessel-identity:v4.0
