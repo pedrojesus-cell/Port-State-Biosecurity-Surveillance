@@ -110,20 +110,19 @@ def fetch_port_biosecurity_events():
             url = "https://gateway.api.globalfishingwatch.org/v3/events"
             headers = {
                 "Authorization": f"Bearer {API_TOKEN}",
-                "Content-Type": "application/json",
                 "User-Agent": "MarineBiosecurityMonitor/1.0"
             }
 
-            # POST Payload formatted with both required limit and offset
-            payload = {
-                "datasets": ["public-global-port-visits-c2-events:latest"],
-                "startDate": start_date.strftime("%Y-%m-%d"),
-                "endDate": end_date.strftime("%Y-%m-%d"),
+            # Valid GET query parameters required by GFW v3 API
+            params = {
+                "datasets": "public-global-port-visits-c2-events:latest",
+                "start-date": start_date.strftime("%Y-%m-%d"),
+                "end-date": end_date.strftime("%Y-%m-%d"),
                 "limit": 100,
                 "offset": 0
             }
 
-            response = requests.post(url, headers=headers, json=payload, timeout=25)
+            response = requests.get(url, headers=headers, params=params, timeout=25)
             print(f"GFW Response Status Code: {response.status_code}")
 
             if response.status_code == 200:
