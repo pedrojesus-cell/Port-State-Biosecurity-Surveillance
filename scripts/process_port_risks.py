@@ -4,13 +4,6 @@ import requests
 import pandas as pd
 from datetime import datetime, timedelta, timezone
 
-# Optional Import for GFW API Client
-try:
-    import gfwapiclient as gfw
-    GFW_AVAILABLE = True
-except ImportError:
-    GFW_AVAILABLE = False
-
 API_TOKEN = os.environ.get("GFW_API_TOKEN")
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
@@ -108,72 +101,79 @@ def get_fallback_data():
 def fetch_port_biosecurity_events():
     processed_records = []
 
-    if API_TOKEN and GFW_AVAILABLE:
+    if API_TOKEN:
         try:
-            print("Connecting to Global Fishing Watch API...")
-            client = gfw.Client(access_token=API_TOKEN)
+            print("Connecting to Global Fishing Watch REST API v3...")
             end_date = datetime.now(timezone.utc)
             start_date = end_date - timedelta(days=14)
 
-            # Explicit query specifying GFW Port Visits dataset
-            events = client.events.get_events(
-                event_type="PORT_VISIT",
-                datasets=["public-global-port-visits-c2-events:latest"],
-                start_date=start_date.strftime("%Y-%m-%d"),
-                end_date=end_date.strftime("%Y-%m-%d"),
-                limit=100
-            )
+            url = "https://gateway.globalfishingwatch.org/v3/events"
+            headers = {
+                "Authorization": f"Bearer {API_TOKEN}",
+                "Content-Type": "application/json"
+            }
+            params = {
+                "datasets": "public-global-port-visits-c2-events:latest",
+                "start-date": start_date.strftime("%Y-%m-%d"),
+                "end-date": end_date.strftime("%Y-%m-%d"),
+                "limit": 100
+            }
 
-            print(f"Retrieved {len(events)} raw events from GFW API.")
+            response = requests.get(url, headers=headers, params=params, timeout=20)
+            print(f"GFW Response Status: {response.status_code}")
 
-            for evt in events:
-                vessel_info = evt.get("vessel", {})
-                port_info = evt.get("port_visit", {})
-                residency = round(float(port_info.get("durationHrs", 0)), 1)
+            if response.status_code == 200:
+                data = response.json()
+                events = data.get("entries", [])
+                print(f"Retrieved {len(events)} events directly from GFW API.")
 
-                risk_index = calculate_fouling_risk(
-                    speed_knots=evt.get("meanSpeed", 10),
-                    residence_hours=residency
-                )
+                for evt in events:
+                    vessel_info = evt.get("vessel", {})
+                    port_info = evt.get("port_visit", {})
+                    residency = round(float(port_info.get("durationHrs", 0)), 1)
 
-                rec = {
-                    "eventId": evt.get("id"),
-                    "vesselName": vessel_info.get("name", "Unknown Vessel"),
-                    "mmsi": vessel_info.get("ssvid", "N/A"),
-                    "flag": vessel_info.get("flag", "UNK"),
-                    "vesselType": vessel_info.get("type", "General Cargo"),
-                    "portName": port_info.get("intermediateAnchorage", {}).get("label", evt.get("port", {}).get("label", "Coastal Port")),
-                    "portOfDeparture": evt.get("departurePort", {}).get("label", "Prior Anchorage"),
-                    "portOfDestination": evt.get("destinationPort", {}).get("label", "En Route"),
-                    "eta": evt.get("eta", "N/A"),
-                    "lat": evt.get("position", {}).get("lat"),
-                    "lon": evt.get("position", {}).get("lon"),
-                    "timestamp": evt.get("start"),
-                    "residenceHours": residency,
-                    "biosecurityRiskScore": risk_index
-                }
+                    risk_index = calculate_fouling_risk(
+                        speed_knots=evt.get("meanSpeed", 10),
+                        residence_hours=residency
+                    )
 
-                if rec["biosecurityRiskScore"] >= 0.70:
-                    send_discord_alert(rec)
+                    rec = {
+                        "eventId": evt.get("id"),
+                        "vesselName": vessel_info.get("name", "Unknown Vessel"),
+                        "mmsi": vessel_info.get("ssvid", "N/A"),
+                        "flag": vessel_info.get("flag", "UNK"),
+                        "vesselType": vessel_info.get("type", "General Cargo"),
+                        "portName": evt.get("port", {}).get("label", "Coastal Port"),
+                        "portOfDeparture": evt.get("departurePort", {}).get("label", "Prior Anchorage"),
+                        "portOfDestination": evt.get("destinationPort", {}).get("label", "En Route"),
+                        "eta": evt.get("eta", "N/A"),
+                        "lat": evt.get("position", {}).get("lat"),
+                        "lon": evt.get("position", {}).get("lon"),
+                        "timestamp": evt.get("start"),
+                        "residenceHours": residency,
+                        "biosecurityRiskScore": risk_index
+                    }
 
-                processed_records.append(rec)
+                    if rec["biosecurityRiskScore"] >= 0.70:
+                        send_discord_alert(rec)
+
+                    processed_records.append(rec)
 
             if not processed_records:
-                print("Notice: API query returned 0 events. Utilizing default dataset.")
+                print("Notice: API returned 0 records or non-200 status. Using fallback data.")
                 processed_records = get_fallback_data()
 
         except Exception as e:
-            print(f"API Fetch Error: {e}. Utilizing default dataset.")
+            print(f"Direct API Error: {e}. Using fallback baseline data.")
             processed_records = get_fallback_data()
     else:
-        print("GFW Token not detected or library unavailable. Using default baseline.")
+        print("GFW Token missing. Using fallback baseline data.")
         processed_records = get_fallback_data()
 
     os.makedirs("data", exist_ok=True)
     output_path = "data/baseline_risk.json"
-    
     pd.DataFrame(processed_records).to_json(output_path, orient="records", indent=2)
-    print(f"SUCCESS: Exported {len(processed_records)} records to '{output_path}'.")
+    print(f"SUCCESS: Saved {len(processed_records)} records to '{output_path}'.")
 
 if __name__ == "__main__":
     fetch_port_biosecurity_events()
