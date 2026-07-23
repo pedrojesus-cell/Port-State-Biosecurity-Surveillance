@@ -35,19 +35,17 @@ jobs:
         run: |
           python scripts/process_port_risks.py
 
-      - name: Commit and Push Updated Baseline Data
+      - name: Commit and Push Cleaned Baseline Data
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Ensure target directory exists before staging
-          mkdir -p data
-          git add -A data/
+          # Unstage any previously cached oversized files
+          git rm -rf --cached data/baseline_risk.json || true
           
-          # Commit and push only if changes exist
-          if ! git diff --staged --quiet; then
-            git commit -m "auto: update biosecurity baseline data [skip ci]"
-            git push
-          else
-            echo "No data changes detected. Skipping commit."
-          fi
+          # Stage updated outputs
+          git add data/baseline_risk.json config/
+          
+          # Commit and push safely
+          git commit -m "auto: update biosecurity baseline data [skip ci]" || echo "No changes to commit"
+          git push origin main
