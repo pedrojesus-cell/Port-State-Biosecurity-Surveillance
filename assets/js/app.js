@@ -15,6 +15,13 @@ function isValidNum(v) {
   return v !== null && v !== undefined && !isNaN(parseFloat(v));
 }
 
+// Get marker color matching top-right legend
+function getRiskColor(riskScore) {
+  if (riskScore >= 0.70) return '#ef4444'; // Red (High Risk)
+  if (riskScore >= 0.40) return '#f59e0b'; // Amber (Moderate Vector)
+  return '#38bdf8';                        // Blue (Low Risk)
+}
+
 // Multi-Path Fetch Engine for GitHub Pages
 async function loadBiosecurityData() {
   const possiblePaths = [
@@ -57,6 +64,7 @@ function renderDashboard(records) {
     const riskScore = rec.biosecurityRiskScore || 0;
     const riskPct = Math.round(riskScore * 100);
     const isHighRisk = riskScore >= 0.70;
+    const markerColor = getRiskColor(riskScore);
 
     if (isHighRisk) totalHighRisk++;
     totalHours += parseFloat(rec.residenceHours || 0);
@@ -67,11 +75,11 @@ function renderDashboard(records) {
       boundsPoints.push([lat, lon]);
 
       const marker = L.circleMarker([lat, lon], {
-        radius: isHighRisk ? 5 : 3.5,
-        fillColor: isHighRisk ? '#ef4444' : '#38bdf8',
+        radius: isHighRisk ? 5.5 : 4,
+        fillColor: markerColor,
         color: '#ffffff',
-        weight: 0.8,
-        fillOpacity: 0.85
+        weight: 1,
+        fillOpacity: 0.9
       });
 
       marker.bindPopup(getPopupHtml(rec));
@@ -82,13 +90,14 @@ function renderDashboard(records) {
     // Render Sidebar Card
     const card = document.createElement('div');
     card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-400 ${
-      isHighRisk ? 'bg-red-950/20 border-red-900/50' : 'bg-slate-800/40 border-slate-800'
+      riskScore >= 0.70 ? 'bg-red-950/20 border-red-900/50' : 
+      riskScore >= 0.40 ? 'bg-amber-950/20 border-amber-900/50' : 'bg-slate-800/40 border-slate-800'
     }`;
 
     card.innerHTML = `
       <div class="flex justify-between items-start mb-1">
         <span class="font-bold text-xs text-slate-200">${rec.vesselName} <span class="text-slate-400">[${rec.flag}]</span></span>
-        <span class="text-xs font-bold ${isHighRisk ? 'text-red-400' : 'text-amber-400'}">${riskPct}% Risk</span>
+        <span class="text-xs font-bold" style="color: ${markerColor}">${riskPct}% Risk</span>
       </div>
       <div class="text-[11px] text-slate-400 space-y-0.5">
         <div><span class="text-slate-500">Port Visited:</span> <span class="text-slate-200 font-semibold">${rec.portName || 'Regional Port'}</span></div>
@@ -110,11 +119,12 @@ function renderDashboard(records) {
   document.getElementById('kpi-avg-residence').innerHTML = `${(totalHours / (records.length || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
 }
 
-// DRAW VESSEL TRAJECTORY FOLLOWING MARITIME WATERWAY WAYPOINTS
+// DRAW VESSEL TRAJECTORY WITH TRUE RISK COLORS
 function drawVesselTrajectory(vessel) {
   trajectoryLayer.clearLayers();
 
   const routePoints = [];
+  const riskColor = getRiskColor(vessel.biosecurityRiskScore || 0);
 
   if (vessel.routeCoordinates && Array.isArray(vessel.routeCoordinates)) {
     vessel.routeCoordinates.forEach(pt => {
@@ -126,18 +136,18 @@ function drawVesselTrajectory(vessel) {
 
   if (routePoints.length > 1) {
     const polyline = L.polyline(routePoints, {
-      color: '#06b6d4',
+      color: riskColor,
       weight: 3,
       opacity: 0.9,
       dashArray: '6, 8'
     });
     trajectoryLayer.addLayer(polyline);
 
-    // Highlight active vessel position with pulsing marker
+    // Active selected vessel marker using its true risk color
     if (vessel.vesselPos) {
       const activeMarker = L.circleMarker([vessel.vesselPos[0], vessel.vesselPos[1]], {
-        radius: 9,
-        fillColor: '#38bdf8',
+        radius: 8,
+        fillColor: riskColor,
         color: '#ffffff',
         weight: 2,
         fillOpacity: 1
@@ -151,6 +161,7 @@ function drawVesselTrajectory(vessel) {
 }
 
 function getPopupHtml(rec) {
+  const riskColor = getRiskColor(rec.biosecurityRiskScore || 0);
   return `
     <div class="p-1 text-xs">
       <div class="font-bold text-sm text-cyan-300 mb-1">${rec.vesselName} (${rec.flag})</div>
@@ -161,7 +172,7 @@ function getPopupHtml(rec) {
       <div><b>Destination Port:</b> ${rec.portOfDestination}</div>
       <div><b>Residence Duration:</b> ${rec.residenceHours} hrs</div>
       <div class="mt-2 pt-2 border-t border-slate-700 flex justify-between items-center">
-        <span class="font-bold ${rec.biosecurityRiskScore >= 0.7 ? 'text-red-400' : 'text-amber-400'}">
+        <span class="font-bold" style="color: ${riskColor}">
           Bio-Risk: ${Math.round((rec.biosecurityRiskScore || 0) * 100)}%
         </span>
         <button onclick="generateVessel2025Report('${rec.mmsi}', '${rec.vesselName}')" 
@@ -176,7 +187,7 @@ function getPopupHtml(rec) {
 // GENERATE 2025 BIOSECURITY PDF REPORT
 function generateVessel2025Report(mmsi, vesselName) {
   const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
+  doc = new jsPDF();
 
   const visits = allVessels.filter(v => String(v.mmsi) === String(mmsi) || v.vesselName === vesselName);
   const main = visits[0] || {};
