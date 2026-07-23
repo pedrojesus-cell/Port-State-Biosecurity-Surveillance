@@ -1,3 +1,1 @@
-vesselName,flag,vesselType,mmsi,portName,portOfDeparture,portOfDestination,residenceHours,biosecurityRiskScore,eta,timestamp
-PACIFIC HARVEST,PAN,Fish Carrier,352001234,Port of Fujairah (Strait of Hormuz),Port of Guayaquil (ECU),Port of Valparaiso (CHL),52.4,0.85,2026-07-26 14:00 UTC,2026-07-23T11:37:02.148717+00:00
-SOUTHERN VENTURE,MHL,Fishing Vessel,538004567,Port of Rotterdam (European EEZ),Port of Apia (WSM),Port of Auckland (NZL),64.0,0.85,2026-07-28 22:00 UTC,2026-07-23T11:37:02.148739+00:00
+
