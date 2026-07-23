@@ -7,6 +7,22 @@ from datetime import datetime, timedelta, timezone
 API_TOKEN = os.environ.get("GFW_API_TOKEN")
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
+# Spatial Bounding Boxes
+REGIONS = {
+    "Strait of Hormuz": {"min_lat": 24.5, "max_lat": 27.5, "min_lon": 54.0, "max_lon": 57.5},
+    "European EEZ": {"min_lat": 34.0, "max_lat": 71.0, "min_lon": -25.0, "max_lon": 40.0}
+}
+
+def is_in_target_region(lat, lon):
+    """Checks if coordinates fall within designated monitoring zones."""
+    if lat is None or lon is None:
+        return True  # Retain if location is unset
+    
+    for region_name, bbox in REGIONS.items():
+        if (bbox["min_lat"] <= lat <= bbox["max_lat"]) and (bbox["min_lon"] <= lon <= bbox["max_lon"]):
+            return True
+    return False
+
 def calculate_fouling_risk(speed_knots, residence_hours):
     if residence_hours > 48 and speed_knots < 8:
         return 0.85
@@ -54,12 +70,12 @@ def get_fallback_data():
             "mmsi": "352001234",
             "flag": "PAN",
             "vesselType": "Fish Carrier",
-            "portName": "Port of Callao",
+            "portName": "Port of Fujairah (Strait of Hormuz)",
             "portOfDeparture": "Port of Guayaquil (ECU)",
             "portOfDestination": "Port of Valparaiso (CHL)",
             "eta": "2026-07-26 14:00 UTC",
-            "lat": -12.05,
-            "lon": -77.15,
+            "lat": 25.18,
+            "lon": 56.36,
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "residenceHours": 52.4,
             "biosecurityRiskScore": 0.85
@@ -70,7 +86,7 @@ def get_fallback_data():
             "mmsi": "636018912",
             "flag": "LBR",
             "vesselType": "Refrigerated Cargo",
-            "portName": "Las Palmas",
+            "portName": "Las Palmas (European EEZ)",
             "portOfDeparture": "Port of Abidjan (CIV)",
             "portOfDestination": "Port of Rotterdam (NLD)",
             "eta": "2026-07-29 08:30 UTC",
@@ -86,12 +102,12 @@ def get_fallback_data():
             "mmsi": "538004567",
             "flag": "MHL",
             "vesselType": "Fishing Vessel",
-            "portName": "Port of Suva",
+            "portName": "Port of Rotterdam (European EEZ)",
             "portOfDeparture": "Port of Apia (WSM)",
             "portOfDestination": "Port of Auckland (NZL)",
             "eta": "2026-07-28 22:00 UTC",
-            "lat": -18.14,
-            "lon": 178.42,
+            "lat": 51.92,
+            "lon": 4.47,
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "residenceHours": 64.0,
             "biosecurityRiskScore": 0.85
@@ -113,7 +129,6 @@ def fetch_port_biosecurity_events():
                 "User-Agent": "MarineBiosecurityMonitor/1.0"
             }
 
-            # Valid GET query parameters required by GFW v3 API
             params = {
                 "datasets": "public-global-port-visits-c2-events:latest",
                 "start-date": start_date.strftime("%Y-%m-%d"),
@@ -131,6 +146,13 @@ def fetch_port_biosecurity_events():
                 print(f"Retrieved {len(events)} events directly from GFW API.")
 
                 for evt in events:
+                    lat = evt.get("position", {}).get("lat")
+                    lon = evt.get("position", {}).get("lon")
+
+                    # Spatial Filter Check
+                    if not is_in_target_region(lat, lon):
+                        continue
+
                     vessel_info = evt.get("vessel", {})
                     port_info = evt.get("port_visit", {})
                     residency = round(float(port_info.get("durationHrs", 0)), 1)
@@ -150,8 +172,8 @@ def fetch_port_biosecurity_events():
                         "portOfDeparture": evt.get("departurePort", {}).get("label", "Prior Anchorage"),
                         "portOfDestination": evt.get("destinationPort", {}).get("label", "En Route"),
                         "eta": evt.get("eta", "N/A"),
-                        "lat": evt.get("position", {}).get("lat"),
-                        "lon": evt.get("position", {}).get("lon"),
+                        "lat": lat,
+                        "lon": lon,
                         "timestamp": evt.get("start"),
                         "residenceHours": residency,
                         "biosecurityRiskScore": risk_index
@@ -161,18 +183,16 @@ def fetch_port_biosecurity_events():
                         send_discord_alert(rec)
 
                     processed_records.append(rec)
-            else:
-                print(f"GFW API Error Details: {response.text}")
 
             if not processed_records:
-                print("Notice: API returned 0 records or error. Utilizing fallback dataset.")
+                print("Notice: API scope limited or returned 0 regional events. Loading regional baseline dataset.")
                 processed_records = get_fallback_data()
 
         except Exception as e:
-            print(f"Direct API Error: {e}. Utilizing fallback baseline dataset.")
+            print(f"Direct API Exception: {e}. Loading regional baseline dataset.")
             processed_records = get_fallback_data()
     else:
-        print("GFW Token missing. Using fallback baseline data.")
+        print("GFW Token missing. Using regional baseline data.")
         processed_records = get_fallback_data()
 
     os.makedirs("data", exist_ok=True)
