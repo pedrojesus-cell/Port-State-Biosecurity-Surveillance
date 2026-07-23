@@ -81,7 +81,7 @@ def process_pipeline():
     }
     
     end_date = datetime.now(timezone.utc)
-    start_date = end_date - timedelta(days=90)
+    start_date = end_date - timedelta(days=180)
     events_url = "https://gateway.api.globalfishingwatch.org/v3/events"
 
     processed_records = []
