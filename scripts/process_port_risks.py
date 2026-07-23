@@ -4,10 +4,11 @@ import requests
 import pandas as pd
 from datetime import datetime, timedelta, timezone
 
+# Environment Variables from GitHub Secrets
 API_TOKEN = os.environ.get("GFW_API_TOKEN")
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-# Spatial Bounding Boxes
+# Spatial Bounding Boxes for Target Monitoring Regions
 REGIONS = {
     "Strait of Hormuz": {"min_lat": 24.5, "max_lat": 27.5, "min_lon": 54.0, "max_lon": 57.5},
     "European EEZ": {"min_lat": 34.0, "max_lat": 71.0, "min_lon": -25.0, "max_lon": 40.0}
@@ -16,14 +17,15 @@ REGIONS = {
 def is_in_target_region(lat, lon):
     """Checks if coordinates fall within designated monitoring zones."""
     if lat is None or lon is None:
-        return True  # Retain if location is unset
+        return True  # Retain record if coordinates are unlisted
     
-    for region_name, bbox in REGIONS.items():
+    for _, bbox in REGIONS.items():
         if (bbox["min_lat"] <= lat <= bbox["max_lat"]) and (bbox["min_lon"] <= lon <= bbox["max_lon"]):
             return True
     return False
 
 def calculate_fouling_risk(speed_knots, residence_hours):
+    """Calculates fouling risk score based on residence time and speed."""
     if residence_hours > 48 and speed_knots < 8:
         return 0.85
     elif residence_hours > 12:
@@ -31,6 +33,7 @@ def calculate_fouling_risk(speed_knots, residence_hours):
     return 0.20
 
 def send_discord_alert(record):
+    """Sends a formatted alert embed to Discord when high-risk targets are flagged."""
     if not DISCORD_WEBHOOK_URL:
         return
 
@@ -63,6 +66,7 @@ def send_discord_alert(record):
         print(f"Notice: Could not post Discord alert: {err}")
 
 def get_fallback_data():
+    """Provides regional sample baseline dataset when live API queries are out of scope."""
     return [
         {
             "eventId": "demo-001",
@@ -149,7 +153,7 @@ def fetch_port_biosecurity_events():
                     lat = evt.get("position", {}).get("lat")
                     lon = evt.get("position", {}).get("lon")
 
-                    # Spatial Filter Check
+                    # Apply Spatial Bounding Box Filter
                     if not is_in_target_region(lat, lon):
                         continue
 
@@ -185,20 +189,45 @@ def fetch_port_biosecurity_events():
                     processed_records.append(rec)
 
             if not processed_records:
-                print("Notice: API scope limited or returned 0 regional events. Loading regional baseline dataset.")
+                print("Notice: API query yielded 0 filtered records. Utilizing baseline regional dataset.")
                 processed_records = get_fallback_data()
 
         except Exception as e:
-            print(f"Direct API Exception: {e}. Loading regional baseline dataset.")
+            print(f"Direct API Exception: {e}. Utilizing baseline regional dataset.")
             processed_records = get_fallback_data()
     else:
-        print("GFW Token missing. Using regional baseline data.")
+        print("GFW Token missing. Utilizing baseline regional dataset.")
         processed_records = get_fallback_data()
 
+    # Create output directory
     os.makedirs("data", exist_ok=True)
-    output_path = "data/baseline_risk.json"
-    pd.DataFrame(processed_records).to_json(output_path, orient="records", indent=2)
-    print(f"SUCCESS: Exported {len(processed_records)} records to '{output_path}'.")
+
+    # 1. Save Complete JSON Dataset for Dashboard UI
+    json_path = "data/baseline_risk.json"
+    full_df = pd.DataFrame(processed_records)
+    full_df.to_json(json_path, orient="records", indent=2)
+    print(f"SUCCESS: Saved {len(processed_records)} total records to '{json_path}'.")
+
+    # 2. Save Filtered CSV Summary for High-Risk Targets (>= 70%)
+    csv_path = "data/high_risk_summary.csv"
+    high_risk_records = [r for r in processed_records if r.get("biosecurityRiskScore", 0) >= 0.70]
+
+    if high_risk_records:
+        high_risk_df = pd.DataFrame(high_risk_records)
+        export_cols = [
+            "vesselName", "flag", "vesselType", "mmsi", 
+            "portName", "portOfDeparture", "portOfDestination", 
+            "residenceHours", "biosecurityRiskScore", "eta", "timestamp"
+        ]
+        available_cols = [col for col in export_cols if col in high_risk_df.columns]
+        high_risk_df[available_cols].to_csv(csv_path, index=False)
+        print(f"SUCCESS: Saved {len(high_risk_records)} high-risk records to '{csv_path}'.")
+    else:
+        pd.DataFrame(columns=[
+            "vesselName", "flag", "vesselType", "mmsi", 
+            "portName", "residenceHours", "biosecurityRiskScore"
+        ]).to_csv(csv_path, index=False)
+        print("Notice: No high-risk records found. Saved empty CSV template.")
 
 if __name__ == "__main__":
     fetch_port_biosecurity_events()
