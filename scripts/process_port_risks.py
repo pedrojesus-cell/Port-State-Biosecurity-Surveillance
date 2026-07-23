@@ -1,34 +1,25 @@
-import os
-import json
-import requests
-import pandas as pd
-from datetime import datetime, timedelta, timezone
+# 1. Save Full JSON for Web UI
+    json_path = "data/baseline_risk.json"
+    pd.DataFrame(processed_records).to_json(json_path, orient="records", indent=2)
+    print(f"SUCCESS: Saved {len(processed_records)} total records to '{json_path}'.")
 
-# Environment Variables
-API_TOKEN = os.environ.get("GFW_API_TOKEN")
-DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
+    # 2. Save Filtered CSV Summary for High-Risk Targets (>= 70%)
+    csv_path = "data/high_risk_summary.csv"
+    high_risk_records = [r for r in processed_records if r.get("biosecurityRiskScore", 0) >= 0.70]
 
-# Path to the vessel watchlist configuration file
-CONFIG_PATH = "config/vessels.json"
-
-def load_target_mmsis():
-    """Loads target vessel MMSIs dynamically from the JSON configuration file."""
-    if os.path.exists(CONFIG_PATH):
-        try:
-            with open(CONFIG_PATH, "r") as f:
-                config_data = json.load(f)
-                vessels = config_data.get("monitored_vessels", [])
-                mmsis = [str(v["mmsi"]) for v in vessels if "mmsi" in v]
-                if mmsis:
-                    print(f"Successfully loaded {len(mmsis)} MMSIs from '{CONFIG_PATH}'.")
-                    return mmsis
-        except Exception as e:
-            print(f"Notice: Could not parse '{CONFIG_PATH}' ({e}). Using default MMSI list.")
+    if high_risk_records:
+        high_risk_df = pd.DataFrame(high_risk_records)
+        export_cols = [
+            "vesselName", "flag", "vesselType", "mmsi", 
+            "portName", "portOfDeparture", "portOfDestination", 
+            "residenceHours", "biosecurityRiskScore", "eta", "timestamp"
+        ]
+        available_cols = [c for c in export_cols if c in high_risk_df.columns]
+        high_risk_df[available_cols].to_csv(csv_path, index=False)
+        print(f"SUCCESS: Saved {len(high_risk_records)} high-risk records to '{csv_path}'.")
     else:
-        print(f"Notice: Config file '{CONFIG_PATH}' not found. Using default MMSI list.")
-    
-    # Fallback MMSI list if config file is missing or invalid
-    return ["352001234", "636018912", "538004567"]
-
-# Initialize target MMSI watchlist
-TARGET_VESSEL_MMSIS = load_target_mmsis()
+        pd.DataFrame(columns=[
+            "vesselName", "flag", "vesselType", "mmsi", 
+            "portName", "residenceHours", "biosecurityRiskScore"
+        ]).to_csv(csv_path, index=False)
+        print("Notice: Saved empty high-risk CSV template.")
