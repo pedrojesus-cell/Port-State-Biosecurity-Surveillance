@@ -107,22 +107,23 @@ def fetch_port_biosecurity_events():
             end_date = datetime.now(timezone.utc)
             start_date = end_date - timedelta(days=14)
 
+            # Official GFW v3 Events API Endpoint
             url = "https://gateway.api.globalfishingwatch.org/v3/events"
             headers = {
                 "Authorization": f"Bearer {API_TOKEN}",
                 "Content-Type": "application/json",
                 "User-Agent": "MarineBiosecurityMonitor/1.0"
             }
-            
-            # GFW v3 query parameters with indexed arrays
-            params = {
-                "event-types[0]": "PORT_VISIT",
-                "start-date": start_date.strftime("%Y-%m-%d"),
-                "end-date": end_date.strftime("%Y-%m-%d"),
+
+            # POST Payload formatted for GFW v3 API
+            payload = {
+                "datasets": ["public-global-port-visits-c2-events:latest"],
+                "startDate": start_date.strftime("%Y-%m-%d"),
+                "endDate": end_date.strftime("%Y-%m-%d"),
                 "limit": 100
             }
 
-            response = requests.get(url, headers=headers, params=params, timeout=25)
+            response = requests.post(url, headers=headers, json=payload, timeout=25)
             print(f"GFW Response Status Code: {response.status_code}")
 
             if response.status_code == 200:
@@ -161,13 +162,15 @@ def fetch_port_biosecurity_events():
                         send_discord_alert(rec)
 
                     processed_records.append(rec)
+            else:
+                print(f"GFW API Error Details: {response.text}")
 
             if not processed_records:
-                print("Notice: API returned 0 records or status error. Using fallback baseline data.")
+                print("Notice: API returned 0 records or error. Utilizing fallback dataset.")
                 processed_records = get_fallback_data()
 
         except Exception as e:
-            print(f"Direct API Error: {e}. Using fallback baseline data.")
+            print(f"Direct API Error: {e}. Utilizing fallback baseline dataset.")
             processed_records = get_fallback_data()
     else:
         print("GFW Token missing. Using fallback baseline data.")
