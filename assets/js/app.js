@@ -1,4 +1,5 @@
-const map = L.map('map', { zoomControl: true, minZoom: 2 }).setView([10.0, -20.0], 3);
+// Initialize Leaflet Map
+const map = L.map('map', { zoomControl: true, minZoom: 2 }).setView([20.0, 0.0], 2);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap &copy; CARTO',
@@ -6,19 +7,18 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19
 }).addTo(map);
 
-let allVessels = [];
+let allPorts = [];
 let markersLayer = L.layerGroup().addTo(map);
-let trajectoryLayer = L.layerGroup().addTo(map);
 
 function isValidNum(v) {
   return v !== null && v !== undefined && !isNaN(parseFloat(v));
 }
 
-// Color coding for High Fouling Risk, Moderate Vector, and Low Risk
-function getRiskColor(riskScore) {
-  if (riskScore >= 0.70) return '#ef4444'; // Red: High Fouling Risk (>=70%)
-  if (riskScore >= 0.40) return '#f59e0b'; // Amber: Moderate Vector (40%-69%)
-  return '#38bdf8';                        // Blue: Low Risk (<40%)
+// Color coding for Port Markers
+function getPortColor(highRiskCount, moderateRiskCount) {
+  if (highRiskCount > 0) return '#ef4444';     // Red: Contains High Fouling Risk (>=70%)
+  if (moderateRiskCount > 0) return '#f59e0b'; // Amber: Contains Moderate Vectors (40%-69%)
+  return '#38bdf8';                            // Blue: Low Risk Only
 }
 
 async function loadBiosecurityData() {
@@ -32,9 +32,9 @@ async function loadBiosecurityData() {
     try {
       const response = await fetch(`${path}?t=${new Date().getTime()}`);
       if (response.ok) {
-        allVessels = await response.json();
-        if (Array.isArray(allVessels) && allVessels.length > 0) {
-          renderDashboard(allVessels);
+        allPorts = await response.json();
+        if (Array.isArray(allPorts) && allPorts.length > 0) {
+          renderDashboard(allPorts);
           return;
         }
       }
@@ -44,198 +44,184 @@ async function loadBiosecurityData() {
   }
 }
 
-function renderDashboard(records) {
+function renderDashboard(portRecords) {
   markersLayer.clearLayers();
-  trajectoryLayer.clearLayers();
 
-  let totalHighRisk = 0;
-  let totalHours = 0;
+  let globalHighRisk = 0;
+  let globalVisits = 0;
+  let totalHoursSum = 0;
+  let totalVesselsCount = 0;
+
   const feedContainer = document.getElementById('risk-feed');
   feedContainer.innerHTML = '';
 
   const boundsPoints = [];
 
-  records.forEach((rec) => {
-    const riskScore = rec.biosecurityRiskScore || 0;
-    const riskPct = Math.round(riskScore * 100);
-    const isHighRisk = riskScore >= 0.70;
-    const markerColor = getRiskColor(riskScore);
+  portRecords.forEach((port) => {
+    globalHighRisk += port.highRiskCount || 0;
+    globalVisits += port.totalPortVisits || 0;
 
-    if (isHighRisk) totalHighRisk++;
-    totalHours += parseFloat(rec.residenceHours || 0);
+    const portColor = getPortColor(port.highRiskCount, port.moderateRiskCount);
 
-    if (rec.vesselPos && isValidNum(rec.vesselPos[0]) && isValidNum(rec.vesselPos[1])) {
-      const lat = parseFloat(rec.vesselPos[0]);
-      const lon = parseFloat(rec.vesselPos[1]);
+    if (port.location && isValidNum(port.location[0]) && isValidNum(port.location[1])) {
+      const lat = parseFloat(port.location[0]);
+      const lon = parseFloat(port.location[1]);
       boundsPoints.push([lat, lon]);
 
+      // Calculate radius dynamically based on visit volume
+      const radiusSize = Math.min(18, Math.max(8, Math.sqrt(port.totalPortVisits) * 1.5));
+
       const marker = L.circleMarker([lat, lon], {
-        radius: isHighRisk ? 5.5 : (riskScore >= 0.40 ? 4.5 : 3.5),
-        fillColor: markerColor,
+        radius: radiusSize,
+        fillColor: portColor,
         color: '#ffffff',
-        weight: 1,
-        fillOpacity: 0.9
+        weight: 1.5,
+        fillOpacity: 0.85
       });
 
-      marker.bindPopup(getPopupHtml(rec));
-      marker.on('click', () => drawVesselTrajectory(rec));
+      marker.bindPopup(getPortPopupHtml(port));
       markersLayer.addLayer(marker);
     }
 
-    // Sidebar Feed Entry
+    // Render Port Summary Card in Sidebar
     const card = document.createElement('div');
     card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-400 ${
-      riskScore >= 0.70 ? 'bg-red-950/20 border-red-900/50' : 
-      riskScore >= 0.40 ? 'bg-amber-950/20 border-amber-900/50' : 'bg-slate-800/40 border-slate-800'
+      port.highRiskCount > 0 ? 'bg-red-950/20 border-red-900/50' : 
+      port.moderateRiskCount > 0 ? 'bg-amber-950/20 border-amber-900/50' : 'bg-slate-800/40 border-slate-800'
     }`;
 
     card.innerHTML = `
       <div class="flex justify-between items-start mb-1">
-        <span class="font-bold text-xs text-slate-200">${rec.vesselName} <span class="text-slate-400">[${rec.flag}]</span></span>
-        <span class="text-xs font-bold" style="color: ${markerColor}">${riskPct}% Risk</span>
+        <span class="font-bold text-xs text-slate-200">${port.portName}</span>
+        <span class="text-xs font-bold text-slate-400">2025 Data</span>
       </div>
-      <div class="text-[11px] text-slate-400 space-y-0.5">
-        <div><span class="text-slate-500">Port Visited:</span> <span class="text-slate-200 font-semibold">${rec.portName}</span></div>
-        <div><span class="text-slate-500">Route:</span> ${rec.portOfDeparture} &rarr; ${rec.portOfDestination}</div>
-        <div><span class="text-slate-500">Characteristics:</span> <span class="text-cyan-400">${rec.vesselType}</span> | <span class="text-slate-300">${rec.residenceHours} hrs</span></div>
+      <div class="text-[11px] text-slate-400 space-y-1 mt-2">
+        <div class="flex justify-between">
+          <span>🔴 High Fouling Risk (≥70%):</span>
+          <span class="font-bold text-red-400">${port.highRiskCount}</span>
+        </div>
+        <div class="flex justify-between">
+          <span>🟠 Moderate Vectors (40-69%):</span>
+          <span class="font-bold text-amber-400">${port.moderateRiskCount}</span>
+        </div>
+        <div class="flex justify-between border-t border-slate-700/50 pt-1 mt-1 text-slate-300">
+          <span>Total Monitored Visits:</span>
+          <span class="font-bold text-cyan-400">${port.totalPortVisits}</span>
+        </div>
       </div>
     `;
 
-    card.addEventListener('click', () => drawVesselTrajectory(rec));
+    card.addEventListener('click', () => {
+      if (port.location) {
+        map.setView([port.location[0], port.location[1]], 6, { animate: true });
+      }
+    });
+
     feedContainer.appendChild(card);
+
+    // Sum residence times
+    if (port.vessels) {
+      port.vessels.forEach(v => {
+        totalHoursSum += v.residenceHours || 0;
+        totalVesselsCount++;
+      });
+    }
   });
 
   if (boundsPoints.length > 0) {
-    map.fitBounds(L.latLngBounds(boundsPoints), { padding: [30, 30] });
+    map.fitBounds(L.latLngBounds(boundsPoints), { padding: [40, 40] });
   }
 
-  document.getElementById('kpi-total-visits').innerText = records.length;
-  document.getElementById('kpi-high-risk').innerText = totalHighRisk;
-  document.getElementById('kpi-avg-residence').innerHTML = `${(totalHours / (records.length || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
+  document.getElementById('kpi-total-visits').innerText = globalVisits;
+  document.getElementById('kpi-high-risk').innerText = globalHighRisk;
+  document.getElementById('kpi-avg-residence').innerHTML = `${(totalHoursSum / (totalVesselsCount || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
 }
 
-function drawVesselTrajectory(vessel) {
-  trajectoryLayer.clearLayers();
-
-  const routePoints = [];
-  const riskColor = getRiskColor(vessel.biosecurityRiskScore || 0);
-
-  if (vessel.routeCoordinates && Array.isArray(vessel.routeCoordinates)) {
-    vessel.routeCoordinates.forEach(pt => {
-      if (pt && isValidNum(pt[0]) && isValidNum(pt[1])) {
-        routePoints.push([parseFloat(pt[0]), parseFloat(pt[1])]);
-      }
-    });
-  }
-
-  if (routePoints.length > 1) {
-    const polyline = L.polyline(routePoints, {
-      color: riskColor,
-      weight: 3,
-      opacity: 0.9,
-      dashArray: '6, 8'
-    });
-    trajectoryLayer.addLayer(polyline);
-
-    if (vessel.vesselPos) {
-      const activeMarker = L.circleMarker([vessel.vesselPos[0], vessel.vesselPos[1]], {
-        radius: 8,
-        fillColor: riskColor,
-        color: '#ffffff',
-        weight: 2,
-        fillOpacity: 1
-      });
-      activeMarker.bindPopup(getPopupHtml(vessel)).openPopup();
-      trajectoryLayer.addLayer(activeMarker);
-    }
-
-    map.fitBounds(polyline.getBounds(), { padding: [60, 60] });
-  }
-}
-
-function getPopupHtml(rec) {
-  const riskColor = getRiskColor(rec.biosecurityRiskScore || 0);
-  return `
-    <div class="p-1 text-xs">
-      <div class="font-bold text-sm text-cyan-300 mb-1">${rec.vesselName} (${rec.flag})</div>
-      <div><b>MMSI:</b> ${rec.mmsi}</div>
-      <div><b>Vessel Type:</b> ${rec.vesselType}</div>
-      <div><b>Port Visited:</b> ${rec.portName}</div>
-      <div><b>Origin Port:</b> ${rec.portOfDeparture}</div>
-      <div><b>Destination Port:</b> ${rec.portOfDestination}</div>
-      <div><b>Residence Duration:</b> ${rec.residenceHours} hrs</div>
-      <div class="mt-2 pt-2 border-t border-slate-700 flex justify-between items-center">
-        <span class="font-bold" style="color: ${riskColor}">
-          Bio-Risk: ${Math.round((rec.biosecurityRiskScore || 0) * 100)}%
+function getPortPopupHtml(port) {
+  let vesselListHtml = '';
+  
+  if (port.vessels && port.vessels.length > 0) {
+    // Show top 5 highest risk vessels in popup
+    const sortedVessels = [...port.vessels].sort((a, b) => b.biosecurityRiskScore - a.biosecurityRiskScore).slice(0, 5);
+    vesselListHtml = sortedVessels.map(v => `
+      <div class="text-[10px] py-1 border-b border-slate-700/50 flex justify-between items-center">
+        <span><b>${v.vesselName}</b> (${v.flag})</span>
+        <span class="font-bold ${v.biosecurityRiskScore >= 0.7 ? 'text-red-400' : 'text-amber-400'}">
+          ${Math.round(v.biosecurityRiskScore * 100)}%
         </span>
-        <button onclick="generateVessel2025Report('${rec.mmsi}', '${rec.vesselName}')" 
+      </div>
+    `).join('');
+  }
+
+  return `
+    <div class="p-1 text-xs max-w-xs">
+      <div class="font-bold text-sm text-cyan-300 mb-1">${port.portName} (2025)</div>
+      <div class="space-y-0.5 my-2 text-[11px]">
+        <div class="text-red-400 font-semibold">🔴 High Fouling Risk (≥70%): ${port.highRiskCount} vessels</div>
+        <div class="text-amber-400 font-semibold">🟠 Moderate Vectors (40-69%): ${port.moderateRiskCount} vessels</div>
+        <div class="text-slate-300">🔵 Low Risk (<40%): ${port.lowRiskCount} vessels</div>
+      </div>
+      <div class="mt-2 pt-2 border-t border-slate-700">
+        <div class="font-bold text-slate-300 mb-1">Recorded Vessel Samples:</div>
+        ${vesselListHtml}
+      </div>
+      <div class="mt-2 pt-2 border-t border-slate-700 text-right">
+        <button onclick="generatePort2025Report('${port.portName}')" 
           class="px-2 py-1 bg-cyan-600 hover:bg-cyan-500 text-white text-[10px] rounded font-bold transition-colors">
-          📄 2025 PDF Report
+          📄 Download 2025 Port PDF
         </button>
       </div>
     </div>
   `;
 }
 
-function generateVessel2025Report(mmsi, vesselName) {
+function generatePort2025Report(portName) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  const visits = allVessels.filter(v => String(v.mmsi) === String(mmsi) || v.vesselName === vesselName);
-  const main = visits[0] || {};
+  const portData = allPorts.find(p => p.portName === portName) || {};
+  const vessels = portData.vessels || [];
 
   doc.setFillColor(15, 23, 42);
   doc.rect(0, 0, 210, 297, 'F');
 
   doc.setTextColor(56, 189, 248);
-  doc.setFontSize(18);
-  doc.text("BIOSECURITY & PORT SURVEILLANCE REPORT (2025)", 14, 20);
+  doc.setFontSize(16);
+  doc.text(`PORT BIOSECURITY SURVEILLANCE REPORT (2025)`, 14, 20);
 
   doc.setTextColor(241, 245, 249);
   doc.setFontSize(12);
-  doc.text(`Vessel Name: ${vesselName}`, 14, 32);
-  doc.text(`MMSI: ${mmsi}`, 14, 40);
-  doc.text(`Flag: ${main.flag || 'UNK'}`, 14, 48);
-  doc.text(`Vessel Type: ${main.vesselType || 'Merchant/Carrier'}`, 14, 56);
+  doc.text(`Port: ${portName}`, 14, 30);
+  doc.text(`Total Recorded Visits: ${portData.totalPortVisitEvents || portData.totalPortVisits || 0}`, 14, 38);
+  doc.text(`High Fouling Risk Vessels (>=70%): ${portData.highRiskCount || 0}`, 14, 46);
+  doc.text(`Moderate Vector Vessels (40-69%): ${portData.moderateRiskCount || 0}`, 14, 54);
 
   doc.setDrawColor(51, 65, 85);
-  doc.line(14, 62, 196, 62);
-
-  doc.setFontSize(14);
-  doc.setTextColor(56, 189, 248);
-  doc.text("2025 Port Visit History & Vector Characteristics", 14, 72);
-
-  let y = 82;
-  doc.setFontSize(10);
-  doc.setTextColor(203, 213, 225);
-
-  visits.forEach((v, idx) => {
-    if (y > 270) { doc.addPage(); y = 20; }
-    doc.text(`${idx + 1}. Port: ${v.portName} | Residence: ${v.residenceHours} hrs | Route: ${v.portOfDeparture} -> ${v.portOfDestination}`, 14, y);
-    y += 8;
-  });
-
-  y += 10;
-  doc.setDrawColor(51, 65, 85);
-  doc.line(14, y, 196, y);
-  y += 12;
+  doc.line(14, 60, 196, 60);
 
   doc.setFontSize(12);
-  doc.setTextColor(239, 68, 68);
-  doc.text(`Biofouling Risk Index: ${Math.round((main.biosecurityRiskScore || 0.5) * 100)}%`, 14, y);
+  doc.setTextColor(56, 189, 248);
+  doc.text("2025 Recorded Vessel Breakdown", 14, 70);
 
-  doc.save(`${vesselName.replace(/[^a-zA-Z0-9]/g, '_')}_2025_Biosecurity_Report.pdf`);
+  let y = 80;
+  doc.setFontSize(9);
+  doc.setTextColor(203, 213, 225);
+
+  vessels.forEach((v, idx) => {
+    if (y > 270) { doc.addPage(); y = 20; }
+    doc.text(`${idx + 1}. ${v.vesselName} | Flag: ${v.flag} | Residence: ${v.residenceHours} hrs | Bio-Risk: ${Math.round(v.biosecurityRiskScore * 100)}% (${v.riskCategory})`, 14, y);
+    y += 7;
+  });
+
+  doc.save(`${portName.replace(/[^a-zA-Z0-9]/g, '_')}_2025_Port_Report.pdf`);
 }
 
 document.getElementById('search-input').addEventListener('input', (e) => {
   const q = e.target.value.toLowerCase().trim();
-  if (!q) { renderDashboard(allVessels); return; }
+  if (!q) { renderDashboard(allPorts); return; }
 
-  const filtered = allVessels.filter(v => 
-    (v.vesselName && v.vesselName.toLowerCase().includes(q)) ||
-    (v.mmsi && String(v.mmsi).toLowerCase().includes(q)) ||
-    (v.portName && v.portName.toLowerCase().includes(q)) ||
-    (v.flag && v.flag.toLowerCase().includes(q))
+  const filtered = allPorts.filter(p => 
+    p.portName && p.portName.toLowerCase().includes(q)
   );
   renderDashboard(filtered);
 });
