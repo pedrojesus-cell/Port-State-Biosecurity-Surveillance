@@ -47,5 +47,5 @@ jobs:
           git add data/baseline_risk.json config/
           
           # Commit and push safely
-          git commit -m "auto: update biosecurity baseline data [skip ci]" || echo "No changes to commit"
+          git commit -m "auto: update biosecurity baseline data" || echo "No changes to commit"
           git push origin main
