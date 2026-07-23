@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 0 * * 0' # Runs weekly automatically
 
+permissions:
+  contents: write
+
 jobs:
   build-and-process:
     runs-on: ubuntu-latest
