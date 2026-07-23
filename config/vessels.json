@@ -1,10 +1,8 @@
 {
-  "monitored_vessels": [
-    {
-      "name": "VESSEL NAME",
-      "mmsi": "123456789",
-      "vesselType": "Fish Carrier",
-      "flag": "PAN"
-    }
-  ]
+  "tracking_mode": "REGIONAL_BOUNDING_BOX",
+  "monitored_regions": [
+    "Strait of Hormuz",
+    "European EEZ"
+  ],
+  "description": "Dynamic regional tracking active. Vessels and MMSIs are retrieved dynamically from GFW API based on spatial coordinates."
 }
