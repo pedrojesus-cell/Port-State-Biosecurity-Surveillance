@@ -14,13 +14,6 @@ function isValidNum(v) {
   return v !== null && v !== undefined && !isNaN(parseFloat(v));
 }
 
-// Color coding for Port Markers
-function getPortColor(highRiskCount, moderateRiskCount) {
-  if (highRiskCount > 0) return '#ef4444';     // Red: Contains High Fouling Risk (>=70%)
-  if (moderateRiskCount > 0) return '#f59e0b'; // Amber: Contains Moderate Vectors (40%-69%)
-  return '#38bdf8';                            // Blue: Low Risk Only
-}
-
 async function loadBiosecurityData() {
   const possiblePaths = [
     './data/baseline_risk.json',
@@ -58,36 +51,65 @@ function renderDashboard(portRecords) {
   const boundsPoints = [];
 
   portRecords.forEach((port) => {
-    globalHighRisk += port.highRiskCount || 0;
-    globalVisits += port.totalPortVisits || 0;
+    const highRisk = port.highRiskCount || 0;
+    const modRisk = port.moderateRiskCount || 0;
+    const totalVisits = port.totalPortVisits || 0;
 
-    const portColor = getPortColor(port.highRiskCount, port.moderateRiskCount);
+    globalHighRisk += highRisk;
+    globalVisits += totalVisits;
+
+    let badgeBg = '#38bdf8'; // Blue: Low Risk Only
+    let displayCount = totalVisits;
+
+    if (highRisk > 0) {
+      badgeBg = '#ef4444'; // Red: High Fouling Risk (>=70%)
+      displayCount = highRisk;
+    } else if (modRisk > 0) {
+      badgeBg = '#f59e0b'; // Amber: Moderate Vector (40%-69%)
+      displayCount = modRisk;
+    }
 
     if (port.location && isValidNum(port.location[0]) && isValidNum(port.location[1])) {
       const lat = parseFloat(port.location[0]);
       const lon = parseFloat(port.location[1]);
       boundsPoints.push([lat, lon]);
 
-      // Calculate radius dynamically based on visit volume
-      const radiusSize = Math.min(18, Math.max(8, Math.sqrt(port.totalPortVisits) * 1.5));
-
-      const marker = L.circleMarker([lat, lon], {
-        radius: radiusSize,
-        fillColor: portColor,
-        color: '#ffffff',
-        weight: 1.5,
-        fillOpacity: 0.85
+      const customBadgeIcon = L.divIcon({
+        className: 'custom-port-badge',
+        html: `
+          <div style="
+            background-color: ${badgeBg};
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 11px;
+            font-family: system-ui, -apple-system, sans-serif;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px ${badgeBg}88, 0 2px 4px rgba(0,0,0,0.5);
+            cursor: pointer;
+          ">
+            ${displayCount}
+          </div>
+        `,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
       });
 
+      const marker = L.marker([lat, lon], { icon: customBadgeIcon });
       marker.bindPopup(getPortPopupHtml(port));
       markersLayer.addLayer(marker);
     }
 
-    // Render Port Summary Card in Sidebar
+    // Sidebar Card
     const card = document.createElement('div');
     card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-400 ${
-      port.highRiskCount > 0 ? 'bg-red-950/20 border-red-900/50' : 
-      port.moderateRiskCount > 0 ? 'bg-amber-950/20 border-amber-900/50' : 'bg-slate-800/40 border-slate-800'
+      highRisk > 0 ? 'bg-red-950/20 border-red-900/50' : 
+      modRisk > 0 ? 'bg-amber-950/20 border-amber-900/50' : 'bg-slate-800/40 border-slate-800'
     }`;
 
     card.innerHTML = `
@@ -97,16 +119,16 @@ function renderDashboard(portRecords) {
       </div>
       <div class="text-[11px] text-slate-400 space-y-1 mt-2">
         <div class="flex justify-between">
-          <span>🔴 High Fouling Risk (≥70%):</span>
-          <span class="font-bold text-red-400">${port.highRiskCount}</span>
+          <span>🔴 High Fouling Risk (&ge;70%):</span>
+          <span class="font-bold text-red-400">${highRisk} vectors</span>
         </div>
         <div class="flex justify-between">
           <span>🟠 Moderate Vectors (40-69%):</span>
-          <span class="font-bold text-amber-400">${port.moderateRiskCount}</span>
+          <span class="font-bold text-amber-400">${modRisk} vectors</span>
         </div>
         <div class="flex justify-between border-t border-slate-700/50 pt-1 mt-1 text-slate-300">
           <span>Total Monitored Visits:</span>
-          <span class="font-bold text-cyan-400">${port.totalPortVisits}</span>
+          <span class="font-bold text-cyan-400">${totalVisits}</span>
         </div>
       </div>
     `;
@@ -119,10 +141,9 @@ function renderDashboard(portRecords) {
 
     feedContainer.appendChild(card);
 
-    // Sum residence times
-    if (port.vessels) {
+    if (port.vessels && Array.isArray(port.vessels)) {
       port.vessels.forEach(v => {
-        totalHoursSum += v.residenceHours || 0;
+        totalHoursSum += parseFloat(v.residenceHours || 0);
         totalVesselsCount++;
       });
     }
@@ -141,7 +162,6 @@ function getPortPopupHtml(port) {
   let vesselListHtml = '';
   
   if (port.vessels && port.vessels.length > 0) {
-    // Show top 5 highest risk vessels in popup
     const sortedVessels = [...port.vessels].sort((a, b) => b.biosecurityRiskScore - a.biosecurityRiskScore).slice(0, 5);
     vesselListHtml = sortedVessels.map(v => `
       <div class="text-[10px] py-1 border-b border-slate-700/50 flex justify-between items-center">
@@ -157,12 +177,12 @@ function getPortPopupHtml(port) {
     <div class="p-1 text-xs max-w-xs">
       <div class="font-bold text-sm text-cyan-300 mb-1">${port.portName} (2025)</div>
       <div class="space-y-0.5 my-2 text-[11px]">
-        <div class="text-red-400 font-semibold">🔴 High Fouling Risk (≥70%): ${port.highRiskCount} vessels</div>
-        <div class="text-amber-400 font-semibold">🟠 Moderate Vectors (40-69%): ${port.moderateRiskCount} vessels</div>
-        <div class="text-slate-300">🔵 Low Risk (<40%): ${port.lowRiskCount} vessels</div>
+        <div class="text-red-400 font-semibold">🔴 High Fouling Risk (&ge;70%): ${port.highRiskCount || 0} vectors</div>
+        <div class="text-amber-400 font-semibold">🟠 Moderate Vectors (40-69%): ${port.moderateRiskCount || 0} vectors</div>
+        <div class="text-slate-300">🔵 Low Risk (&lt;40%): ${port.lowRiskCount || 0} vectors</div>
       </div>
       <div class="mt-2 pt-2 border-t border-slate-700">
-        <div class="font-bold text-slate-300 mb-1">Recorded Vessel Samples:</div>
+        <div class="font-bold text-slate-300 mb-1">Top Recorded Risk Vectors:</div>
         ${vesselListHtml}
       </div>
       <div class="mt-2 pt-2 border-t border-slate-700 text-right">
@@ -192,7 +212,7 @@ function generatePort2025Report(portName) {
   doc.setTextColor(241, 245, 249);
   doc.setFontSize(12);
   doc.text(`Port: ${portName}`, 14, 30);
-  doc.text(`Total Recorded Visits: ${portData.totalPortVisitEvents || portData.totalPortVisits || 0}`, 14, 38);
+  doc.text(`Total Recorded Visits: ${portData.totalPortVisits || 0}`, 14, 38);
   doc.text(`High Fouling Risk Vessels (>=70%): ${portData.highRiskCount || 0}`, 14, 46);
   doc.text(`Moderate Vector Vessels (40-69%): ${portData.moderateRiskCount || 0}`, 14, 54);
 
