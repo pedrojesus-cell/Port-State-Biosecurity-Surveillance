@@ -8,9 +8,8 @@ CONFIG_DIR = "config"
 OUTPUT_DIR = "data"
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "baseline_risk.json")
 
-# COMPLETE EXHAUSTIVE GEOGRAPHIC COORDINATE MAP
-# Every coastal nation, demonym, island group, and sovereign maritime zone
-MASTER_COORDINATES = {
+# COMPLETE MARITIME EEZ & REGIONAL COORDINATES
+COORDINATE_MAP = {
     # --- SOUTH AMERICA & CARIBBEAN ---
     "guyanese": [5.0000, -58.7000], "guyana": [5.0000, -58.7000],
     "surinamese": [5.8500, -55.2000], "suriname": [5.8500, -55.2000],
@@ -41,7 +40,6 @@ MASTER_COORDINATES = {
     "qatari": [25.3548, 51.1839], "qatar": [25.3548, 51.1839],
     "eritrean": [15.1700, 39.7800], "eritrea": [15.1700, 39.7800],
     "egyptian": [29.9600, 32.5500], "egypt": [29.9600, 32.5500],
-    "saudi": [26.4300, 50.1000], "kuwaiti": [29.3700, 47.9700],
 
     # --- MEDITERRANEAN & BLACK SEA ---
     "maltese": [35.8900, 14.5100], "malta": [35.8900, 14.5100],
@@ -57,7 +55,7 @@ MASTER_COORDINATES = {
 
     # --- NORTHERN & WESTERN EUROPE ---
     "french": [48.3900, -4.4800], "france": [48.3900, -4.4800],
-    "british": [50.8000, -1.0800], "uk": [50.8000, -1.0800], "united kingdom": [50.8000, -1.0800],
+    "british": [50.8000, -1.0800], "uk": [50.8000, -1.0800],
     "irish": [51.8900, -8.4700], "ireland": [51.8900, -8.4700],
     "dutch": [51.9800, 3.9000], "netherlands": [51.9800, 3.9000],
     "german": [53.5500, 9.9900], "germany": [53.5500, 9.9900],
@@ -67,10 +65,8 @@ MASTER_COORDINATES = {
     "norwegian": [60.3900, 5.3200], "norway": [60.3900, 5.3200],
     "finnish": [60.1700, 24.9400], "finland": [60.1700, 24.9400],
     "polish": [54.3500, 18.6600], "poland": [54.3500, 18.6600],
-    "estonian": [59.4400, 24.7500], "latvian": [56.9500, 24.1000],
-    "lithuanian": [55.7100, 21.1300], "icelandic": [64.1400, -21.9400],
 
-    # --- AFRICA, ASIA & OCEANIA ---
+    # --- AFRICA & ASIA ---
     "moroccan": [35.7800, -5.8000], "morocco": [35.7800, -5.8000],
     "algerian": [36.7500, 3.0500], "algeria": [36.7500, 3.0500],
     "tunisian": [36.8000, 10.1800], "tunisia": [36.8000, 10.1800],
@@ -79,12 +75,10 @@ MASTER_COORDINATES = {
     "angolan": [-8.8300, 13.2300], "angola": [-8.8300, 13.2300],
     "japanese": [35.4400, 139.6300], "japan": [35.4400, 139.6300],
     "chinese": [31.2300, 121.4700], "china": [31.2300, 121.4700],
-    "singaporean": [1.2900, 103.8500], "singapore": [1.2900, 103.8500],
-    "russian": [43.0800, 131.8700], "russia": [43.0800, 131.8700]
+    "singaporean": [1.2900, 103.8500], "singapore": [1.2900, 103.8500]
 }
 
-def clean_display_title(filename):
-    """Parses clean display titles from raw CSV filenames."""
+def clean_title(filename):
     base = os.path.basename(filename).replace(".csv", "").replace("_", " ").replace("-", " ")
     clean = re.sub(r'port\s+visit\s+events?', '', base, flags=re.IGNORECASE)
     clean = re.sub(r'exclusive\s+economic\s+zone', '', clean, flags=re.IGNORECASE)
@@ -92,51 +86,38 @@ def clean_display_title(filename):
     clean = re.sub(r'202\d.*', '', clean).strip()
     return clean.title() if clean else "Monitored Zone"
 
-def resolve_coordinates(title_str, filename_str):
-    """Maps dataset titles directly to true maritime coastal coordinates."""
-    lookup = f"{title_str} {filename_str}".lower()
-    
-    # Priority matching for specific sub-regions/islands
+def get_coordinates(title, filename):
+    lookup = f"{title} {filename}".lower()
     if "madeira" in lookup: return [32.6500, -16.9000]
     if "azores" in lookup: return [37.7400, -25.6600]
     if "canary" in lookup: return [28.1200, -15.4300]
-
-    for key, coords in MASTER_COORDINATES.items():
+    
+    for key, coords in COORDINATE_MAP.items():
         if key in lookup:
             return coords
-
-    # Strict fallback (Portuguese coast) if an unmapped nation is uploaded
     return [38.7100, -9.1300]
 
-def process_all_config_csvs():
+def process_datasets():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     
     all_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
-    
-    # EXCLUDE master reference files (e.g. gfw_anchorages.csv) so they don't become blank cards
-    event_csv_files = [
-        f for f in all_files 
-        if "anchorage" not in os.path.basename(f).lower() 
-        and "anchorages" not in os.path.basename(f).lower()
-    ]
+    # Exclude reference anchorages files
+    csv_files = [f for f in all_files if "anchorage" not in os.path.basename(f).lower()]
 
-    if not event_csv_files:
-        print(f"NOTICE: No port visit CSV files found inside '{CONFIG_DIR}/'.")
+    if not csv_files:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as out:
             json.dump([], out)
         return
 
-    print(f"Processing {len(event_csv_files)} datasets from '{CONFIG_DIR}/'...")
+    results = []
 
-    processed_data = []
+    for file_path in csv_files:
+        fname = os.path.basename(file_path)
+        title = clean_title(fname)
+        coords = get_coordinates(title, fname)
 
-    for file_path in event_csv_files:
-        filename = os.path.basename(file_path)
-        display_title = clean_display_title(filename)
-        coords = resolve_coordinates(display_title, filename)
-
-        record_entry = {
-            "portName": display_title,
+        entry = {
+            "portName": title,
             "year": 2026,
             "location": coords,
             "totalPortVisits": 0,
@@ -155,54 +136,47 @@ def process_all_config_csvs():
                     vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
                     mmsi = str(row.get("mmsi") or row.get("ssvid") or f"273{idx:06d}").strip()
                     flag = str(row.get("flag") or row.get("flag_translated") or "UNK").strip()
-                    vessel_type = str(row.get("gfw_vessel_type") or row.get("vessel_type") or "Merchant/Carrier").strip()
+                    vessel_type = str(row.get("gfw_vessel_type") or row.get("vessel_type") or "Carrier/Merchant").strip()
 
                     try:
-                        total_visits = float(row.get("total_port_visit_events") or row.get("total_visits") or 1)
+                        visits = float(row.get("total_port_visit_events") or row.get("total_visits") or 1)
                     except (ValueError, TypeError):
-                        total_visits = 1.0
+                        visits = 1.0
 
-                    # Residence time per visit (hours) capped at 168 hours (7 days continuous)
-                    residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
+                    residence_hrs = float(round(min(168.0, max(6.0, visits * 0.25)), 1))
 
-                    # Biosecurity Risk Assessment Categorization
-                    if total_visits >= 15:
-                        risk_score = 0.92
-                        risk_category = "High Fouling Risk"
-                        record_entry["highRiskCount"] += 1
-                    elif total_visits >= 5:
-                        risk_score = 0.65
-                        risk_category = "Moderate Vector"
-                        record_entry["moderateRiskCount"] += 1
+                    if visits >= 15:
+                        risk_score, risk_cat = 0.92, "High Fouling Risk"
+                        entry["highRiskCount"] += 1
+                    elif visits >= 5:
+                        risk_score, risk_cat = 0.65, "Moderate Vector"
+                        entry["moderateRiskCount"] += 1
                     else:
-                        risk_score = 0.35
-                        risk_category = "Low Risk"
-                        record_entry["lowRiskCount"] += 1
+                        risk_score, risk_cat = 0.35, "Low Risk"
+                        entry["lowRiskCount"] += 1
 
-                    record_entry["totalPortVisits"] += int(total_visits)
-                    record_entry["vessels"].append({
+                    entry["totalPortVisits"] += int(visits)
+                    entry["vessels"].append({
                         "mmsi": mmsi,
                         "vesselName": vessel_name,
                         "flag": flag,
                         "vesselType": vessel_type if vessel_type.lower() != "other" else "Carrier/Merchant",
                         "residenceHours": residence_hrs,
                         "biosecurityRiskScore": risk_score,
-                        "riskCategory": risk_category,
-                        "totalEvents": int(total_visits)
+                        "riskCategory": risk_cat,
+                        "totalEvents": int(visits)
                     })
                 except Exception:
-                    continue  # Skip unparseable row without failing script
+                    continue
 
-            processed_data.append(record_entry)
+            results.append(entry)
 
-        except Exception as e:
-            print(f"Warning: Skipping unreadable file '{filename}': {e}")
+        except Exception as err:
+            print(f"Skipping unreadable file {fname}: {err}")
 
-    # Export clean JSON output
+    # Output using native json library to prevent int64 serialization errors
     with open(OUTPUT_FILE, "w", encoding="utf-8") as out:
-        json.dump(processed_data, out, indent=2)
-
-    print(f"SUCCESS: Exported {len(processed_data)} EEZ records to '{OUTPUT_FILE}'.")
+        json.dump(results, out, indent=2)
 
 if __name__ == "__main__":
-    process_all_config_csvs()
+    process_datasets()
