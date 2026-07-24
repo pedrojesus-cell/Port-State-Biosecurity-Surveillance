@@ -95,6 +95,7 @@ def get_coords(title_str, filename_str):
     return [38.7100, -9.1300]
 
 def process_all_config_csvs():
+    os.makedirs("data", exist_ok=True)
     all_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
     csv_files = [
         f for f in all_files 
@@ -103,70 +104,71 @@ def process_all_config_csvs():
     ]
 
     if not csv_files:
-        os.makedirs("data", exist_ok=True)
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
     port_summary = {}
 
     for f in csv_files:
-        display_title = clean_title(f)
-        coords = get_coords(display_title, os.path.basename(f))
-
-        if display_title not in port_summary:
-            port_summary[display_title] = {
-                "portName": display_title,
-                "year": 2026,
-                "location": coords,
-                "totalPortVisits": 0,
-                "highRiskCount": 0,
-                "moderateRiskCount": 0,
-                "lowRiskCount": 0,
-                "vessels": []
-            }
-
         try:
+            display_title = clean_title(f)
+            coords = get_coords(display_title, os.path.basename(f))
+
+            if display_title not in port_summary:
+                port_summary[display_title] = {
+                    "portName": display_title,
+                    "year": 2026,
+                    "location": coords,
+                    "totalPortVisits": 0,
+                    "highRiskCount": 0,
+                    "moderateRiskCount": 0,
+                    "lowRiskCount": 0,
+                    "vessels": []
+                }
+
             df = pd.read_csv(f, low_memory=False)
-            df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
+            df.columns = [str(c).lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
 
             for idx, row in df.iterrows():
-                vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
-                mmsi = str(row.get("mmsi") or row.get("ssvid") or f"273{idx:06d}").strip()
-                flag = str(row.get("flag") or row.get("flag_translated") or "UNK").strip()
-                vessel_type = str(row.get("gfw_vessel_type") or row.get("vessel_type") or "Merchant/Carrier").strip()
-
                 try:
-                    total_visits = float(row.get("total_port_visit_events") or row.get("total_visits") or 1)
-                except (ValueError, TypeError):
-                    total_visits = 1.0
+                    vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
+                    mmsi = str(row.get("mmsi") or row.get("ssvid") or f"273{idx:06d}").strip()
+                    flag = str(row.get("flag") or row.get("flag_translated") or "UNK").strip()
+                    vessel_type = str(row.get("gfw_vessel_type") or row.get("vessel_type") or "Merchant/Carrier").strip()
 
-                residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
+                    try:
+                        total_visits = float(row.get("total_port_visit_events") or row.get("total_visits") or 1)
+                    except (ValueError, TypeError):
+                        total_visits = 1.0
 
-                if total_visits >= 15:
-                    risk_score, risk_category = 0.92, "High Fouling Risk"
-                    port_summary[display_title]["highRiskCount"] += 1
-                elif total_visits >= 5:
-                    risk_score, risk_category = 0.65, "Moderate Vector"
-                    port_summary[display_title]["moderateRiskCount"] += 1
-                else:
-                    risk_score, risk_category = 0.35, "Low Risk"
-                    port_summary[display_title]["lowRiskCount"] += 1
+                    residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
 
-                port_summary[display_title]["totalPortVisits"] += int(total_visits)
-                port_summary[display_title]["vessels"].append({
-                    "mmsi": mmsi,
-                    "vesselName": vessel_name,
-                    "flag": flag,
-                    "vesselType": vessel_type if vessel_type.lower() != "other" else "Carrier/Merchant",
-                    "residenceHours": residence_hrs,
-                    "biosecurityRiskScore": risk_score,
-                    "riskCategory": risk_category,
-                    "totalEvents": int(total_visits)
-                })
-        except Exception as e:
-            print(f"Error reading {f}: {e}")
+                    if total_visits >= 15:
+                        risk_score, risk_category = 0.92, "High Fouling Risk"
+                        port_summary[display_title]["highRiskCount"] += 1
+                    elif total_visits >= 5:
+                        risk_score, risk_category = 0.65, "Moderate Vector"
+                        port_summary[display_title]["moderateRiskCount"] += 1
+                    else:
+                        risk_score, risk_category = 0.35, "Low Risk"
+                        port_summary[display_title]["lowRiskCount"] += 1
 
-    os.makedirs("data", exist_ok=True)
+                    port_summary[display_title]["totalPortVisits"] += int(total_visits)
+                    port_summary[display_title]["vessels"].append({
+                        "mmsi": mmsi,
+                        "vesselName": vessel_name,
+                        "flag": flag,
+                        "vesselType": vessel_type if vessel_type.lower() != "other" else "Carrier/Merchant",
+                        "residenceHours": residence_hrs,
+                        "biosecurityRiskScore": risk_score,
+                        "riskCategory": risk_category,
+                        "totalEvents": int(total_visits)
+                    })
+                except Exception as row_err:
+                    continue
+        except Exception as file_err:
+            print(f"Skipping unreadable file {f}: {file_err}")
+
     pd.DataFrame(list(port_summary.values())).to_json("data/baseline_risk.json", orient="records")
 
 if __name__ == "__main__":
