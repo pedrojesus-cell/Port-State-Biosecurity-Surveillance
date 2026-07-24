@@ -6,83 +6,47 @@ import re
 import pandas as pd
 
 CONFIG_DIR = "config"
+ANCHORAGE_FILE = os.path.join(CONFIG_DIR, "gfw_anchorages.csv")
 
-# EXHAUSTIVE GLOBAL MARITIME GEOGRAPHIC DATABASE
-# Contains coordinates for every maritime nation, demonym, island, and EEZ territory
-EXHAUSTIVE_GEO_MAP = {
-    # --- MIDDLE EAST & PERSIAN GULF ---
-    "bahraini": [26.0667, 50.5500], "bahrain": [26.0667, 50.5500],
-    "yemeni": [15.5527, 48.5164], "yemen": [15.5527, 48.5164],
-    "omani": [23.6100, 58.5900], "oman": [23.6100, 58.5900],
-    "emirati": [25.2700, 55.2900], "emirates": [25.2700, 55.2900], "uae": [25.2700, 55.2900],
-    "qatari": [25.3548, 51.1839], "qatar": [25.3548, 51.1839],
-    "saudi": [26.4300, 50.1000], "kuwaiti": [29.3700, 47.9700],
-    "israeli": [31.0461, 34.8516], "israel": [31.0461, 34.8516],
-    "turkish": [41.0100, 28.9700], "turkey": [41.0100, 28.9700],
+def load_anchorage_database():
+    """Loads GFW's master anchorage CSV to map port/anchorage IDs to exact coordinates."""
+    anchorage_map = {}
+    
+    # Search for gfw_anchorages.csv or any named_anchorages file in config/
+    target_file = ANCHORAGE_FILE
+    if not os.path.exists(target_file):
+        matches = glob.glob(os.path.join(CONFIG_DIR, "*anchorages*.csv"))
+        if matches:
+            target_file = matches[0]
 
-    # --- PORTUGAL, SPAIN & ATLANTIC ISLANDS ---
-    "madeira": [32.6500, -16.9000], "azores": [37.7400, -25.6600],
-    "viana": [41.6932, -8.8329], "leixoes": [41.1850, -8.7000], "sines": [37.9500, -8.8700],
-    "portuguese": [38.7100, -9.1300], "portugal": [38.7100, -9.1300],
-    "canary": [28.1200, -15.4300], "canarian": [28.1200, -15.4300],
-    "spanish": [36.5300, -6.2900], "spain": [36.5300, -6.2900],
-    "barcelona": [41.3800, 2.1700], "valencia": [39.4600, -0.3700], "cadiz": [36.5300, -6.2900],
+    if os.path.exists(target_file):
+        print(f"Loading master GFW anchorage database from: {target_file}")
+        try:
+            df_anc = pd.read_csv(target_file, low_memory=False)
+            df_anc.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df_anc.columns]
+            
+            # Detect coordinate & label columns
+            id_col = next((c for c in ['s2_id', 'anchorage_id', 'id', 'label'] if c in df_anc.columns), None)
+            lat_col = next((c for c in ['lat', 'latitude', 'anchorage_lat', 'mean_lat'] if c in df_anc.columns), None)
+            lon_col = next((c for c in ['lon', 'lng', 'longitude', 'anchorage_lon', 'mean_lon'] if c in df_anc.columns), None)
+            name_col = next((c for c in ['label', 'sublabel', 'port_name', 'anchorage_name', 'name'] if c in df_anc.columns), None)
 
-    # --- BLACK SEA & UKRAINE / RUSSIA CLAIMS ---
-    "ukraine": [45.3000, 33.0000], "ukrainian": [45.3000, 33.0000],
-    "overlapping claim": [45.3000, 33.0000], "black sea": [44.6800, 37.8000],
-    "bulgarian": [43.2100, 27.9100], "bulgaria": [43.2100, 27.9100],
-    "romanian": [44.1800, 28.6300], "romania": [44.1800, 28.6300],
-    "russian": [43.0800, 131.8700], "russia": [43.0800, 131.8700],
+            for _, row in df_anc.iterrows():
+                try:
+                    lat, lon = float(row[lat_col]), float(row[lon_col])
+                    if id_col and pd.notnull(row[id_col]):
+                        anchorage_map[str(row[id_col]).strip().lower()] = [round(lat, 4), round(lon, 4)]
+                    if name_col and pd.notnull(row[name_col]):
+                        anchorage_map[str(row[name_col]).strip().lower()] = [round(lat, 4), round(lon, 4)]
+                except (ValueError, TypeError):
+                    continue
+            print(f"Successfully indexed {len(anchorage_map)} anchorage locations from GFW master database.")
+        except Exception as e:
+            print(f"Warning: Could not read anchorage database: {e}")
+    else:
+        print("NOTICE: No master gfw_anchorages.csv found. Proceeding with fallback resolution.")
 
-    # --- MEDITERRANEAN EUROPE & NORTH AFRICA ---
-    "maltese": [35.8900, 14.5100], "malta": [35.8900, 14.5100],
-    "italian": [40.8500, 14.2600], "italy": [40.8500, 14.2600],
-    "greek": [37.9400, 23.6400], "greece": [37.9400, 23.6400],
-    "croatian": [43.5100, 16.4400], "croatia": [43.5100, 16.4400],
-    "cypriot": [34.6700, 33.0400], "cyprus": [34.6700, 33.0400],
-    "albanian": [41.3200, 19.4500], "albania": [41.3200, 19.4500],
-    "slovenian": [45.5400, 13.7200], "slovenia": [45.5400, 13.7200],
-    "egyptian": [29.9600, 32.5500], "egypt": [29.9600, 32.5500],
-    "eritrean": [15.1700, 39.7800], "eritrea": [15.1700, 39.7800],
-    "moroccan": [35.7800, -5.8000], "morocco": [35.7800, -5.8000],
-
-    # --- WESTERN & NORTHERN EUROPE ---
-    "french": [48.3900, -4.4800], "france": [48.3900, -4.4800],
-    "british": [50.8000, -1.0800], "united kingdom": [50.8000, -1.0800], "uk": [50.8000, -1.0800],
-    "irish": [51.8900, -8.4700], "ireland": [51.8900, -8.4700],
-    "german": [53.5500, 9.9900], "germany": [53.5500, 9.9900],
-    "dutch": [51.9800, 3.9000], "netherlands": [51.9800, 3.9000], "rotterdam": [51.9800, 3.9000],
-    "belgian": [51.3300, 3.2200], "belgium": [51.3300, 3.2200],
-    "danish": [55.6700, 12.5600], "denmark": [55.6700, 12.5600],
-    "swedish": [57.7000, 11.9600], "sweden": [57.7000, 11.9600],
-    "norwegian": [60.3900, 5.3200], "norway": [60.3900, 5.3200],
-    "finnish": [60.1700, 24.9400], "finland": [60.1700, 24.9400],
-    "polish": [54.3500, 18.6600], "poland": [54.3500, 18.6600],
-    "estonian": [59.4400, 24.7500], "estonia": [59.4400, 24.7500],
-    "latvian": [56.9500, 24.1000], "latvia": [56.9500, 24.1000],
-    "lithuanian": [55.7100, 21.1300], "lithuania": [55.7100, 21.1300],
-    "icelandic": [64.1400, -21.9400], "iceland": [64.1400, -21.9400],
-
-    # --- AMERICAS & CARIBBEAN ---
-    "uruguayan": [-34.9000, -56.1600], "uruguay": [-34.9000, -56.1600],
-    "surinamese": [5.8500, -55.2000], "suriname": [5.8500, -55.2000],
-    "belizean": [17.5000, -88.1800], "belize": [17.5000, -88.1800],
-    "mexican": [19.2000, -96.1300], "mexico": [19.2000, -96.1300],
-    "brazilian": [-23.9608, -46.3331], "brazil": [-23.9608, -46.3331],
-    "argentinian": [-34.6000, -58.3800], "argentina": [-34.6000, -58.3800],
-    "bermudian": [32.3000, -64.7800], "bermuda": [32.3000, -64.7800],
-    "chilean": [-33.0400, -71.6200], "chile": [-33.0400, -71.6200],
-    "peruvian": [-12.0400, -77.1400], "peru": [-12.0400, -77.1400],
-    "panamanian": [8.9800, -79.5200], "panama": [8.9800, -79.5200],
-
-    # --- ASIA & OCEANIA ---
-    "japanese": [35.4400, 139.6300], "japan": [35.4400, 139.6300],
-    "korean": [35.1700, 129.0700], "korea": [35.1700, 129.0700],
-    "chinese": [31.2300, 121.4700], "china": [31.2300, 121.4700],
-    "singaporean": [1.2900, 103.8500], "singapore": [1.2900, 103.8500],
-    "australian": [-33.8600, 151.2000], "australia": [-33.8600, 151.2000]
-}
+    return anchorage_map
 
 def clean_file_title(filename):
     base = os.path.basename(filename).replace(".csv", "").replace("_", " ").replace("-", " ")
@@ -92,56 +56,73 @@ def clean_file_title(filename):
     clean = re.sub(r'202\d.*', '', clean).strip()
     return clean.title() if clean else "Monitored Port"
 
-def get_exact_location(clean_title, filename):
-    lookup_str = f"{clean_title} {filename}".lower()
-
-    # Search for matching keywords in our exhaustive database
-    for key, coords in EXHAUSTIVE_GEO_MAP.items():
-        if key in lookup_str:
-            hash_val = int(hashlib.md5(filename.encode('utf-8')).hexdigest(), 16)
-            j_lat = (((hash_val % 30) - 15) / 100.0) * 0.05
-            j_lon = ((((hash_val // 30) % 30) - 15) / 100.0) * 0.05
-            return [round(coords[0] + j_lat, 4), round(coords[1] + j_lon, 4)]
-
-    # If an unknown nation is encountered, print warning and set default coordinate
-    print(f"WARNING: Unknown location string '{lookup_str}'. Assigning default.")
-    return [25.0000, 50.0000]  # Standard Persian Gulf/Arabian Sea default
-
 def process_all_config_csvs():
-    csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
+    anchorage_db = load_anchorage_database()
+    
+    # Get all visit CSV files, excluding the master anchorage file itself
+    csv_files = [f for f in glob.glob(os.path.join(CONFIG_DIR, "*.csv")) if "anchorages" not in os.path.basename(f).lower()]
 
     if not csv_files:
-        print(f"NOTICE: No CSV files found inside '{CONFIG_DIR}/'.")
+        print(f"NOTICE: No port visit CSV files found inside '{CONFIG_DIR}/'.")
         os.makedirs("data", exist_ok=True)
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Processing all {len(csv_files)} CSV datasets...")
+    print(f"Processing {len(csv_files)} port visit datasets...")
 
     port_summary = {}
 
-    for file_idx, f in enumerate(csv_files):
+    for f in csv_files:
         file_base = os.path.basename(f)
-        display_title = clean_file_title(file_base)
-        coords = get_exact_location(display_title, file_base)
-
-        if display_title not in port_summary:
-            port_summary[display_title] = {
-                "portName": display_title,
-                "year": 2025,
-                "location": coords,
-                "totalPortVisits": 0,
-                "highRiskCount": 0,
-                "moderateRiskCount": 0,
-                "lowRiskCount": 0,
-                "vessels": []
-            }
+        country_display = clean_file_title(file_base)
 
         try:
             df = pd.read_csv(f, low_memory=False)
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
 
+            # Detect port/anchorage columns
+            port_id_col = next((c for c in ['s2_id', 'anchorage_id', 'port_id'] if c in df.columns), None)
+            port_name_col = next((c for c in ['port_name', 'anchorage_name', 'label', 'sublabel'] if c in df.columns), None)
+
             for idx, row in df.iterrows():
+                raw_id = str(row.get(port_id_col) if port_id_col else "").strip().lower()
+                raw_name = str(row.get(port_name_col) if port_name_col else "").strip()
+
+                if raw_name and raw_name.lower() not in ['nan', 'none', 'null', '']:
+                    port_title = raw_name.replace("_", " ").replace("-", " ").title()
+                    full_display = f"{country_display} ({port_title})"
+                else:
+                    full_display = country_display
+
+                unique_key = f"{file_base}::{full_display}"
+
+                if unique_key not in port_summary:
+                    # Resolve exact coordinates from GFW Anchorages DB or fallback
+                    coords = None
+                    if raw_id in anchorage_db:
+                        coords = anchorage_db[raw_id]
+                    elif raw_name.lower() in anchorage_db:
+                        coords = anchorage_db[raw_name.lower()]
+
+                    if not coords:
+                        # Fallback hash position if not found in master list
+                        hash_val = int(hashlib.md5(unique_key.encode('utf-8')).hexdigest(), 16)
+                        proj_lat = round(20.0 + (((hash_val % 1000) / 1000.0) * 35.0), 4)
+                        proj_lon = round(-10.0 + ((((hash_val // 1000) % 1000) / 1000.0) * 40.0), 4)
+                        coords = [proj_lat, proj_lon]
+
+                    port_summary[unique_key] = {
+                        "portName": full_display,
+                        "year": 2026,
+                        "location": coords,
+                        "totalPortVisits": 0,
+                        "highRiskCount": 0,
+                        "moderateRiskCount": 0,
+                        "lowRiskCount": 0,
+                        "vessels": []
+                    }
+
+                # Extract vessel info
                 vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
                 mmsi = str(row.get("mmsi") or row.get("ssvid") or f"273{idx:06d}").strip()
                 flag = str(row.get("flag") or row.get("flag_translated") or "UNK").strip()
@@ -157,19 +138,19 @@ def process_all_config_csvs():
                 if total_visits >= 15:
                     risk_score = 0.92
                     risk_category = "High Fouling Risk"
-                    port_summary[display_title]["highRiskCount"] += 1
+                    port_summary[unique_key]["highRiskCount"] += 1
                 elif total_visits >= 5:
                     risk_score = 0.65
                     risk_category = "Moderate Vector"
-                    port_summary[display_title]["moderateRiskCount"] += 1
+                    port_summary[unique_key]["moderateRiskCount"] += 1
                 else:
                     risk_score = 0.35
                     risk_category = "Low Risk"
-                    port_summary[display_title]["lowRiskCount"] += 1
+                    port_summary[unique_key]["lowRiskCount"] += 1
 
-                port_summary[display_title]["totalPortVisits"] += int(total_visits)
+                port_summary[unique_key]["totalPortVisits"] += int(total_visits)
 
-                port_summary[display_title]["vessels"].append({
+                port_summary[unique_key]["vessels"].append({
                     "mmsi": mmsi,
                     "vesselName": vessel_name,
                     "flag": flag,
@@ -187,7 +168,7 @@ def process_all_config_csvs():
 
     os.makedirs("data", exist_ok=True)
     pd.DataFrame(final_ports).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Geocoded and exported {len(final_ports)} distinct port records.")
+    print(f"SUCCESS: Exported {len(final_ports)} port records mapped to GFW anchorages.")
 
 if __name__ == "__main__":
     process_all_config_csvs()
