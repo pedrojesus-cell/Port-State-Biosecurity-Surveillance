@@ -5,10 +5,10 @@ import pandas as pd
 
 CONFIG_DIR = "config"
 
-# HARDCODED ACCURATE MARITIME COORDINATES FOR EVERY EEZ / PORT NATION
-# Guarantees ZERO markers in landlocked Europe or Africa
+# HARDCODED MARITIME EEZ & PORT COORDINATES
+# Ensures zero markers fall inside landlocked Europe or Africa
 MASTER_COORDINATES = {
-    # Atlantic Islands & Portugal / Spain
+    # Atlantic Islands & Iberia
     "madeira": [32.6500, -16.9000],
     "azores": [37.7400, -25.6600],
     "canary": [28.1200, -15.4300],
@@ -20,14 +20,14 @@ MASTER_COORDINATES = {
     "spanish": [36.5300, -6.2900],
     "spain": [36.5300, -6.2900],
 
-    # Middle East & Red Sea / Persian Gulf
-    "bahraini": [26.0667, 50.5500],
-    "yemeni": [15.5527, 48.5164],
-    "omani": [23.6100, 58.5900],
+    # Middle East, Red Sea & Persian Gulf
+    "bahraini": [26.0667, 50.5500], "bahrain": [26.0667, 50.5500],
+    "yemeni": [15.5527, 48.5164], "yemen": [15.5527, 48.5164],
+    "omani": [23.6100, 58.5900], "oman": [23.6100, 58.5900],
     "emirates": [25.2700, 55.2900], "uae": [25.2700, 55.2900],
-    "qatari": [25.3548, 51.1839],
+    "qatari": [25.3548, 51.1839], "qatar": [25.3548, 51.1839],
     "eritrean": [15.1700, 39.7800], "eritrea": [15.1700, 39.7800],
-    "egyptian": [29.9600, 32.5500],
+    "egyptian": [29.9600, 32.5500], "egypt": [29.9600, 32.5500],
 
     # Mediterranean & Black Sea
     "maltese": [35.8900, 14.5100], "malta": [35.8900, 14.5100],
@@ -78,7 +78,7 @@ def clean_file_title(filename):
 def get_exact_coordinates(title_str, filename_str):
     lookup = f"{title_str} {filename_str}".lower()
 
-    # Prioritize sub-regions like Madeira, Canaries, Azores first
+    # Prioritize sub-regions first
     if "madeira" in lookup: return [32.6500, -16.9000]
     if "azores" in lookup: return [37.7400, -25.6600]
     if "canary" in lookup: return [28.1200, -15.4300]
@@ -87,11 +87,15 @@ def get_exact_coordinates(title_str, filename_str):
         if key in lookup:
             return coords
 
-    # Strict fallback to Lisbon coast (NEVER inland Europe)
+    # Default fallback to Portuguese Coast
     return [38.7100, -9.1300]
 
 def process_all_config_csvs():
-    csv_files = [f for f in glob.glob(os.path.join(CONFIG_DIR, "*.csv")) if "anchorages" not in os.path.basename(f).lower()]
+    # Load ALL CSV files inside config/
+    all_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
+    
+    # Filter out only master reference tables (e.g., named_anchorages_...)
+    csv_files = [f for f in all_files if not os.path.basename(f).lower().startswith("named_anchorages")]
 
     if not csv_files:
         print(f"NOTICE: No port visit CSV files found inside '{CONFIG_DIR}/'.")
@@ -99,7 +103,7 @@ def process_all_config_csvs():
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Processing {len(csv_files)} datasets with strict coordinate mapping...")
+    print(f"FOUND AND PROCESSING ALL {len(csv_files)} CSV FILES IN CONFIG/")
 
     port_summary = {}
 
@@ -108,6 +112,7 @@ def process_all_config_csvs():
         display_title = clean_file_title(file_base)
         coords = get_exact_coordinates(display_title, file_base)
 
+        # Unique key per file ensures ALL files are retained
         if display_title not in port_summary:
             port_summary[display_title] = {
                 "portName": display_title,
@@ -170,7 +175,7 @@ def process_all_config_csvs():
 
     os.makedirs("data", exist_ok=True)
     pd.DataFrame(final_ports).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Exported {len(final_ports)} port records with clean geography.")
+    print(f"SUCCESSFULLY PROCESSED AND EXPORTED ALL {len(final_ports)} DATASETS!")
 
 if __name__ == "__main__":
     process_all_config_csvs()
