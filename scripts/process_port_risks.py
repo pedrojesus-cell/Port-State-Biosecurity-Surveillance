@@ -1,14 +1,11 @@
 import os
 import glob
-import sys
 import hashlib
 import re
 import pandas as pd
 
 CONFIG_DIR = "config"
 
-# EXHAUSTIVE GLOBAL MARITIME GEOGRAPHIC DATABASE
-# Contains coordinates for every maritime nation, demonym, island, and EEZ territory
 EXHAUSTIVE_GEO_MAP = {
     # --- MIDDLE EAST & PERSIAN GULF ---
     "bahraini": [26.0667, 50.5500], "bahrain": [26.0667, 50.5500],
@@ -88,14 +85,17 @@ def clean_file_title(filename):
     base = os.path.basename(filename).replace(".csv", "").replace("_", " ").replace("-", " ")
     clean = re.sub(r'port\s+visit\s+events?', '', base, flags=re.IGNORECASE)
     clean = re.sub(r'exclusive\s+economic\s+zone', '', clean, flags=re.IGNORECASE)
-    clean = re.sub(r'eez', '', clean, flags=re.IGNORECASE)
-    clean = re.sub(r'202\d.*', '', clean).strip()
+    clean = re.sub(r'\beez\b', '', clean, flags=re.IGNORECASE)
+    clean = re.sub(r'\b202\d\b.*', '', clean).strip()
     return clean.title() if clean else "Monitored Port"
+
+def extract_year_from_filename(filename, default_year=2025):
+    match = re.search(r'\b(202\d)\b', filename)
+    return int(match.group(1)) if match else default_year
 
 def get_exact_location(clean_title, filename):
     lookup_str = f"{clean_title} {filename}".lower()
 
-    # Search for matching keywords in our exhaustive database
     for key, coords in EXHAUSTIVE_GEO_MAP.items():
         if key in lookup_str:
             hash_val = int(hashlib.md5(filename.encode('utf-8')).hexdigest(), 16)
@@ -103,9 +103,8 @@ def get_exact_location(clean_title, filename):
             j_lon = ((((hash_val // 30) % 30) - 15) / 100.0) * 0.05
             return [round(coords[0] + j_lat, 4), round(coords[1] + j_lon, 4)]
 
-    # If an unknown nation is encountered, print warning and set default coordinate
     print(f"WARNING: Unknown location string '{lookup_str}'. Assigning default.")
-    return [25.0000, 50.0000]  # Standard Persian Gulf/Arabian Sea default
+    return [25.0000, 50.0000]
 
 def process_all_config_csvs():
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
@@ -117,18 +116,18 @@ def process_all_config_csvs():
         return
 
     print(f"Processing all {len(csv_files)} CSV datasets...")
-
     port_summary = {}
 
-    for file_idx, f in enumerate(csv_files):
+    for f in csv_files:
         file_base = os.path.basename(f)
         display_title = clean_file_title(file_base)
         coords = get_exact_location(display_title, file_base)
+        file_year = extract_year_from_filename(file_base)
 
         if display_title not in port_summary:
             port_summary[display_title] = {
                 "portName": display_title,
-                "year": 2025,
+                "year": file_year,
                 "location": coords,
                 "totalPortVisits": 0,
                 "highRiskCount": 0,
@@ -140,15 +139,19 @@ def process_all_config_csvs():
         try:
             df = pd.read_csv(f, low_memory=False)
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
-
-            for idx, row in df.iterrows():
+            
+            # Fast dictionary iteration over rows
+            records = df.to_dict(orient="records")
+            
+            for idx, row in enumerate(records):
                 vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
                 mmsi = str(row.get("mmsi") or row.get("ssvid") or f"273{idx:06d}").strip()
                 flag = str(row.get("flag") or row.get("flag_translated") or "UNK").strip()
                 vessel_type = str(row.get("gfw_vessel_type") or row.get("vessel_type") or "Merchant/Carrier").strip()
 
+                raw_visits = row.get("total_port_visit_events") or row.get("total_visits") or 1
                 try:
-                    total_visits = float(row.get("total_port_visit_events") or row.get("total_visits") or 1)
+                    total_visits = float(raw_visits)
                 except (ValueError, TypeError):
                     total_visits = 1.0
 
@@ -168,7 +171,6 @@ def process_all_config_csvs():
                     port_summary[display_title]["lowRiskCount"] += 1
 
                 port_summary[display_title]["totalPortVisits"] += int(total_visits)
-
                 port_summary[display_title]["vessels"].append({
                     "mmsi": mmsi,
                     "vesselName": vessel_name,
@@ -186,8 +188,8 @@ def process_all_config_csvs():
     final_ports = list(port_summary.values())
 
     os.makedirs("data", exist_ok=True)
-    pd.DataFrame(final_ports).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Geocoded and exported {len(final_ports)} distinct port records.")
+    pd.DataFrame(final_ports).to_json("data/baseline_risk.json", orient="records", indent=2)
+    print(f"SUCCESS: Geocoded and exported {len(final_ports)} distinct port records to 'data/baseline_risk.json'.")
 
 if __name__ == "__main__":
     process_all_config_csvs()
