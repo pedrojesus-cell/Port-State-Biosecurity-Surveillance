@@ -1,0 +1,232 @@
+name,MMSI,flag,flag translated,GFW vessel type,Total port_visit events,vesselId,dataset
+Pipit,740373000,FLK,Falkland Islands (Malvinas),Passenger,31,580920978-8d92-04ca-38de-d6b6a69462ae,public-global-vessel-identity:v4.0
+Prion,740374000,FLK,Falkland Islands (Malvinas),Other,21,6a2daf2bc-c79c-4e09-103b-ae28aff1035f,public-global-vessel-identity:v4.0
+Silver Wind,308814000,BHS,Bahamas,Passenger,7,2d35bfe50-0b35-3a82-6494-f783fe6dffd1,public-global-vessel-identity:v4.0
+Fram,258932000,NOR,Norway,Passenger,6,248d92b8c-c550-b269-8e91-de031ee45cb4,public-global-vessel-identity:v4.0
+Sea Spirit,255806397,PRT,Portugal,Passenger,6,24a86ec7e-e41b-e7ad-8e2e-5c4708fef43c,public-global-vessel-identity:v4.0
+Scenic Eclipse,311000995,BHS,Bahamas,Passenger,5,e2e04030e-ef6a-9b76-b6b4-1c1afc24668a,public-global-vessel-identity:v4.0
+Le Lyrial,578000800,WLF,Wallis and Futuna,Passenger,5,c5d7b3e02-2b3f-9fde-0a1f-d507dfa7693d,public-global-vessel-identity:v4.0
+Hondius,244327000,NLD,Netherlands,Passenger,5,2d396eff6-6be3-7c38-f1ed-3c48e4f209e1,public-global-vessel-identity:v4.0
+Silver Cloud,309027000,BHS,Bahamas,Passenger,5,814a5527b-b0c7-601d-cc15-f5babe822f4b,public-global-vessel-identity:v4.0
+Le Boreal,578000500,WLF,Wallis and Futuna,Passenger,5,8db2dcbb8-8f90-7111-b085-dd4a063b178b,public-global-vessel-identity:v4.0
+Endurance Zodiac 10,983110300,---,---,Passenger,4,6821bc870-010b-466e-1d36-60b052765e75,public-global-vessel-identity:v4.0
+Molly,235115596,GBR,United Kingdom,Other,4,bc7545168-818b-0d58-bfdf-be16abf55e5d,public-global-vessel-identity:v4.0
+Hanseatic Nature,215768000,MLT,Malta,Passenger,3,25a490739-90d4-0fa9-fd31-659c11b1f36c,public-global-vessel-identity:v4.0
+Silver Endeavour,311000932,BHS,Bahamas,Passenger,3,ef523f4f9-9ea7-1254-ab9b-94ce926cfdba,public-global-vessel-identity:v4.0
+Fr Zodiak 07,982570207,---,---,Passenger,3,26df752f2-2440-4e50-922a-708fef6a8dd0,public-global-vessel-identity:v4.0
+Zodiac 21,982570242,---,---,Passenger,3,5c1741120-067c-942d-ae43-28f4c844c0ab,public-global-vessel-identity:v4.0
+Sh Diana,636093228,LBR,Liberia,Passenger,3,bf1813ec2-2358-c741-0e64-b6f80912adb8,public-global-vessel-identity:v4.0
+Unknown vessel,235115598,GBR,United Kingdom,Other,3,2219e7744-4128-6415-8577-e8816d2a4fe5,public-global-vessel-identity:v4.0
+Plancius,246573000,NLD,Netherlands,Passenger,3,eb3ae9248-8c74-3b85-de27-31010e87afd5,public-global-vessel-identity:v4.0
+Endurance Zodiac 15,983110303,---,---,Passenger,3,51a7e391e-edd5-20d8-7607-f735ba1f9a0d,public-global-vessel-identity:v4.0
+Endurance Zodiac 08,983110298,---,---,Passenger,3,dc61c4913-32e7-07d2-81a0-aba7e245a68d,public-global-vessel-identity:v4.0
+Seaventure,311001633,BHS,Bahamas,Passenger,3,1fd24c4c5-5d92-3b0b-9d96-e41cd602df2b,public-global-vessel-identity:v4.0
+Nat Franklin,982157686,---,---,Passenger,3,569d59c34-4bd9-7fdb-1099-a23d8185073f,public-global-vessel-identity:v4.0
+Ortelius,244180151,NLD,Netherlands,Other,3,0ad5b4dea-a985-9eb4-c7f1-9457c763285f,public-global-vessel-identity:v4.0
+Ng Endurance,311000929,BHS,Bahamas,Passenger,3,3c3d01ce1-1db8-64ee-db0c-73c86f2f9aec,public-global-vessel-identity:v4.0
+Ocean Albatros,255915656,PRT,Portugal,Passenger,3,49066034a-a69b-c169-803c-24280902a4f7,public-global-vessel-identity:v4.0
+Magellan Explorer,311000728,BHS,Bahamas,Passenger,3,b4c0ad281-1f0a-06ef-ff3e-30c89a016725,public-global-vessel-identity:v4.0
+L`Austral,578000700,WLF,Wallis and Futuna,Passenger,3,227985e71-1ee0-7055-b45c-d2fff0ba2c1d,public-global-vessel-identity:v4.0
+Meredian,671546100,TGO,Togo,Passenger,3,7eb402b38-8b41-58d5-18e8-11e98aa2f433,public-global-vessel-identity:v4.0
+Sylvia Earle,311000867,BHS,Bahamas,Passenger,3,081400e70-0a09-69c4-53c0-577f94753b65,public-global-vessel-identity:v4.0
+Amundsen,319753600,CYM,Cayman Islands,Passenger,3,b94d72722-204a-6cd0-2c95-2cd5b963dd10,public-global-vessel-identity:v4.0
+Wind 16,983110454,---,---,Passenger,3,a83ac5fa0-00ee-095f-dd9a-099e1da7c1c9,public-global-vessel-identity:v4.0
+Zodiac 23,982570223,---,---,Passenger,2,6c9444fd2-22fe-3467-2d9a-015adc63d7a7,public-global-vessel-identity:v4.0
+Endurance Zodiac 11,983110301,---,---,Passenger,2,6d942ebe5-5226-4aa2-baee-e20b474c7337,public-global-vessel-identity:v4.0
+Ocean Explorer,255806393,PRT,Portugal,Passenger,2,1ecdcc27c-c573-9b9b-8981-d9a0beb2658e,public-global-vessel-identity:v4.0
+Zodiac 3^2C Ortelius,982440031,---,---,Passenger,2,6bfd7f334-40b0-f818-b893-c85add5af357,public-global-vessel-identity:v4.0
+Greg Mortimer,255806396,PRT,Portugal,Passenger,2,542fb8f97-7796-9d83-4d23-da027bf39ec4,public-global-vessel-identity:v4.0
+"Zodiac 1, Ortelius",982440029,---,---,Passenger,2,6986a84c2-2e2c-4cd5-15b0-353b821e0442,public-global-vessel-identity:v4.0
+Viking Octantis,259070000,NOR,Norway,Cargo,2,c19d16ba5-5adb-e7a3-676a-b7bc6c2bcfc0,public-global-vessel-identity:v4.0
+Endurance Zodiac 09,983110299,---,---,Passenger,2,50ecc6787-7d1a-6101-1cf0-f254004de181,public-global-vessel-identity:v4.0
+Unknown vessel,982570182,---,---,Passenger,2,a6f3a953b-ba4d-a790-55d5-e39401c4db84,public-global-vessel-identity:v4.0
+Cloud 15,983110155,---,---,Passenger,2,9db7e3a30-04db-788c-41b4-a81818d8c04d,public-global-vessel-identity:v4.0
+Endurance Zodiac 07,983110297,---,---,Passenger,2,1a537c6e5-513f-8f9c-6837-b0cd801a2603,public-global-vessel-identity:v4.0
+Icebird,375264000,VCT,Saint Vincent and the Grenadines,Other,2,fda856c68-8965-e540-ff9b-04a30da624a2,public-global-vessel-identity:v4.0
+Aus-03,985780033,---,---,Passenger,2,6ac2870d1-115e-60e1-30eb-2df67954f616,public-global-vessel-identity:v4.0
+Fr Zodiak 12,982570212,---,---,Passenger,2,068b61b1d-d14c-979c-98b5-80fd421644d4,public-global-vessel-identity:v4.0
+"Zodiac 10, Ortelius",982440038,---,---,Passenger,2,20f0e5429-9e40-304e-a338-e7963b4e117a,public-global-vessel-identity:v4.0
+Cloud 18,983110183,---,---,Passenger,2,66e2bc5a7-7c5e-f986-c2c0-57e4bac904aa,public-global-vessel-identity:v4.0
+Nordic Prince,665111130,SHN,Saint Helena,Fishing,2,dbf8a59dc-c9d3-eb3c-80e1-0597e13175c0,public-global-vessel-identity:v4.0
+Cloud 21,983110161,---,---,Passenger,2,2c07b81e7-7ba2-4fb0-2dbd-80bd51f0623f,public-global-vessel-identity:v4.0
+Hanseaticinspiration,215766000,MLT,Malta,Passenger,2,8414a39d0-002b-5c14-e310-55cf6557ed00,public-global-vessel-identity:v4.0
+Ng Resolution,311000893,BHS,Bahamas,Other,2,5193a151b-b466-4585-f776-e30a7b35d3ff,public-global-vessel-identity:v4.0
+Sea 12,982100012,---,---,Other,2,d89159a60-0359-59c1-e23b-201978edb1c1,public-global-vessel-identity:v4.0
+Seabourn Pursuit,311001081,BHS,Bahamas,Passenger,2,f1a737800-004a-04b3-f9b4-bbfe2dda6b84,public-global-vessel-identity:v4.0
+Unknown vessel,982570183,---,---,Passenger,2,bb165e036-69de-746c-fea6-b5dcfa6b76a7,public-global-vessel-identity:v4.0
+Wind 08,983110445,---,---,Passenger,2,737dc5ad5-5e0b-89a5-e923-068cf769170c,public-global-vessel-identity:v4.0
+Ushuaia,671188100,TGO,Togo,Other,2,28e1dea6a-a4e2-7197-01bf-aa00f8ae5560,public-global-vessel-identity:v4.0
+World Voyager,255806150,PRT,Portugal,Passenger,2,35bbe7cdc-ce8f-6de2-7195-f1d0d75f86b8,public-global-vessel-identity:v4.0
+Wind 23,983110460,---,---,Passenger,2,150435514-4ec4-8f7a-5b35-d23f7cfab4c5,public-global-vessel-identity:v4.0
+Fr Zodiak 10,982570210,---,---,Passenger,2,58f0e3b6b-b9b0-393a-8549-ed5f8669500b,public-global-vessel-identity:v4.0
+"Zodiac 12, Plancius",982440028,---,---,Passenger,2,8280c243c-c92a-bd8a-432d-6cfbbbee6427,public-global-vessel-identity:v4.0
+"Zodiac 9, Ortelius",982440037,---,---,Passenger,2,1eb2cc3a7-73e9-e6b0-f6b1-27b4146f4e29,public-global-vessel-identity:v4.0
+Zodiac 08^2C Hondius,982440008,---,---,Other,2,234997004-4c38-491d-69a1-21f1a4a3e86f,public-global-vessel-identity:v4.0
+Sooty,235115598,GBR,United Kingdom,Other,2,7bccfb06e-e68f-d8ba-538a-8b21a5d8715b,public-global-vessel-identity:v4.0
+Sil,740356000,FLK,Falkland Islands (Malvinas),Fishing,2,2bf709078-8b2c-8db8-3f02-0ba6d2e5746f,public-global-vessel-identity:v4.0
+Aus-4,985780051,---,---,Passenger,2,ca7f7df82-25cb-5a81-b9fc-106bc41f3444,public-global-vessel-identity:v4.0
+Zodiac 12^2C Hondius,982440012,---,---,Passenger,2,a3a90b2f7-7814-413c-054f-fb4901f171c9,public-global-vessel-identity:v4.0
+Zodiac 31,982570224,---,---,Passenger,2,0a3c2e88c-c8a4-7651-0612-55f61f9edd41,public-global-vessel-identity:v4.0
+Vinson Of Antarctica,319207600,CYM,Cayman Islands,Passenger,2,35a9fbc40-0885-30fb-6b3a-3b7e2806dfed,public-global-vessel-identity:v4.0
+Wind 03,983110440,---,---,Passenger,2,900d75da9-96f9-ec71-7a95-41f3380a8a70,public-global-vessel-identity:v4.0
+Ocean Victory,255806394,PRT,Portugal,Passenger,2,069b4bc62-2565-1f27-2cb2-f5c9feac7452,public-global-vessel-identity:v4.0
+Sir D. Attenborough,740405000,FLK,Falkland Islands (Malvinas),Seismic vessel,2,84157556e-eafd-0655-42d6-89e45f12a954,public-global-vessel-identity:v4.0
+"Zodiac 6, Ortelius",982440034,---,---,Other,2,2100bd04f-f5cd-f9f3-b7f0-a3650ba34a80,public-global-vessel-identity:v4.0
+Fr Zodiak 02,982570202,---,---,Passenger,2,00a7f5244-4b53-aa24-20ab-c741ee4d08dc,public-global-vessel-identity:v4.0
+Nat Humboldt,982157689,---,---,Passenger,2,c20676387-7e3f-2c71-5b93-214e2fa8f4ad,public-global-vessel-identity:v4.0
+Fr Zodiak 06,982570206,---,---,Passenger,2,c64a8d29f-f567-15b4-6b0e-53898cf5f488,public-global-vessel-identity:v4.0
+World Voyager 05,982550070,---,---,Passenger,2,07b7678af-ff1e-5d2e-b703-92a568dd2c43,public-global-vessel-identity:v4.0
+Nat Livingstone,982151768,---,---,Passenger,2,6e9a0de0c-ce02-c847-d264-3531fab463a7,public-global-vessel-identity:v4.0
+Aus-11,985780031,---,---,Passenger,2,91310c915-5d53-a9c4-0748-c951d670d2c0,public-global-vessel-identity:v4.0
+Silver En Zodiac 06,983110223,---,---,Passenger,2,36bf67539-931e-3152-5d66-e6372c3f907d,public-global-vessel-identity:v4.0
+Wind 04,983110441,---,---,Passenger,2,395a2e6ee-e05e-c456-2f08-b485ce76c8bf,public-global-vessel-identity:v4.0
+Zodiac 13^2C Hondius,982440013,---,---,Other,2,26520fcf4-4bff-24ca-ec4c-c821c5089b52,public-global-vessel-identity:v4.0
+Zodiac 13,982570229,---,---,Passenger,2,36590b8f4-462a-908d-7852-c68bf389a8c5,public-global-vessel-identity:v4.0
+"Zodiac 5, Ortelius",982440033,---,---,Passenger,2,90a9662c5-5c0f-7478-2ae4-cf501d24f3d2,public-global-vessel-identity:v4.0
+"Zodiac 2, Ortelius",982440030,---,---,Other,2,0a8bd6cc9-9212-761e-40e1-afcd5d20f87c,public-global-vessel-identity:v4.0
+Nat Wegener,982157680,---,---,Passenger,2,444b8501d-d761-86b5-5441-1583cc67e27b,public-global-vessel-identity:v4.0
+Unknown vessel,982570230,---,---,Passenger,2,f969e77c4-4329-f230-95b0-7f38fb8b4025,public-global-vessel-identity:v4.0
+Silver En Zodiac 1,983110215,---,---,Passenger,2,d5226d3d7-7a7b-7086-d0f8-95a295b487f2,public-global-vessel-identity:v4.0
+Zodiac 1,982570237,---,---,Passenger,2,0ce522e97-7fab-55d0-9519-28bab1a9eadd,public-global-vessel-identity:v4.0
+Zodiac 07^2C Hondius,982440007,---,---,Passenger,2,cf520ebbf-f733-3847-dc2b-8d0b10b19f2d,public-global-vessel-identity:v4.0
+Unknown vessel,983110596,---,---,Other,1,e0620cfce-ecd0-db24-3cb2-f4ec2cd6f004,public-global-vessel-identity:v4.0
+Zodiac 2 Plancius,982440018,---,---,Passenger,1,aadd6fb80-0c31-034b-25b1-d204f085f62a,public-global-vessel-identity:v4.0
+Zodiac 7,982570240,---,---,Passenger,1,1f9b1e7e1-1c29-7d6d-d07b-77d131fc58a1,public-global-vessel-identity:v4.0
+Aus-05,985780035,---,---,Passenger,1,46eef3110-0b76-372f-7575-7fcaa4dff2c7,public-global-vessel-identity:v4.0
+Aus-10,985780027,---,---,Other,1,a74666a48-88c5-ed34-6372-4b77dcf7e024,public-global-vessel-identity:v4.0
+Unknown vessel,309581760,BHS,Bahamas,Passenger,1,bdc007b09-9559-28a6-667e-dc64db36cd77,public-global-vessel-identity:v4.0
+"Zodiac 5, Plancius",982440021,---,---,Passenger,1,bb3d8bc73-31a6-78c0-6014-cd8eb936fcdd,public-global-vessel-identity:v4.0
+Wind 20,983110443,---,---,Passenger,1,b6cfcfb66-6a78-9448-535b-63f40ca830dc,public-global-vessel-identity:v4.0
+Nat Cousteau,982153768,---,---,Passenger,1,443fe4cb8-8bea-6318-729a-1605f88ed96c,public-global-vessel-identity:v4.0
+Boreal Axe 12,985780023,---,---,Other,1,145043142-2c28-3c8a-9247-f08ee510fb6a,public-global-vessel-identity:v4.0
+Zodiac 14^2C Hondius,982440014,---,---,Other,1,f92987b5b-bb22-cf98-5b0c-1ffa89ba7cbf,public-global-vessel-identity:v4.0
+Ocean Nova,309051000,BHS,Bahamas,Passenger,1,d4c0def2c-c9ff-9a71-0658-f8964b248e2d,public-global-vessel-identity:v4.0
+World Explorer,255806193,PRT,Portugal,Passenger,1,4fa92459e-eb1a-d733-ecc3-f69c162e3955,public-global-vessel-identity:v4.0
+Silver Ev Zodiac 8,983110222,---,---,Passenger,1,095fc3fe6-66e6-32a2-bb58-d1518026e3a0,public-global-vessel-identity:v4.0
+Island Sky,311743000,BHS,Bahamas,Passenger,1,7d435b8d4-42c8-f724-843d-17f4938a5845,public-global-vessel-identity:v4.0
+Sea 8,982100008,---,---,Gear,1,173199b36-66bc-7b42-d3c6-6bcda574d8ac,public-global-vessel-identity:v4.0
+Endurance Zodiac 04,983110294,---,---,Passenger,1,66cdd332b-b9a9-a02a-9832-e1f5ce2d0fea,public-global-vessel-identity:v4.0
+Wind 10,983110447,---,---,Passenger,1,8cca03aff-f7fb-d8ed-be0a-0ee118bbfb52,public-global-vessel-identity:v4.0
+Pursuit Zodiac I,983110357,---,---,Passenger,1,f705bdb18-8116-df93-fa4e-9d9455865360,public-global-vessel-identity:v4.0
+Unknown vessel,235115596,GBR,United Kingdom,Other,1,b7607b9ac-c874-77d2-1ec8-78d13d71ca1c,public-global-vessel-identity:v4.0
+Resolution Zodiac 14,983110423,---,---,Passenger,1,2d5e1f0f5-54cc-2174-e095-a5e5bdc1bff2,public-global-vessel-identity:v4.0
+Pursuit Zodiac B,983110350,---,---,Passenger,1,85f7aeddf-f84c-d916-defd-83eb1f653abc,public-global-vessel-identity:v4.0
+Endurance Zodiac 12,983110302,---,---,Passenger,1,3c8fa1716-6308-2131-4796-91141af9c457,public-global-vessel-identity:v4.0
+Venture Zodiac M,983110337,---,---,Passenger,1,b4e2409fb-b203-25fe-376b-57abef86061d,public-global-vessel-identity:v4.0
+Firebird,235114751,GBR,United Kingdom,Passenger,1,7fa09d9f0-0cdd-3011-6c76-8df6d7952f13,public-global-vessel-identity:v4.0
+Silver En Zodiac 18,983110223,---,---,Passenger,1,b6acb69e2-233e-c18f-878c-15e96ee4f9ee,public-global-vessel-identity:v4.0
+Resolution Zodiac 13,983110422,---,---,Passenger,1,863577c33-3614-ecff-fb93-680ff7602e34,public-global-vessel-identity:v4.0
+Boreal Axe 05,985780016,---,---,Other,1,5f10e4afd-d886-27e4-0aa0-e402dc26aa63,public-global-vessel-identity:v4.0
+Oosterschelde,246011000,NLD,Netherlands,Passenger,1,0cd595e5a-a817-1ee0-5e74-eec0284aacc8,public-global-vessel-identity:v4.0
+LL Zodiac 04,985780039,---,---,Passenger,1,569223f85-52a0-452c-5a69-87bad2661dc2,public-global-vessel-identity:v4.0
+Resolution Zodiac 8,983110417,---,---,Passenger,1,716f74d5c-c08b-813c-b598-bbdf786608fc,public-global-vessel-identity:v4.0
+Boreal Axe 07,985780017,---,---,Other,1,46905dfad-da58-b470-f208-51079e33136e,public-global-vessel-identity:v4.0
+Wind 11,983110448,---,---,Other,1,adc1e7e6a-a1ab-1613-0bc7-70ee8f26f620,public-global-vessel-identity:v4.0
+Venture Zodiac I,983110330,---,---,Passenger,1,43b31d3b1-1962-0960-f639-3dbc8672488a,public-global-vessel-identity:v4.0
+Ngex Zodiac #3,983110612,---,---,Other,1,c1c7c5d43-3c38-f668-84ab-f518b450936a,public-global-vessel-identity:v4.0
+Cloud 5,983110145,---,---,Passenger,1,f26774bf0-07d6-d5bd-6070-e7650e260304,public-global-vessel-identity:v4.0
+Pursuit Zodiac K,983110359,---,---,Passenger,1,ee91bad62-205c-740d-af5d-306fa4f46855,public-global-vessel-identity:v4.0
+World Voyager 11,982550076,---,---,Passenger,1,3788b5655-5818-3817-0ab5-8deb9c234325,public-global-vessel-identity:v4.0
+Ngex Zodiac #5,983110614,---,---,Other,1,39f2d3e7c-c394-fa21-a5c9-3746a4c2009f,public-global-vessel-identity:v4.0
+Zodiac 17,982570233,---,---,Passenger,1,346e02227-72d4-6a7f-f1a9-5f75f9f63ce7,public-global-vessel-identity:v4.0
+"Zodiac 8, Plancius",982440024,---,---,Passenger,1,0bab9663c-cb8f-c899-6cbf-846aadd1d347,public-global-vessel-identity:v4.0
+Silver En Zodiac 2,983110220,---,---,Passenger,1,dc45d7658-8098-3c14-087a-28162b56cf0f,public-global-vessel-identity:v4.0
+Ng Explorer,309336000,BHS,Bahamas,Passenger,1,3240a0e40-09d9-c96e-ce06-4aac47869831,public-global-vessel-identity:v4.0
+World Voyager 02,982550067,---,---,Passenger,1,41d6a5c7a-afbb-d326-74fd-2691dfc1e0f4,public-global-vessel-identity:v4.0
+Resolution Zodiac 2,983110411,---,---,Passenger,1,2a6af3c6f-f87b-32c4-22f9-85168de82bd7,public-global-vessel-identity:v4.0
+Isky Ais - D,983110249,---,---,Passenger,1,ab090f3a8-8c47-646a-0154-3192e67ea2a8,public-global-vessel-identity:v4.0
+Cloud 13,983110153,---,---,Passenger,1,a58dc11d1-1e0e-0da5-fda7-8551bca33969,public-global-vessel-identity:v4.0
+Oalb-Zodiac-02,591565602,---,---,Passenger,1,256748e2d-d558-3ec8-90fd-3d7b8a7d7d66,public-global-vessel-identity:v4.0
+Bering,368091410,USA,United States of America,Passenger,1,64fc2096c-c09b-cc8f-0539-0e597c45535c,public-global-vessel-identity:v4.0
+Venture Zodiac B,983110326,---,---,Passenger,1,8eab3332d-dd08-dc26-52cb-b9cd26a6bdd9,public-global-vessel-identity:v4.0
+Cloud 19,983110184,---,---,Other,1,e6127890c-c5ae-7123-6712-92f69845a35f,public-global-vessel-identity:v4.0
+Wind 25,368091490,USA,United States of America,Passenger,1,33f433613-3595-243a-4602-6b1faec083e9,public-global-vessel-identity:v4.0
+World Voyager 01,982550066,---,---,Other,1,f49b01f98-828c-297b-e0c0-c792232c610e,public-global-vessel-identity:v4.0
+Silver Ev Zodiac 9,983110214,---,---,Passenger,1,29a9cd639-9616-2b43-62f4-3f414783ab89,public-global-vessel-identity:v4.0
+Zodiac 16^2C Hondius,982440016,---,---,Passenger,1,476e34e1f-f7b6-0e21-687a-108e73d87b2a,public-global-vessel-identity:v4.0
+Ocean Endeavour,255806401,PRT,Portugal,Other,1,b392c4631-1b6b-19f2-8d6f-5011007af6e4,public-global-vessel-identity:v4.0
+Cloud 23,983110159,---,---,Passenger,1,0e5ce82da-a7b3-32a8-3fd1-595e3f7f8d3e,public-global-vessel-identity:v4.0
+Wind 17,368091810,USA,United States of America,Other,1,5970b48ed-d972-517f-8f14-7b977dafe58a,public-global-vessel-identity:v4.0
+Unknown vessel,982570209,---,---,Passenger,1,5f4e20474-4efa-92dd-32d6-013482f40e6d,public-global-vessel-identity:v4.0
+World Voyager 12,982550077,---,---,Passenger,1,ab867d791-1d4a-7334-cb36-9565ffb2596b,public-global-vessel-identity:v4.0
+Zodiac 09^2C Hondius,982440009,---,---,Passenger,1,fb02a4f2d-d0d4-7265-f631-20f8781c73e3,public-global-vessel-identity:v4.0
+Cloud 16,983110156,---,---,Other,1,b1b2d392a-a403-2326-acab-45a36e533e76,public-global-vessel-identity:v4.0
+Expedition,255806402,PRT,Portugal,Passenger,1,9297ec449-9333-7ebf-c0b9-cb123a5353a7,public-global-vessel-identity:v4.0
+Fr Zodiak 01,982570201,---,---,Passenger,1,7efb5c9dc-c1c2-2998-d1fe-1d713bab64e4,public-global-vessel-identity:v4.0
+Sola,577670000,VUT,Vanuatu,Fishing,1,07f71510d-d821-87cc-a2df-2138d15e9abe,public-global-vessel-identity:v4.0
+Venture Zodiac L,983110333,---,---,Passenger,1,6e80d7eb6-65a8-fcb6-ecd8-7089d9edc82a,public-global-vessel-identity:v4.0
+Resolution Zodiac 7,983110416,---,---,Passenger,1,ee3506743-3808-41bd-edc9-71ecfc261704,public-global-vessel-identity:v4.0
+Zodiac 27,982570231,---,---,Passenger,1,cb5f362d2-2cf2-8538-eec4-d37c1212b2fb,public-global-vessel-identity:v4.0
+Resolution Zodiac 15,983110424,---,---,Passenger,1,1c5764fb1-14c3-93ae-4c4b-8bdb60011322,public-global-vessel-identity:v4.0
+Zodiac 10,338348867,USA,United States of America,Passenger,1,bd7c9293c-cebe-ca52-ac05-b670631aa122,public-global-vessel-identity:v4.0
+Pursuit Zodiac F,983110354,---,---,Passenger,1,6d6fde345-5a51-d34e-e2c8-7dcce7b5659f,public-global-vessel-identity:v4.0
+Zodiac 5,982570226,---,---,Passenger,1,c326ec04d-d136-d2f5-ec5d-06f145d4b6c8,public-global-vessel-identity:v4.0
+Oalb-Zodiac-05,591565605,---,---,Other,1,d95379446-6008-9e98-04cd-7f60a9df0954,public-global-vessel-identity:v4.0
+Zodiac 02^2C Hondius,982440002,---,---,Passenger,1,90c55c970-0eb2-9f8a-b8df-980d724609f5,public-global-vessel-identity:v4.0
+Terror,740409000,FLK,Falkland Islands (Malvinas),Other,1,61c0db1e9-9b06-271e-7bdb-07e390cdec99,public-global-vessel-identity:v4.0
+Oalb-Zodiac-09,591565609,---,---,Passenger,1,9e0194395-50a4-88ad-4e06-8bd9d988e0c7,public-global-vessel-identity:v4.0
+Silver En Zodiac 4,983110209,---,---,Passenger,1,eaf599b0b-b7ed-3a18-a235-81a3b95b8f8b,public-global-vessel-identity:v4.0
+Wind 9,983110446,---,---,Passenger,1,8c243f608-8a98-f8ef-92a3-ea3c3a66be10,public-global-vessel-identity:v4.0
+Antarctic Endeavour,725001619,CHL,Chile,Fishing,1,810d76696-6067-e418-cca8-a939d8c5666a,public-global-vessel-identity:v4.0
+Aus-09,985780030,---,---,Passenger,1,04a542477-7d92-7df7-1797-275149292689,public-global-vessel-identity:v4.0
+Unknown vessel,982570240,---,---,Passenger,1,c59eca94b-b6ac-73c6-96bd-ae64a17d1906,public-global-vessel-identity:v4.0
+Europa,246198000,NLD,Netherlands,Other,1,cf24007f9-9b07-3ca1-b6bf-e3cdb025078e,public-global-vessel-identity:v4.0
+Unknown vessel,982570228,---,---,Passenger,1,c799263a8-8a6b-6ded-5310-ff328b60f106,public-global-vessel-identity:v4.0
+Unknown vessel,983110364,---,---,Passenger,1,eb627532a-a251-5982-cb46-2a7643c8b315,public-global-vessel-identity:v4.0
+Unknown vessel,309333952,BHS,Bahamas,Other,1,d59b17b5a-aa0a-2b5e-8b97-b574cb817c57,public-global-vessel-identity:v4.0
+Silver Explorer,311562000,BHS,Bahamas,Passenger,1,398b1b273-3436-ff49-4632-e3b9d713d0da,public-global-vessel-identity:v4.0
+Endurance Zodiac 06,983110296,---,---,Passenger,1,29341bbd1-13e7-cb04-70f1-d2e5412d208a,public-global-vessel-identity:v4.0
+Asteria,518999313,COK,Cook Islands,Other,1,d84e03e8f-f3c9-58fe-f589-d98fe1b0ddfa,public-global-vessel-identity:v4.0
+Cloud 1,983110137,---,---,Passenger,1,6d9112a48-812e-02eb-9c35-dcc1cea38cfb,public-global-vessel-identity:v4.0
+World Voyager 07,982550072,---,---,Passenger,1,9ed661b74-44a2-9f94-12e8-b32e537261bf,public-global-vessel-identity:v4.0
+Unknown vessel,983110461,---,---,Passenger,1,bb1db45d2-26bf-b823-0d0e-84e203772b00,public-global-vessel-identity:v4.0
+Cloud 24,983110160,---,---,Passenger,1,4633fb176-6bc0-455d-58b2-52e7930f77e6,public-global-vessel-identity:v4.0
+Unknown vessel,983110353,---,---,Passenger,1,d135510c7-7043-8935-de51-92ac33e2115e,public-global-vessel-identity:v4.0
+Dive Support,982570213,---,---,Other,1,09274007e-e6e8-bd9d-00c5-9fc450cf0496,public-global-vessel-identity:v4.0
+Unknown vessel,983110362,---,---,Passenger,1,b194bd06a-a99c-f546-1ad5-4ef30b12b365,public-global-vessel-identity:v4.0
+Silver En Zodiac 07,983110221,---,---,Passenger,1,1b456ba29-9758-21b0-6e40-6f7ecb9cc1d6,public-global-vessel-identity:v4.0
+Venture Zodiac F,983110336,---,---,Passenger,1,da90676fc-c641-afcd-c56d-7292aaf46406,public-global-vessel-identity:v4.0
+Unknown vessel,982570231,---,---,Passenger,1,46607e062-2f74-286f-a94d-764e3031f6cc,public-global-vessel-identity:v4.0
+Sea 14,982100014,---,---,Gear,1,191b15269-9eff-c83c-7a95-9a3116e9d2a8,public-global-vessel-identity:v4.0
+Pharos Sg,235011790,GBR,United Kingdom,Other,1,73bf81176-6d3b-3f77-e25c-011ae0580628,public-global-vessel-identity:v4.0
+Fr Zodiak 09,982570209,---,---,Passenger,1,826a3b29f-fa1b-b4a8-568b-41e98a816ce0,public-global-vessel-identity:v4.0
+Petrel,740333000,FLK,Falkland Islands (Malvinas),Fishing,1,d150740ac-c4b5-cdd4-93ed-77b9be7475df,public-global-vessel-identity:v4.0
+Cook,368091290,USA,United States of America,Passenger,1,eac42df79-96c7-213f-e7d2-4667bc95c379,public-global-vessel-identity:v4.0
+Resolution Zodiac 16,983110560,---,---,Passenger,1,04902945c-cd4b-362f-1042-6e2391400fab,public-global-vessel-identity:v4.0
+Pursuit Zodiac D,983110352,---,---,Passenger,1,3fb0d9367-7ed8-3f73-7117-3856f4b6abd8,public-global-vessel-identity:v4.0
+Sh Minerva,636093399,LBR,Liberia,Passenger,1,8424b77af-f232-080e-ef61-0e37d4185d87,public-global-vessel-identity:v4.0
+Sea 13,983110599,---,---,Other,1,87653b649-965e-b480-4a65-d619ee5a6c36,public-global-vessel-identity:v4.0
+Cloud 10,983110150,---,---,Passenger,1,d3198060b-bd99-f01f-ddd7-5d1b3c6308fe,public-global-vessel-identity:v4.0
+Aus-13,985780050,---,---,Passenger,1,17edbf041-1e22-3ecd-a65a-b000eeccaf13,public-global-vessel-identity:v4.0
+Sea 2,982100002,---,---,Gear,1,857b4cfb7-7485-5d9f-fac5-37087b5b7bec,public-global-vessel-identity:v4.0
+Resolution Zodiac 12,983110421,---,---,Passenger,1,40e96d175-50b4-5583-915f-4277bb3a440c,public-global-vessel-identity:v4.0
+Oalb-Zodiac-03,591565603,---,---,Passenger,1,fa8edce79-90f3-a998-dfdc-a935762e7677,public-global-vessel-identity:v4.0
+Sh Vega,636093187,LBR,Liberia,Passenger,1,2e0ef0968-8f34-9cdd-e8c3-db165c260355,public-global-vessel-identity:v4.0
+Isky Ais - F,983110251,---,---,Passenger,1,a12d7a60d-dbe2-9bd9-5e97-35db0ab9b1f8,public-global-vessel-identity:v4.0
+Endurance Zodiac 14,983110304,---,---,Passenger,1,7aad05d3f-fd6c-5d37-f6cb-2214dd7e2c6b,public-global-vessel-identity:v4.0
+Pursuit Zodiac G,983110355,---,---,Passenger,1,9fcba6798-8280-eff7-0720-3354131d6a09,public-global-vessel-identity:v4.0
+Pursuit Zodiac A,983110349,---,---,Passenger,1,fbce57422-2d00-711e-e04d-432a472e8878,public-global-vessel-identity:v4.0
+Isky Ais - H,983110253,---,---,Passenger,1,19cfb5be4-452a-0399-0389-c75cac95ba35,public-global-vessel-identity:v4.0
+Unknown vessel,982570212,---,---,Passenger,1,7b2da55ab-b5f8-72bf-bcd6-ad910c64175d,public-global-vessel-identity:v4.0
+Zodiac 9,982570236,---,---,Passenger,1,7d4056d6b-b19b-c255-d89f-a43f68632d98,public-global-vessel-identity:v4.0
+Expedition,636013956,LBR,Liberia,Passenger,1,e2ff0e27d-d3fa-44b7-d481-920a9ad0f153,public-global-vessel-identity:v4.0
+Wind06,368091310,USA,United States of America,Passenger,1,79ab2d5a7-7b42-f5dd-de8c-ab1fc37c67bb,public-global-vessel-identity:v4.0
+Silver En Zodiac 3,983110208,---,---,Passenger,1,1a82deee5-5893-5a58-29c8-15a4a9c96fe4,public-global-vessel-identity:v4.0
+Me Zodiac 1,986715462,---,---,Other,1,af89ff4f9-9726-5949-7b75-051f375a5894,public-global-vessel-identity:v4.0
+Zodiac 06^2C Hondius,982440006,---,---,Passenger,1,4f16bc83f-fdb9-61b9-4e80-ac2bb551627e,public-global-vessel-identity:v4.0
+Ngex Zodiac #1,983110610,---,---,Other,1,bf392f81f-fb8b-4ad3-2f25-92eeee0d9ef1,public-global-vessel-identity:v4.0
+Isky Ais - B,983110247,---,---,Other,1,343c9e651-11d7-e6b6-ac79-c67363368647,public-global-vessel-identity:v4.0
+Wind 05,983110442,---,---,Passenger,1,4eebf34a7-7d34-75d5-eff5-031568777bb0,public-global-vessel-identity:v4.0
+Endurance Zodiac 05,983110295,---,---,Passenger,1,04aaa69b8-8d07-b3be-4cd8-b2ac8e326985,public-global-vessel-identity:v4.0
+Zodiac 06^2C Planciu,982440022,---,---,Passenger,1,dc6e3bb8a-ac33-efd9-315b-6124a98d8426,public-global-vessel-identity:v4.0
+Unknown vessel,1047533504,---,---,Other,1,a92b39a9a-a134-81cc-80d8-d23434e9dde8,public-global-vessel-identity:v4.0
+Argos Helena,665111132,SHN,Saint Helena,Fishing,1,84d6e84b4-423a-4e70-d349-b7eab2141292,public-global-vessel-identity:v4.0
+Aus-08,985780028,---,---,Other,1,a1e0747c5-5159-5bf6-5e2e-245f3d18ef1e,public-global-vessel-identity:v4.0
+Boreal Axe 11,985780022,---,---,Other,1,c373df8d4-4241-f7ce-c43c-29067378c67a,public-global-vessel-identity:v4.0
+Sea 7,982100007,---,---,Gear,1,2a3da7760-02d3-b7a1-a57f-7bbf96a1fc6a,public-global-vessel-identity:v4.0
+Seabourn Venture,311000930,BHS,Bahamas,Passenger,1,398106466-6dc8-efc8-e8c8-5aaf0155e77c,public-global-vessel-identity:v4.0
+Isky Ais - I,983110254,---,---,Passenger,1,9fa7aa2a1-1eca-0337-70cf-f3ee3ce3d5b8,public-global-vessel-identity:v4.0
+Wind 13,983110450,---,---,Other,1,5cdeb8704-4738-88f9-5828-217a34a41b52,public-global-vessel-identity:v4.0
+Boreal Axe 14,578000515,WLF,Wallis and Futuna,Other,1,0cc3c15b4-45a0-06d0-179f-a8084948f836,public-global-vessel-identity:v4.0
+Zodiac 1  Plancius,982440017,---,---,Passenger,1,00df3cafb-b682-8947-1682-89fbb813e128,public-global-vessel-identity:v4.0
+Wind 26,368091820,USA,United States of America,Passenger,1,0afd59726-6b9f-76d9-f429-36d014d3e92a,public-global-vessel-identity:v4.0

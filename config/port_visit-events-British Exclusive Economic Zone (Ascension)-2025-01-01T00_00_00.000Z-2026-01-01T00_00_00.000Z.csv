@@ -1,0 +1,46 @@
+name,MMSI,flag,flag translated,GFW vessel type,Total port_visit events,vesselId,dataset
+Sea Rescue 1,232059881,GBR,United Kingdom,Other,19,5c2a6256e-e6bf-a9ec-b00d-5f120f61c9b8,public-global-vessel-identity:v4.0
+Bad Company,368304000,USA,United States of America,Other,14,4c64c5748-8b6f-c765-ad64-856580decf20,public-global-vessel-identity:v4.0
+Sea Rescue 1,232030654,GBR,United Kingdom,Other,6,db05201a3-3c3d-8bb0-de00-88d105da1e0a,public-global-vessel-identity:v4.0
+Rupert,232025727,GBR,United Kingdom,Passenger,4,0cdedd74e-efb4-1776-a527-90e61c2a369a,public-global-vessel-identity:v4.0
+Anvil Point,235572000,GBR,United Kingdom,Cargo,3,48fcacd8c-c782-2209-66d9-f06cf0e96cb5,public-global-vessel-identity:v4.0
+Hartland Point,235505000,GBR,United Kingdom,Cargo,3,103f8f90a-a869-95f9-0b6e-be1092bce195,public-global-vessel-identity:v4.0
+Usns Pathfinder,303925000,USA,United States of America,Seismic vessel,2,5a3dff997-72b6-6aa3-6712-28fc2576e6ca,public-global-vessel-identity:v4.0
+Oosterschelde,246011000,NLD,Netherlands,Passenger,2,0cd595e5a-a817-1ee0-5e74-eec0284aacc8,public-global-vessel-identity:v4.0
+Karoline,304924000,ATG,Antigua and Barbuda,Cargo,2,b7c11e9d4-4a34-d457-5926-2b50f9a2b945,public-global-vessel-identity:v4.0
+Cielo DI Rotterdam,636018456,LBR,Liberia,Other,1,e73ec5b08-8231-5c5d-e02a-b266180623aa,public-global-vessel-identity:v4.0
+Pazzo,367660570,USA,United States of America,Passenger,1,ce07db97f-fd2f-834c-78fd-f47f4728efa5,public-global-vessel-identity:v4.0
+Acushnet,368190510,USA,United States of America,Passenger,1,bd06ad8ec-cf3c-04cc-4a31-b48ff6f3fb9d,public-global-vessel-identity:v4.0
+Condor Patagonia,305410000,ATG,Antigua and Barbuda,Cargo,1,e15ab7f4c-cfa0-f447-5187-7bf4ee76b3bd,public-global-vessel-identity:v4.0
+Tatooine,219024792,DNK,Denmark,Passenger,1,8ecf7c792-27ea-f421-c267-e167cfe475bd,public-global-vessel-identity:v4.0
+Tir Na Nog,232038384,GBR,United Kingdom,Passenger,1,86ff0b313-36c9-756e-daed-0c0e34bef535,public-global-vessel-identity:v4.0
+Jefferson Morgan,227701440,FRA,France,Passenger,1,f756f071d-d8a0-ea22-6afa-e71a0164f650,public-global-vessel-identity:v4.0
+Bad Company Support,538071697,MHL,Marshall Islands,Passenger,1,9ce80bcad-d177-cf30-00ff-e8280d52c3b9,public-global-vessel-identity:v4.0
+Poco Loco,235103416,GBR,United Kingdom,Passenger,1,4605815d2-2398-cac5-8fa3-6fe33d92bc21,public-global-vessel-identity:v4.0
+Hermione III,232043757,GBR,United Kingdom,Passenger,1,3a8407fb8-845d-615c-ca51-6eff77239bc8,public-global-vessel-identity:v4.0
+Traverse,232054270,GBR,United Kingdom,Passenger,1,45cc9d319-9cbd-c97b-2f33-3bbc62401d4d,public-global-vessel-identity:v4.0
+Mexican Wave,232046644,GBR,United Kingdom,Passenger,1,3fd4610e3-3624-2d00-4c84-6bd519901cf1,public-global-vessel-identity:v4.0
+Inky Blue,232029602,GBR,United Kingdom,Passenger,1,4544d940f-f4e8-bb85-ac81-03ff15ca2ede,public-global-vessel-identity:v4.0
+Ual Manitoba,255801000,PRT,Portugal,Cargo,1,5056692f1-145c-9dea-1f3d-5bec113532ab,public-global-vessel-identity:v4.0
+Rock Lobster IV,232047223,GBR,United Kingdom,Passenger,1,ef1b6c189-9b56-df68-f379-23b5f850e7e6,public-global-vessel-identity:v4.0
+Navios La Paix,249271000,MLT,Malta,Cargo,1,2fcc8cd00-0d0d-4ddc-0bab-773b14339a46,public-global-vessel-identity:v4.0
+Champagne,265815410,SWE,Sweden,Passenger,1,455528daa-a4fc-6203-f79c-c483635aa403,public-global-vessel-identity:v4.0
+Saint Anselme,227073520,FRA,France,Passenger,1,c84d642e3-3466-6033-6de5-65b087407b1a,public-global-vessel-identity:v4.0
+Karoline,538090710,MHL,Marshall Islands,Cargo,1,083014424-467e-afcc-2d74-5999b3c73f6c,public-global-vessel-identity:v4.0
+Leander Fisher,232058992,GBR,United Kingdom,Other,1,6bade167d-d70e-3b65-3bfe-c819f74cad7a,public-global-vessel-identity:v4.0
+Double Cove,518100576,COK,Cook Islands,Passenger,1,2b58298d2-20da-4b6f-7500-cd7ef06ff2fe,public-global-vessel-identity:v4.0
+Asante,235054148,GBR,United Kingdom,Passenger,1,753034821-17ef-70c3-d116-41f26e2bb91b,public-global-vessel-identity:v4.0
+Qanux Benefit,636024432,LBR,Liberia,Cargo,1,e76fd0103-3436-8f76-2ffd-53da05f8083e,public-global-vessel-identity:v4.0
+Felix Finis,238026000,HRV,Croatia,Passenger,1,41440cb77-7edb-2b78-5467-3ecf72383fcf,public-global-vessel-identity:v4.0
+Ual Castle,255806331,PRT,Portugal,Cargo,1,4ed964b63-3348-19b3-7c12-e319c7d8f349,public-global-vessel-identity:v4.0
+Australe,205278310,BEL,Belgium,Passenger,1,2269bcde3-33e0-7551-59f1-e941012b7376,public-global-vessel-identity:v4.0
+Sancta Anna,261036890,POL,Poland,Passenger,1,ef682f825-54d7-94f1-07fa-4dc3e41086e6,public-global-vessel-identity:v4.0
+Kintsugi,368264230,USA,United States of America,Passenger,1,55ccb7b6b-b813-1fd7-4219-7efc84593cee,public-global-vessel-identity:v4.0
+Unknown vessel,518999119,COK,Cook Islands,Passenger,1,a39d09283-3a84-6374-24c6-050f4a4468dc,public-global-vessel-identity:v4.0
+Roam,378114517,VGB,British Virgin Islands,Passenger,1,a7c5dc0fb-ba79-681d-7ed4-b41e98bdff16,public-global-vessel-identity:v4.0
+Spirit Of Helsinki,230180200,FIN,Finland,Passenger,1,d683bcc0a-a577-d28c-7ead-3495827b6487,public-global-vessel-identity:v4.0
+S/V Yemaya,601105900,ZAF,South Africa,Passenger,1,2ce988433-3475-85d0-c88b-60226426d097,public-global-vessel-identity:v4.0
+Yeoma,228104760,FRA,France,Passenger,1,0307af466-6edb-3f90-04b4-d4cc79088e10,public-global-vessel-identity:v4.0
+Hurst Point,235500000,GBR,United Kingdom,Cargo,1,2433707aa-a89d-4cf7-2934-0571c391d086,public-global-vessel-identity:v4.0
+Talisker,352978191,PAN,Panama,Other,1,7e8d59ec7-771c-fea6-8e50-5ddcdc65d9d0,public-global-vessel-identity:v4.0
+Blacksnapper3,319305200,CYM,Cayman Islands,Passenger,1,44ec83cd9-99ad-ab72-9894-1b57dfff381d,public-global-vessel-identity:v4.0
