@@ -1,158 +1,113 @@
 import os
 import json
-import glob
+import requests
 import pandas as pd
-import geopandas as gpd
-from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+import gfwapiclient as gfw
 
-# Resolve base directories
-BASE_DIR = Path(__file__).resolve().parent.parent
-CONFIG_DIR = BASE_DIR / "config"
-DOCS_DATA_DIR = BASE_DIR / "docs" / "data"
+# 1. Environment Secrets (Provided by GitHub Actions)
+API_TOKEN = os.environ.get("GFW_API_TOKEN")
+DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-# Auto-detect gfw_anchorages with single or double extension
-ANCHORAGE_FILE = CONFIG_DIR / "gfw_anchorages.csv.csv"
-if not ANCHORAGE_FILE.exists():
-    ANCHORAGE_FILE = CONFIG_DIR / "gfw_anchorages.csv"
+# Initialize Global Fishing Watch V3 Client
+client = gfw.Client(access_token=API_TOKEN)
 
-EEZ_GEOJSON = CONFIG_DIR / "marine_regions_eez.geojson"
-OUTPUT_JSON = DOCS_DATA_DIR / "baseline_risk.json"
+def calculate_fouling_risk(speed_knots, residence_hours):
+    """
+    Calculates biosecurity invasion risk indicator:
+    - High port residence (>48 hrs) + low transit speed (<8 knots) = high fouling accumulation risk.
+    """
+    if residence_hours > 48 and speed_knots < 8:
+        return 0.85
+    elif residence_hours > 12:
+        return 0.50
+    return 0.20
 
+def send_discord_alert(record):
+    """Dispatches a rich embed notification card to Discord."""
+    if not DISCORD_WEBHOOK_URL:
+        print("INFO: No DISCORD_WEBHOOK_URL found. Skipping notification.")
+        return
 
-def load_and_standardize_gfw_data():
-    """Load and unify GFW port_visit-events files from /config."""
-    port_pattern = str(CONFIG_DIR / "port_visit-events-*.csv")
-    port_files = glob.glob(port_pattern)
-
-    if not port_files:
-        raise FileNotFoundError(f"No files matching 'port_visit-events-*.csv' found in {CONFIG_DIR}")
-
-    print(f"[+] Found {len(port_files)} GFW port visit log files. Processing...")
-
-    dfs = []
-    for filepath in port_files:
-        try:
-            df = pd.read_csv(filepath)
-            dfs.append(df)
-        except Exception as e:
-            print(f"[!] Warning: Could not read {filepath}: {e}")
-
-    if not dfs:
-        raise ValueError("No valid data frames were loaded.")
-
-    merged = pd.concat(dfs, ignore_index=True)
-
-    # Map GFW column aliases to standard schema
-    col_map = {
-        'ssvid': 'mmsi',
-        'vessel_id': 'mmsi',
-        'ship_name': 'vessel_name',
-        'vessel_label': 'vessel_name',
-        'lat': 'latitude',
-        'start_lat': 'latitude',
-        'anchorage_lat': 'latitude',
-        'lon': 'longitude',
-        'start_lon': 'longitude',
-        'anchorage_lon': 'longitude',
-        'duration_hours': 'residence_hours',
-        'duration_hrs': 'residence_hours'
-    }
-    merged.rename(columns=col_map, inplace=True)
-
-    # Standardize MMSI
-    if 'mmsi' in merged.columns:
-        merged['mmsi'] = merged['mmsi'].astype(str).str.split('.').str[0].str.zfill(9)
-    else:
-        merged['mmsi'] = "UNKNOWN"
-
-    # Standardize Vessel Name
-    if 'vessel_name' not in merged.columns:
-        merged['vessel_name'] = "Unidentified Vessel"
-
-    # Calculate residence time if start/end timestamps are present
-    if 'residence_hours' not in merged.columns:
-        if 'start_timestamp' in merged.columns and 'end_timestamp' in merged.columns:
-            start = pd.to_datetime(merged['start_timestamp'], errors='coerce')
-            end = pd.to_datetime(merged['end_timestamp'], errors='coerce')
-            merged['residence_hours'] = (end - start).dt.total_seconds() / 3600.0
-        else:
-            merged['residence_hours'] = 48.0  # Default baseline assumption
-
-    # Ensure coordinates exist and are numeric
-    merged['latitude'] = pd.to_numeric(merged.get('latitude'), errors='coerce')
-    merged['longitude'] = pd.to_numeric(merged.get('longitude'), errors='coerce')
-
-    # Drop rows without valid coordinates
-    clean_df = merged.dropna(subset=['latitude', 'longitude']).copy()
-    print(f"[+] Successfully standardized {len(clean_df)} vessel event records.")
-    return clean_df
-
-
-def calculate_biosecurity_risk(row):
-    """Calculate normalized hull fouling risk score [0.0 - 1.0]."""
-    residence = float(row.get('residence_hours', 24.0))
-    mgps_active = bool(row.get('mgps_installed', False))
-    days_since_service = float(row.get('days_since_last_mgps_service', 180))
-
-    # Residence risk factor (168h = 1 week baseline)
-    base_score = min(1.0, max(0.05, residence / 168.0))
-
-    # Maintenance modifier
-    mgps_efficiency = 0.85 if (mgps_active and days_since_service < 180) else 0.20
-
-    # Calculated biofouling risk R
-    risk_score = round(min(1.0, max(0.0, base_score * (1.5 - mgps_efficiency))), 3)
-
-    if risk_score >= 0.70:
-        category = "High Fouling Risk"
-    elif risk_score >= 0.35:
-        category = "Moderate Vector"
-    else:
-        category = "Low Risk"
-
-    return pd.Series([risk_score, category], index=['risk_score', 'risk_category'])
-
-
-def main():
-    print("[+] Starting GFW Biosecurity Processing Engine...")
-
-    # 1. Ingest GFW data
-    df = load_and_standardize_gfw_data()
-
-    # 2. Compute Biosecurity Metrics
-    risk_metrics = df.apply(calculate_biosecurity_risk, axis=1)
-    df[['risk_score', 'risk_category']] = risk_metrics
-
-    # 3. Build JSON Output
-    output = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "total_vessels_assessed": len(df),
-        "vessels": []
+    payload = {
+        "username": "Biosecurity Early Warning",
+        "avatar_url": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+        "embeds": [
+            {
+                "title": f"🚨 HIGH-RISK PORT ENTRY DETECTED: {record['vesselName']}",
+                "color": 15548997,  # Red hex code in decimal format
+                "fields": [
+                    {"name": "Vessel / Flag", "value": f"{record['vesselName']} ({record['flag']})", "inline": True},
+                    {"name": "Target Port", "value": str(record['portName']), "inline": True},
+                    {"name": "Risk Score", "value": f"**{(record['biosecurityRiskScore'] * 100):.0f}%**", "inline": True},
+                    {"name": "In-Port Residence", "value": f"{record['residenceHours']:.1f} Hours", "inline": True},
+                    {"name": "MMSI Identifier", "value": str(record['mmsi']), "inline": True},
+                    {"name": "Vessel Type", "value": str(record['vesselType']), "inline": True}
+                ],
+                "footer": {"text": "Global Fishing Watch | Biosecurity Surveillance Engine"},
+                "timestamp": datetime.now(timezone.utc).isoformat()
+            }
+        ]
     }
 
-    for _, r in df.iterrows():
-        output["vessels"].append({
-            "mmsi": str(r["mmsi"]),
-            "vessel_name": str(r["vessel_name"]),
-            "flag": str(r.get("flag", "Unknown")),
-            "latitude": float(r["latitude"]),
-            "longitude": float(r["longitude"]),
-            "port_name": str(r.get("anchorage_name", r.get("port_name", "EEZ Anchorage"))),
-            "residence_hours": round(float(r.get("residence_hours", 0.0)), 1),
-            "mgps_installed": bool(r.get("mgps_installed", False)),
-            "risk_score": float(r["risk_score"]),
-            "risk_category": str(r["risk_category"])
-        })
+    try:
+        response = requests.post(DISCORD_WEBHOOK_URL, json=payload, timeout=10)
+        response.raise_for_status()
+        print(f"SUCCESS: Alert sent for vessel '{record['vesselName']}'.")
+    except Exception as err:
+        print(f"ERROR: Could not post Discord notification: {err}")
 
-    # Ensure docs/data/ exists for GitHub Pages
-    DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
+def fetch_port_biosecurity_events():
+    """Queries GFW API, processes vessel risk, alerts Discord, and saves JSON."""
+    end_date = datetime.now(timezone.utc)
+    start_date = end_date - timedelta(days=14)
+    
+    print(f"Fetching GFW PORT_VISIT events from {start_date.date()} to {end_date.date()}...")
+    
+    events = client.events.get_events(
+        event_type="PORT_VISIT",
+        start_date=start_date.strftime("%Y-%m-%d"),
+        end_date=end_date.strftime("%Y-%m-%d")
+    )
+    
+    processed_records = []
+    
+    for evt in events:
+        vessel_info = evt.get("vessel", {})
+        port_info = evt.get("port_visit", {})
+        residency = port_info.get("durationHrs", 0)
+        
+        risk_index = calculate_fouling_risk(
+            speed_knots=evt.get("meanSpeed", 10),
+            residence_hours=residency
+        )
+        
+        record = {
+            "eventId": evt.get("id"),
+            "vesselName": vessel_info.get("name", "Unknown Vessel"),
+            "mmsi": vessel_info.get("ssvid", "N/A"),
+            "flag": vessel_info.get("flag", "UNK"),
+            "vesselType": vessel_info.get("type", "General Cargo"),
+            "portName": port_info.get("intermediateAnchorage", {}).get("label", "Coastal Anchor"),
+            "lat": evt.get("position", {}).get("lat"),
+            "lon": evt.get("position", {}).get("lon"),
+            "timestamp": evt.get("start"),
+            "residenceHours": residency,
+            "biosecurityRiskScore": risk_index
+        }
 
-    with open(OUTPUT_JSON, "w") as f:
-        json.dump(output, f, indent=2)
+        # Send alert if biosecurity risk threshold is >= 70%
+        if record["biosecurityRiskScore"] >= 0.70:
+            send_discord_alert(record)
 
-    print(f"[✓] Pipeline complete. Published dataset to {OUTPUT_JSON}")
-
+        processed_records.append(record)
+        
+    # Ensure data directory exists and write baseline JSON for GitHub Pages frontend
+    os.makedirs("data", exist_ok=True)
+    output_path = "data/baseline_risk.json"
+    
+    pd.DataFrame(processed_records).to_json(output_path, orient="records", indent=2)
+    print(f"SUCCESS: Exported {len(processed_records)} records to '{output_path}'.")
 
 if __name__ == "__main__":
-    main()
+    fetch_port_biosecurity_events()
