@@ -1,23 +1,80 @@
-[
-  {
-    "portName": "Portugal",
-    "year": 2025,
-    "location": [38.7123, -9.1345],
-    "totalPortVisits": 42,
-    "highRiskCount": 1,
-    "moderateRiskCount": 3,
-    "lowRiskCount": 38,
-    "vessels": [
-      {
-        "mmsi": "273000001",
-        "vesselName": "OCEAN STAR",
-        "flag": "PRT",
-        "vesselType": "Container Ship",
-        "residenceHours": 10.5,
-        "biosecurityRiskScore": 0.65,
-        "riskCategory": "Moderate Vector",
-        "totalEvents": 5
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BaselineBiosecurityRiskReport",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "portName",
+      "year",
+      "location",
+      "totalPortVisits",
+      "highRiskCount",
+      "moderateRiskCount",
+      "lowRiskCount",
+      "vessels"
+    ],
+    "properties": {
+      "portName": {
+        "type": "string",
+        "description": "Cleaned title of the port or EEZ monitored zone"
+      },
+      "year": {
+        "type": "integer",
+        "description": "Calendar year extracted from source filename or default"
+      },
+      "location": {
+        "type": "array",
+        "items": { "type": "number" },
+        "minItems": 2,
+        "maxItems": 2,
+        "description": "[Latitude, Longitude] with applied MD5 coordinate jitter"
+      },
+      "totalPortVisits": {
+        "type": "integer",
+        "description": "Cumulative total of all recorded vessel visit events"
+      },
+      "highRiskCount": {
+        "type": "integer",
+        "description": "Count of vessels with Risk Score >= 0.92 (Visits >= 15)"
+      },
+      "moderateRiskCount": {
+        "type": "integer",
+        "description": "Count of vessels with Risk Score == 0.65 (Visits 5 to 14)"
+      },
+      "lowRiskCount": {
+        "type": "integer",
+        "description": "Count of vessels with Risk Score == 0.35 (Visits < 5)"
+      },
+      "vessels": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "mmsi",
+            "vesselName",
+            "flag",
+            "vesselType",
+            "residenceHours",
+            "biosecurityRiskScore",
+            "riskCategory",
+            "totalEvents"
+          ],
+          "properties": {
+            "mmsi": { "type": "string" },
+            "vesselName": { "type": "string" },
+            "flag": { "type": "string" },
+            "vesselType": { "type": "string" },
+            "residenceHours": { "type": "number" },
+            "biosecurityRiskScore": { "type": "number" },
+            "riskCategory": { 
+              "type": "string",
+              "enum": ["High Fouling Risk", "Moderate Vector", "Low Risk"]
+            },
+            "totalEvents": { "type": "integer" }
+          }
+        }
       }
-    ]
+    }
   }
-]
+}
