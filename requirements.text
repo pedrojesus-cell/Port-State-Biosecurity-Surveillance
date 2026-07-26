@@ -1,1 +1,8 @@
-pandas>=2.0.0
+# Data Processing & Parsing
+pandas>=2.1.0,<3.0.0
+
+# Testing
+pytest>=7.4.0,<8.0.0
+
+# Code Formatting & Static Analysis
+flake8>=6.1.0
