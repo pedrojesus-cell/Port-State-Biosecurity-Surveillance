@@ -1,7 +1,0 @@
-.git
-.gitignore
-__pycache__
-venv
-data/*.json
-tests/
-README.md
