@@ -1,138 +1,122 @@
 import os
 import glob
 import re
-import requests
 import pandas as pd
-import geopandas as gpd
-from shapely.geometry import Point
+import numpy as np
 
 CONFIG_DIR = "config"
 DATA_DIR = "data"
-EEZ_SHAPEFILE_PATH = os.path.join("boundaries", "World_EEZ_v12.gpkg")  # Marine Regions GeoPackage
+ANCHORAGE_CSV = "gfw_anchorages.csv"
 
 # -------------------------------------------------------------------
-# 1. MARINE REGIONS & GFW ONLINE API FALLBACK HELPERS
+# 1. BUILD PORT & ANCHORAGE REFERENCE LOOKUP TABLE
 # -------------------------------------------------------------------
-def query_marine_regions_api(eez_name):
+def load_anchorage_reference_db(filepath):
     """
-    Queries Marine Regions REST Gazetteer API by name if spatial join is unavailable.
-    Returns: MRGID and preferred label.
+    Parses gfw_anchorages.csv to build a fast, clean spatial lookup database.
     """
-    url = f"https://www.marineregions.org/rest/getGazetteerRecordsByName.json/{eez_name}/"
-    try:
-        response = requests.get(url, params={"fuzzy": "true"}, timeout=5)
-        if response.status_code == 200:
-            records = response.json()
-            if records:
-                # Top result
-                return records[0].get("MRGID"), records[0].get("preferredGazetteerName")
-    except Exception as e:
-        print(f"API Warning: Failed to query Marine Regions for '{eez_name}': {e}")
-    return None, eez_name
+    if not os.path.exists(filepath):
+        print(f"WARNING: Anchorage database file '{filepath}' not found.")
+        return {}, None
 
+    df_anc = pd.read_csv(filepath, low_memory=False)
 
-def query_gfw_vessel_events(mmsi, gfw_api_key):
-    """
-    Optional helper to fetch live vessel events directly from GFW API v3.
-    """
-    url = f"https://gateway.api.globalfishingwatch.org/v3/vessels/{mmsi}/events"
-    headers = {"Authorization": f"Bearer {gfw_api_key}"}
-    try:
-        res = requests.get(url, headers=headers, timeout=10)
-        if res.status_code == 200:
-            return res.json()
-    except Exception as e:
-        print(f"GFW API Error for MMSI {mmsi}: {e}")
-    return None
+    # 1. Clean invalid geographic coordinates (-180 <= lon <= 180, -90 <= lat <= 90)
+    df_anc = df_anc[
+        (df_anc['lon'] >= -180) & (df_anc['lon'] <= 180) &
+        (df_anc['lat'] >= -90) & (df_anc['lat'] <= 90)
+    ].copy()
 
+    # 2. Group anchorages by ISO3 and Port Label to calculate precise centroids
+    grouped = df_anc.groupby(['iso3', 'label']).agg(
+        mean_lat=('lat', 'mean'),
+        mean_lon=('lon', 'mean'),
+        total_points=('s2id', 'count'),
+        docks_count=('at_dock', lambda x: (x == True).sum())
+    ).reset_index()
 
-# -------------------------------------------------------------------
-# 2. LOAD LOCAL EEZ BOUNDARY POLYGONS
-# -------------------------------------------------------------------
-def load_eez_boundaries(filepath):
-    """
-    Loads Marine Regions World EEZ shapefile/GeoPackage into GeoPandas dataframe.
-    Download standard boundary files from: https://www.marineregions.org/downloads.php
-    """
-    if os.path.exists(filepath):
-        print(f"Loading local EEZ boundaries from: {filepath}")
-        gdf_eez = gpd.read_file(filepath)
-        # Standardize CRS to WGS84
-        if gdf_eez.crs != "EPSG:4326":
-            gdf_eez = gdf_eez.to_crs("EPSG:4326")
-        return gdf_eez
-    else:
-        print(f"NOTICE: Local EEZ file '{filepath}' not found. Falling back to API queries.")
-        return None
+    # 3. Store in lookup dictionary
+    lookup_db = {}
+    for _, row in grouped.iterrows():
+        key = f"{row['iso3']}_{row['label']}".lower()
+        lookup_db[key] = {
+            "iso3": row['iso3'],
+            "portLabel": row['label'],
+            "location": [round(row['mean_lat'], 4), round(row['mean_lon'], 4)],
+            "totalAnchorages": int(row['total_points']),
+            "dockRatio": round(row['docks_count'] / row['total_points'], 2) if row['total_points'] > 0 else 0
+        }
+
+    print(f"SUCCESS: Loaded {len(lookup_db)} unique port/anchorage reference locations from '{filepath}'.")
+    return lookup_db, df_anc
 
 
 # -------------------------------------------------------------------
-# 3. MAIN DATA PROCESSING ENGINE
+# 2. MATCH VESSEL POSITIONS TO ANCHORAGE DATABASE
 # -------------------------------------------------------------------
-def process_all_config_csvs(gfw_api_key=None):
+def resolve_port_location(row, filename, lookup_db):
+    """
+    Resolves exact lat/lon and port names using gfw_anchorages lookup or raw coordinates.
+    """
+    row_lat = row.get("lat") or row.get("latitude") or row.get("lat_mean")
+    row_lon = row.get("lon") or row.get("longitude") or row.get("lon_mean")
+
+    # Priority 1: Use exact Lat/Lon if available in vessel row
+    if pd.notnull(row_lat) and pd.notnull(row_lon):
+        lat = float(row_lat)
+        lon = float(row_lon)
+        if -180 <= lon <= 180 and -90 <= lat <= 90:
+            return [round(lat, 4), round(lon, 4)], str(row.get("label") or "Monitored Zone")
+
+    # Priority 2: Lookup by ISO3 and Label match
+    iso3 = str(row.get("iso3") or "").strip().lower()
+    label = str(row.get("label") or row.get("port_name") or "").strip().lower()
+    lookup_key = f"{iso3}_{label}"
+
+    if lookup_key in lookup_db:
+        entry = lookup_db[lookup_key]
+        return entry["location"], entry["portLabel"]
+
+    # Fallback default (Persian Gulf)
+    return [25.0000, 50.0000], "Monitored Port"
+
+
+# -------------------------------------------------------------------
+# 3. MAIN DATA PROCESSING & RISK PIPELINE
+# -------------------------------------------------------------------
+def process_all_config_csvs():
+    # Load GFW Anchorage reference database
+    lookup_db, _ = load_anchorage_reference_db(ANCHORAGE_CSV)
+
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
 
     if not csv_files:
-        print(f"NOTICE: No CSV files found inside '{CONFIG_DIR}/'.")
+        print(f"NOTICE: No input CSV files found inside '{CONFIG_DIR}/'.")
         os.makedirs(DATA_DIR, exist_ok=True)
         pd.DataFrame([]).to_json(os.path.join(DATA_DIR, "baseline_risk.json"), orient="records")
         return
 
-    # Load EEZ Polygons
-    gdf_eez = load_eez_boundaries(EEZ_SHAPEFILE_PATH)
-
+    print(f"Processing {len(csv_files)} input datasets...")
     port_summary = {}
 
     for f in csv_files:
         file_base = os.path.basename(f)
-        print(f"Processing dataset: {file_base}")
 
         try:
             df = pd.read_csv(f, low_memory=False)
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
 
-            # Convert CSV rows to GeoDataFrame using Lat/Lon columns
-            lat_col = next((c for c in df.columns if c in ["lat", "latitude", "lat_mean"]), None)
-            lon_col = next((c for c in df.columns if c in ["lon", "longitude", "lon_mean"]), None)
+            for idx, row in df.iterrows():
+                coords, port_name = resolve_port_location(row, file_base, lookup_db)
+                iso3 = str(row.get("iso3") or "UNK").upper()
+                display_key = f"{iso3} - {port_name}"
 
-            if lat_col and lon_col:
-                # Clean coordinates
-                df = df.dropna(subset=[lat_col, lon_col])
-                df = df[(df[lon_col] >= -180) & (df[lon_col] <= 180) & (df[lat_col] >= -90) & (df[lat_col] <= 90)]
-                
-                geometry = [Point(xy) for xy in zip(df[lon_col], df[lat_col])]
-                gdf_vessels = gpd.GeoDataFrame(df, geometry=geometry, crs="EPSG:4326")
-
-                # Perform Spatial Join with EEZ Polygons
-                if gdf_eez is not None:
-                    gdf_vessels = gpd.sjoin(gdf_vessels, gdf_eez, how="left", predicate="intersects")
-
-            else:
-                gdf_vessels = gpd.GeoDataFrame(df)
-                gdf_vessels["geoname"] = "Unknown EEZ / Point Missing"
-
-            # Iterate vessel events
-            for idx, row in gdf_vessels.iterrows():
-                # Extract identified EEZ name from Marine Regions layer or fallback
-                eez_name = str(
-                    row.get("geoname") or 
-                    row.get("eez_name") or 
-                    row.get("territory1") or 
-                    "Unmapped High Seas / EEZ"
-                ).strip()
-
-                mrgid = int(row.get("mrgid")) if pd.notnull(row.get("mrgid")) else None
-
-                if eez_name not in port_summary:
-                    # Get EEZ centroid or first point coordinate
-                    lat_val = float(row[lat_col]) if lat_col and pd.notnull(row.get(lat_col)) else 0.0
-                    lon_val = float(row[lon_col]) if lon_col and pd.notnull(row.get(lon_col)) else 0.0
-
-                    port_summary[eez_name] = {
-                        "eezName": eez_name,
-                        "mrgid": mrgid,
+                if display_key not in port_summary:
+                    port_summary[display_key] = {
+                        "portName": port_name,
+                        "iso3": iso3,
                         "year": 2026,
-                        "location": [round(lat_val, 4), round(lon_val, 4)],
+                        "location": coords,
                         "totalPortVisits": 0,
                         "highRiskCount": 0,
                         "moderateRiskCount": 0,
@@ -152,22 +136,22 @@ def process_all_config_csvs(gfw_api_key=None):
 
                 residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
 
-                # Biosecurity fouling risk evaluation
+                # Risk Score Model
                 if total_visits >= 15:
                     risk_score = 0.92
                     risk_category = "High Fouling Risk"
-                    port_summary[eez_name]["highRiskCount"] += 1
+                    port_summary[display_key]["highRiskCount"] += 1
                 elif total_visits >= 5:
                     risk_score = 0.65
                     risk_category = "Moderate Vector"
-                    port_summary[eez_name]["moderateRiskCount"] += 1
+                    port_summary[display_key]["moderateRiskCount"] += 1
                 else:
                     risk_score = 0.35
                     risk_category = "Low Risk"
-                    port_summary[eez_name]["lowRiskCount"] += 1
+                    port_summary[display_key]["lowRiskCount"] += 1
 
-                port_summary[eez_name]["totalPortVisits"] += int(total_visits)
-                port_summary[eez_name]["vessels"].append({
+                port_summary[display_key]["totalPortVisits"] += int(total_visits)
+                port_summary[display_key]["vessels"].append({
                     "mmsi": mmsi,
                     "vesselName": vessel_name,
                     "flag": flag,
@@ -184,7 +168,7 @@ def process_all_config_csvs(gfw_api_key=None):
     final_ports = list(port_summary.values())
     os.makedirs(DATA_DIR, exist_ok=True)
     pd.DataFrame(final_ports).to_json(os.path.join(DATA_DIR, "baseline_risk.json"), orient="records")
-    print(f"SUCCESS: Processed and exported {len(final_ports)} distinct EEZ spatial zones to 'baseline_risk.json'.")
+    print(f"SUCCESS: Exported {len(final_ports)} port risk records to '{DATA_DIR}/baseline_risk.json'.")
 
 
 if __name__ == "__main__":
