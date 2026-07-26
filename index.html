@@ -1,250 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shipsonic - Biofouling Risk Intelligence Dashboard</title>
-
-  <!-- Deck.gl & MapLibre GL JS -->
-  <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
-  <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
-  <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
-
-  <!-- Tailwind CSS for UI styling -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <meta charset="UTF-8">
+  <title>Shipsonic - Port-State Biosecurity Surveillance</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
-    body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; overflow: hidden; }
-    #map-container { position: absolute; top: 0; bottom: 0; width: 100%; height: 100%; }
-    .glass-panel { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; }
+    #header { padding: 16px 24px; background: #1e293b; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; }
+    #container { display: flex; height: calc(100vh - 65px); }
+    #map { flex: 2; height: 100%; }
+    #sidebar { flex: 1; max-width: 420px; background: #1e293b; border-left: 1px solid #334155; overflow-y: auto; padding: 20px; }
+    .card { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
+    .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; }
+    .high { background: #991b1b; color: #fecaca; }
+    .moderate { background: #854d0e; color: #fef08a; }
+    .low { background: #166534; color: #bbf7d0; }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-100">
+<body>
 
-  <!-- Map Container -->
-  <div id="map-container"></div>
+  <div id="header">
+    <h2>🚢 Shipsonic Maritime Biosecurity Dashboard</h2>
+    <span id="timestamp">Loading updates...</span>
+  </div>
 
-  <!-- Header Overlay -->
-  <header class="absolute top-4 left-4 z-10 glass-panel rounded-xl p-4 shadow-2xl max-w-md w-full">
-    <div class="flex items-center space-x-3">
-      <div class="p-2 bg-indigo-600 rounded-lg">
-        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
-        </svg>
-      </div>
-      <div>
-        <h1 class="text-lg font-bold text-white tracking-wide">Shipsonic Intelligence</h1>
-        <p class="text-xs text-slate-400">Biofouling Risk & Maritime Compliance Monitoring</p>
-      </div>
+  <div id="container">
+    <div id="map"></div>
+    <div id="sidebar">
+      <h3>Vessel Risk Profile</h3>
+      <div id="vessel-list">Select a vessel pin on the map to inspect fouling metrics...</div>
     </div>
+  </div>
 
-    <!-- Search & Filter Controls -->
-    <div class="mt-4 space-y-2">
-      <input 
-        type="text" 
-        id="search-input" 
-        placeholder="Search port or ISO3 (e.g., BONTANG, IDN)..." 
-        class="w-full px-3 py-2 bg-slate-800 text-sm text-slate-200 rounded-lg border border-slate-700 focus:outline-none focus:border-indigo-500"
-      />
-      <div class="flex justify-between space-x-2 text-xs">
-        <button id="filter-all" class="flex-1 py-1.5 px-2 bg-slate-700 hover:bg-slate-600 rounded font-medium transition">All Ports</button>
-        <button id="filter-high" class="flex-1 py-1.5 px-2 bg-red-900/50 text-red-300 hover:bg-red-800/60 rounded font-medium border border-red-700/50 transition">High Risk</button>
-        <button id="filter-moderate" class="flex-1 py-1.5 px-2 bg-amber-900/50 text-amber-300 hover:bg-amber-800/60 rounded font-medium border border-amber-700/50 transition">Moderate</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Side Inspector Drawer (Appears when clicking a port pin) -->
-  <aside id="inspector-drawer" class="absolute top-4 right-4 bottom-4 z-10 glass-panel rounded-xl w-96 p-5 shadow-2xl flex flex-col hidden transition-all duration-300">
-    <div class="flex justify-between items-start pb-4 border-b border-slate-700">
-      <div>
-        <span id="drawer-iso3" class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-900 text-indigo-300 border border-indigo-700">ISO3</span>
-        <h2 id="drawer-port-name" class="text-xl font-bold text-white mt-1">Port Name</h2>
-      </div>
-      <button id="close-drawer" class="text-slate-400 hover:text-white text-xl font-bold p-1">&times;</button>
-    </div>
-
-    <!-- Aggregate Stats Grid -->
-    <div class="grid grid-cols-3 gap-2 my-4 text-center">
-      <div class="p-2 bg-slate-800/60 rounded-lg border border-slate-700">
-        <p class="text-xs text-slate-400">Total Visits</p>
-        <p id="stat-visits" class="text-base font-bold text-indigo-400">0</p>
-      </div>
-      <div class="p-2 bg-slate-800/60 rounded-lg border border-slate-700">
-        <p class="text-xs text-slate-400">High Risk</p>
-        <p id="stat-high" class="text-base font-bold text-red-400">0</p>
-      </div>
-      <div class="p-2 bg-slate-800/60 rounded-lg border border-slate-700">
-        <p class="text-xs text-slate-400">Moderate</p>
-        <p id="stat-mod" class="text-base font-bold text-amber-400">0</p>
-      </div>
-    </div>
-
-    <!-- Monitored Vessel List -->
-    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Monitored Vessels</h3>
-    <div id="vessel-list" class="flex-1 overflow-y-auto space-y-2 pr-1">
-      <!-- Dynamic Vessel Cards Injected Here -->
-    </div>
-  </aside>
-
-  <!-- Application Logic -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    let allData = [];
-    let activeFilter = 'all';
-    let deckInstance = null;
+    const map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO'
+    }).addTo(map);
 
-    // Risk Color Mapping Function (RGBA)
-    function getPortColor(d) {
-      if (d.highRiskCount > 0) return [239, 68, 68, 200];    # Red (High Risk)
-      if (d.moderateRiskCount > 0) return [245, 158, 11, 200]; # Amber (Moderate)
-      return [16, 185, 129, 200];                             # Green (Low)
+    function getBadgeClass(category) {
+      if (category === 'High Fouling Risk') return 'high';
+      if (category === 'Moderate Vector') return 'moderate';
+      return 'low';
     }
 
-    // Initialize Deck.gl Map Layer
-    function renderMap(data) {
-      const scatterLayer = new deck.ScatterplotLayer({
-        id: 'port-risk-layer',
-        data: data,
-        pickable: true,
-        opacity: 0.8,
-        stroked: true,
-        filled: true,
-        radiusScale: 10,
-        radiusMinPixels: 6,
-        radiusMaxPixels: 35,
-        lineWidthMinPixels: 1.5,
-        getPosition: d => [d.location[1], d.location[0]], // [Lon, Lat]
-        getRadius: d => Math.sqrt(d.totalPortVisits || 1) * 3000,
-        getFillColor: d => getPortColor(d),
-        getLineColor: [255, 255, 255, 180],
-        onClick: ({object}) => object && openInspectorDrawer(object),
-        updateTriggers: {
-          getFillColor: [activeFilter]
-        }
-      });
-
-      if (!deckInstance) {
-        deckInstance = new deck.DeckGL({
-          container: 'map-container',
-          mapStyle: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/json',
-          initialViewState: {
-            longitude: 25.0,
-            latitude: 20.0,
-            zoom: 2.5,
-            pitch: 30,
-            bearing: 0
-          },
-          controller: true,
-          layers: [scatterLayer],
-          getTooltip: ({object}) => object && {
-            html: `
-              <div class="bg-slate-900/90 text-white p-2.5 rounded shadow-xl border border-slate-700 text-xs">
-                <div class="font-bold text-sm mb-1">${object.portName} (${object.iso3 || 'N/A'})</div>
-                <div>Visits: <b class="text-indigo-400">${object.totalPortVisits}</b></div>
-                <div>High Risk Vessels: <b class="text-red-400">${object.highRiskCount}</b></div>
-                <div>Moderate Risk: <b class="text-amber-400">${object.moderateRiskCount}</b></div>
-              </div>
-            `,
-            style: { backgroundColor: 'transparent', padding: '0px', border: 'none' }
-          }
-        });
-      } else {
-        deckInstance.setProps({ layers: [scatterLayer] });
-      }
-    }
-
-    // Populate Side Inspector Drawer
-    function openInspectorDrawer(port) {
-      document.getElementById('drawer-port-name').innerText = port.portName;
-      document.getElementById('drawer-iso3').innerText = port.iso3 || 'EEZ';
-      document.getElementById('stat-visits').innerText = port.totalPortVisits;
-      document.getElementById('stat-high').innerText = port.highRiskCount;
-      document.getElementById('stat-mod').innerText = port.moderateRiskCount;
-
-      const vesselContainer = document.getElementById('vessel-list');
-      vesselContainer.innerHTML = '';
-
-      if (!port.vessels || port.vessels.length === 0) {
-        vesselContainer.innerHTML = `<p class="text-xs text-slate-500 italic">No vessel telemetry logs available.</p>`;
-      } else {
-        port.vessels.forEach(v => {
-          const isHigh = v.biosecurityRiskScore >= 0.8;
-          const isMod = v.biosecurityRiskScore >= 0.5 && !isHigh;
-          const badgeColor = isHigh ? 'bg-red-900/40 text-red-300 border-red-700' : 
-                             isMod ? 'bg-amber-900/40 text-amber-300 border-amber-700' : 
-                                     'bg-emerald-900/40 text-emerald-300 border-emerald-700';
-
-          const card = document.createElement('div');
-          card.className = 'p-3 bg-slate-800/80 rounded-lg border border-slate-700/70 text-xs space-y-1';
-          card.innerHTML = `
-            <div class="flex justify-between items-center">
-              <span class="font-bold text-slate-200 text-sm">${v.vesselName}</span>
-              <span class="px-1.5 py-0.5 rounded text-[10px] border ${badgeColor}">${v.riskCategory}</span>
-            </div>
-            <div class="grid grid-cols-2 text-slate-400 gap-1 mt-1">
-              <div>MMSI: <span class="text-slate-200">${v.mmsi}</span></div>
-              <div>Flag: <span class="text-slate-200">${v.flag}</span></div>
-              <div>Type: <span class="text-slate-200">${v.vesselType}</span></div>
-              <div>Residence: <span class="text-indigo-300">${v.residenceHours} hrs</span></div>
-            </div>
-          `;
-          vesselContainer.appendChild(card);
-        });
-      }
-
-      document.getElementById('inspector-drawer').classList.remove('hidden');
-    }
-
-    // Filter & Search Handling
-    function applyFilters() {
-      const searchTerm = document.getElementById('search-input').value.toLowerCase();
-
-      const filtered = allData.filter(port => {
-        const matchesSearch = port.portName.toLowerCase().includes(searchTerm) || 
-                              (port.iso3 && port.iso3.toLowerCase().includes(searchTerm));
-        
-        if (!matchesSearch) return false;
-        if (activeFilter === 'high') return port.highRiskCount > 0;
-        if (activeFilter === 'moderate') return port.moderateRiskCount > 0;
-        return true;
-      });
-
-      renderMap(filtered);
-    }
-
-    // Fetch `baseline_risk.json` and initialize
-    async function loadData() {
+    async function loadRiskData() {
       try {
-        const response = await fetch('data/baseline_risk.json');
-        allData = await response.json();
-        renderMap(allData);
+        const response = await fetch('../data/baseline_risk.json');
+        const data = await response.json();
+        document.getElementById('timestamp').innerText = `Updated: ${new Date(data.generated_at).toLocaleString()}`;
+
+        data.vessels.forEach(vessel => {
+          const color = vessel.risk_score >= 0.7 ? '#ef4444' : vessel.risk_score >= 0.35 ? '#eab308' : '#22c55e';
+          
+          const marker = L.circleMarker([vessel.latitude, vessel.longitude], {
+            radius: 8,
+            fillColor: color,
+            color: '#ffffff',
+            weight: 1,
+            fillOpacity: 0.85
+          }).addTo(map);
+
+          marker.on('click', () => {
+            document.getElementById('vessel-list').innerHTML = `
+              <div class="card">
+                <h4>${vessel.vessel_name} <small>(${vessel.flag})</small></h4>
+                <p><strong>MMSI:</strong> ${vessel.mmsi}</p>
+                <p><strong>Port/EEZ:</strong> ${vessel.port_name}</p>
+                <p><strong>Residence Time:</strong> ${vessel.residence_hours} hrs</p>
+                <p><strong>MGPS Active:</strong> ${vessel.mgps_installed ? 'Yes ✅' : 'No ❌'}</p>
+                <hr style="border-color: #334155;" />
+                <p><strong>Risk Rating:</strong> 
+                  <span class="badge ${getBadgeClass(vessel.risk_category)}">${vessel.risk_category}</span>
+                </p>
+                <p><strong>Score:</strong> ${vessel.risk_score} / 1.0</p>
+              </div>
+            `;
+          });
+        });
       } catch (err) {
-        console.error('Failed to load baseline_risk.json:', err);
+        console.error("Failed loading biosecurity risk dataset:", err);
       }
     }
 
-    // Event Listeners
-    document.getElementById('close-drawer').addEventListener('click', () => {
-      document.getElementById('inspector-drawer').classList.add('hidden');
-    });
-
-    document.getElementById('search-input').addEventListener('input', applyFilters);
-
-    document.getElementById('filter-all').addEventListener('click', () => {
-      activeFilter = 'all';
-      applyFilters();
-    });
-    document.getElementById('filter-high').addEventListener('click', () => {
-      activeFilter = 'high';
-      applyFilters();
-    });
-    document.getElementById('filter-moderate').addEventListener('click', () => {
-      activeFilter = 'moderate';
-      applyFilters();
-    });
-
-    // Run on startup
-    loadData();
+    loadRiskData();
   </script>
 </body>
 </html>
