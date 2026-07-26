@@ -1,48 +1,10 @@
-name: Maritime Biosecurity ETL Pipeline
-
-on:
-  push:
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-
-jobs:
-  run-etl:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run Pytest Unit Tests
-        run: pytest tests/
-
-      # UPDATE: Set this to etl_pipeline.py or scripts/process_port_risks.py
-      - name: Execute ETL Script
-        run: python etl_pipeline.py
-
-      # UPDATE: Stage the entire data/ directory (covers baseline_risk.json & high_risk_summary.csv)
-      - name: Commit and Push Processed Data
+- name: Commit and Push Processed Data
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/*
+          git add data/
           if git diff --staged --quiet; then
-            echo "No changes in generated data."
+            echo "No changes detected in data directory. Skipping commit."
           else
             git commit -m "chore(data): update processed risk outputs [skip ci]"
             git push
