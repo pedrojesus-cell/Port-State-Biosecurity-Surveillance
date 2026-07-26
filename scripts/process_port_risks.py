@@ -1,111 +1,126 @@
 import os
-import glob
+import json
+import numpy as np
 import pandas as pd
+import geopandas as gpd
+from datetime import datetime, timezone
+from shapely.geometry import Point
 
-CONFIG_DIR = "config"
-DATA_DIR = "data"
-ANCHORAGE_CSV = "gfw_anchorages.csv"
+# Mathematical Formulation for Hull Fouling Risk Score R:
+# R = min(1.0, (Residence_Hours / 168.0) * (1.0 + Biofilm_Factor) * (1.0 - MGPS_Efficiency))
 
-def process_port_risks():
-    if not os.path.exists(CONFIG_DIR):
-        print(f"Directory '{CONFIG_DIR}' does not exist.")
-        return
+def load_and_clean_data(vessel_csv, port_logs_csv):
+    """Clean and standardize vessel identifiers and logs."""
+    vessels = pd.read_csv(vessel_csv)
+    vessels['mmsi'] = vessels['mmsi'].astype(str).str.zfill(9)
+    vessels['vessel_name'] = vessels['vessel_name'].str.strip().str.upper()
+    
+    port_logs = pd.read_csv(port_logs_csv)
+    port_logs['mmsi'] = port_logs['mmsi'].astype(str).str.zfill(9)
+    port_logs['arrival_time'] = pd.to_datetime(port_logs['arrival_time'])
+    port_logs['departure_time'] = pd.to_datetime(port_logs['departure_time'])
+    port_logs['residence_hours'] = (port_logs['departure_time'] - port_logs['arrival_time']).dt.total_seconds() / 3600.0
+    
+    return vessels, port_logs
 
-    csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
-    if not csv_files:
-        print(f"No CSV datasets found inside '{CONFIG_DIR}/'. Creating empty output.")
-        os.makedirs(DATA_DIR, exist_ok=True)
-        pd.DataFrame([]).to_json(os.path.join(DATA_DIR, "baseline_risk.json"), orient="records")
-        return
-
-    # Load GFW Anchorage reference DB for fast, non-geopandas spatial lookups
-    anc_lookup = {}
-    if os.path.exists(ANCHORAGE_CSV):
-        df_anc = pd.read_csv(ANCHORAGE_CSV, low_memory=False)
-        df_anc = df_anc[(df_anc['lon'] >= -180) & (df_anc['lon'] <= 180) & (df_anc['lat'] >= -90) & (df_anc['lat'] <= 90)]
+def resolve_geospatial_locations(vessel_df, anchorages_csv, eez_geojson):
+    """Geospatially resolve coordinates to Anchorages and EEZs."""
+    gdf_vessels = gpd.GeoDataFrame(
+        vessel_df,
+        geometry=gpd.points_from_xy(vessel_df.longitude, vessel_df.latitude),
+        crs="EPSG:4326"
+    )
+    
+    # Load GFW Anchorages & EEZ Geometries
+    anchorages = pd.read_csv(anchorages_csv)
+    gdf_anchorages = gpd.GeoDataFrame(
+        anchorages,
+        geometry=gpd.points_from_xy(anchorages.subsegment_lon, anchorages.subsegment_lat),
+        crs="EPSG:4326"
+    )
+    
+    # Spatial Join with Anchorages (Nearest Point with Threshold)
+    resolved = gpd.sjoin_nearest(gdf_vessels, gdf_anchorages, max_distance=0.05, how="left")
+    
+    # Spatial Join with EEZs
+    if os.path.exists(eez_geojson):
+        eez_gdf = gpd.read_file(eez_geojson)
+        resolved = gpd.sjoin(resolved, eez_gdf[['GEONAME', 'geometry']], how='left', predicate='within')
+    else:
+        resolved['GEONAME'] = "High Seas / Unresolved"
         
-        grouped = df_anc.groupby(['iso3', 'label']).agg(
-            lat=('lat', 'mean'),
-            lon=('lon', 'mean')
-        ).reset_index()
+    return resolved
+
+def calculate_biosecurity_risk(row):
+    """Calculate normalized risk score [0.0 - 1.0] and risk classification."""
+    residence = row.get('residence_hours', 24.0)
+    mgps_active = row.get('mgps_installed', False)
+    days_since_mgps_service = row.get('days_since_last_mgps_service', 180)
+    
+    # Base residence risk scalar (168 hrs / 1 week = max base score)
+    base_score = min(1.0, residence / 168.0)
+    
+    # MGPS Maintenance Factor Penalty
+    mgps_efficiency = 0.85 if (mgps_active and days_since_mgps_service < 180) else 0.20
+    
+    # Biofouling Risk Score R
+    risk_score = round(min(1.0, max(0.0, base_score * (1.5 - mgps_efficiency))), 3)
+    
+    if risk_score >= 0.70:
+        category = "High Fouling Risk"
+    elif risk_score >= 0.35:
+        category = "Moderate Vector"
+    else:
+        category = "Low Risk"
         
-        for _, r in grouped.iterrows():
-            anc_lookup[f"{r['iso3']}_{r['label']}".lower()] = [round(r['lat'], 4), round(r['lon'], 4)]
+    return pd.Series([risk_score, category], index=['risk_score', 'risk_category'])
 
-    port_summary = {}
+def main():
+    print("[+] Starting Port-State Biosecurity Risk Pipeline...")
+    
+    # Input File Paths
+    VESSEL_CSV = "data/raw_vessel_traffic.csv"
+    PORT_LOGS = "data/port_event_logs.csv"
+    ANCHORAGES = "data/gfw_anchorages.csv"
+    EEZ_GEOJSON = "data/marine_regions_eez.geojson"
+    OUTPUT_JSON = "data/baseline_risk.json"
 
-    for f in csv_files:
-        try:
-            df = pd.read_csv(f, low_memory=False)
-            df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
-
-            for idx, row in df.iterrows():
-                iso3 = str(row.get("iso3") or "UNK").upper()
-                port_name = str(row.get("label") or row.get("port_name") or "Monitored Zone").strip()
-                display_key = f"{iso3} - {port_name}"
-
-                # Coordinates lookup
-                lat = row.get("lat") or row.get("latitude")
-                lon = row.get("lon") or row.get("longitude")
-                
-                if pd.notnull(lat) and pd.notnull(lon) and -180 <= float(lon) <= 180:
-                    coords = [round(float(lat), 4), round(float(lon), 4)]
-                else:
-                    coords = anc_lookup.get(f"{iso3}_{port_name}".lower(), [25.0, 50.0])
-
-                if display_key not in port_summary:
-                    port_summary[display_key] = {
-                        "portName": port_name,
-                        "iso3": iso3,
-                        "year": 2026,
-                        "location": coords,
-                        "totalPortVisits": 0,
-                        "highRiskCount": 0,
-                        "moderateRiskCount": 0,
-                        "lowRiskCount": 0,
-                        "vessels": []
-                    }
-
-                vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
-                mmsi = str(row.get("mmsi") or row.get("ssvid") or f"273{idx:06d}").strip()
-                flag = str(row.get("flag") or row.get("flag_translated") or "UNK").strip()
-                vessel_type = str(row.get("gfw_vessel_type") or row.get("vessel_type") or "Merchant/Carrier").strip()
-
-                try:
-                    total_visits = float(row.get("total_port_visit_events") or row.get("total_visits") or 1)
-                except (ValueError, TypeError):
-                    total_visits = 1.0
-
-                residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
-
-                if total_visits >= 15:
-                    risk_score, risk_cat = 0.92, "High Fouling Risk"
-                    port_summary[display_key]["highRiskCount"] += 1
-                elif total_visits >= 5:
-                    risk_score, risk_cat = 0.65, "Moderate Vector"
-                    port_summary[display_key]["moderateRiskCount"] += 1
-                else:
-                    risk_score, risk_cat = 0.35, "Low Risk"
-                    port_summary[display_key]["lowRiskCount"] += 1
-
-                port_summary[display_key]["totalPortVisits"] += int(total_visits)
-                port_summary[display_key]["vessels"].append({
-                    "mmsi": mmsi,
-                    "vesselName": vessel_name,
-                    "flag": flag,
-                    "vesselType": vessel_type,
-                    "residenceHours": residence_hrs,
-                    "biosecurityRiskScore": risk_score,
-                    "riskCategory": risk_cat,
-                    "totalEvents": int(total_visits)
-                })
-
-        except Exception as e:
-            print(f"Error reading file {f}: {e}")
-
-    os.makedirs(DATA_DIR, exist_ok=True)
-    pd.DataFrame(list(port_summary.values())).to_json(os.path.join(DATA_DIR, "baseline_risk.json"), orient="records")
-    print("SUCCESS: Successfully exported 'data/baseline_risk.json'.")
+    # Execute Data Pipeline
+    vessels, logs = load_and_clean_data(VESSEL_CSV, PORT_LOGS)
+    merged_data = pd.merge(vessels, logs, on="mmsi", how="inner")
+    
+    resolved_gdf = resolve_geospatial_locations(merged_data, ANCHORAGES, EEZ_GEOJSON)
+    
+    risk_results = resolved_gdf.apply(calculate_biosecurity_risk, axis=1)
+    resolved_gdf[['risk_score', 'risk_category']] = risk_results
+    
+    # Output JSON Transformation
+    output_payload = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "total_vessels_assessed": len(resolved_gdf),
+        "vessels": []
+    }
+    
+    for _, r in resolved_gdf.iterrows():
+        output_payload["vessels"].append({
+            "mmsi": r["mmsi"],
+            "vessel_name": r["vessel_name"],
+            "flag": r.get("flag", "Unknown"),
+            "latitude": float(r["latitude"]),
+            "longitude": float(r["longitude"]),
+            "port_name": r.get("subsegment_name", r.get("GEONAME", "Unknown Port")),
+            "eez_region": r.get("GEONAME", "International Waters"),
+            "residence_hours": float(r.get("residence_hours", 0.0)),
+            "mgps_installed": bool(r.get("mgps_installed", False)),
+            "risk_score": float(r["risk_score"]),
+            "risk_category": r["risk_category"]
+        })
+        
+    os.makedirs("data", exist_ok=True)
+    with open(OUTPUT_JSON, "w") as f:
+        json.dump(output_payload, f, indent=2)
+        
+    print(f"[✓] Pipeline complete. JSON baseline written to {OUTPUT_JSON}")
 
 if __name__ == "__main__":
-    process_port_risks()
+    main()
