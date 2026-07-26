@@ -1,92 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Coastal Biosecurity & Port Surveillance</title>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Leaflet CSS & JS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shipsonic - Biofouling Risk Intelligence Dashboard</title>
 
-  <!-- jsPDF for Generating 2025 Vessel Biosecurity Reports -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Deck.gl & MapLibre GL JS -->
+  <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+
+  <!-- Tailwind CSS for UI styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body { background-color: #0b0f19; color: #e2e8f0; font-family: ui-sans-serif, system-ui, sans-serif; }
-    #map { height: calc(100vh - 120px); width: 100%; background: #0d1322; }
-    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-    .custom-scrollbar::-webkit-scrollbar-track { background: #111827; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
-    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-      background: #1e293b !important; color: #f8fafc !important; border: 1px solid #334155;
-    }
+    body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; overflow: hidden; }
+    #map-container { position: absolute; top: 0; bottom: 0; width: 100%; height: 100%; }
+    .glass-panel { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
   </style>
 </head>
-<body class="flex flex-col h-screen overflow-hidden">
+<body class="bg-slate-900 text-slate-100">
 
-  <!-- Header -->
-  <header class="flex items-center justify-between px-6 py-3 bg-slate-900 border-b border-slate-800">
-    <div>
-      <h1 class="text-lg font-bold tracking-wide text-cyan-400">Global Coastal Biosecurity & Port Surveillance</h1>
-      <p class="text-xs text-slate-400">2025 Vessel Route Intelligence & Biological Invasion Risk Monitoring</p>
+  <!-- Map Container -->
+  <div id="map-container"></div>
+
+  <!-- Header Overlay -->
+  <header class="absolute top-4 left-4 z-10 glass-panel rounded-xl p-4 shadow-2xl max-w-md w-full">
+    <div class="flex items-center space-x-3">
+      <div class="p-2 bg-indigo-600 rounded-lg">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+        </svg>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold text-white tracking-wide">Shipsonic Intelligence</h1>
+        <p class="text-xs text-slate-400">Biofouling Risk & Maritime Compliance Monitoring</p>
+      </div>
     </div>
-    <div class="flex items-center gap-3 text-xs">
-      <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-950/80 text-red-400 border border-red-800/50">
-        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> High Fouling Risk (&ge;70%)
-      </span>
-      <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-950/80 text-amber-400 border border-amber-800/50">
-        <span class="w-2 h-2 rounded-full bg-amber-500"></span> Moderate Vector
-      </span>
+
+    <!-- Search & Filter Controls -->
+    <div class="mt-4 space-y-2">
+      <input 
+        type="text" 
+        id="search-input" 
+        placeholder="Search port or ISO3 (e.g., BONTANG, IDN)..." 
+        class="w-full px-3 py-2 bg-slate-800 text-sm text-slate-200 rounded-lg border border-slate-700 focus:outline-none focus:border-indigo-500"
+      />
+      <div class="flex justify-between space-x-2 text-xs">
+        <button id="filter-all" class="flex-1 py-1.5 px-2 bg-slate-700 hover:bg-slate-600 rounded font-medium transition">All Ports</button>
+        <button id="filter-high" class="flex-1 py-1.5 px-2 bg-red-900/50 text-red-300 hover:bg-red-800/60 rounded font-medium border border-red-700/50 transition">High Risk</button>
+        <button id="filter-moderate" class="flex-1 py-1.5 px-2 bg-amber-900/50 text-amber-300 hover:bg-amber-800/60 rounded font-medium border border-amber-700/50 transition">Moderate</button>
+      </div>
     </div>
   </header>
 
-  <!-- KPI Bar -->
-  <section class="grid grid-cols-4 gap-4 px-6 py-3 bg-slate-950/80 border-b border-slate-800 text-center">
-    <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
-      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Monitored Port Visits</div>
-      <div id="kpi-total-visits" class="text-xl font-extrabold text-slate-100">0</div>
-    </div>
-    <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
-      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">High-Risk Bio-Vectors</div>
-      <div id="kpi-high-risk" class="text-xl font-extrabold text-red-400">0</div>
-    </div>
-    <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
-      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Avg Residence Time</div>
-      <div id="kpi-avg-residence" class="text-xl font-extrabold text-cyan-400">0.0 <span class="text-xs font-normal">hrs</span></div>
-    </div>
-    <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
-      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Monitored Corridors</div>
-      <div class="text-xs font-bold text-emerald-400 mt-1.5">Hormuz &bull; European EEZ &bull; South America EEZ</div>
-    </div>
-  </section>
-
-  <!-- Main Viewport -->
-  <div class="flex flex-1 overflow-hidden">
-    <main class="flex-1 relative">
-      <div id="map"></div>
-    </main>
-
-    <!-- Sidebar Search & Risk Feed -->
-    <aside class="w-96 bg-slate-900 border-l border-slate-800 flex flex-col">
-      <div class="p-4 border-b border-slate-800">
-        <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wide mb-1">Port & Vessel Search</h2>
-        <p class="text-[11px] text-slate-400 mb-2">Click any vessel card to render its complete 2025 route on the map.</p>
-        <input 
-          type="text" 
-          id="search-input" 
-          placeholder="Filter by vessel, MMSI, port, or flag..." 
-          class="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-md text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
-        />
+  <!-- Side Inspector Drawer (Appears when clicking a port pin) -->
+  <aside id="inspector-drawer" class="absolute top-4 right-4 bottom-4 z-10 glass-panel rounded-xl w-96 p-5 shadow-2xl flex flex-col hidden transition-all duration-300">
+    <div class="flex justify-between items-start pb-4 border-b border-slate-700">
+      <div>
+        <span id="drawer-iso3" class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-900 text-indigo-300 border border-indigo-700">ISO3</span>
+        <h2 id="drawer-port-name" class="text-xl font-bold text-white mt-1">Port Name</h2>
       </div>
-      <div id="risk-feed" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar"></div>
-    </aside>
-  </div>
+      <button id="close-drawer" class="text-slate-400 hover:text-white text-xl font-bold p-1">&times;</button>
+    </div>
 
-  <!-- Application JS Script -->
-  <script src="assets/js/app.js"></script>
+    <!-- Aggregate Stats Grid -->
+    <div class="grid grid-cols-3 gap-2 my-4 text-center">
+      <div class="p-2 bg-slate-800/60 rounded-lg border border-slate-700">
+        <p class="text-xs text-slate-400">Total Visits</p>
+        <p id="stat-visits" class="text-base font-bold text-indigo-400">0</p>
+      </div>
+      <div class="p-2 bg-slate-800/60 rounded-lg border border-slate-700">
+        <p class="text-xs text-slate-400">High Risk</p>
+        <p id="stat-high" class="text-base font-bold text-red-400">0</p>
+      </div>
+      <div class="p-2 bg-slate-800/60 rounded-lg border border-slate-700">
+        <p class="text-xs text-slate-400">Moderate</p>
+        <p id="stat-mod" class="text-base font-bold text-amber-400">0</p>
+      </div>
+    </div>
+
+    <!-- Monitored Vessel List -->
+    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Monitored Vessels</h3>
+    <div id="vessel-list" class="flex-1 overflow-y-auto space-y-2 pr-1">
+      <!-- Dynamic Vessel Cards Injected Here -->
+    </div>
+  </aside>
+
+  <!-- Application Logic -->
+  <script>
+    let allData = [];
+    let activeFilter = 'all';
+    let deckInstance = null;
+
+    // Risk Color Mapping Function (RGBA)
+    function getPortColor(d) {
+      if (d.highRiskCount > 0) return [239, 68, 68, 200];    # Red (High Risk)
+      if (d.moderateRiskCount > 0) return [245, 158, 11, 200]; # Amber (Moderate)
+      return [16, 185, 129, 200];                             # Green (Low)
+    }
+
+    // Initialize Deck.gl Map Layer
+    function renderMap(data) {
+      const scatterLayer = new deck.ScatterplotLayer({
+        id: 'port-risk-layer',
+        data: data,
+        pickable: true,
+        opacity: 0.8,
+        stroked: true,
+        filled: true,
+        radiusScale: 10,
+        radiusMinPixels: 6,
+        radiusMaxPixels: 35,
+        lineWidthMinPixels: 1.5,
+        getPosition: d => [d.location[1], d.location[0]], // [Lon, Lat]
+        getRadius: d => Math.sqrt(d.totalPortVisits || 1) * 3000,
+        getFillColor: d => getPortColor(d),
+        getLineColor: [255, 255, 255, 180],
+        onClick: ({object}) => object && openInspectorDrawer(object),
+        updateTriggers: {
+          getFillColor: [activeFilter]
+        }
+      });
+
+      if (!deckInstance) {
+        deckInstance = new deck.DeckGL({
+          container: 'map-container',
+          mapStyle: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/json',
+          initialViewState: {
+            longitude: 25.0,
+            latitude: 20.0,
+            zoom: 2.5,
+            pitch: 30,
+            bearing: 0
+          },
+          controller: true,
+          layers: [scatterLayer],
+          getTooltip: ({object}) => object && {
+            html: `
+              <div class="bg-slate-900/90 text-white p-2.5 rounded shadow-xl border border-slate-700 text-xs">
+                <div class="font-bold text-sm mb-1">${object.portName} (${object.iso3 || 'N/A'})</div>
+                <div>Visits: <b class="text-indigo-400">${object.totalPortVisits}</b></div>
+                <div>High Risk Vessels: <b class="text-red-400">${object.highRiskCount}</b></div>
+                <div>Moderate Risk: <b class="text-amber-400">${object.moderateRiskCount}</b></div>
+              </div>
+            `,
+            style: { backgroundColor: 'transparent', padding: '0px', border: 'none' }
+          }
+        });
+      } else {
+        deckInstance.setProps({ layers: [scatterLayer] });
+      }
+    }
+
+    // Populate Side Inspector Drawer
+    function openInspectorDrawer(port) {
+      document.getElementById('drawer-port-name').innerText = port.portName;
+      document.getElementById('drawer-iso3').innerText = port.iso3 || 'EEZ';
+      document.getElementById('stat-visits').innerText = port.totalPortVisits;
+      document.getElementById('stat-high').innerText = port.highRiskCount;
+      document.getElementById('stat-mod').innerText = port.moderateRiskCount;
+
+      const vesselContainer = document.getElementById('vessel-list');
+      vesselContainer.innerHTML = '';
+
+      if (!port.vessels || port.vessels.length === 0) {
+        vesselContainer.innerHTML = `<p class="text-xs text-slate-500 italic">No vessel telemetry logs available.</p>`;
+      } else {
+        port.vessels.forEach(v => {
+          const isHigh = v.biosecurityRiskScore >= 0.8;
+          const isMod = v.biosecurityRiskScore >= 0.5 && !isHigh;
+          const badgeColor = isHigh ? 'bg-red-900/40 text-red-300 border-red-700' : 
+                             isMod ? 'bg-amber-900/40 text-amber-300 border-amber-700' : 
+                                     'bg-emerald-900/40 text-emerald-300 border-emerald-700';
+
+          const card = document.createElement('div');
+          card.className = 'p-3 bg-slate-800/80 rounded-lg border border-slate-700/70 text-xs space-y-1';
+          card.innerHTML = `
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-slate-200 text-sm">${v.vesselName}</span>
+              <span class="px-1.5 py-0.5 rounded text-[10px] border ${badgeColor}">${v.riskCategory}</span>
+            </div>
+            <div class="grid grid-cols-2 text-slate-400 gap-1 mt-1">
+              <div>MMSI: <span class="text-slate-200">${v.mmsi}</span></div>
+              <div>Flag: <span class="text-slate-200">${v.flag}</span></div>
+              <div>Type: <span class="text-slate-200">${v.vesselType}</span></div>
+              <div>Residence: <span class="text-indigo-300">${v.residenceHours} hrs</span></div>
+            </div>
+          `;
+          vesselContainer.appendChild(card);
+        });
+      }
+
+      document.getElementById('inspector-drawer').classList.remove('hidden');
+    }
+
+    // Filter & Search Handling
+    function applyFilters() {
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+      const filtered = allData.filter(port => {
+        const matchesSearch = port.portName.toLowerCase().includes(searchTerm) || 
+                              (port.iso3 && port.iso3.toLowerCase().includes(searchTerm));
+        
+        if (!matchesSearch) return false;
+        if (activeFilter === 'high') return port.highRiskCount > 0;
+        if (activeFilter === 'moderate') return port.moderateRiskCount > 0;
+        return true;
+      });
+
+      renderMap(filtered);
+    }
+
+    // Fetch `baseline_risk.json` and initialize
+    async function loadData() {
+      try {
+        const response = await fetch('data/baseline_risk.json');
+        allData = await response.json();
+        renderMap(allData);
+      } catch (err) {
+        console.error('Failed to load baseline_risk.json:', err);
+      }
+    }
+
+    // Event Listeners
+    document.getElementById('close-drawer').addEventListener('click', () => {
+      document.getElementById('inspector-drawer').classList.add('hidden');
+    });
+
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+
+    document.getElementById('filter-all').addEventListener('click', () => {
+      activeFilter = 'all';
+      applyFilters();
+    });
+    document.getElementById('filter-high').addEventListener('click', () => {
+      activeFilter = 'high';
+      applyFilters();
+    });
+    document.getElementById('filter-moderate').addEventListener('click', () => {
+      activeFilter = 'moderate';
+      applyFilters();
+    });
+
+    // Run on startup
+    loadData();
+  </script>
 </body>
 </html>
