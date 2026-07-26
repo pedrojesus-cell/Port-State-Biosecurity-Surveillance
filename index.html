@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shipsonic - Port-State Biosecurity Surveillance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
+
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <span class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></span>
+        <h1 class="text-xl font-bold tracking-tight text-white">Shipsonic Biosecurity Baseline</h1>
+      </div>
+      <div class="text-xs font-mono text-slate-400" id="sync-time">
+        Loading pipeline metadata...
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+
+    <!-- Key Metrics Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <div class="text-xs font-medium text-slate-400">Monitored Facilities</div>
+        <div id="stat-ports" class="text-2xl font-bold text-white mt-1">--</div>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <div class="text-xs font-medium text-slate-400">Evaluated Vessels</div>
+        <div id="stat-vessels" class="text-2xl font-bold text-cyan-400 mt-1">--</div>
+      </div>
+      <div class="bg-slate-900 border border-rose-950/60 rounded-xl p-4">
+        <div class="text-xs font-medium text-rose-400">High Fouling Risk Arrivals</div>
+        <div id="stat-high-risk" class="text-2xl font-bold text-rose-500 mt-1">--</div>
+      </div>
+      <div class="bg-slate-900 border border-amber-950/60 rounded-xl p-4">
+        <div class="text-xs font-medium text-amber-400">MGPS Service Overdue</div>
+        <div id="stat-mgps-overdue" class="text-2xl font-bold text-amber-400 mt-1">--</div>
+      </div>
+    </div>
+
+    <!-- Leaflet Geospatial View -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden h-[480px] relative">
+      <div id="map" class="w-full h-full"></div>
+    </div>
+
+    <!-- Inspection Queue Table -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-800 flex justify-between items-center">
+        <h2 class="text-base font-semibold text-white">Targeted Inspection Priority Queue</h2>
+        <span class="text-xs text-slate-400">Ordered by Biofouling Risk Index ($R$)</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-slate-300">
+          <thead class="bg-slate-950 text-xs uppercase text-slate-400 border-b border-slate-800">
+            <tr>
+              <th class="px-6 py-3">Vessel / MMSI</th>
+              <th class="px-6 py-3">Type / Flag</th>
+              <th class="px-6 py-3">Resolved Port</th>
+              <th class="px-6 py-3">Residence</th>
+              <th class="px-6 py-3">MGPS Status</th>
+              <th class="px-6 py-3">Fouling Risk ($R$)</th>
+            </tr>
+          </thead>
+          <tbody id="vessel-table" class="divide-y divide-slate-800/60 font-mono text-xs">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let map;
+    document.addEventListener("DOMContentLoaded", async () => {
+      map = L.map('map').setView([20, 0], 2);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; CartoDB'
+      }).addTo(map);
+
+      try {
+        const res = await fetch('data/baseline_risk.json');
+        const data = await res.json();
+        
+        document.getElementById('sync-time').innerText = `Sync: ${data.metadata.generatedAt}`;
+        document.getElementById('stat-ports').innerText = data.metadata.totalPortsMonitored;
+        document.getElementById('stat-vessels').innerText = data.metadata.totalVesselsEvaluated;
+
+        let highRiskCount = 0;
+        let mgpsOverdueCount = 0;
+        let allVessels = [];
+
+        data.ports.forEach(port => {
+          highRiskCount += port.highRiskCount;
+          
+          // Map Marker
+          const color = port.highRiskCount > 0 ? '#ef4444' : '#06b6d4';
+          L.circleMarker(port.location, {
+            radius: 6 + Math.min(port.totalPortVisits / 5, 12),
+            fillColor: color,
+            color: '#ffffff',
+            weight: 1,
+            fillOpacity: 0.75
+          }).addTo(map).bindPopup(`
+            <div class="text-slate-900 font-sans p-1">
+              <div class="font-bold text-sm">${port.portName}</div>
+              <div class="text-xs">Visits: ${port.totalPortVisits}</div>
+              <div class="text-xs text-rose-600 font-semibold">High Risk: ${port.highRiskCount}</div>
+            </div>
+          `);
+
+          port.vessels.forEach(v => {
+            if (v.mgpsStatus !== 'Operational') mgpsOverdueCount++;
+            allVessels.push({ ...v, portName: port.portName });
+          });
+        });
+
+        document.getElementById('stat-high-risk').innerText = highRiskCount;
+        document.getElementById('stat-mgps-overdue').innerText = mgpsOverdueCount;
+
+        // Sort Table by Risk
+        allVessels.sort((a, b) => b.biosecurityRiskScore - a.biosecurityRiskScore);
+
+        const tbody = document.getElementById('vessel-table');
+        allVessels.slice(0, 25).forEach(v => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-800/40';
+          tr.innerHTML = `
+            <td class="px-6 py-3 font-semibold text-white">${v.vesselName} <span class="text-slate-500">(${v.mmsi})</span></td>
+            <td class="px-6 py-3">${v.vesselType} <span class="text-slate-500">(${v.flag})</span></td>
+            <td class="px-6 py-3">${v.portName}</td>
+            <td class="px-6 py-3">${v.residenceHours} hrs</td>
+            <td class="px-6 py-3 ${v.mgpsStatus === 'Operational' ? 'text-emerald-400' : 'text-amber-400'}">${v.mgpsStatus}</td>
+            <td class="px-6 py-3 font-bold ${v.biosecurityRiskScore >= 0.7 ? 'text-rose-500' : 'text-cyan-400'}">${v.biosecurityRiskScore} (${v.riskCategory})</td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+      } catch (e) {
+        console.error("Baseline JSON not loaded yet.", e);
+      }
+    });
+  </script>
+</body>
+</html>
