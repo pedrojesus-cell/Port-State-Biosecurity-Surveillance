@@ -1,38 +1,120 @@
-async function loadRiskData() {
-  try {
-    // Relative path to docs/data/baseline_risk.json
-    const response = await fetch('./data/baseline_risk.json');
-    const data = await response.json();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shipsonic - Maritime Biosecurity Dashboard</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; overflow: hidden; }
     
-    document.getElementById('timestamp').innerText = `Updated: ${new Date(data.generated_at).toLocaleString()}`;
+    #header { height: 60px; padding: 0 24px; background: #1e293b; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; }
+    #header h2 { font-size: 1.25rem; font-weight: 600; }
+    #timestamp { font-size: 0.85rem; color: #94a3b8; }
+    
+    #container { display: flex; height: calc(100vh - 60px); }
+    #map { flex: 1; height: 100%; background: #090d16; }
+    
+    #sidebar { width: 380px; background: #1e293b; border-left: 1px solid #334155; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+    #sidebar h3 { font-size: 1.1rem; color: #f1f5f9; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+    
+    .card { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 16px; line-height: 1.6; font-size: 0.9rem; }
+    .card h4 { font-size: 1.05rem; color: #38bdf8; margin-bottom: 8px; }
+    .card p { color: #cbd5e1; margin-bottom: 4px; }
+    .card hr { border: 0; border-top: 1px solid #334155; margin: 12px 0; }
+    
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-top: 4px; }
+    .high { background: #7f1d1d; color: #fecaca; border: 1px solid #dc2626; }
+    .moderate { background: #713f12; color: #fef08a; border: 1px solid #ca8a04; }
+    .low { background: #14532d; color: #bbf7d0; border: 1px solid #16a34a; }
+  </style>
+</head>
+<body>
 
-    data.vessels.forEach(vessel => {
-      const color = vessel.risk_score >= 0.7 ? '#ef4444' : vessel.risk_score >= 0.35 ? '#eab308' : '#22c55e';
-      
-      const marker = L.circleMarker([vessel.latitude, vessel.longitude], {
-        radius: 7,
-        fillColor: color,
-        color: '#ffffff',
-        weight: 1,
-        fillOpacity: 0.85
-      }).addTo(map);
+  <div id="header">
+    <h2>🚢 Shipsonic Maritime Biosecurity Dashboard</h2>
+    <span id="timestamp">Loading updates...</span>
+  </div>
 
-      marker.on('click', () => {
-        document.getElementById('vessel-list').innerHTML = `
-          <div class="card">
-            <h4>${vessel.vessel_name}</h4>
-            <p><strong>MMSI:</strong> ${vessel.mmsi}</p>
-            <p><strong>Port Location:</strong> ${vessel.port_name}</p>
-            <p><strong>Residence Time:</strong> ${vessel.residence_hours} hrs</p>
-            <p><strong>Risk Rating:</strong> 
-              <span class="badge ${getBadgeClass(vessel.risk_category)}">${vessel.risk_category}</span>
-            </p>
-            <p><strong>Score:</strong> ${vessel.risk_score} / 1.0</p>
-          </div>
-        `;
-      });
-    });
-  } catch (err) {
-    console.error("Error loading JSON:", err);
-  }
-}
+  <div id="container">
+    <div id="map"></div>
+    <div id="sidebar">
+      <h3>Vessel Risk Inspector</h3>
+      <div id="vessel-details">
+        <p style="color: #94a3b8; font-size: 0.9rem;">Click any vessel pin on the map to display its detailed biosecurity risk profile.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Initialize dark-themed map base
+    const map = L.map('map').setView([15, 0], 2);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      maxZoom: 18
+    }).addTo(map);
+
+    function getBadgeClass(category) {
+      if (category === 'High Fouling Risk') return 'high';
+      if (category === 'Moderate Vector') return 'moderate';
+      return 'low';
+    }
+
+    async function loadRiskData() {
+      try {
+        // Correct path pointing to baseline_risk.json inside docs/data/
+        const response = await fetch('./data/baseline_risk.json');
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        
+        // Update header timestamp
+        const formattedDate = new Date(data.generated_at).toLocaleString();
+        document.getElementById('timestamp').innerText = `Last Updated: ${formattedDate} (${data.total_vessels_assessed} vessels analyzed)`;
+
+        // Plot vessel locations
+        data.vessels.forEach(vessel => {
+          const color = vessel.risk_score >= 0.7 ? '#ef4444' : vessel.risk_score >= 0.35 ? '#eab308' : '#22c55e';
+          
+          const marker = L.circleMarker([vessel.latitude, vessel.longitude], {
+            radius: 7,
+            fillColor: color,
+            color: '#ffffff',
+            weight: 1,
+            fillOpacity: 0.85
+          }).addTo(map);
+
+          // Render side panel info on click
+          marker.on('click', () => {
+            document.getElementById('vessel-details').innerHTML = `
+              <div class="card">
+                <h4>${vessel.vessel_name}</h4>
+                <p><strong>MMSI:</strong> ${vessel.mmsi}</p>
+                <p><strong>Flag State:</strong> ${vessel.flag}</p>
+                <p><strong>Port Location:</strong> ${vessel.port_name}</p>
+                <p><strong>Residence Time:</strong> ${vessel.residence_hours} hrs</p>
+                <p><strong>MGPS Equipped:</strong> ${vessel.mgps_installed ? 'Yes ✅' : 'No ❌'}</p>
+                <hr />
+                <p><strong>Biosecurity Assessment:</strong></p>
+                <span class="badge ${getBadgeClass(vessel.risk_category)}">${vessel.risk_category}</span>
+                <p style="margin-top: 8px;"><strong>Hull Risk Score:</strong> ${vessel.risk_score} / 1.0</p>
+              </div>
+            `;
+          });
+        });
+
+      } catch (err) {
+        console.error("Error loading baseline risk data:", err);
+        document.getElementById('timestamp').innerText = "Data pending (Run GitHub Action workflow)";
+      }
+    }
+
+    loadRiskData();
+  </script>
+</body>
+</html>
