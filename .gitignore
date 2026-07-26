@@ -1,19 +1,15 @@
 # Byte-compiled / optimized files
 __pycache__/
 *.py[cod]
-*$py.class
 
 # Virtual environments
 venv/
-env/
-ENV/
 .venv/
 
-# IDE & OS clutter
+# OS clutter
 .DS_Store
 .vscode/
-.idea/
 
-# Local data outputs (Optional: comment out baseline_risk.json if tracking outputs)
-data/*.json
+# Preserve data folder tracking while ignoring dynamic CSV/JSON generated files if desired,
+# OR keep all data tracked:
 !data/.gitkeep
