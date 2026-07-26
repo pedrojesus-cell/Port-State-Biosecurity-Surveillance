@@ -1,138 +1,64 @@
 import os
 import glob
-import re
-import requests
 import pandas as pd
-import geopandas as gpd
-from shapely.geometry import Point
 
 CONFIG_DIR = "config"
 DATA_DIR = "data"
-EEZ_SHAPEFILE_PATH = os.path.join("boundaries", "World_EEZ_v12.gpkg")  # Marine Regions GeoPackage
+ANCHORAGE_CSV = "gfw_anchorages.csv"
 
-# -------------------------------------------------------------------
-# 1. MARINE REGIONS & GFW ONLINE API FALLBACK HELPERS
-# -------------------------------------------------------------------
-def query_marine_regions_api(eez_name):
-    """
-    Queries Marine Regions REST Gazetteer API by name if spatial join is unavailable.
-    Returns: MRGID and preferred label.
-    """
-    url = f"https://www.marineregions.org/rest/getGazetteerRecordsByName.json/{eez_name}/"
-    try:
-        response = requests.get(url, params={"fuzzy": "true"}, timeout=5)
-        if response.status_code == 200:
-            records = response.json()
-            if records:
-                # Top result
-                return records[0].get("MRGID"), records[0].get("preferredGazetteerName")
-    except Exception as e:
-        print(f"API Warning: Failed to query Marine Regions for '{eez_name}': {e}")
-    return None, eez_name
+def process_port_risks():
+    if not os.path.exists(CONFIG_DIR):
+        print(f"Directory '{CONFIG_DIR}' does not exist.")
+        return
 
-
-def query_gfw_vessel_events(mmsi, gfw_api_key):
-    """
-    Optional helper to fetch live vessel events directly from GFW API v3.
-    """
-    url = f"https://gateway.api.globalfishingwatch.org/v3/vessels/{mmsi}/events"
-    headers = {"Authorization": f"Bearer {gfw_api_key}"}
-    try:
-        res = requests.get(url, headers=headers, timeout=10)
-        if res.status_code == 200:
-            return res.json()
-    except Exception as e:
-        print(f"GFW API Error for MMSI {mmsi}: {e}")
-    return None
-
-
-# -------------------------------------------------------------------
-# 2. LOAD LOCAL EEZ BOUNDARY POLYGONS
-# -------------------------------------------------------------------
-def load_eez_boundaries(filepath):
-    """
-    Loads Marine Regions World EEZ shapefile/GeoPackage into GeoPandas dataframe.
-    Download standard boundary files from: https://www.marineregions.org/downloads.php
-    """
-    if os.path.exists(filepath):
-        print(f"Loading local EEZ boundaries from: {filepath}")
-        gdf_eez = gpd.read_file(filepath)
-        # Standardize CRS to WGS84
-        if gdf_eez.crs != "EPSG:4326":
-            gdf_eez = gdf_eez.to_crs("EPSG:4326")
-        return gdf_eez
-    else:
-        print(f"NOTICE: Local EEZ file '{filepath}' not found. Falling back to API queries.")
-        return None
-
-
-# -------------------------------------------------------------------
-# 3. MAIN DATA PROCESSING ENGINE
-# -------------------------------------------------------------------
-def process_all_config_csvs(gfw_api_key=None):
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
-
     if not csv_files:
-        print(f"NOTICE: No CSV files found inside '{CONFIG_DIR}/'.")
+        print(f"No CSV datasets found inside '{CONFIG_DIR}/'. Creating empty output.")
         os.makedirs(DATA_DIR, exist_ok=True)
         pd.DataFrame([]).to_json(os.path.join(DATA_DIR, "baseline_risk.json"), orient="records")
         return
 
-    # Load EEZ Polygons
-    gdf_eez = load_eez_boundaries(EEZ_SHAPEFILE_PATH)
+    # Load GFW Anchorage reference DB for fast, non-geopandas spatial lookups
+    anc_lookup = {}
+    if os.path.exists(ANCHORAGE_CSV):
+        df_anc = pd.read_csv(ANCHORAGE_CSV, low_memory=False)
+        df_anc = df_anc[(df_anc['lon'] >= -180) & (df_anc['lon'] <= 180) & (df_anc['lat'] >= -90) & (df_anc['lat'] <= 90)]
+        
+        grouped = df_anc.groupby(['iso3', 'label']).agg(
+            lat=('lat', 'mean'),
+            lon=('lon', 'mean')
+        ).reset_index()
+        
+        for _, r in grouped.iterrows():
+            anc_lookup[f"{r['iso3']}_{r['label']}".lower()] = [round(r['lat'], 4), round(r['lon'], 4)]
 
     port_summary = {}
 
     for f in csv_files:
-        file_base = os.path.basename(f)
-        print(f"Processing dataset: {file_base}")
-
         try:
             df = pd.read_csv(f, low_memory=False)
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
 
-            # Convert CSV rows to GeoDataFrame using Lat/Lon columns
-            lat_col = next((c for c in df.columns if c in ["lat", "latitude", "lat_mean"]), None)
-            lon_col = next((c for c in df.columns if c in ["lon", "longitude", "lon_mean"]), None)
+            for idx, row in df.iterrows():
+                iso3 = str(row.get("iso3") or "UNK").upper()
+                port_name = str(row.get("label") or row.get("port_name") or "Monitored Zone").strip()
+                display_key = f"{iso3} - {port_name}"
 
-            if lat_col and lon_col:
-                # Clean coordinates
-                df = df.dropna(subset=[lat_col, lon_col])
-                df = df[(df[lon_col] >= -180) & (df[lon_col] <= 180) & (df[lat_col] >= -90) & (df[lat_col] <= 90)]
+                # Coordinates lookup
+                lat = row.get("lat") or row.get("latitude")
+                lon = row.get("lon") or row.get("longitude")
                 
-                geometry = [Point(xy) for xy in zip(df[lon_col], df[lat_col])]
-                gdf_vessels = gpd.GeoDataFrame(df, geometry=geometry, crs="EPSG:4326")
+                if pd.notnull(lat) and pd.notnull(lon) and -180 <= float(lon) <= 180:
+                    coords = [round(float(lat), 4), round(float(lon), 4)]
+                else:
+                    coords = anc_lookup.get(f"{iso3}_{port_name}".lower(), [25.0, 50.0])
 
-                # Perform Spatial Join with EEZ Polygons
-                if gdf_eez is not None:
-                    gdf_vessels = gpd.sjoin(gdf_vessels, gdf_eez, how="left", predicate="intersects")
-
-            else:
-                gdf_vessels = gpd.GeoDataFrame(df)
-                gdf_vessels["geoname"] = "Unknown EEZ / Point Missing"
-
-            # Iterate vessel events
-            for idx, row in gdf_vessels.iterrows():
-                # Extract identified EEZ name from Marine Regions layer or fallback
-                eez_name = str(
-                    row.get("geoname") or 
-                    row.get("eez_name") or 
-                    row.get("territory1") or 
-                    "Unmapped High Seas / EEZ"
-                ).strip()
-
-                mrgid = int(row.get("mrgid")) if pd.notnull(row.get("mrgid")) else None
-
-                if eez_name not in port_summary:
-                    # Get EEZ centroid or first point coordinate
-                    lat_val = float(row[lat_col]) if lat_col and pd.notnull(row.get(lat_col)) else 0.0
-                    lon_val = float(row[lon_col]) if lon_col and pd.notnull(row.get(lon_col)) else 0.0
-
-                    port_summary[eez_name] = {
-                        "eezName": eez_name,
-                        "mrgid": mrgid,
+                if display_key not in port_summary:
+                    port_summary[display_key] = {
+                        "portName": port_name,
+                        "iso3": iso3,
                         "year": 2026,
-                        "location": [round(lat_val, 4), round(lon_val, 4)],
+                        "location": coords,
                         "totalPortVisits": 0,
                         "highRiskCount": 0,
                         "moderateRiskCount": 0,
@@ -152,40 +78,34 @@ def process_all_config_csvs(gfw_api_key=None):
 
                 residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
 
-                # Biosecurity fouling risk evaluation
                 if total_visits >= 15:
-                    risk_score = 0.92
-                    risk_category = "High Fouling Risk"
-                    port_summary[eez_name]["highRiskCount"] += 1
+                    risk_score, risk_cat = 0.92, "High Fouling Risk"
+                    port_summary[display_key]["highRiskCount"] += 1
                 elif total_visits >= 5:
-                    risk_score = 0.65
-                    risk_category = "Moderate Vector"
-                    port_summary[eez_name]["moderateRiskCount"] += 1
+                    risk_score, risk_cat = 0.65, "Moderate Vector"
+                    port_summary[display_key]["moderateRiskCount"] += 1
                 else:
-                    risk_score = 0.35
-                    risk_category = "Low Risk"
-                    port_summary[eez_name]["lowRiskCount"] += 1
+                    risk_score, risk_cat = 0.35, "Low Risk"
+                    port_summary[display_key]["lowRiskCount"] += 1
 
-                port_summary[eez_name]["totalPortVisits"] += int(total_visits)
-                port_summary[eez_name]["vessels"].append({
+                port_summary[display_key]["totalPortVisits"] += int(total_visits)
+                port_summary[display_key]["vessels"].append({
                     "mmsi": mmsi,
                     "vesselName": vessel_name,
                     "flag": flag,
                     "vesselType": vessel_type,
                     "residenceHours": residence_hrs,
                     "biosecurityRiskScore": risk_score,
-                    "riskCategory": risk_category,
+                    "riskCategory": risk_cat,
                     "totalEvents": int(total_visits)
                 })
 
         except Exception as e:
-            print(f"Error processing file {f}: {e}")
+            print(f"Error reading file {f}: {e}")
 
-    final_ports = list(port_summary.values())
     os.makedirs(DATA_DIR, exist_ok=True)
-    pd.DataFrame(final_ports).to_json(os.path.join(DATA_DIR, "baseline_risk.json"), orient="records")
-    print(f"SUCCESS: Processed and exported {len(final_ports)} distinct EEZ spatial zones to 'baseline_risk.json'.")
-
+    pd.DataFrame(list(port_summary.values())).to_json(os.path.join(DATA_DIR, "baseline_risk.json"), orient="records")
+    print("SUCCESS: Successfully exported 'data/baseline_risk.json'.")
 
 if __name__ == "__main__":
-    process_all_config_csvs()
+    process_port_risks()
