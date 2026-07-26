@@ -1,8 +1,6 @@
-# Data Processing & Parsing
-pandas>=2.1.0,<3.0.0
-
-# Testing
-pytest>=7.4.0,<8.0.0
-
-# Code Formatting & Static Analysis
-flake8>=6.1.0
+- name: Set up Python
+  uses: actions/setup-python@v5
+  with:
+    python-version: '3.x'
+    cache: 'pip'
+    cache-dependency-path: 'path/to/requirements.txt' # or '**/requirements*.txt'
