@@ -7,8 +7,17 @@ import pandas as pd
 
 CONFIG_DIR = "config"
 
-# Extensive global coordinate map covering all major EEZ regions
+# Complete Geographic Coordinate Database matching ALL uploaded CSV filenames
 GLOBAL_PORT_COORDINATES = [
+    # Portugal & Atlantic Islands
+    {"keywords": ["viana", "viana_do_castelo"], "lat": 41.6932, "lon": -8.8329},
+    {"keywords": ["portugal", "portuguese", "lisbon", "leixoes", "sines"], "lat": 38.7100, "lon": -9.1300},
+    {"keywords": ["azores", "madeira"], "lat": 37.7400, "lon": -25.6600},
+
+    # Spain & Canaries
+    {"keywords": ["spain", "spanish", "iberian"], "lat": 36.5300, "lon": -6.2900},
+    {"keywords": ["canary", "canaries", "palmas", "tenerife"], "lat": 28.1200, "lon": -15.4300},
+
     # South & Central America / Caribbean
     {"keywords": ["uruguay", "uruguayan"], "lat": -34.9000, "lon": -56.1600},
     {"keywords": ["suriname", "surinamese"], "lat": 5.8500, "lon": -55.2000},
@@ -21,27 +30,35 @@ GLOBAL_PORT_COORDINATES = [
     {"keywords": ["peru", "peruvian"], "lat": -12.0400, "lon": -77.1400},
     {"keywords": ["panama"], "lat": 8.9800, "lon": -79.5200},
 
-    # Mediterranean, Middle East & Europe
+    # Mediterranean & Middle East
     {"keywords": ["turkey", "turkish"], "lat": 41.0100, "lon": 28.9700},
     {"keywords": ["croatia", "croatian"], "lat": 43.5100, "lon": 16.4400},
-    {"keywords": ["spain", "spanish", "canary"], "lat": 28.1200, "lon": -15.4300},
     {"keywords": ["cyprus", "cypriot"], "lat": 34.6700, "lon": 33.0400},
     {"keywords": ["malta", "maltese"], "lat": 35.8900, "lon": 14.5100},
     {"keywords": ["oman", "omani"], "lat": 23.6100, "lon": 58.5900},
     {"keywords": ["greece", "greek"], "lat": 37.9400, "lon": 23.6400},
     {"keywords": ["italy", "italian"], "lat": 40.8500, "lon": 14.2600},
-    {"keywords": ["rotterdam", "dutch", "european"], "lat": 51.9800, "lon": 3.9000},
+    {"keywords": ["hormuz", "uae", "emirates", "fujairah"], "lat": 25.2700, "lon": 55.2900},
+
+    # Northern & Western Europe
+    {"keywords": ["rotterdam", "dutch", "netherlands", "european"], "lat": 51.9800, "lon": 3.9000},
+    {"keywords": ["france", "french"], "lat": 48.3900, "lon": -4.4800},
+    {"keywords": ["uk", "british", "united_kingdom"], "lat": 50.8000, "lon": -1.0800},
+    {"keywords": ["ireland", "irish"], "lat": 51.8900, "lon": -8.4700},
+    {"keywords": ["germany", "german", "hamburg"], "lat": 53.5500, "lon": 9.9900},
 
     # Baltic, Arctic & Black Sea
     {"keywords": ["baltic", "petersburg"], "lat": 59.8800, "lon": 30.2000},
     {"keywords": ["arctic", "murmansk"], "lat": 69.0200, "lon": 33.0500},
     {"keywords": ["black", "novorossiysk"], "lat": 44.6800, "lon": 37.8000},
 
-    # Asia & Far East
+    # Asia, Africa & Oceania
     {"keywords": ["russian", "vladivostok"], "lat": 43.0800, "lon": 131.8700},
     {"keywords": ["japan", "japanese"], "lat": 35.4400, "lon": 139.6300},
     {"keywords": ["korea", "korean"], "lat": 35.1700, "lon": 129.0700},
-    {"keywords": ["china", "chinese"], "lat": 31.2300, "lon": 121.4700}
+    {"keywords": ["china", "chinese"], "lat": 31.2300, "lon": 121.4700},
+    {"keywords": ["australia", "australian"], "lat": -33.8600, "lon": 151.2000},
+    {"keywords": ["africa", "south_africa"], "lat": -33.9200, "lon": 18.4200}
 ]
 
 def clean_filename_title(filename):
@@ -51,36 +68,37 @@ def clean_filename_title(filename):
 
 def get_unique_port_location(filename, idx):
     lf = filename.lower()
-    base_lat, base_lon = 20.0, 0.0
-    matched = False
+    matched_coords = None
 
     for entry in GLOBAL_PORT_COORDINATES:
         for kw in entry["keywords"]:
             if kw in lf:
-                base_lat, base_lon = entry["lat"], entry["lon"]
-                matched = True
+                matched_coords = [entry["lat"], entry["lon"]]
                 break
-        if matched:
+        if matched_coords:
             break
 
-    if not matched:
-        # Global regional hubs fallback based on file index
+    if not matched_coords:
+        # Fallback distribution around coastal points based on hash
+        hash_val = int(hashlib.md5(filename.encode('utf-8')).hexdigest(), 16)
         fallback_hubs = [
-            [51.98, 3.90],   # North Sea
-            [35.89, 14.51],  # Mediterranean
-            [25.27, 55.29],  # Persian Gulf
-            [1.29, 103.85],  # Southeast Asia
-            [19.20, -96.13], # Gulf of Mexico
-            [-23.96, -46.33] # South Atlantic
+            [38.71, -9.13],   # Portugal Coast
+            [36.53, -6.29],   # Spain Atlantic Coast
+            [51.98, 3.90],    # North Sea
+            [35.89, 14.51],   # Mediterranean
+            [25.27, 55.29],   # Persian Gulf
+            [1.29, 103.85],   # Southeast Asia
+            [19.20, -96.13],  # Central America
+            [-23.96, -46.33]  # South America
         ]
-        base_lat, base_lon = fallback_hubs[idx % len(fallback_hubs)]
+        matched_coords = fallback_hubs[hash_val % len(fallback_hubs)]
 
-    # Add a unique offset per file so markers never overlap perfectly
+    # Add small deterministic offset so multiple files from same region don't overlap completely
     hash_val = int(hashlib.md5(filename.encode('utf-8')).hexdigest(), 16)
-    offset_lat = ((hash_val % 100) - 50) / 100.0 * 1.5
-    offset_lon = (((hash_val // 100) % 100) - 50) / 100.0 * 1.5
+    offset_lat = (((hash_val % 50) - 25) / 100.0) * 0.8
+    offset_lon = ((((hash_val // 50) % 50) - 25) / 100.0) * 0.8
 
-    return [round(base_lat + offset_lat, 4), round(base_lon + offset_lon, 4)]
+    return [round(matched_coords[0] + offset_lat, 4), round(matched_coords[1] + offset_lon, 4)]
 
 def process_all_config_csvs():
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
@@ -91,7 +109,7 @@ def process_all_config_csvs():
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Processing {len(csv_files)} CSV files into unique port markers...")
+    print(f"Processing {len(csv_files)} CSV files into distinct global port aggregates...")
 
     port_summary = {}
 
