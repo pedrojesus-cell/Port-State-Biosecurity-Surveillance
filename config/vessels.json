@@ -1,0 +1,22 @@
+{
+  "monitored_vessels": [
+    {
+      "name": "IBUKI",
+      "mmsi": "370599000",
+      "vesselType": "Fish Carrier",
+      "flag": "PAN"
+    },
+    {
+      "name": "TUNA QUEEN",
+      "mmsi": "352894000",
+      "vesselType": "Fish Carrier",
+      "flag": "PAN"
+    },
+    {
+      "name": "TAIHO MARU",
+      "mmsi": "636017396",
+      "vesselType": "Fish Carrier",
+      "flag": "LBR"
+    }
+  ]
+}
