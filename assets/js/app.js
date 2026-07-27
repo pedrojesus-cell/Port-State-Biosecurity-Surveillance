@@ -1,3 +1,4 @@
+// Initialize Leaflet Map
 const map = L.map('map', { zoomControl: true, minZoom: 2 }).setView([10.0, -20.0], 3);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -55,9 +56,11 @@ function renderDashboard(records) {
 
   const boundsPoints = [];
 
-  records.forEach((rec) => {
+  // Sort records so Low/Moderate risk render FIRST, and High Risk renders LAST (on top)
+  const sortedForRendering = [...records].sort((a, b) => (a.biosecurityRiskScore || 0) - (b.biosecurityRiskScore || 0));
+
+  sortedForRendering.forEach((rec) => {
     const riskScore = rec.biosecurityRiskScore || 0;
-    const riskPct = Math.round(riskScore * 100);
     const isHighRisk = riskScore >= 0.70;
     const markerColor = getRiskColor(riskScore);
 
@@ -70,19 +73,30 @@ function renderDashboard(records) {
       boundsPoints.push([lat, lon]);
 
       const marker = L.circleMarker([lat, lon], {
-        radius: isHighRisk ? 5.5 : (riskScore >= 0.40 ? 4.5 : 3.5),
+        radius: isHighRisk ? 6 : (riskScore >= 0.40 ? 4.5 : 3.5),
         fillColor: markerColor,
         color: '#ffffff',
-        weight: 1,
-        fillOpacity: 0.9
+        weight: isHighRisk ? 1.2 : 0.8,
+        fillOpacity: 0.95
       });
 
       marker.bindPopup(getPopupHtml(rec));
       marker.on('click', () => drawVesselTrajectory(rec));
       markersLayer.addLayer(marker);
-    }
 
-    // Sidebar Feed Entry
+      // Bring High Risk Markers to Front explicitly
+      if (isHighRisk) {
+        marker.bringToFront();
+      }
+    }
+  });
+
+  // Populate Sidebar Feed
+  records.forEach((rec) => {
+    const riskScore = rec.biosecurityRiskScore || 0;
+    const riskPct = Math.round(riskScore * 100);
+    const markerColor = getRiskColor(riskScore);
+
     const card = document.createElement('div');
     card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-400 ${
       riskScore >= 0.70 ? 'bg-red-950/20 border-red-900/50' : 
@@ -115,6 +129,7 @@ function renderDashboard(records) {
 }
 
 function drawVesselTrajectory(vessel) {
+  // Clear previous trajectory layer cleanly without throwing errors
   trajectoryLayer.clearLayers();
 
   const routePoints = [];
@@ -131,20 +146,21 @@ function drawVesselTrajectory(vessel) {
   if (routePoints.length > 1) {
     const polyline = L.polyline(routePoints, {
       color: riskColor,
-      weight: 3,
-      opacity: 0.9,
+      weight: 3.5,
+      opacity: 0.95,
       dashArray: '6, 8'
     });
     trajectoryLayer.addLayer(polyline);
 
     if (vessel.vesselPos) {
       const activeMarker = L.circleMarker([vessel.vesselPos[0], vessel.vesselPos[1]], {
-        radius: 8,
+        radius: 8.5,
         fillColor: riskColor,
         color: '#ffffff',
         weight: 2,
         fillOpacity: 1
       });
+      
       activeMarker.bindPopup(getPopupHtml(vessel)).openPopup();
       trajectoryLayer.addLayer(activeMarker);
     }
@@ -179,7 +195,7 @@ function getPopupHtml(rec) {
 
 function generateVessel2025Report(mmsi, vesselName) {
   const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
+  const doc = new jsPDF(); // Scope properly to avoid breaking window click handlers
 
   const visits = allVessels.filter(v => String(v.mmsi) === String(mmsi) || v.vesselName === vesselName);
   const main = visits[0] || {};
