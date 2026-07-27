@@ -1,113 +1,95 @@
 import os
-import json
-import requests
+import glob
+import sys
 import pandas as pd
-from datetime import datetime, timedelta, timezone
-import gfwapiclient as gfw
 
-# 1. Environment Secrets (Provided by GitHub Actions)
-API_TOKEN = os.environ.get("GFW_API_TOKEN")
-DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
+CONFIG_DIR = "config"
+MAX_JSON_RECORDS = 8000
 
-# Initialize Global Fishing Watch V3 Client
-client = gfw.Client(access_token=API_TOKEN)
+def clean_float(val):
+    try:
+        if pd.notnull(val):
+            return float(val)
+    except (ValueError, TypeError):
+        pass
+    return None
 
-def calculate_fouling_risk(speed_knots, residence_hours):
-    """
-    Calculates biosecurity invasion risk indicator:
-    - High port residence (>48 hrs) + low transit speed (<8 knots) = high fouling accumulation risk.
-    """
-    if residence_hours > 48 and speed_knots < 8:
-        return 0.85
-    elif residence_hours > 12:
-        return 0.50
-    return 0.20
+def process_all_config_csvs():
+    csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
 
-def send_discord_alert(record):
-    """Dispatches a rich embed notification card to Discord."""
-    if not DISCORD_WEBHOOK_URL:
-        print("INFO: No DISCORD_WEBHOOK_URL found. Skipping notification.")
+    if not csv_files:
+        print(f"NOTICE: No CSV files found inside '{CONFIG_DIR}/'.")
+        os.makedirs("data", exist_ok=True)
+        pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    payload = {
-        "username": "Biosecurity Early Warning",
-        "avatar_url": "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
-        "embeds": [
-            {
-                "title": f"🚨 HIGH-RISK PORT ENTRY DETECTED: {record['vesselName']}",
-                "color": 15548997,  # Red hex code in decimal format
-                "fields": [
-                    {"name": "Vessel / Flag", "value": f"{record['vesselName']} ({record['flag']})", "inline": True},
-                    {"name": "Target Port", "value": str(record['portName']), "inline": True},
-                    {"name": "Risk Score", "value": f"**{(record['biosecurityRiskScore'] * 100):.0f}%**", "inline": True},
-                    {"name": "In-Port Residence", "value": f"{record['residenceHours']:.1f} Hours", "inline": True},
-                    {"name": "MMSI Identifier", "value": str(record['mmsi']), "inline": True},
-                    {"name": "Vessel Type", "value": str(record['vesselType']), "inline": True}
-                ],
-                "footer": {"text": "Global Fishing Watch | Biosecurity Surveillance Engine"},
-                "timestamp": datetime.now(timezone.utc).isoformat()
-            }
-        ]
-    }
+    print(f"Found {len(csv_files)} CSV files in '{CONFIG_DIR}/'. Ingesting...")
 
-    try:
-        response = requests.post(DISCORD_WEBHOOK_URL, json=payload, timeout=10)
-        response.raise_for_status()
-        print(f"SUCCESS: Alert sent for vessel '{record['vesselName']}'.")
-    except Exception as err:
-        print(f"ERROR: Could not post Discord notification: {err}")
+    all_dfs = []
+    for f in csv_files:
+        try:
+            temp_df = pd.read_csv(f, low_memory=False)
+            all_dfs.append(temp_df)
+        except Exception as e:
+            print(f"Error reading {f}: {e}")
 
-def fetch_port_biosecurity_events():
-    """Queries GFW API, processes vessel risk, alerts Discord, and saves JSON."""
-    end_date = datetime.now(timezone.utc)
-    start_date = end_date - timedelta(days=14)
-    
-    print(f"Fetching GFW PORT_VISIT events from {start_date.date()} to {end_date.date()}...")
-    
-    events = client.events.get_events(
-        event_type="PORT_VISIT",
-        start_date=start_date.strftime("%Y-%m-%d"),
-        end_date=end_date.strftime("%Y-%m-%d")
-    )
-    
+    if not all_dfs:
+        sys.exit(1)
+
+    df = pd.concat(all_dfs, ignore_index=True)
+    df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
+
     processed_records = []
-    
-    for evt in events:
-        vessel_info = evt.get("vessel", {})
-        port_info = evt.get("port_visit", {})
-        residency = port_info.get("durationHrs", 0)
-        
-        risk_index = calculate_fouling_risk(
-            speed_knots=evt.get("meanSpeed", 10),
-            residence_hours=residency
-        )
-        
+
+    for _, row in df.iterrows():
+        mmsi = str(row.get("ssvid") or row.get("mmsi") or "").strip()
+        vessel_name = str(row.get("vessel_name") or row.get("shipname") or row.get("name") or f"MMSI {mmsi}")
+        flag = str(row.get("flag") or row.get("country") or "UNK")
+        vessel_type = str(row.get("vessel_type") or row.get("geartype") or "Merchant/Carrier")
+
+        port_name = str(row.get("port_label") or row.get("port_name") or row.get("port") or "Regional Port")
+        dep_port = str(row.get("departure_port_label") or row.get("departure_port") or "Origin Port")
+        dest_port = str(row.get("destination_port_label") or row.get("destination_port") or "Destination Port")
+
+        # Extract coordinates with fallback options
+        lat = clean_float(row.get("lat") or row.get("latitude") or row.get("port_lat") or row.get("position_lat"))
+        lon = clean_float(row.get("lon") or row.get("longitude") or row.get("port_lon") or row.get("position_lon"))
+
+        dep_lat = clean_float(row.get("departure_lat") or row.get("dep_lat"))
+        dep_lon = clean_float(row.get("departure_lon") or row.get("dep_lon"))
+
+        dest_lat = clean_float(row.get("destination_lat") or row.get("dest_lat"))
+        dest_lon = clean_float(row.get("destination_lon") or row.get("dest_lon"))
+
+        residency = float(row.get("duration_hrs") or row.get("residence_hours") or row.get("durationhrs") or 24.0)
+        risk_score = 0.85 if residency > 48 else (0.50 if residency > 12 else 0.20)
+
         record = {
-            "eventId": evt.get("id"),
-            "vesselName": vessel_info.get("name", "Unknown Vessel"),
-            "mmsi": vessel_info.get("ssvid", "N/A"),
-            "flag": vessel_info.get("flag", "UNK"),
-            "vesselType": vessel_info.get("type", "General Cargo"),
-            "portName": port_info.get("intermediateAnchorage", {}).get("label", "Coastal Anchor"),
-            "lat": evt.get("position", {}).get("lat"),
-            "lon": evt.get("position", {}).get("lon"),
-            "timestamp": evt.get("start"),
-            "residenceHours": residency,
-            "biosecurityRiskScore": risk_index
+            "mmsi": mmsi,
+            "vesselName": vessel_name,
+            "flag": flag,
+            "vesselType": vessel_type,
+            "region": "Monitored Corridor",
+            "portName": port_name,
+            "portOfDeparture": dep_port,
+            "portOfDestination": dest_port,
+            "residenceHours": round(residency, 1),
+            "biosecurityRiskScore": risk_score,
+            "vesselPos": [lat, lon] if lat is not null and lon is not null else [dep_lat or -15.0, dep_lon or -45.0],
+            "routeCoordinates": [
+                [dep_lat, dep_lon] if dep_lat and dep_lon else None,
+                [lat, lon] if lat and lon else None,
+                [dest_lat, dest_lon] if dest_lat and dest_lon else None
+            ]
         }
-
-        # Send alert if biosecurity risk threshold is >= 70%
-        if record["biosecurityRiskScore"] >= 0.70:
-            send_discord_alert(record)
-
         processed_records.append(record)
-        
-    # Ensure data directory exists and write baseline JSON for GitHub Pages frontend
+
+    processed_records.sort(key=lambda x: x["biosecurityRiskScore"], reverse=True)
+    final_records = processed_records[:MAX_JSON_RECORDS]
+
     os.makedirs("data", exist_ok=True)
-    output_path = "data/baseline_risk.json"
-    
-    pd.DataFrame(processed_records).to_json(output_path, orient="records", indent=2)
-    print(f"SUCCESS: Exported {len(processed_records)} records to '{output_path}'.")
+    pd.DataFrame(final_records).to_json("data/baseline_risk.json", orient="records")
+    print(f"SUCCESS: Exported {len(final_records)} records to data/baseline_risk.json.")
 
 if __name__ == "__main__":
-    fetch_port_biosecurity_events()
+    process_all_config_csvs()
