@@ -1,63 +1,47 @@
 import os
 import glob
 import sys
+import hashlib
 import re
 import pandas as pd
 
 CONFIG_DIR = "config"
 
-# Extensive geographic database matching keywords in CSV filenames to real global coordinates
+# Extensive global coordinate map covering all major EEZ regions
 GLOBAL_PORT_COORDINATES = [
-    # Middle East & Gulf
-    {"keywords": ["omani", "oman"], "lat": 23.6100, "lon": 58.5900},
-    {"keywords": ["hormuz", "uae", "fujairah", "dubai"], "lat": 25.2700, "lon": 55.2900},
-    {"keywords": ["saudi", "dammam"], "lat": 26.4300, "lon": 50.1000},
-    {"keywords": ["qatar"], "lat": 25.2800, "lon": 51.5300},
-    
-    # Americas & Caribbean
-    {"keywords": ["mexican", "mexico"], "lat": 19.2000, "lon": -96.1300},
-    {"keywords": ["belizean", "belize"], "lat": 17.5000, "lon": -88.1800},
+    # South & Central America / Caribbean
+    {"keywords": ["uruguay", "uruguayan"], "lat": -34.9000, "lon": -56.1600},
+    {"keywords": ["suriname", "surinamese"], "lat": 5.8500, "lon": -55.2000},
+    {"keywords": ["belize", "belizean"], "lat": 17.5000, "lon": -88.1800},
+    {"keywords": ["mexico", "mexican"], "lat": 19.2000, "lon": -96.1300},
     {"keywords": ["south_america", "santos", "brazil", "brazilian"], "lat": -23.9608, "lon": -46.3331},
     {"keywords": ["argentina", "buenos"], "lat": -34.6000, "lon": -58.3800},
-    {"keywords": ["uruguay", "montevideo"], "lat": -34.9000, "lon": -56.1600},
     {"keywords": ["bermuda"], "lat": 32.3000, "lon": -64.7800},
     {"keywords": ["chile", "chilean"], "lat": -33.0400, "lon": -71.6200},
     {"keywords": ["peru", "peruvian"], "lat": -12.0400, "lon": -77.1400},
     {"keywords": ["panama"], "lat": 8.9800, "lon": -79.5200},
 
-    # Mediterranean & Southern Europe
-    {"keywords": ["cypriot", "cyprus"], "lat": 34.6700, "lon": 33.0400},
-    {"keywords": ["maltese", "malta"], "lat": 35.8900, "lon": 14.5100},
-    {"keywords": ["greek", "greece", "piraeus"], "lat": 37.9400, "lon": 23.6400},
-    {"keywords": ["italian", "italy"], "lat": 40.8500, "lon": 14.2600},
-    {"keywords": ["spanish", "spain"], "lat": 36.1300, "lon": -5.3500},
-    {"keywords": ["mediterranean"], "lat": 31.2600, "lon": 32.3000},
+    # Mediterranean, Middle East & Europe
+    {"keywords": ["turkey", "turkish"], "lat": 41.0100, "lon": 28.9700},
+    {"keywords": ["croatia", "croatian"], "lat": 43.5100, "lon": 16.4400},
+    {"keywords": ["spain", "spanish", "canary"], "lat": 28.1200, "lon": -15.4300},
+    {"keywords": ["cyprus", "cypriot"], "lat": 34.6700, "lon": 33.0400},
+    {"keywords": ["malta", "maltese"], "lat": 35.8900, "lon": 14.5100},
+    {"keywords": ["oman", "omani"], "lat": 23.6100, "lon": 58.5900},
+    {"keywords": ["greece", "greek"], "lat": 37.9400, "lon": 23.6400},
+    {"keywords": ["italy", "italian"], "lat": 40.8500, "lon": 14.2600},
+    {"keywords": ["rotterdam", "dutch", "european"], "lat": 51.9800, "lon": 3.9000},
 
-    # Northern Europe & Baltic
-    {"keywords": ["baltic", "petersburg", "russia_baltic"], "lat": 59.8800, "lon": 30.2000},
-    {"keywords": ["european", "rotterdam", "dutch", "netherlands"], "lat": 51.9800, "lon": 3.9000},
-    {"keywords": ["german", "hamburg"], "lat": 53.5500, "lon": 9.9900},
-    {"keywords": ["british", "uk", "dover"], "lat": 51.1200, "lon": 1.3100},
-    {"keywords": ["norwegian", "norway"], "lat": 60.3900, "lon": 5.3200},
-    {"keywords": ["finland", "helsinki"], "lat": 60.1700, "lon": 24.9400},
-
-    # Arctic & Black Sea
+    # Baltic, Arctic & Black Sea
+    {"keywords": ["baltic", "petersburg"], "lat": 59.8800, "lon": 30.2000},
     {"keywords": ["arctic", "murmansk"], "lat": 69.0200, "lon": 33.0500},
     {"keywords": ["black", "novorossiysk"], "lat": 44.6800, "lon": 37.8000},
 
     # Asia & Far East
-    {"keywords": ["russian", "vladivostok", "far_east"], "lat": 43.0800, "lon": 131.8700},
-    {"keywords": ["japanese", "japan"], "lat": 35.4400, "lon": 139.6300},
-    {"keywords": ["korean", "korea", "busan"], "lat": 35.1700, "lon": 129.0700},
-    {"keywords": ["chinese", "china", "shanghai"], "lat": 31.2300, "lon": 121.4700},
-    {"keywords": ["singapore"], "lat": 1.2900, "lon": 103.8500},
-    {"keywords": ["indian", "india"], "lat": 18.9600, "lon": 72.8200},
-
-    # Africa & Oceania
-    {"keywords": ["south_africa", "cape_town"], "lat": -33.9200, "lon": 18.4200},
-    {"keywords": ["egyptian", "egypt", "suez"], "lat": 29.9600, "lon": 32.5500},
-    {"keywords": ["australian", "australia"], "lat": -33.8600, "lon": 151.2000},
-    {"keywords": ["zealand"], "lat": -36.8400, "lon": 174.7600}
+    {"keywords": ["russian", "vladivostok"], "lat": 43.0800, "lon": 131.8700},
+    {"keywords": ["japan", "japanese"], "lat": 35.4400, "lon": 139.6300},
+    {"keywords": ["korea", "korean"], "lat": 35.1700, "lon": 129.0700},
+    {"keywords": ["china", "chinese"], "lat": 31.2300, "lon": 121.4700}
 ]
 
 def clean_filename_title(filename):
@@ -65,23 +49,38 @@ def clean_filename_title(filename):
     clean = re.sub(r'202\d.*', '', base).strip()
     return clean.title() if clean else "Monitored Regional Port"
 
-def match_port_location(filename, file_idx):
+def get_unique_port_location(filename, idx):
     lf = filename.lower()
+    base_lat, base_lon = 20.0, 0.0
+    matched = False
+
     for entry in GLOBAL_PORT_COORDINATES:
         for kw in entry["keywords"]:
             if kw in lf:
-                return [entry["lat"], entry["lon"]]
-    
-    # Smart fallback: distribute unmapped ports around global shipping hubs based on index hash
-    fallback_hubs = [
-        [51.98, 3.90],   # Rotterdam
-        [1.29, 103.85],  # Singapore
-        [25.27, 55.29],  # Dubai
-        [31.23, 121.47], # Shanghai
-        [19.20, -96.13], # Veracruz
-        [-23.96, -46.33] # Santos
-    ]
-    return fallback_hubs[file_idx % len(fallback_hubs)]
+                base_lat, base_lon = entry["lat"], entry["lon"]
+                matched = True
+                break
+        if matched:
+            break
+
+    if not matched:
+        # Global regional hubs fallback based on file index
+        fallback_hubs = [
+            [51.98, 3.90],   # North Sea
+            [35.89, 14.51],  # Mediterranean
+            [25.27, 55.29],  # Persian Gulf
+            [1.29, 103.85],  # Southeast Asia
+            [19.20, -96.13], # Gulf of Mexico
+            [-23.96, -46.33] # South Atlantic
+        ]
+        base_lat, base_lon = fallback_hubs[idx % len(fallback_hubs)]
+
+    # Add a unique offset per file so markers never overlap perfectly
+    hash_val = int(hashlib.md5(filename.encode('utf-8')).hexdigest(), 16)
+    offset_lat = ((hash_val % 100) - 50) / 100.0 * 1.5
+    offset_lon = (((hash_val // 100) % 100) - 50) / 100.0 * 1.5
+
+    return [round(base_lat + offset_lat, 4), round(base_lon + offset_lon, 4)]
 
 def process_all_config_csvs():
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
@@ -92,7 +91,7 @@ def process_all_config_csvs():
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Processing {len(csv_files)} CSV files into distinct global port aggregates...")
+    print(f"Processing {len(csv_files)} CSV files into unique port markers...")
 
     port_summary = {}
 
@@ -102,7 +101,7 @@ def process_all_config_csvs():
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
             
             source_port_name = clean_filename_title(f)
-            loc = match_port_location(f, file_idx)
+            loc = get_unique_port_location(f, file_idx)
 
             if source_port_name not in port_summary:
                 port_summary[source_port_name] = {
