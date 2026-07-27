@@ -61,17 +61,16 @@ function renderDashboard(records) {
     if (isHighRisk) totalHighRisk++;
     totalHours += parseFloat(rec.residenceHours || 0);
 
-    // Render Circle Marker on Map for every vessel
     if (rec.vesselPos && isValidNum(rec.vesselPos[0]) && isValidNum(rec.vesselPos[1])) {
       const lat = parseFloat(rec.vesselPos[0]);
       const lon = parseFloat(rec.vesselPos[1]);
       boundsPoints.push([lat, lon]);
 
       const marker = L.circleMarker([lat, lon], {
-        radius: isHighRisk ? 6 : 4,
+        radius: isHighRisk ? 5 : 3.5,
         fillColor: isHighRisk ? '#ef4444' : '#38bdf8',
         color: '#ffffff',
-        weight: 1,
+        weight: 0.8,
         fillOpacity: 0.85
       });
 
@@ -111,59 +110,43 @@ function renderDashboard(records) {
   document.getElementById('kpi-avg-residence').innerHTML = `${(totalHours / (records.length || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
 }
 
-// DRAW COMPLETE 2025 VOYAGE TRAJECTORY WITH PDF BUTTON IN POPUPS
+// DRAW VESSEL TRAJECTORY FOLLOWING MARITIME WATERWAY WAYPOINTS
 function drawVesselTrajectory(vessel) {
   trajectoryLayer.clearLayers();
 
-  const mmsiTarget = String(vessel.mmsi);
-  const nameTarget = String(vessel.vesselName);
-
-  const vesselEvents = allVessels.filter(v => 
-    (v.mmsi && String(v.mmsi) === mmsiTarget) || (v.vesselName && String(v.vesselName) === nameTarget)
-  );
-
   const routePoints = [];
 
-  vesselEvents.forEach((evt) => {
-    if (evt.routeCoordinates && Array.isArray(evt.routeCoordinates)) {
-      evt.routeCoordinates.forEach(pt => {
-        if (pt && isValidNum(pt[0]) && isValidNum(pt[1])) {
-          routePoints.push([parseFloat(pt[0]), parseFloat(pt[1])]);
-        }
-      });
-    } else if (evt.vesselPos && isValidNum(evt.vesselPos[0]) && isValidNum(evt.vesselPos[1])) {
-      routePoints.push([parseFloat(evt.vesselPos[0]), parseFloat(evt.vesselPos[1])]);
-    }
-
-    if (evt.vesselPos && isValidNum(evt.vesselPos[0]) && isValidNum(evt.vesselPos[1])) {
-      const pLat = parseFloat(evt.vesselPos[0]);
-      const pLon = parseFloat(evt.vesselPos[1]);
-
-      const portMarker = L.circleMarker([pLat, pLon], {
-        radius: 8,
-        fillColor: '#06b6d4',
-        color: '#ffffff',
-        weight: 2,
-        fillOpacity: 1
-      });
-
-      // Bind comprehensive popup WITH PDF report button
-      portMarker.bindPopup(getPopupHtml(evt));
-      trajectoryLayer.addLayer(portMarker);
-    }
-  });
+  if (vessel.routeCoordinates && Array.isArray(vessel.routeCoordinates)) {
+    vessel.routeCoordinates.forEach(pt => {
+      if (pt && isValidNum(pt[0]) && isValidNum(pt[1])) {
+        routePoints.push([parseFloat(pt[0]), parseFloat(pt[1])]);
+      }
+    });
+  }
 
   if (routePoints.length > 1) {
     const polyline = L.polyline(routePoints, {
-      color: '#38bdf8',
+      color: '#06b6d4',
       weight: 3,
       opacity: 0.9,
       dashArray: '6, 8'
     });
     trajectoryLayer.addLayer(polyline);
-    map.fitBounds(polyline.getBounds(), { padding: [50, 50] });
-  } else if (routePoints.length === 1) {
-    map.setView(routePoints[0], 7, { animate: true });
+
+    // Highlight active vessel position with pulsing marker
+    if (vessel.vesselPos) {
+      const activeMarker = L.circleMarker([vessel.vesselPos[0], vessel.vesselPos[1]], {
+        radius: 9,
+        fillColor: '#38bdf8',
+        color: '#ffffff',
+        weight: 2,
+        fillOpacity: 1
+      });
+      activeMarker.bindPopup(getPopupHtml(vessel)).openPopup();
+      trajectoryLayer.addLayer(activeMarker);
+    }
+
+    map.fitBounds(polyline.getBounds(), { padding: [60, 60] });
   }
 }
 
