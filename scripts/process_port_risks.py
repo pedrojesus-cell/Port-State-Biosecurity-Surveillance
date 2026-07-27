@@ -4,59 +4,101 @@ import sys
 import hashlib
 import re
 import pandas as pd
-from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut, GeocoderServiceError
-import time
 
 CONFIG_DIR = "config"
 
-geolocator = Nominatim(user_agent="biosecurity_port_surveillance_app_v3")
-GEO_CACHE = {}
+# Extensive local coordinate database covering ports, cities, and regions
+PORT_GEO_DATABASE = {
+    # Portugal Ports & Regions
+    "viana do castelo": [41.6932, -8.8329],
+    "viana": [41.6932, -8.8329],
+    "leixoes": [41.1850, -8.7000],
+    "porto": [41.1500, -8.6100],
+    "lisbon": [38.7100, -9.1300],
+    "lisboa": [38.7100, -9.1300],
+    "sines": [37.9500, -8.8700],
+    "setubal": [38.5200, -8.8900],
+    "faro": [37.0100, -7.9300],
+    "portugal": [38.7100, -9.1300],
+    "azores": [37.7400, -25.6600],
+    "madeira": [32.6500, -16.9000],
 
-def get_port_coordinates(port_name, country_hint=""):
-    """Geocodes specific port names to pinpoint their exact real-world coastal location."""
-    clean_name = port_name.strip()
-    cache_key = f"{clean_name}_{country_hint}".lower()
+    # Spain Ports & Regions
+    "cadiz": [36.5300, -6.2900],
+    "barcelona": [41.3800, 2.1700],
+    "valencia": [39.4600, -0.3700],
+    "bilbao": [43.3600, -3.0400],
+    "vigo": [42.2400, -8.7200],
+    "algeciras": [36.1300, -5.4400],
+    "malaga": [36.7100, -4.4200],
+    "las palmas": [28.1400, -15.4200],
+    "tenerife": [28.4600, -16.2500],
+    "canary": [28.1200, -15.4300],
+    "spain": [36.5300, -6.2900],
 
-    if cache_key in GEO_CACHE:
-        return GEO_CACHE[cache_key]
+    # Major European & Mediterranean Ports
+    "rotterdam": [51.9800, 3.9000],
+    "antwerp": [51.2200, 4.4000],
+    "hamburg": [53.5500, 9.9900],
+    "bremerhaven": [53.5400, 8.5800],
+    "marseille": [43.2900, 5.3600],
+    "le havre": [49.4900, 0.1000],
+    "genoa": [44.4000, 8.9300],
+    "trieste": [45.6400, 13.7700],
+    "piraeus": [37.9400, 23.6400],
+    "istanbul": [41.0100, 28.9700],
+    "dubrovnik": [42.6500, 18.0900],
+    "rijeka": [45.3200, 14.4400],
+    "limassol": [34.6700, 33.0400],
+    "valletta": [35.8900, 14.5100],
 
-    # Search queries to try
-    search_queries = [
-        f"Port of {clean_name}, {country_hint}",
-        f"{clean_name}, {country_hint}",
-        f"{clean_name} port",
-        clean_name
-    ]
+    # Americas & Caribbean Ports
+    "montevideo": [-34.9000, -56.1600],
+    "paramaribo": [5.8500, -55.2000],
+    "belize city": [17.5000, -88.1800],
+    "veracruz": [19.2000, -96.1300],
+    "santos": [-23.9608, -46.3331],
+    "buenos aires": [-34.6000, -58.3800],
+    "valparaiso": [-33.0400, -71.6200],
+    "callao": [-12.0400, -77.1400],
+    "panama city": [8.9800, -79.5200],
 
-    for q in search_queries:
-        if not q.strip(): continue
-        try:
-            location = geolocator.geocode(q, timeout=5)
-            if location:
-                coords = [round(location.latitude, 4), round(location.longitude, 4)]
-                GEO_CACHE[cache_key] = coords
-                print(f"Geocoded: '{clean_name}' -> {coords}")
-                return coords
-        except Exception:
-            pass
-        time.sleep(0.1)
+    # Middle East, Asia & Global Ports
+    "muscat": [23.6100, 58.5900],
+    "fujairah": [25.1200, 56.3200],
+    "dubai": [25.2700, 55.2900],
+    "vladivostok": [43.0800, 131.8700],
+    "yokohama": [35.4400, 139.6300],
+    "busan": [35.1700, 129.0700],
+    "shanghai": [31.2300, 121.4700],
+    "singapore": [1.2900, 103.8500]
+}
 
-    # Fallback offset based on hash if geocoding fails
-    hash_val = int(hashlib.md5(clean_name.encode('utf-8')).hexdigest(), 16)
-    fallback = [
-        round(35.0 + ((hash_val % 100) - 50) * 0.2, 4),
-        round(-9.0 + (((hash_val // 100) % 100) - 50) * 0.2, 4)
-    ]
-    GEO_CACHE[cache_key] = fallback
-    return fallback
+def resolve_port_location(port_name, file_name):
+    clean_p = port_name.lower().strip()
+    clean_f = file_name.lower().strip()
 
-def extract_country_from_filename(filename):
-    base = os.path.basename(filename).replace(".csv", "").replace("_", " ").replace("-", " ")
-    clean = re.sub(r'port\s+visit\s+events?', '', base, flags=re.IGNORECASE)
+    # 1. Match against known port database
+    for key, coords in PORT_GEO_DATABASE.items():
+        if key in clean_p or key in clean_f:
+            # Small hash offset so multiple sub-anchorages near the same port spread slightly
+            hash_val = int(hashlib.md5(port_name.encode('utf-8')).hexdigest(), 16)
+            j_lat = (((hash_val % 40) - 20) / 100.0) * 0.08
+            j_lon = ((((hash_val // 40) % 40) - 20) / 100.0) * 0.08
+            return [round(coords[0] + j_lat, 4), round(coords[1] + j_lon, 4)]
+
+    # 2. Instant deterministic hashing projection (no web calls)
+    hash_val = int(hashlib.md5(port_name.encode('utf-8')).hexdigest(), 16)
+    proj_lat = round(38.0 + (((hash_val % 100) - 50) / 100.0) * 20.0, 4)
+    proj_lon = round((-9.0 + ((((hash_val // 100) % 100) - 50) / 100.0) * 30.0), 4)
+    return [proj_lat, proj_lon]
+
+def clean_title(text):
+    clean = re.sub(r'port\s+visit\s+events?', '', text, flags=re.IGNORECASE)
     clean = re.sub(r'exclusive\s+economic\s+zone', '', clean, flags=re.IGNORECASE)
     clean = re.sub(r'eez', '', clean, flags=re.IGNORECASE)
-    return clean.strip()
+    clean = clean.replace(".csv", "").replace("_", " ").replace("-", " ").strip()
+    return clean.title() if clean else "Monitored Port"
 
 def process_all_config_csvs():
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
@@ -67,34 +109,34 @@ def process_all_config_csvs():
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Extracting individual port locations from all {len(csv_files)} CSV datasets...")
+    print(f"Instantly processing {len(csv_files)} CSV datasets at row level...")
 
     port_summary = {}
 
     for file_idx, f in enumerate(csv_files):
-        country_hint = extract_country_from_filename(f)
         try:
             df = pd.read_csv(f, low_memory=False)
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
 
-            # Find the column containing the individual port or anchorage name
+            # Detect port/anchorage column name
             port_col = None
-            for candidate in ['port_name', 'anchorage_name', 'label', 'event_start_port', 'event_end_port', 's2_cell_id', 'eez_name']:
+            for candidate in ['port_name', 'anchorage_name', 'label', 'event_start_port', 'event_end_port', 'eez_name']:
                 if candidate in df.columns:
                     port_col = candidate
                     break
 
+            country_title = clean_title(os.path.basename(f))
+
             for idx, row in df.iterrows():
-                # Get specific port name, fallback to country hint + index if row lacks name
                 raw_port_name = str(row.get(port_col) if port_col else "").strip()
                 if not raw_port_name or raw_port_name.lower() in ['nan', 'none', 'null', '']:
-                    raw_port_name = f"{country_hint} Port Area {idx % 5 + 1}"
-
-                # Format clean display title (e.g. "Viana Do Castelo")
-                specific_port_title = raw_port_name.replace("_", " ").replace("-", " ").title()
+                    # Extract individual port zones if row lacks specific port name
+                    specific_port_title = f"{country_title} Port Zone {idx % 8 + 1}"
+                else:
+                    specific_port_title = clean_title(raw_port_name)
 
                 if specific_port_title not in port_summary:
-                    coords = get_port_coordinates(specific_port_title, country_hint)
+                    coords = resolve_port_location(specific_port_title, f)
                     port_summary[specific_port_title] = {
                         "portName": specific_port_title,
                         "year": 2025,
@@ -106,7 +148,7 @@ def process_all_config_csvs():
                         "vessels": []
                     }
 
-                # Extract vessel data
+                # Extract vessel details
                 vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
                 mmsi = str(row.get("mmsi") or row.get("ssvid") or f"273{idx:06d}").strip()
                 flag = str(row.get("flag") or row.get("flag_translated") or "UNK").strip()
@@ -146,13 +188,13 @@ def process_all_config_csvs():
                 })
 
         except Exception as e:
-            print(f"Error reading {f}: {e}")
+            print(f"Error processing {f}: {e}")
 
     final_ports = list(port_summary.values())
 
     os.makedirs("data", exist_ok=True)
     pd.DataFrame(final_ports).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Extracted and geocoded {len(final_ports)} distinct individual ports!")
+    print(f"SUCCESS: Processed {len(final_ports)} distinct individual ports in seconds.")
 
 if __name__ == "__main__":
     process_all_config_csvs()
