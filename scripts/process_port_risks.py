@@ -7,37 +7,46 @@ import pandas as pd
 CONFIG_DIR = "config"
 MAX_JSON_RECORDS = 8000
 
-# Realistic Maritime Anchors & Waterway Waypoints (Origin -> Port Entry -> Port -> Destination)
+# Refined Offshore Coastal Waterway Waypoints (Strictly keeping routes in the ocean)
 MARITIME_PORTS = [
     {
         "port": "Vladivostok Port", "dep": "Busan", "dest": "Niigata", "region": "Russian Far East EEZ",
-        "lat": 43.0800, "lon": 131.8700, # Offshore Bay Anchorage
-        "waypoints": [[35.18, 129.08], [42.80, 131.50], [43.08, 131.87], [40.00, 135.00], [37.92, 139.04]]
+        "lat": 43.0800, "lon": 131.8700,
+        "waypoints": [[35.18, 129.08], [37.50, 131.00], [40.50, 131.50], [43.08, 131.87], [40.00, 135.00], [37.92, 139.04]]
     },
     {
         "port": "Murmansk Commercial Port", "dep": "Tromso", "dest": "Kirkenes", "region": "Arctic EEZ",
-        "lat": 69.0200, "lon": 33.0500, # Kola Bay Waterway Anchorage
-        "waypoints": [[69.65, 18.96], [70.50, 31.00], [69.25, 33.40], [69.02, 33.05], [69.25, 33.40], [69.73, 30.05]]
+        "lat": 69.0200, "lon": 33.0500,
+        "waypoints": [[69.65, 18.96], [71.20, 26.00], [70.50, 31.50], [69.40, 33.60], [69.02, 33.05], [69.40, 33.60], [69.80, 31.00]]
     },
     {
         "port": "St. Petersburg Port", "dep": "Tallinn", "dest": "Helsinki", "region": "Baltic Sea EEZ",
-        "lat": 59.9000, "lon": 30.1500, # Neva Bay Offshore Anchorage
-        "waypoints": [[59.44, 24.75], [59.80, 28.50], [59.90, 30.15], [60.00, 26.00], [60.17, 24.94]]
+        "lat": 59.9000, "lon": 30.1500,
+        "waypoints": [[59.44, 24.75], [59.70, 26.50], [59.90, 28.50], [59.90, 30.15], [60.00, 27.00], [60.17, 24.94]]
     },
     {
         "port": "Novorossiysk Port", "dep": "Samsun", "dest": "Istanbul", "region": "Black Sea EEZ",
-        "lat": 44.6800, "lon": 37.8000, # Tsemes Bay Marine Area
-        "waypoints": [[41.29, 36.33], [43.50, 37.00], [44.68, 37.80], [42.50, 32.00], [41.01, 28.98]]
+        "lat": 44.6800, "lon": 37.8000,
+        "waypoints": [[41.29, 36.33], [43.00, 36.80], [44.68, 37.80], [43.50, 34.00], [41.01, 28.98]]
     },
     {
         "port": "Santos Port Complex", "dep": "Buenos Aires", "dest": "Montevideo", "region": "South America EEZ",
-        "lat": -24.0000, "lon": -46.3000, # Santos Offshore Roads
-        "waypoints": [[-34.60, -58.38], [-35.00, -54.00], [-24.00, -46.30], [-34.90, -56.16]]
+        "lat": -23.9608, "lon": -46.3331,
+        # OFFSHORE ATLANTIC ROUTE: Rio de la Plata -> Deep Ocean Offshore Bulge -> Santos
+        "waypoints": [
+            [-34.60, -58.38], # Buenos Aires
+            [-35.20, -56.00], # Out of Rio de la Plata into Open Ocean
+            [-34.50, -52.50], # Deep Atlantic offshore (clears Uruguay coast)
+            [-32.00, -50.00], # Open Ocean Atlantic (clears Southern Brazil bulge)
+            [-28.00, -47.50], # Open Ocean offshore Santa Catarina
+            [-24.20, -46.10], # Santos Offshore Approach
+            [-23.96, -46.33]  # Santos Anchorage
+        ]
     },
     {
         "port": "Rotterdam Gateway", "dep": "Hamburg", "dest": "Straits of Dover", "region": "European EEZ",
-        "lat": 51.9800, "lon": 3.9000, # Maasvlakte Offshore Anchorage
-        "waypoints": [[53.90, 8.50], [53.50, 5.00], [52.10, 3.50], [51.98, 3.90], [51.50, 2.50], [51.00, 1.50]]
+        "lat": 51.9800, "lon": 3.9000,
+        "waypoints": [[53.90, 8.50], [53.80, 6.00], [52.80, 4.00], [52.10, 3.60], [51.98, 3.90], [51.50, 2.50], [51.00, 1.50]]
     }
 ]
 
@@ -91,18 +100,12 @@ def process_all_config_csvs():
         else:
             risk_score = 0.35
 
-        # Small circular offshore anchorage jitter (prevents artificial square grids)
+        # Slight circular offshore jitter around the main port anchorage
         angle = (hash_val % 360) * (3.14159 / 180.0)
-        dist = ((hash_val % 100) / 100.0) * 0.012
+        dist = ((hash_val % 100) / 100.0) * 0.01
 
         offshore_lat = round(port_info["lat"] + (dist * 0.8 * (hash_val % 2 or -1)), 4)
         offshore_lon = round(port_info["lon"] + (dist * (hash_val % 3 or -1)), 4)
-
-        # Build trajectory route following water channels
-        base_waypoints = port_info["waypoints"]
-        route_coords = []
-        for wp in base_waypoints:
-            route_coords.append([wp[0], wp[1]])
 
         record = {
             "mmsi": mmsi,
@@ -117,7 +120,7 @@ def process_all_config_csvs():
             "biosecurityRiskScore": risk_score,
             "totalEvents": int(total_visits),
             "vesselPos": [offshore_lat, offshore_lon],
-            "routeCoordinates": route_coords
+            "routeCoordinates": port_info["waypoints"]
         }
         processed_records.append(record)
 
@@ -126,7 +129,7 @@ def process_all_config_csvs():
 
     os.makedirs("data", exist_ok=True)
     pd.DataFrame(final_records).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Exported {len(final_records)} records with water channel trajectories.")
+    print(f"SUCCESS: Exported {len(final_records)} records with true offshore ocean routes.")
 
 if __name__ == "__main__":
     process_all_config_csvs()
