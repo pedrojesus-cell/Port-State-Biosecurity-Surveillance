@@ -107,20 +107,22 @@ def fetch_port_biosecurity_events():
             end_date = datetime.now(timezone.utc)
             start_date = end_date - timedelta(days=14)
 
-            url = "https://gateway.globalfishingwatch.org/v3/events"
+            # OFFICIAL GFW REST API HOST
+            url = "https://gateway.api.globalfishingwatch.org/v3/events"
             headers = {
                 "Authorization": f"Bearer {API_TOKEN}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "User-Agent": "MarineBiosecurityMonitor/1.0"
             }
             params = {
-                "datasets": "public-global-port-visits-c2-events:latest",
+                "datasets[0]": "public-global-port-visits-c2-events:latest",
                 "start-date": start_date.strftime("%Y-%m-%d"),
                 "end-date": end_date.strftime("%Y-%m-%d"),
                 "limit": 100
             }
 
-            response = requests.get(url, headers=headers, params=params, timeout=20)
-            print(f"GFW Response Status: {response.status_code}")
+            response = requests.get(url, headers=headers, params=params, timeout=25)
+            print(f"GFW Response Status Code: {response.status_code}")
 
             if response.status_code == 200:
                 data = response.json()
@@ -160,7 +162,7 @@ def fetch_port_biosecurity_events():
                     processed_records.append(rec)
 
             if not processed_records:
-                print("Notice: API returned 0 records or non-200 status. Using fallback data.")
+                print("Notice: API returned 0 records or status error. Using fallback baseline data.")
                 processed_records = get_fallback_data()
 
         except Exception as e:
@@ -173,7 +175,7 @@ def fetch_port_biosecurity_events():
     os.makedirs("data", exist_ok=True)
     output_path = "data/baseline_risk.json"
     pd.DataFrame(processed_records).to_json(output_path, orient="records", indent=2)
-    print(f"SUCCESS: Saved {len(processed_records)} records to '{output_path}'.")
+    print(f"SUCCESS: Exported {len(processed_records)} records to '{output_path}'.")
 
 if __name__ == "__main__":
     fetch_port_biosecurity_events()
