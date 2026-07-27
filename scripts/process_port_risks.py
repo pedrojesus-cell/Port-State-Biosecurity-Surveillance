@@ -4,90 +4,78 @@ import sys
 import hashlib
 import re
 import pandas as pd
+from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderTimedOut, GeocoderServiceError
+import time
 
 CONFIG_DIR = "config"
 
-# Extensive global dictionary covering every region in GFW summary exports
-PORT_COORDINATE_MAP = {
-    # Portugal & Atlantic Ports
-    "viana": [41.6932, -8.8329],          # Viana do Castelo
-    "portugal": [38.7100, -9.1300],       # Lisbon / Portuguese EEZ
-    "leixoes": [41.1850, -8.7000],        # Leixões / Porto
-    "sines": [37.9500, -8.8700],          # Sines
-    "azores": [37.7400, -25.6600],        # Azores
-    "madeira": [32.6500, -16.9000],       # Madeira
+# Initialize OpenStreetMap Geocoder
+geolocator = Nominatim(user_agent="biosecurity_port_surveillance_app_v2")
 
-    # Spain & Canaries
-    "spain": [36.5300, -6.2900],          # Spanish EEZ / Cadiz
-    "canary": [28.1200, -15.4300],        # Canary Islands
-    "barcelona": [41.3800, 2.1700],
-    "valencia": [39.4600, -0.3700],
-
-    # South & Central America / Caribbean
-    "uruguay": [-34.9000, -56.1600],
-    "suriname": [5.8500, -55.2000],
-    "belize": [17.5000, -88.1800],
-    "mexico": [19.2000, -96.1300],
-    "santos": [-23.9608, -46.3331],
-    "brazil": [-23.9608, -46.3331],
-    "argentina": [-34.6000, -58.3800],
-    "bermuda": [32.3000, -64.7800],
-    "chile": [-33.0400, -71.6200],
-    "peru": [-12.0400, -77.1400],
-    "panama": [8.9800, -79.5200],
-
-    # Mediterranean & Middle East
-    "turkey": [41.0100, 28.9700],
-    "croatia": [43.5100, 16.4400],
-    "cyprus": [34.6700, 33.0400],
-    "malta": [35.8900, 14.5100],
-    "oman": [23.6100, 58.5900],
-    "greece": [37.9400, 23.6400],
-    "italy": [40.8500, 14.2600],
-    "emirates": [25.2700, 55.2900],
-    "hormuz": [26.5000, 56.2500],
-
-    # Europe, Baltic & Arctic
-    "rotterdam": [51.9800, 3.9000],
-    "dutch": [51.9800, 3.9000],
-    "petersburg": [59.8800, 30.2000],
-    "baltic": [59.8800, 30.2000],
-    "murmansk": [69.0200, 33.0500],
-    "arctic": [69.0200, 33.0500],
-    "novorossiysk": [44.6800, 37.8000],
-    "black": [44.6800, 37.8000],
-
-    # Asia, Africa & Oceania
-    "vladivostok": [43.0800, 131.8700],
-    "japan": [35.4400, 139.6300],
-    "korea": [35.1700, 129.0700],
-    "china": [31.2300, 121.4700],
-    "singapore": [1.2900, 103.8500],
-    "australia": [-33.8600, 151.2000]
-}
+# Cache to avoid repeatedly querying the same region
+GEO_CACHE = {}
 
 def clean_filename_title(filename):
     base = os.path.basename(filename).replace(".csv", "").replace("_", " ").replace("-", " ")
     clean = re.sub(r'202\d.*', '', base).strip()
     return clean.title() if clean else "Monitored Regional Port"
 
-def extract_lat_lon(filename, file_idx):
-    lf = filename.lower()
-    
-    # 1. Search dictionary for matching port keywords
-    for key, coords in PORT_COORDINATE_MAP.items():
-        if key in lf:
-            # Deterministic offset so multiple files for the same EEZ don't overlap exactly
-            hash_val = int(hashlib.md5(filename.encode('utf-8')).hexdigest(), 16)
-            jitter_lat = (((hash_val % 30) - 15) / 100.0) * 0.1
-            jitter_lon = ((((hash_val // 30) % 30) - 15) / 100.0) * 0.1
-            return [round(coords[0] + jitter_lat, 4), round(coords[1] + jitter_lon, 4)]
+def get_real_coordinates(port_title, filename):
+    """Uses real-world OpenStreetMap geocoding to resolve any country/port in the filename."""
+    if port_title in GEO_CACHE:
+        return GEO_CACHE[port_title]
 
-    # 2. Mathematical Hash Projection fallback: GUARANTEES unique coordinate for every CSV
+    # Clean string for search (e.g. "Port Visit Events Eritrean Exclusive Economic Zone" -> "Eritrea")
+    search_query = port_title.lower()
+    search_query = re.sub(r'port\s+visit\s+events?', '', search_query)
+    search_query = re.sub(r'exclusive\s+economic\s+zone', '', search_query)
+    search_query = re.sub(r'eez', '', search_query)
+    search_query = search_query.strip()
+
+    # Convert common EEZ adjectives to country names for better OSM matching
+    adjective_map = {
+        "eritrean": "Eritrea", "portuguese": "Portugal", "spanish": "Spain",
+        "canarian": "Canary Islands", "french": "France", "german": "Germany",
+        "dutch": "Netherlands", "british": "United Kingdom", "irish": "Ireland",
+        "danish": "Denmark", "swedish": "Sweden", "norwegian": "Norway",
+        "finnish": "Finland", "polish": "Poland", "italian": "Italy",
+        "greek": "Greece", "croatian": "Croatia", "cypriot": "Cyprus",
+        "maltese": "Malta", "turkish": "Turkey", "omani": "Oman",
+        "uruguayan": "Uruguay", "surinamese": "Suriname", "belizean": "Belize",
+        "mexican": "Mexico", "brazilian": "Brazil", "argentinian": "Argentina",
+        "chilean": "Chile", "peruvian": "Peru", "russian": "Russia",
+        "japanese": "Japan", "korean": "South Korea", "chinese": "China"
+    }
+
+    for adj, country in adjective_map.items():
+        if adj in search_query:
+            search_query = country
+            break
+
+    try:
+        location = geolocator.geocode(search_query, timeout=10)
+        if location:
+            # Deterministic offset so multiple CSVs for the same EEZ don't land exactly on top of each other
+            hash_val = int(hashlib.md5(filename.encode('utf-8')).hexdigest(), 16)
+            jitter_lat = (((hash_val % 40) - 20) / 100.0) * 0.15
+            jitter_lon = ((((hash_val // 40) % 40) - 20) / 100.0) * 0.15
+
+            coords = [round(location.latitude + jitter_lat, 4), round(location.longitude + jitter_lon, 4)]
+            GEO_CACHE[port_title] = coords
+            print(f"Geocoded '{port_title}' -> Query: '{search_query}' -> {coords}")
+            return coords
+    except (GeocoderTimedOut, GeocoderServiceError) as e:
+        print(f"Geocoding timeout for {search_query}: {e}")
+
+    # Fallback only if OSM fails: spread by file hash across global oceans
     hash_val = int(hashlib.md5(filename.encode('utf-8')).hexdigest(), 16)
-    proj_lat = round(((hash_val % 1000) / 1000.0) * 120.0 - 50.0, 4)
-    proj_lon = round((((hash_val // 1000) % 1000) / 1000.0) * 360.0 - 180.0, 4)
-    return [proj_lat, proj_lon]
+    coords = [
+        round(((hash_val % 100) - 50) * 0.8, 4),
+        round((((hash_val // 100) % 100) - 50) * 1.5, 4)
+    ]
+    GEO_CACHE[port_title] = coords
+    return coords
 
 def process_all_config_csvs():
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
@@ -98,7 +86,7 @@ def process_all_config_csvs():
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Processing all {len(csv_files)} CSV files into individual 2025 port records...")
+    print(f"Processing all {len(csv_files)} CSV files with OpenStreetMap Geocoding...")
 
     port_summary = {}
 
@@ -108,7 +96,8 @@ def process_all_config_csvs():
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
             
             source_port_name = clean_filename_title(f)
-            loc = extract_lat_lon(f, file_idx)
+            loc = get_real_coordinates(source_port_name, f)
+            time.sleep(0.2)  # Respect OpenStreetMap rate limits
 
             if source_port_name not in port_summary:
                 port_summary[source_port_name] = {
@@ -168,7 +157,7 @@ def process_all_config_csvs():
 
     os.makedirs("data", exist_ok=True)
     pd.DataFrame(final_ports).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Aggregated {len(final_ports)} distinct port locations into data/baseline_risk.json.")
+    print(f"SUCCESS: Geocoded and exported {len(final_ports)} port locations into data/baseline_risk.json.")
 
 if __name__ == "__main__":
     process_all_config_csvs()
