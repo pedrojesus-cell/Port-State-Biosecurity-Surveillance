@@ -7,7 +7,7 @@ import pandas as pd
 
 CONFIG_DIR = "config"
 
-# Extensive local coordinate database covering ports, cities, and regions
+# Extensive geographic coordinate lookup dictionary
 PORT_GEO_DATABASE = {
     # Portugal Ports & Regions
     "viana do castelo": [41.6932, -8.8329],
@@ -36,11 +36,10 @@ PORT_GEO_DATABASE = {
     "canary": [28.1200, -15.4300],
     "spain": [36.5300, -6.2900],
 
-    # Major European & Mediterranean Ports
+    # Europe & Mediterranean
     "rotterdam": [51.9800, 3.9000],
     "antwerp": [51.2200, 4.4000],
     "hamburg": [53.5500, 9.9900],
-    "bremerhaven": [53.5400, 8.5800],
     "marseille": [43.2900, 5.3600],
     "le havre": [49.4900, 0.1000],
     "genoa": [44.4000, 8.9300],
@@ -52,7 +51,7 @@ PORT_GEO_DATABASE = {
     "limassol": [34.6700, 33.0400],
     "valletta": [35.8900, 14.5100],
 
-    # Americas & Caribbean Ports
+    # Global Regions
     "montevideo": [-34.9000, -56.1600],
     "paramaribo": [5.8500, -55.2000],
     "belize city": [17.5000, -88.1800],
@@ -62,8 +61,6 @@ PORT_GEO_DATABASE = {
     "valparaiso": [-33.0400, -71.6200],
     "callao": [-12.0400, -77.1400],
     "panama city": [8.9800, -79.5200],
-
-    # Middle East, Asia & Global Ports
     "muscat": [23.6100, 58.5900],
     "fujairah": [25.1200, 56.3200],
     "dubai": [25.2700, 55.2900],
@@ -74,30 +71,29 @@ PORT_GEO_DATABASE = {
     "singapore": [1.2900, 103.8500]
 }
 
-def resolve_port_location(port_name, file_name):
-    clean_p = port_name.lower().strip()
-    clean_f = file_name.lower().strip()
+def resolve_location(title_str, file_str, unique_seed):
+    combined = f"{title_str} {file_str}".lower()
 
-    # 1. Match against known port database
+    # Match database
     for key, coords in PORT_GEO_DATABASE.items():
-        if key in clean_p or key in clean_f:
-            # Small hash offset so multiple sub-anchorages near the same port spread slightly
-            hash_val = int(hashlib.md5(port_name.encode('utf-8')).hexdigest(), 16)
-            j_lat = (((hash_val % 40) - 20) / 100.0) * 0.08
-            j_lon = ((((hash_val // 40) % 40) - 20) / 100.0) * 0.08
+        if key in combined:
+            hash_val = int(hashlib.md5(unique_seed.encode('utf-8')).hexdigest(), 16)
+            j_lat = (((hash_val % 50) - 25) / 100.0) * 0.12
+            j_lon = ((((hash_val // 50) % 50) - 25) / 100.0) * 0.12
             return [round(coords[0] + j_lat, 4), round(coords[1] + j_lon, 4)]
 
-    # 2. Instant deterministic hashing projection (no web calls)
-    hash_val = int(hashlib.md5(port_name.encode('utf-8')).hexdigest(), 16)
-    proj_lat = round(38.0 + (((hash_val % 100) - 50) / 100.0) * 20.0, 4)
-    proj_lon = round((-9.0 + ((((hash_val // 100) % 100) - 50) / 100.0) * 30.0), 4)
+    # Hash scatter for unmapped ports so every single CSV file gets a unique location
+    hash_val = int(hashlib.md5(unique_seed.encode('utf-8')).hexdigest(), 16)
+    proj_lat = round(10.0 + (((hash_val % 1000) / 1000.0) * 55.0), 4)
+    proj_lon = round(-100.0 + ((((hash_val // 1000) % 1000) / 1000.0) * 160.0), 4)
     return [proj_lat, proj_lon]
 
-def clean_title(text):
-    clean = re.sub(r'port\s+visit\s+events?', '', text, flags=re.IGNORECASE)
+def clean_file_title(filename):
+    base = os.path.basename(filename).replace(".csv", "").replace("_", " ").replace("-", " ")
+    clean = re.sub(r'port\s+visit\s+events?', '', base, flags=re.IGNORECASE)
     clean = re.sub(r'exclusive\s+economic\s+zone', '', clean, flags=re.IGNORECASE)
     clean = re.sub(r'eez', '', clean, flags=re.IGNORECASE)
-    clean = clean.replace(".csv", "").replace("_", " ").replace("-", " ").strip()
+    clean = re.sub(r'202\d.*', '', clean).strip()
     return clean.title() if clean else "Monitored Port"
 
 def process_all_config_csvs():
@@ -109,36 +105,41 @@ def process_all_config_csvs():
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Instantly processing {len(csv_files)} CSV datasets at row level...")
+    print(f"Processing all {len(csv_files)} CSV files with strict isolated key tracking...")
 
     port_summary = {}
 
     for file_idx, f in enumerate(csv_files):
+        file_base = os.path.basename(f)
+        display_title = clean_file_title(file_base)
+
         try:
             df = pd.read_csv(f, low_memory=False)
             df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
 
-            # Detect port/anchorage column name
+            # Detect specific port/anchorage column if present
             port_col = None
-            for candidate in ['port_name', 'anchorage_name', 'label', 'event_start_port', 'event_end_port', 'eez_name']:
+            for candidate in ['port_name', 'anchorage_name', 'label', 'event_start_port', 'event_end_port']:
                 if candidate in df.columns:
                     port_col = candidate
                     break
 
-            country_title = clean_title(os.path.basename(f))
-
             for idx, row in df.iterrows():
-                raw_port_name = str(row.get(port_col) if port_col else "").strip()
-                if not raw_port_name or raw_port_name.lower() in ['nan', 'none', 'null', '']:
-                    # Extract individual port zones if row lacks specific port name
-                    specific_port_title = f"{country_title} Port Zone {idx % 8 + 1}"
+                raw_port = str(row.get(port_col) if port_col else "").strip()
+                
+                if raw_port and raw_port.lower() not in ['nan', 'none', 'null', '']:
+                    sub_title = raw_port.replace("_", " ").replace("-", " ").title()
+                    full_display_name = f"{display_title} ({sub_title})"
                 else:
-                    specific_port_title = clean_title(raw_port_name)
+                    full_display_name = display_title
 
-                if specific_port_title not in port_summary:
-                    coords = resolve_port_location(specific_port_title, f)
-                    port_summary[specific_port_title] = {
-                        "portName": specific_port_title,
+                # GUARANTEED UNIQUE KEY: Combines filename AND port title so no file is EVER overwritten
+                unique_key = f"{file_base}::{full_display_name}"
+
+                if unique_key not in port_summary:
+                    coords = resolve_location(full_display_name, file_base, unique_key)
+                    port_summary[unique_key] = {
+                        "portName": full_display_name,
                         "year": 2025,
                         "location": coords,
                         "totalPortVisits": 0,
@@ -148,7 +149,7 @@ def process_all_config_csvs():
                         "vessels": []
                     }
 
-                # Extract vessel details
+                # Extract vessel fields
                 vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
                 mmsi = str(row.get("mmsi") or row.get("ssvid") or f"273{idx:06d}").strip()
                 flag = str(row.get("flag") or row.get("flag_translated") or "UNK").strip()
@@ -164,19 +165,19 @@ def process_all_config_csvs():
                 if total_visits >= 15:
                     risk_score = 0.92
                     risk_category = "High Fouling Risk"
-                    port_summary[specific_port_title]["highRiskCount"] += 1
+                    port_summary[unique_key]["highRiskCount"] += 1
                 elif total_visits >= 5:
                     risk_score = 0.65
                     risk_category = "Moderate Vector"
-                    port_summary[specific_port_title]["moderateRiskCount"] += 1
+                    port_summary[unique_key]["moderateRiskCount"] += 1
                 else:
                     risk_score = 0.35
                     risk_category = "Low Risk"
-                    port_summary[specific_port_title]["lowRiskCount"] += 1
+                    port_summary[unique_key]["lowRiskCount"] += 1
 
-                port_summary[specific_port_title]["totalPortVisits"] += int(total_visits)
+                port_summary[unique_key]["totalPortVisits"] += int(total_visits)
 
-                port_summary[specific_port_title]["vessels"].append({
+                port_summary[unique_key]["vessels"].append({
                     "mmsi": mmsi,
                     "vesselName": vessel_name,
                     "flag": flag,
@@ -188,13 +189,13 @@ def process_all_config_csvs():
                 })
 
         except Exception as e:
-            print(f"Error processing {f}: {e}")
+            print(f"Error processing file {f}: {e}")
 
     final_ports = list(port_summary.values())
 
     os.makedirs("data", exist_ok=True)
     pd.DataFrame(final_ports).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Processed {len(final_ports)} distinct individual ports in seconds.")
+    print(f"SUCCESS: Exported {len(final_ports)} distinct port entries from {len(csv_files)} CSV files.")
 
 if __name__ == "__main__":
     process_all_config_csvs()
