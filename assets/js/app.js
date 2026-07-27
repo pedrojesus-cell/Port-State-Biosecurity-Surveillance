@@ -15,7 +15,7 @@ function isValidNum(v) {
   return v !== null && v !== undefined && !isNaN(parseFloat(v));
 }
 
-// Robust Multi-Path Fetch Engine for GitHub Pages
+// Multi-Path Fetch Engine for GitHub Pages
 async function loadBiosecurityData() {
   const possiblePaths = [
     './data/baseline_risk.json',
@@ -102,7 +102,6 @@ function renderDashboard(records) {
     feedContainer.appendChild(card);
   });
 
-  // Auto-zoom map bounds to fit markers on initial load
   if (boundsPoints.length > 0) {
     map.fitBounds(L.latLngBounds(boundsPoints), { padding: [30, 30] });
   }
@@ -112,7 +111,7 @@ function renderDashboard(records) {
   document.getElementById('kpi-avg-residence').innerHTML = `${(totalHours / (records.length || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
 }
 
-// DRAW COMPLETE 2025 VOYAGE TRAJECTORY
+// DRAW COMPLETE 2025 VOYAGE TRAJECTORY WITH PDF BUTTON IN POPUPS
 function drawVesselTrajectory(vessel) {
   trajectoryLayer.clearLayers();
 
@@ -125,7 +124,7 @@ function drawVesselTrajectory(vessel) {
 
   const routePoints = [];
 
-  vesselEvents.forEach((evt, idx) => {
+  vesselEvents.forEach((evt) => {
     if (evt.routeCoordinates && Array.isArray(evt.routeCoordinates)) {
       evt.routeCoordinates.forEach(pt => {
         if (pt && isValidNum(pt[0]) && isValidNum(pt[1])) {
@@ -148,17 +147,8 @@ function drawVesselTrajectory(vessel) {
         fillOpacity: 1
       });
 
-      portMarker.bindPopup(`
-        <div class="p-1 text-xs">
-          <div class="font-bold text-cyan-300 text-sm mb-1">${evt.vesselName} (${evt.flag})</div>
-          <div><b>2025 Port Stop #${idx + 1}:</b> ${evt.portName}</div>
-          <div><b>Origin:</b> ${evt.portOfDeparture}</div>
-          <div><b>Destination:</b> ${evt.portOfDestination}</div>
-          <div><b>Residence Time:</b> ${evt.residenceHours} hrs</div>
-          <div><b>Vessel Type:</b> ${evt.vesselType}</div>
-        </div>
-      `);
-
+      // Bind comprehensive popup WITH PDF report button
+      portMarker.bindPopup(getPopupHtml(evt));
       trajectoryLayer.addLayer(portMarker);
     }
   });
