@@ -1,0 +1,5 @@
+gfw-api-python-client
+pandas
+geopandas
+shapely
+requests
