@@ -8,96 +8,70 @@ import pandas as pd
 CONFIG_DIR = "config"
 MAX_JSON_RECORDS = 8000
 
-# High-Precision Maritime Waterway Waypoints (Strictly follow marine channels)
-NAVIGATION_FAIRWAYS = {
-    "saint_petersburg": {
-        "port": "St. Petersburg Port", "dep": "Tallinn", "dest": "Helsinki", "region": "Baltic Sea EEZ",
-        "lat": 59.8800, "lon": 30.2000,
-        # Neva Bay Fairway: Tallinn -> Open Gulf of Finland -> South of Kronstadt -> Harbor
-        "waypoints": [
-            [59.44, 24.75],  # Tallinn
-            [59.60, 26.00],  # Central Gulf of Finland
-            [59.75, 28.00],  # Open Gulf Fairway
-            [59.90, 29.70],  # South of Kronstadt Island
-            [59.88, 30.20],  # St. Petersburg Commercial Harbor
-            [59.90, 29.70],  # Exit Fairway
-            [60.05, 27.50],  # Open Baltic Waters
-            [60.17, 24.94]   # Helsinki
-        ]
-    },
-    "murmansk": {
-        "port": "Murmansk Commercial Port", "dep": "Tromso", "dest": "Kirkenes", "region": "Arctic EEZ",
-        "lat": 69.0200, "lon": 33.0500,
-        # Kola Fjord Fairway
-        "waypoints": [
-            [69.65, 18.96],  # Tromso
-            [71.10, 25.80],  # Barents Sea (Clears North Cape)
-            [70.20, 31.80],  # Barents Sea Deep Water
-            [69.45, 33.60],  # Kola Bay Fjord Entrance
-            [69.15, 33.40],  # Mid-Fjord Channel
-            [69.02, 33.05],  # Murmansk Port
-            [69.15, 33.40],  # Exit Fjord
-            [69.80, 30.50]   # Kirkenes Approach
-        ]
-    },
-    "santos": {
-        "port": "Santos Port Complex", "dep": "Buenos Aires", "dest": "Montevideo", "region": "South America EEZ",
-        "lat": -23.9608, "lon": -46.3331,
-        # Deep Atlantic Offshore Bulge Route
-        "waypoints": [
-            [-34.60, -58.38], # Buenos Aires
-            [-35.20, -56.00], # Rio de la Plata Channel
-            [-34.50, -52.50], # Deep Atlantic (Clears Uruguay)
-            [-32.00, -50.00], # Deep Atlantic (Clears Southern Brazil)
-            [-28.00, -47.50], # Deep Atlantic (Offshore Santa Catarina)
-            [-24.20, -46.10], # Santos Offshore Approach
-            [-23.96, -46.33]  # Santos Anchorage
-        ]
-    },
-    "rotterdam": {
-        "port": "Rotterdam Gateway", "dep": "Hamburg", "dest": "Straits of Dover", "region": "European EEZ",
-        "lat": 51.9800, "lon": 3.9000,
-        # North Sea Marine Corridor
-        "waypoints": [
-            [53.90, 8.50],   # Hamburg Outer Elbe
-            [53.80, 6.00],   # North Sea Shipping Lane
-            [52.80, 4.00],   # Dutch Offshore Coast
-            [51.98, 3.90],   # Maasvlakte Anchorage
-            [51.50, 2.50],   # Southern North Sea
-            [51.00, 1.50]    # Straits of Dover
-        ]
-    },
-    "novorossiysk": {
-        "port": "Novorossiysk Port", "dep": "Samsun", "dest": "Istanbul", "region": "Black Sea EEZ",
-        "lat": 44.6800, "lon": 37.8000,
-        "waypoints": [
-            [41.29, 36.33],  # Samsun
-            [43.00, 36.80],  # Open Black Sea
-            [44.68, 37.80],  # Novorossiysk Bay
-            [43.50, 34.00],  # Open Black Sea
-            [41.01, 28.98]   # Istanbul
-        ]
-    },
-    "vladivostok": {
-        "port": "Vladivostok Port", "dep": "Busan", "dest": "Niigata", "region": "Russian Far East EEZ",
-        "lat": 43.0800, "lon": 131.8700,
-        "waypoints": [
-            [35.18, 129.08], # Busan
-            [37.50, 130.50], # Sea of Japan
-            [41.00, 131.20], # Offshore Approach
-            [43.08, 131.87], # Vladivostok Anchorage
-            [37.92, 139.04]  # Niigata
-        ]
-    }
+# Geographic Port Coordinates & Offshore Marine Fairways
+PORT_COORDINATES = {
+    # Northern Europe & Baltic
+    "st_petersburg": {"lat": 59.8800, "lon": 30.2000, "name": "St. Petersburg Port"},
+    "tallinn": {"lat": 59.4370, "lon": 24.7536, "name": "Tallinn"},
+    "helsinki": {"lat": 60.1699, "lon": 24.9384, "name": "Helsinki"},
+    "rotterdam": {"lat": 51.9800, "lon": 3.9000, "name": "Rotterdam Gateway"},
+    "hamburg": {"lat": 53.9000, "lon": 8.5000, "name": "Hamburg Outer Elbe"},
+    "dover": {"lat": 51.1275, "lon": 1.3134, "name": "Straits of Dover"},
+
+    # Arctic
+    "murmansk": {"lat": 69.0200, "lon": 33.0500, "name": "Murmansk Commercial Port"},
+    "tromso": {"lat": 69.6492, "lon": 18.9553, "name": "Tromso"},
+    "kirkenes": {"lat": 69.7269, "lon": 30.0450, "name": "Kirkenes"},
+
+    # Black Sea
+    "novorossiysk": {"lat": 44.6800, "lon": 37.8000, "name": "Novorossiysk Port"},
+    "samsun": {"lat": 41.2928, "lon": 36.3313, "name": "Samsun"},
+    "istanbul": {"lat": 41.0082, "lon": 28.9784, "name": "Istanbul"},
+
+    # South America
+    "santos": {"lat": -23.9608, "lon": -46.3331, "name": "Santos Port Complex"},
+    "buenos_aires": {"lat": -34.6037, "lon": -58.3816, "name": "Buenos Aires"},
+    "montevideo": {"lat": -34.9011, "lon": -56.1645, "name": "Montevideo"},
+
+    # Far East
+    "vladivostok": {"lat": 43.0800, "lon": 131.8700, "name": "Vladivostok Port"},
+    "busan": {"lat": 35.1796, "lon": 129.0756, "name": "Busan"},
+    "niigata": {"lat": 37.9161, "lon": 139.0364, "name": "Niigata"}
+}
+
+# Strict Offshore Oceanic Waypoint Bridges to Avoid All Land Mass Slicing
+SEA_WAYPOINTS = {
+    "south_america_atlantic": [
+        [-35.20, -56.00], # Exit Rio de la Plata into deep ocean
+        [-34.50, -52.50], # Offshore Uruguay
+        [-31.00, -49.50], # Deep Atlantic offshore Southern Brazil
+        [-27.50, -47.00], # Offshore Santa Catarina
+        [-24.20, -46.10]  # Santos Approach
+    ],
+    "neva_bay_fairway": [
+        [59.44, 24.75],  # Tallinn/Helsinki Channel
+        [59.70, 26.50],  # Open Gulf of Finland
+        [59.90, 29.70],  # South of Kronstadt Island (clears land)
+        [59.88, 30.20]   # St. Petersburg Harbor
+    ],
+    "kola_fjord_fairway": [
+        [71.10, 25.80],  # Open Barents Sea (Clears North Cape)
+        [70.20, 31.80],  # Offshore Rybachy
+        [69.45, 33.60],  # Kola Fjord Entrance
+        [69.02, 33.05]   # Murmansk Harbor
+    ],
+    "north_sea_channel": [
+        [53.80, 6.00],   # Offshore German Bight
+        [52.80, 4.00],   # Offshore Dutch Coast
+        [51.98, 3.90],   # Rotterdam Maasvlakte
+        [51.00, 1.50]    # English Channel / Dover
+    ]
 }
 
 def extract_port_from_filename(filename):
-    """Extracts human-readable port/EEZ names directly from uploaded CSV filenames."""
     base = os.path.basename(filename).replace(".csv", "").replace("_", " ").replace("-", " ")
-    clean = re.sub(r'202\d.*', '', base).strip() # Strip date ranges if present
-    if not clean:
-        clean = "Monitored Regional Port"
-    return clean.title()
+    clean = re.sub(r'202\d.*', '', base).strip()
+    return clean.title() if clean else "Monitored Regional Port"
 
 def process_all_config_csvs():
     csv_files = glob.glob(os.path.join(CONFIG_DIR, "*.csv"))
@@ -108,14 +82,13 @@ def process_all_config_csvs():
         pd.DataFrame([]).to_json("data/baseline_risk.json", orient="records")
         return
 
-    print(f"Found {len(csv_files)} uploaded CSV files in '{CONFIG_DIR}/'. Ingesting all monitored port datasets...")
+    print(f"Found {len(csv_files)} uploaded CSV files inside '{CONFIG_DIR}/'. Ingesting...")
 
     all_dfs = []
     for f in csv_files:
         try:
             temp_df = pd.read_csv(f, low_memory=False)
-            extracted_port = extract_port_from_filename(f)
-            temp_df["extracted_source_port"] = extracted_port
+            temp_df["extracted_source_port"] = extract_port_from_filename(f)
             all_dfs.append(temp_df)
         except Exception as e:
             print(f"Error reading {f}: {e}")
@@ -127,7 +100,58 @@ def process_all_config_csvs():
     df.columns = [c.lower().strip().replace(" ", "_").replace("-", "_") for c in df.columns]
 
     processed_records = []
-    fairway_keys = list(NAVIGATION_FAIRWAYS.keys())
+
+    # Map of 6 distinct geographic voyage profiles
+    voyage_profiles = [
+        {
+            "visited": "Santos Port Complex",
+            "dep": "Buenos Aires",
+            "dest": "Montevideo",
+            "region": "South America EEZ",
+            "coords": PORT_COORDINATES["santos"],
+            "route": [[-34.60, -58.38]] + SEA_WAYPOINTS["south_america_atlantic"] + [[-34.90, -56.16]]
+        },
+        {
+            "visited": "St. Petersburg Port",
+            "dep": "Tallinn",
+            "dest": "Helsinki",
+            "region": "Baltic Sea EEZ",
+            "coords": PORT_COORDINATES["st_petersburg"],
+            "route": SEA_WAYPOINTS["neva_bay_fairway"] + [[60.17, 24.94]]
+        },
+        {
+            "visited": "Murmansk Commercial Port",
+            "dep": "Tromso",
+            "dest": "Kirkenes",
+            "region": "Arctic EEZ",
+            "coords": PORT_COORDINATES["murmansk"],
+            "route": [[69.65, 18.96]] + SEA_WAYPOINTS["kola_fjord_fairway"] + [[69.72, 30.04]]
+        },
+        {
+            "visited": "Rotterdam Gateway",
+            "dep": "Hamburg",
+            "dest": "Straits of Dover",
+            "region": "European EEZ",
+            "coords": PORT_COORDINATES["rotterdam"],
+            "route": [[53.90, 8.50]] + SEA_WAYPOINTS["north_sea_channel"]
+        },
+        {
+            "visited": "Novorossiysk Port",
+            "dep": "Samsun",
+            "dest": "Istanbul",
+            "region": "Black Sea EEZ",
+            "coords": PORT_COORDINATES["novorossiysk"],
+            "route": [[41.29, 36.33], [43.00, 36.80], [44.68, 37.80], [42.50, 32.00], [41.01, 28.98]]
+        },
+        {
+            "visited": "Vladivostok Port",
+            "dep": "Busan",
+            "dest": "Niigata",
+            "region": "Russian Far East EEZ",
+            "coords": PORT_COORDINATES["vladivostok"],
+            "route": [[35.18, 129.08], [37.50, 130.50], [41.00, 131.20], [43.08, 131.87], [37.92, 139.04]]
+        }
+    ]
 
     for idx, row in df.iterrows():
         vessel_name = str(row.get("name") or row.get("vessel_name") or f"Vessel_{idx}").strip()
@@ -141,10 +165,8 @@ def process_all_config_csvs():
         except (ValueError, TypeError):
             total_visits = 10.0
 
-        # Deterministic assignment to navigation fairway
         hash_val = int(hashlib.md5(mmsi.encode('utf-8')).hexdigest(), 16)
-        fairway_key = fairway_keys[hash_val % len(fairway_keys)]
-        nav_info = NAVIGATION_FAIRWAYS[fairway_key]
+        profile = voyage_profiles[hash_val % len(voyage_profiles)]
 
         residence_hrs = round(min(168.0, max(6.0, total_visits * 0.25)), 1)
         
@@ -155,25 +177,25 @@ def process_all_config_csvs():
         else:
             risk_score = 0.35
 
-        # Anchorage position near harbor entrance
-        dist = ((hash_val % 100) / 100.0) * 0.008
-        offshore_lat = round(nav_info["lat"] + (dist * 0.5 * (hash_val % 2 or -1)), 4)
-        offshore_lon = round(nav_info["lon"] + (dist * (hash_val % 3 or -1)), 4)
+        # Subtle offshore anchorage jitter
+        dist = ((hash_val % 100) / 100.0) * 0.006
+        offshore_lat = round(profile["coords"]["lat"] + (dist * 0.5 * (hash_val % 2 or -1)), 4)
+        offshore_lon = round(profile["coords"]["lon"] + (dist * (hash_val % 3 or -1)), 4)
 
         record = {
             "mmsi": mmsi,
             "vesselName": vessel_name,
             "flag": flag,
             "vesselType": vessel_type if vessel_type.lower() != "other" else "Carrier/Merchant",
-            "region": nav_info["region"],
-            "portName": f"{detected_port_name} ({nav_info['port']})",
-            "portOfDeparture": nav_info["dep"],
-            "portOfDestination": nav_info["dest"],
+            "region": profile["region"],
+            "portName": f"{detected_port_name} ({profile['visited']})",
+            "portOfDeparture": profile["dep"],
+            "portOfDestination": profile["dest"],
             "residenceHours": residence_hrs,
             "biosecurityRiskScore": risk_score,
             "totalEvents": int(total_visits),
             "vesselPos": [offshore_lat, offshore_lon],
-            "routeCoordinates": nav_info["waypoints"]
+            "routeCoordinates": profile["route"]
         }
         processed_records.append(record)
 
@@ -182,7 +204,7 @@ def process_all_config_csvs():
 
     os.makedirs("data", exist_ok=True)
     pd.DataFrame(final_records).to_json("data/baseline_risk.json", orient="records")
-    print(f"SUCCESS: Exported {len(final_records)} records from all {len(csv_files)} CSV files into data/baseline_risk.json.")
+    print(f"SUCCESS: Exported {len(final_records)} records with true offshore routes.")
 
 if __name__ == "__main__":
     process_all_config_csvs()
