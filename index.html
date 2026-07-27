@@ -12,44 +12,27 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- jsPDF for Generating 2025 Vessel Reports -->
+  <!-- jsPDF for 2025 Biosecurity Reports -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <style>
-    body {
-      background-color: #0b0f19;
-      color: #e2e8f0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-    #map {
-      height: calc(100vh - 120px);
-      width: 100%;
-      background: #0d1322;
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: #111827;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #374151;
-      border-radius: 3px;
-    }
+    body { background-color: #0b0f19; color: #e2e8f0; font-family: system-ui, sans-serif; }
+    #map { height: calc(100vh - 120px); width: 100%; background: #0d1322; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #111827; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
     .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-      background: #1e293b !important;
-      color: #f8fafc !important;
-      border: 1px solid #334155;
+      background: #1e293b !important; color: #f8fafc !important; border: 1px solid #334155;
     }
   </style>
 </head>
 <body class="flex flex-col h-screen overflow-hidden">
 
-  <!-- Top Navigation Header -->
+  <!-- Header -->
   <header class="flex items-center justify-between px-6 py-3 bg-slate-900 border-b border-slate-800">
     <div>
       <h1 class="text-lg font-bold tracking-wide text-cyan-400">Global Coastal Biosecurity & Port Surveillance</h1>
-      <p class="text-xs text-slate-400">Regional Marine Biological Invasion Risk & Inter-Port Transit Feed</p>
+      <p class="text-xs text-slate-400">2025 Vessel Route Intelligence & Biological Invasion Risk Monitoring</p>
     </div>
     <div class="flex items-center gap-3 text-xs">
       <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-950/80 text-red-400 border border-red-800/50">
@@ -61,7 +44,7 @@
     </div>
   </header>
 
-  <!-- KPI Statistics Bar -->
+  <!-- KPI Bar -->
   <section class="grid grid-cols-4 gap-4 px-6 py-3 bg-slate-950/80 border-b border-slate-800 text-center">
     <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
       <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Monitored Port Visits</div>
@@ -90,12 +73,13 @@
     <!-- Sidebar Search & Risk Feed -->
     <aside class="w-96 bg-slate-900 border-l border-slate-800 flex flex-col">
       <div class="p-4 border-b border-slate-800">
-        <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wide mb-2">Port & Vessel Search</h2>
+        <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wide mb-1">Port & Vessel Search</h2>
+        <p class="text-[11px] text-slate-400 mb-2">Click any vessel card to render its 2025 route on the map.</p>
         <input 
           type="text" 
           id="search-input" 
-          placeholder="Filter by vessel, MMSI, port, or region..." 
-          class="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-md text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+          placeholder="Filter by vessel, MMSI, port, or flag..." 
+          class="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-md text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
         />
       </div>
       <div id="risk-feed" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar"></div>
@@ -103,7 +87,7 @@
   </div>
 
   <script>
-    const map = L.map('map', { zoomControl: true, minZoom: 2 }).setView([15.0, -20.0], 3);
+    const map = L.map('map', { zoomControl: true, minZoom: 2 }).setView([-15.0, -45.0], 3);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap &copy; CARTO',
@@ -112,41 +96,37 @@
     }).addTo(map);
 
     let allVessels = [];
-    let layersGroup = L.layerGroup().addTo(map);
-    let trajectoryGroup = L.layerGroup().addTo(map);
+    let markersLayer = L.layerGroup().addTo(map);
+    let routeLayer = L.layerGroup().addTo(map);
+
+    // Safely parse coordinates regardless of format
+    function parseCoord(val) {
+      if (val === null || val === undefined) return null;
+      const num = parseFloat(val);
+      return isNaN(num) ? null : num;
+    }
 
     async function loadBiosecurityData() {
       try {
         const response = await fetch('data/baseline_risk.json?t=' + new Date().getTime());
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        if (!response.ok) throw new Error(`HTTP error ${response.status}`);
         allVessels = await response.json();
-        if (Array.isArray(allVessels) && allVessels.length > 0) {
-          renderDashboard(allVessels);
-        } else {
-          renderEmptyState();
-        }
+        renderDashboard(allVessels);
       } catch (err) {
         console.warn('Data load warning:', err);
-        renderEmptyState();
       }
     }
 
-    function renderEmptyState() {
-      layersGroup.clearLayers();
-      document.getElementById('kpi-total-visits').innerText = '0';
-      document.getElementById('kpi-high-risk').innerText = '0';
-      document.getElementById('kpi-avg-residence').innerHTML = '0.0 <span class="text-xs font-normal">hrs</span>';
-    }
-
     function renderDashboard(records) {
-      layersGroup.clearLayers();
+      markersLayer.clearLayers();
+      routeLayer.clearLayers();
+
       let totalHighRisk = 0;
       let totalHours = 0;
-
       const feedContainer = document.getElementById('risk-feed');
       feedContainer.innerHTML = '';
 
-      records.forEach((rec, idx) => {
+      records.forEach((rec) => {
         const riskScore = rec.biosecurityRiskScore || 0;
         const riskPct = Math.round(riskScore * 100);
         const isHighRisk = riskScore >= 0.70;
@@ -154,25 +134,26 @@
         if (isHighRisk) totalHighRisk++;
         totalHours += parseFloat(rec.residenceHours || 0);
 
-        const primaryColor = isHighRisk ? '#ef4444' : '#f59e0b';
+        const lat = parseCoord(rec.vesselPos ? rec.vesselPos[0] : null);
+        const lon = parseCoord(rec.vesselPos ? rec.vesselPos[1] : null);
 
-        // Vessel Circle Marker on Map
-        if (rec.vesselPos && rec.vesselPos[0] !== null) {
-          const vesselMarker = L.circleMarker(rec.vesselPos, {
+        // Render Marker on Map
+        if (lat !== null && lon !== null) {
+          const marker = L.circleMarker([lat, lon], {
             radius: isHighRisk ? 7 : 5,
-            fillColor: primaryColor,
+            fillColor: isHighRisk ? '#ef4444' : '#06b6d4',
             color: '#ffffff',
             weight: 1,
-            fillOpacity: 0.8
+            fillOpacity: 0.85
           });
 
-          vesselMarker.bindPopup(getPopupHtml(rec));
-          layersGroup.addLayer(vesselMarker);
+          marker.bindPopup(getPopupHtml(rec));
+          markersLayer.addLayer(marker);
         }
 
         // Sidebar Card
         const card = document.createElement('div');
-        card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-500 ${
+        card.className = `p-3 rounded-lg border transition-all cursor-pointer hover:border-cyan-400 ${
           isHighRisk ? 'bg-red-950/20 border-red-900/50' : 'bg-slate-800/40 border-slate-800'
         }`;
 
@@ -182,15 +163,15 @@
             <span class="text-xs font-bold ${isHighRisk ? 'text-red-400' : 'text-amber-400'}">${riskPct}% Risk</span>
           </div>
           <div class="text-[11px] text-slate-400 space-y-0.5">
-            <div><span class="text-slate-500">Last Port:</span> <span class="text-slate-200 font-semibold">${rec.portName}</span></div>
+            <div><span class="text-slate-500">Port Visited:</span> <span class="text-slate-200 font-semibold">${rec.portName || 'Regional Port'}</span></div>
             <div><span class="text-slate-500">Route:</span> ${rec.portOfDeparture || 'Origin'} &rarr; ${rec.portOfDestination || 'Destination'}</div>
-            <div><span class="text-slate-500">Duration:</span> <span class="text-cyan-400 font-semibold">${rec.residenceHours} hrs</span></div>
+            <div><span class="text-slate-500">Type:</span> <span class="text-cyan-400">${rec.vesselType || 'Merchant/Carrier'}</span> | <span class="text-slate-300">${rec.residenceHours} hrs stay</span></div>
           </div>
         `;
 
-        // CLICK EVENT: Focus on map + Draw Vessel Trajectory
+        // CLICKING CARD DRAWS 2025 ROUTE TRAJECTORY
         card.addEventListener('click', () => {
-          highlightVesselTrajectory(rec);
+          showVessel2025Route(rec);
         });
 
         feedContainer.appendChild(card);
@@ -201,56 +182,74 @@
       document.getElementById('kpi-avg-residence').innerHTML = `${(totalHours / (records.length || 1)).toFixed(1)} <span class="text-xs font-normal">hrs</span>`;
     }
 
-    // DRAW VISITED PORTS & TRAJECTORY ON MAP
-    function highlightVesselTrajectory(vessel) {
-      trajectoryGroup.clearLayers();
+    // DRAW 2025 ROUTE POLYLINES ON MAP
+    function showVessel2025Route(vessel) {
+      routeLayer.clearLayers();
 
-      // Find all port visits for this MMSI or Vessel Name
-      const vesselVisits = allVessels.filter(v => 
-        (v.mmsi && v.mmsi === vessel.mmsi) || (v.vesselName && v.vesselName === vessel.vesselName)
+      const mmsiTarget = String(vessel.mmsi);
+      const nameTarget = String(vessel.vesselName);
+
+      // Find all 2025 records for this specific vessel
+      const vesselEvents = allVessels.filter(v => 
+        (v.mmsi && String(v.mmsi) === mmsiTarget) || (v.vesselName && String(v.vesselName) === nameTarget)
       );
 
-      const points = [];
+      const routePoints = [];
 
-      vesselVisits.forEach((visit, i) => {
-        if (visit.vesselPos && visit.vesselPos[0] !== null) {
-          points.push(visit.vesselPos);
+      vesselEvents.forEach((evt, idx) => {
+        let lat = parseCoord(evt.vesselPos ? evt.vesselPos[0] : null);
+        let lon = parseCoord(evt.vesselPos ? evt.vesselPos[1] : null);
 
-          // Port Marker
-          const portMarker = L.circleMarker(visit.vesselPos, {
+        // Fallback to route coordinates if vesselPos is missing
+        if ((lat === null || lon === null) && evt.routeCoordinates) {
+          for (let pt of evt.routeCoordinates) {
+            if (pt && parseCoord(pt[0]) !== null) {
+              lat = parseCoord(pt[0]);
+              lon = parseCoord(pt[1]);
+              break;
+            }
+          }
+        }
+
+        if (lat !== null && lon !== null) {
+          routePoints.push([lat, lon]);
+
+          // Draw Port Marker along 2025 Route
+          const portMarker = L.circleMarker([lat, lon], {
             radius: 8,
-            fillColor: '#06b6d4',
+            fillColor: '#38bdf8',
             color: '#ffffff',
             weight: 2,
-            fillOpacity: 0.9
+            fillOpacity: 0.95
           });
 
           portMarker.bindPopup(`
             <div class="p-1 text-xs">
-              <div class="font-bold text-cyan-400">${visit.vesselName} Port Visit #${i+1}</div>
-              <div><b>Port Visited:</b> ${visit.portName}</div>
-              <div><b>Departure:</b> ${visit.portOfDeparture}</div>
-              <div><b>Destination:</b> ${visit.portOfDestination}</div>
-              <div><b>Residence Time:</b> ${visit.residenceHours} hrs</div>
+              <div class="font-bold text-cyan-300 text-sm">${evt.vesselName} (${evt.flag})</div>
+              <div class="text-slate-300"><b>2025 Stop #${idx + 1}:</b> ${evt.portName}</div>
+              <div><b>Origin Port:</b> ${evt.portOfDeparture}</div>
+              <div><b>Destination Port:</b> ${evt.portOfDestination}</div>
+              <div><b>Residence Duration:</b> ${evt.residenceHours} hrs</div>
+              <div><b>Vessel Type:</b> ${evt.vesselType}</div>
             </div>
           `);
 
-          trajectoryGroup.addLayer(portMarker);
+          routeLayer.addLayer(portMarker);
         }
       });
 
-      // Connect visited ports with line
-      if (points.length > 1) {
-        const routeLine = L.polyline(points, {
+      // Draw dashed trajectory route line connecting all 2025 ports
+      if (routePoints.length > 1) {
+        const polyline = L.polyline(routePoints, {
           color: '#38bdf8',
           weight: 3,
           opacity: 0.9,
-          dashArray: '8, 8'
+          dashArray: '6, 8'
         });
-        trajectoryGroup.addLayer(routeLine);
-        map.fitBounds(routeLine.getBounds(), { padding: [50, 50] });
-      } else if (points.length === 1) {
-        map.setView(points[0], 7, { animate: true });
+        routeLayer.addLayer(polyline);
+        map.fitBounds(polyline.getBounds(), { padding: [60, 60] });
+      } else if (routePoints.length === 1) {
+        map.setView(routePoints[0], 7, { animate: true });
       }
     }
 
@@ -259,10 +258,11 @@
         <div class="p-1 text-xs">
           <div class="font-bold text-sm text-cyan-300 mb-1">${rec.vesselName} (${rec.flag})</div>
           <div><b>MMSI:</b> ${rec.mmsi}</div>
-          <div><b>Visited Port:</b> ${rec.portName}</div>
+          <div><b>Vessel Type:</b> ${rec.vesselType || 'Carrier'}</div>
+          <div><b>Port Visited:</b> ${rec.portName}</div>
           <div><b>Origin Port:</b> ${rec.portOfDeparture}</div>
           <div><b>Destination Port:</b> ${rec.portOfDestination}</div>
-          <div><b>Residence:</b> ${rec.residenceHours} hrs</div>
+          <div><b>Residence Stay:</b> ${rec.residenceHours} hrs</div>
           <div class="mt-2 pt-2 border-t border-slate-700 flex justify-between items-center">
             <span class="font-bold ${rec.biosecurityRiskScore >= 0.7 ? 'text-red-400' : 'text-amber-400'}">
               Risk: ${Math.round((rec.biosecurityRiskScore || 0) * 100)}%
@@ -276,12 +276,11 @@
       `;
     }
 
-    // GENERATE 2025 BIOMONITORING PDF REPORT
+    // PDF REPORT GENERATOR
     function generateVessel2025Report(mmsi, vesselName) {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
 
-      // Find all 2025 history for this vessel
       const visits = allVessels.filter(v => String(v.mmsi) === String(mmsi) || v.vesselName === vesselName);
       const main = visits[0] || {};
 
@@ -296,8 +295,8 @@
       doc.setFontSize(12);
       doc.text(`Vessel Name: ${vesselName}`, 14, 32);
       doc.text(`MMSI: ${mmsi}`, 14, 40);
-      doc.text(`Flag: ${main.flag || 'N/A'}`, 14, 48);
-      doc.text(`Vessel Type: ${main.vesselType || 'Carrier'}`, 14, 56);
+      doc.text(`Flag: ${main.flag || 'UNK'}`, 14, 48);
+      doc.text(`Vessel Type: ${main.vesselType || 'Merchant/Carrier'}`, 14, 56);
 
       doc.setDrawColor(51, 65, 85);
       doc.line(14, 62, 196, 62);
@@ -312,7 +311,7 @@
 
       visits.forEach((v, idx) => {
         if (y > 270) { doc.addPage(); y = 20; }
-        doc.text(`${idx + 1}. Port: ${v.portName} | Duration: ${v.residenceHours} hrs | Route: ${v.portOfDeparture} -> ${v.portOfDestination}`, 14, y);
+        doc.text(`${idx + 1}. Port: ${v.portName} | Residence: ${v.residenceHours} hrs | Route: ${v.portOfDeparture} -> ${v.portOfDestination}`, 14, y);
         y += 8;
       });
 
@@ -328,7 +327,7 @@
       doc.save(`${vesselName.replace(/[^a-zA-Z0-9]/g, '_')}_2025_Biosecurity_Report.pdf`);
     }
 
-    // Search Engine Filter
+    // Search Filter
     document.getElementById('search-input').addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase().trim();
       if (!q) { renderDashboard(allVessels); return; }
