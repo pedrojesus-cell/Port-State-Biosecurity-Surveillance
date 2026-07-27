@@ -14,7 +14,6 @@ function isValidNum(v) {
   return v !== null && v !== undefined && !isNaN(parseFloat(v));
 }
 
-// Multi-Path Fetch Engine for GitHub Pages
 async function loadBiosecurityData() {
   const possiblePaths = [
     './data/baseline_risk.json',
@@ -59,15 +58,14 @@ function renderDashboard(portRecords) {
     globalHighRisk += highRisk;
     globalVisits += totalVisits;
 
-    // Determine badge color and displayed vector count
-    let badgeBg = '#38bdf8'; // Blue (Low Risk)
+    let badgeBg = '#38bdf8'; // Blue: Low Risk Only
     let displayCount = totalVisits;
 
     if (highRisk > 0) {
-      badgeBg = '#ef4444'; // Red (High Fouling Risk)
+      badgeBg = '#ef4444'; // Red: High Fouling Risk (>=70%)
       displayCount = highRisk;
     } else if (modRisk > 0) {
-      badgeBg = '#f59e0b'; // Amber (Moderate Vector)
+      badgeBg = '#f59e0b'; // Amber: Moderate Vector (40%-69%)
       displayCount = modRisk;
     }
 
@@ -76,7 +74,6 @@ function renderDashboard(portRecords) {
       const lon = parseFloat(port.location[1]);
       boundsPoints.push([lat, lon]);
 
-      // Create a custom Leaflet DivIcon showing the exact number of risk vectors
       const customBadgeIcon = L.divIcon({
         className: 'custom-port-badge',
         html: `
